@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/93.74d68ccb.chunk.js","mappings":"wJAOA,UAJwB,WACtB,OAAO,2CACR,C","sources":["pages/ShopingListPage/ShopingListPage.jsx"],"sourcesContent":["\n\n\nconst ShopingListPage = () => {\n  return <h1>ShopingListPage</h1>;\n};\n\nexport default ShopingListPage;"],"names":[],"sourceRoot":""}
