@@ -1,12 +1,43 @@
 @import-normalize; /* bring in normalize.css styles */
 
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(/src/assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: PoppinsMedium;
+  src: url(/src/assets/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: PoppinsSemiBold;
+  src: url(/src/assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url(/src/assets/fonts/Poppins-Bold.ttf);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: PoppinsRegular, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
 code {
