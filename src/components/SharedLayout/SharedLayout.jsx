@@ -5,7 +5,7 @@ import { Footer } from 'components/SharedLayout/Footer/Footer';
 import { ContainerThemeWrapper } from './SharedLayout.styled';
 import { useSelector } from 'react-redux';
 
-export const SharedLayout = ({ setDarkTheme }) => {
+export const SharedLayout = () => {
   const darkTheme = useSelector(state => state.theme.darkTheme);
   return (
     <ContainerThemeWrapper darkTheme={darkTheme}>
