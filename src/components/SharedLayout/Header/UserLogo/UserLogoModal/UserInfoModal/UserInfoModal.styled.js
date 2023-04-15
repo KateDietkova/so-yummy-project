@@ -10,7 +10,11 @@ export const ModalContainer = styled(Modal)`
     width: 330px;
 
     padding: 32px 24px;
-    background: ${props => props.theme.colors.textWhite};
+    background: ${props => {
+      return props.darktheme === 'true'
+        ? props.theme.colors.bgdarkTheme
+        : props.theme.colors.textWhite;
+    }};
     box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
     border: ${props => props.theme.borders.none};
     border-radius: 24px;
@@ -48,15 +52,17 @@ export const ModalCloseBtn = styled.button`
   }
 `;
 
-
 export const CloseIcon = styled(VscChromeClose)`
   width: 20px;
   height: 20px;
+  color: ${props => {
+    return props.darktheme === 'true'
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
 
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
   }
 `;
-
-

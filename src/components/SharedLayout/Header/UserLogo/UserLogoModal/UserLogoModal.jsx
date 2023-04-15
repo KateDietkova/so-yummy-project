@@ -5,7 +5,7 @@ import { LogoutBtn } from './LogoutBtn/LogoutBtn';
 import { UserInfoModal } from './UserInfoModal/UserInfoModal';
 import { LogoutModal } from './LogoutModal/LogoutModal';
 
-export const UserLogoModal = ({ isOpenUserModal }) => {
+export const UserLogoModal = ({ isOpenUserModal, darkTheme }) => {
   const [showInfo, setShowInfo] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
 
@@ -17,15 +17,26 @@ export const UserLogoModal = ({ isOpenUserModal }) => {
 
   return (
     <>
-      <UserLogoModalContainer isOpenUserModal={isOpenUserModal}>
-        <EdidProfileBtn onClick={handleShowInfo}>
+      <UserLogoModalContainer
+        isOpenUserModal={isOpenUserModal}
+        darkTheme={darkTheme}
+      >
+        <EdidProfileBtn onClick={handleShowInfo} darkTheme={darkTheme}>
           Edit profile
           <FiEdit2 size={14} />
         </EdidProfileBtn>
         <LogoutBtn onClick={handleShowLogout} />
       </UserLogoModalContainer>
-      <UserInfoModal showInfo={showInfo} hide={handleCloseInfo} />
-      <LogoutModal show={showLogout} hide={handleCloseLogout} />
+      <UserInfoModal
+        showInfo={showInfo}
+        hide={handleCloseInfo}
+        darkTheme={darkTheme}
+      />
+      <LogoutModal
+        show={showLogout}
+        hide={handleCloseLogout}
+        darkTheme={darkTheme}
+      />
     </>
   );
 };

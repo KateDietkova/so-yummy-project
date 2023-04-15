@@ -12,7 +12,11 @@ export const ModalContainer = styled(Modal)`
     margin: 0 auto;
 
     padding: 44px 24px;
-    background: ${props => props.theme.colors.textWhite};
+    background: ${props => {
+      return props.darktheme === 'true'
+        ? props.theme.colors.bgdarkTheme
+        : props.theme.colors.textWhite;
+    }};
     box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
     border: ${props => props.theme.borders.none};
     border-radius: 24px;
@@ -46,18 +50,20 @@ export const ModalCloseBtn = styled.button`
   }
 `;
 
-
 export const CloseIcon = styled(VscChromeClose)`
   width: 20px;
   height: 20px;
+  color: ${props => {
+    return props.darktheme === 'true'
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
 
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
   }
 `;
-
-
 
 export const OuestionText = styled.p`
   font-size: 14px;
@@ -66,7 +72,11 @@ export const OuestionText = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.darktheme === 'true'
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
   margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
@@ -133,12 +143,18 @@ export const CanselBtn = styled.button`
   line-height: 1.29;
   text-align: center;
   transition: background-color ${props => props.theme.effects.mainEffect},
-    border-color ${props => props.theme.effects.mainEffect};
+    border-color ${props => props.theme.effects.mainEffect},
+    color ${props => props.theme.effects.mainEffect};
 
   :hover,
   :focus {
     background-color: transparent;
     border-color: ${props => props.theme.colors.textDark};
+    color: ${props => {
+      return props.darktheme === 'true'
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
+    }};
   }
 
   @media screen and (min-width: 768px) {

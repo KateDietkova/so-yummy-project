@@ -30,7 +30,9 @@ const ShopingListPage = lazy(() =>
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(
+    JSON.parse(localStorage.getItem('darkTheme')) || false
+  );
   return (
     <>
       <GlobalStyle />

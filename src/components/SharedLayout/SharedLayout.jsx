@@ -7,7 +7,7 @@ import { ContainerThemeWrapper } from './SharedLayout.styled';
 export const SharedLayout = ({ setDarkTheme, darkTheme}) => {
   return (
     <ContainerThemeWrapper darkTheme={darkTheme}>
-      <Header setDarkTheme={setDarkTheme} />
+      <Header setDarkTheme={setDarkTheme} darkTheme={darkTheme} />
 
       <Suspense fallback={null}>
         <Outlet />

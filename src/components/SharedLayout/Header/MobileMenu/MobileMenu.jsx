@@ -3,11 +3,11 @@ import { Container } from '../../../universalComponents/Container/Container.styl
 import { MobileMenuContainer } from './MobileMenu.styled';
 import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 
-export const MobileMenu = ({ isOpen, setDarkTheme }) => {
+export const MobileMenu = ({ isOpen, setDarkTheme, darkTheme }) => {
   return (
     <MobileMenuContainer isOpen={isOpen}>
       <Container ismobile="true">
-        <Navigation isMobile />
+        <Navigation isMobile darkTheme={darkTheme} />
         <ThemeToggler isMobile setDarkTheme={setDarkTheme} />
       </Container>
     </MobileMenuContainer>
