@@ -1,8 +1,10 @@
 import GlobalStyle from 'components/GlobalStyle/GlobalStyle';
 import { Route, Routes } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'theme/theme';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import WellcomePage from '../pages/WellcomPage/WellcomPage';
+import WellcomePage from '../pages/WelcomePage/WelcomePage';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
 import { lazy } from 'react';
@@ -29,8 +31,10 @@ const ShopingListPage = lazy(() =>
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
+  const { darkTheme } = useSelector(state => state.theme);
+
   return (
-    <>
+    <ThemeProvider theme={{ ...theme, darkTheme }}>
       <GlobalStyle />
       <Routes>
         <Route path="/wellcome" element={<WellcomePage />} />
@@ -48,6 +52,6 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </>
+    </ThemeProvider>
   );
 };
