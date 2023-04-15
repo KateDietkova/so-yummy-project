@@ -10,7 +10,11 @@ export const MobileMenuContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.colors.bgLightGreen};
+  background-color: ${props => {
+    return props.darktheme === 'true'
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.bgLightGreen;
+  }};
   background-image: url(${imgMobile});
   background-repeat: no-repeat;
   background-position: right bottom;

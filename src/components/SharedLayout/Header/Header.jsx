@@ -23,7 +23,11 @@ export const Header = ({ setDarkTheme, darkTheme }) => {
           <UserWithTogglerContainer>
             <UserLogo darkTheme={darkTheme} />
             <ThemeToggler setDarkTheme={setDarkTheme} />
-            <BurgerMenuBtn isOpen={isOpen} setIsOpen={setIsOpen} />
+            <BurgerMenuBtn
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              darkTheme={darkTheme}
+            />
           </UserWithTogglerContainer>
         </HeaderContainer>
       </Container>
