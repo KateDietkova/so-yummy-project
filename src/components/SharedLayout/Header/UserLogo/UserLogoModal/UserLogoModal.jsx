@@ -4,8 +4,10 @@ import { FiEdit2 } from 'react-icons/fi';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
 import { UserInfoModal } from './UserInfoModal/UserInfoModal';
 import { LogoutModal } from './LogoutModal/LogoutModal';
+import { useSelector } from 'react-redux';
 
-export const UserLogoModal = ({ isOpenUserModal, darkTheme }) => {
+export const UserLogoModal = ({ isOpenUserModal }) => {
+  const darkTheme = useSelector(state => state.theme.darkTheme);
   const [showInfo, setShowInfo] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
 
@@ -30,12 +32,10 @@ export const UserLogoModal = ({ isOpenUserModal, darkTheme }) => {
       <UserInfoModal
         showInfo={showInfo}
         hide={handleCloseInfo}
-        darkTheme={darkTheme}
       />
       <LogoutModal
         show={showLogout}
         hide={handleCloseLogout}
-        darkTheme={darkTheme}
       />
     </>
   );

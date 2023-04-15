@@ -8,8 +8,10 @@ import {
   CanselBtn,
   CloseIcon,
 } from './LogoutModal.styled';
+import { useSelector } from 'react-redux';
 
-export const LogoutModal = ({ show, hide, darkTheme }) => {
+export const LogoutModal = ({ show, hide }) => {
+   const darkTheme = useSelector(state => state.theme.darkTheme);
   const handleLogout = () => {
     console.log('Logout');
     hide();
