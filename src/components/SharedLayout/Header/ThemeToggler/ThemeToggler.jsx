@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { SwitchStyled, SwitchContainer } from './ThemeToggler.styled';
 
 export const ThemeToggler = ({ isMobile, setDarkTheme }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(
+    JSON.parse(localStorage.getItem('darkTheme')) || false
+  );
 
   const handleChange = () => {
     setChecked(!checked);
     setDarkTheme(!checked);
+    localStorage.setItem('darkTheme', JSON.stringify(!checked));
   };
 
   return (
