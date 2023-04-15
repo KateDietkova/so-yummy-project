@@ -5,7 +5,7 @@ import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 
 export const MobileMenu = ({ isOpen, setDarkTheme, darkTheme }) => {
   return (
-    <MobileMenuContainer isOpen={isOpen}>
+    <MobileMenuContainer isOpen={isOpen} darktheme={darkTheme? 'true' : 'false'}>
       <Container ismobile="true">
         <Navigation isMobile darkTheme={darkTheme} />
         <ThemeToggler isMobile setDarkTheme={setDarkTheme} />
