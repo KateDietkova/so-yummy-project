@@ -5,21 +5,15 @@ import {
   CloseIcon,
 } from './UserInfoModal.styled';
 import { UserInfoForm } from './UserInfoForm/UserInfoForm';
-import { useSelector } from 'react-redux';
 
-export const UserInfoModal = ({ showInfo, hide}) => {
- const darkTheme = useSelector(state => state.theme.darkTheme);
+export const UserInfoModal = ({ showInfo, hide }) => {
   return (
-    <ModalContainer
-      show={showInfo}
-      onHide={hide}
-      darktheme={darkTheme ? 'true' : 'false'}
-    >
+    <ModalContainer show={showInfo} onHide={hide}>
       <ModalCloseBtn onClick={hide}>
-        <CloseIcon darktheme={darkTheme ? 'true' : 'false'} />
+        <CloseIcon />
       </ModalCloseBtn>
       <Modal.Body>
-        <UserInfoForm closeModal={hide} darkTheme={darkTheme} />
+        <UserInfoForm closeModal={hide} />
       </Modal.Body>
     </ModalContainer>
   );

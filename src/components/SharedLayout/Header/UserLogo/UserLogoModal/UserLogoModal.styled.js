@@ -15,13 +15,13 @@ export const UserLogoModalContainer = styled.div`
   padding: 18px;
 
   background-color: ${props => {
-    return props.darkTheme
+    return props.theme.darkTheme
       ? props.theme.colors.bgdarkTheme
       : props.theme.colors.textWhite;
   }};
   border-radius: 8px;
   border: ${props => {
-    return props.darkTheme && `1px solid ${props.theme.colors.accent}`;
+    return props.theme.darkTheme && `1px solid ${props.theme.colors.accent}`;
   }};
 
   overflow: hidden;
@@ -35,7 +35,7 @@ export const UserLogoModalContainer = styled.div`
   }
 `;
 
-export const EdidProfileBtn = styled.button`
+export const EditProfileBtn = styled.button`
   display: flex;
   align-items: center;
   gap: 50px;
@@ -50,7 +50,7 @@ export const EdidProfileBtn = styled.button`
   line-height: 1.6;
 
   color: ${props => {
-    return props.darkTheme
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textDark;
   }};

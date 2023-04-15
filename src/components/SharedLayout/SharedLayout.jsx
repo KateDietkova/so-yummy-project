@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 export const SharedLayout = () => {
   const darkTheme = useSelector(state => state.theme.darkTheme);
   return (
-    <ContainerThemeWrapper darkTheme={darkTheme}>
-      <Header/>
+    <ContainerThemeWrapper>
+      <Header />
 
       <Suspense fallback={null}>
         <Outlet />

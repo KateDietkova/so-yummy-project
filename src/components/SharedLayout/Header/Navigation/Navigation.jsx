@@ -4,50 +4,28 @@ import {
   NavListStyled,
   NavLinkStyled,
 } from './Navigation.styled';
-import { useSelector } from 'react-redux';
 
 export const Navigation = ({ isMobile }) => {
-  const darkTheme = useSelector(state => state.theme.darkTheme);
   return (
     <NavContainer isMobile={isMobile}>
       <NavListStyled>
         <li>
-          <NavLinkStyled
-            to="categories/beef"
-            darktheme={darkTheme ? 'true' : 'false'}
-          >
-            Categories
-          </NavLinkStyled>
+          <NavLinkStyled to="categories/beef">Categories</NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="add" darktheme={darkTheme ? 'true' : 'false'}>
-            Add recipes
-          </NavLinkStyled>
+          <NavLinkStyled to="add">Add recipes</NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="my" darktheme={darkTheme ? 'true' : 'false'}>
-            My recipes
-          </NavLinkStyled>
+          <NavLinkStyled to="my">My recipes</NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="favorite" darktheme={darkTheme ? 'true' : 'false'}>
-            Favorites
-          </NavLinkStyled>
+          <NavLinkStyled to="favorite">Favorites</NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled
-            to="shopinglist"
-            darktheme={darkTheme ? 'true' : 'false'}
-          >
-            Shopping list
-          </NavLinkStyled>
+          <NavLinkStyled to="shopinglist">Shopping list</NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled
-            to="search"
-            ismobile="true"
-            darktheme={darkTheme ? 'true' : 'false'}
-          >
+          <NavLinkStyled to="search" ismobile="true">
             <FiSearch size={isMobile ? 20 : 24} />
             {isMobile && 'Search'}
           </NavLinkStyled>

@@ -11,7 +11,7 @@ export const MobileMenuContainer = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.bgdarkTheme
       : props.theme.colors.bgLightGreen;
   }};
