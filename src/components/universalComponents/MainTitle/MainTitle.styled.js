@@ -2,14 +2,16 @@ import styled from 'styled-components';
 // import { Container } from '../../../components/universalComponents/Container/Container.styled';
 
 export const MainTitleStyled = styled.h1`
-  padding: 100px 0;
+  padding-bottom: 72px;
 
   @media screen and (min-width: 768px) {
     margin-top: 72px;
+    padding-bottom: 100px;
   }
 
   @media screen and (min-width: 1280px) {
     margin-top: 100px;
+    padding-bottom: 100px;
   }
 
   font-family: PoppinsSemiBold;

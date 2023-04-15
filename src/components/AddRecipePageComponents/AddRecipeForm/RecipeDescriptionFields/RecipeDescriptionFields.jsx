@@ -1,12 +1,14 @@
 import { Field, Formik, Form } from 'formik';
+import Select from 'react-select';
+import { maxHeight } from 'styled-system';
 
 import {
   CameraIconStyled,
   FieldFileWrapper,
-  FieldInputWrapper,
   FieldsWrapper,
+  FormStyled,
   ImageInput,
-  StyledInput,
+  StyledField,
 } from './RecipeDescriptionFields.styled';
 
 const initialValues = {
@@ -16,6 +18,23 @@ const initialValues = {
   category: '',
   time: '',
 };
+
+const selectOptions = [
+  { value: 'beef', label: 'Beef' },
+  { value: 'breakfast', label: 'Breakfast' },
+  { value: 'chicken', label: 'Chicken' },
+  { value: 'dessert', label: 'Dessert' },
+  { value: 'goat', label: 'Goat' },
+  { value: 'lamb', label: 'Lamb' },
+  { value: 'miscellaneous', label: 'Miscellaneous' },
+  { value: 'pasta', label: 'Pasta' },
+  { value: 'pork', label: 'Pork' },
+  { value: 'seafood', label: 'Seafood' },
+  { value: 'side', label: 'Side' },
+  { value: 'starter', label: 'Starter' },
+  { value: 'vegan', label: 'Vegan' },
+  { value: 'vegetarian', label: 'Vegetarian' },
+];
 
 const schema = {};
 
@@ -28,28 +47,44 @@ export const RecipeDescriptionFields = () => {
       validationSchema={schema}
       onSubmit={handleFormSubmit}
     >
-      <Form>
+      <FormStyled>
         <FieldFileWrapper>
           <CameraIconStyled />
           <ImageInput type="file" name="image"></ImageInput>
-          {/* <StyledInput /> */}
         </FieldFileWrapper>
 
         <FieldsWrapper>
-          <Field
+          <StyledField
             type="text"
             name="title"
             placeholder="Enter item title"
-          ></Field>
-          <Field
+          ></StyledField>
+          <StyledField
             type="text"
             name="about"
             placeholder="Enter about recipe"
-          ></Field>
-          <Field type="text" name="category" placeholder="Category"></Field>
-          <Field type="text" name="time" placeholder="Cooking time"></Field>
+          ></StyledField>
+          <div>
+            <label>Category</label>
+            <Select
+              style={(maxHeight = 162px)}
+              options={selectOptions}
+              placeholder="Breakfast"
+            ></Select>
+            {/* <StyledField
+              type="text"
+              name="category"
+              placeholder="Category"
+            ></StyledField> */}
+          </div>
+
+          <StyledField
+            type="text"
+            name="time"
+            placeholder="Cooking time"
+          ></StyledField>
         </FieldsWrapper>
-      </Form>
+      </FormStyled>
     </Formik>
   );
 };
