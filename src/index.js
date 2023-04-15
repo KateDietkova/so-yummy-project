@@ -7,8 +7,6 @@ import './index.css';
 
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'theme/theme';
 import { store, persistor } from 'redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,9 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/so-yummy-project">
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
+          <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
