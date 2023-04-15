@@ -1,14 +1,18 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeTheme } from 'redux/theme/themeSlice';
 import { SwitchStyled, SwitchContainer } from './ThemeToggler.styled';
+import { useSelector } from 'react-redux';
 
-export const ThemeToggler = ({ isMobile, setDarkTheme }) => {
-  const [checked, setChecked] = useState(
-    JSON.parse(localStorage.getItem('darkTheme')) || false
-  );
+export const ThemeToggler = ({ isMobile }) => {
+  const darkTheme = useSelector(state => state.theme.darkTheme);
+
+  const [checked, setChecked] = useState(darkTheme);
+  const dispatch = useDispatch();
 
   const handleChange = () => {
     setChecked(!checked);
-    setDarkTheme(!checked);
+    dispatch(changeTheme());
     localStorage.setItem('darkTheme', JSON.stringify(!checked));
   };
 

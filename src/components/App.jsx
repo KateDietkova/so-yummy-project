@@ -1,6 +1,5 @@
 import GlobalStyle from 'components/GlobalStyle/GlobalStyle';
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import WellcomePage from '../pages/WellcomPage/WellcomPage';
@@ -30,9 +29,6 @@ const ShopingListPage = lazy(() =>
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const [darkTheme, setDarkTheme] = useState(
-    JSON.parse(localStorage.getItem('darkTheme')) || false
-  );
   return (
     <>
       <GlobalStyle />
@@ -40,12 +36,7 @@ export const App = () => {
         <Route path="/wellcome" element={<WellcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/signin" element={<SigninPage />} />
-        <Route
-          path="/"
-          element={
-            <SharedLayout setDarkTheme={setDarkTheme} darkTheme={darkTheme} />
-          }
-        >
+        <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="add" element={<AddRecipePage />} />

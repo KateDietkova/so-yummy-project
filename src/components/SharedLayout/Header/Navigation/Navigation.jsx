@@ -4,8 +4,10 @@ import {
   NavListStyled,
   NavLinkStyled,
 } from './Navigation.styled';
+import { useSelector } from 'react-redux';
 
-export const Navigation = ({ isMobile, darkTheme }) => {
+export const Navigation = ({ isMobile }) => {
+  const darkTheme = useSelector(state => state.theme.darkTheme);
   return (
     <NavContainer isMobile={isMobile}>
       <NavListStyled>
