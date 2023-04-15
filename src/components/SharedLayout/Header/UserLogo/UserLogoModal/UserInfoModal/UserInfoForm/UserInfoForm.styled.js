@@ -44,7 +44,7 @@ export const FieldStyled = styled(Field)`
   border-radius: 6px;
   border: 1px solid
     ${props =>
-      props.darktheme === 'true'
+      props.theme.darkTheme
         ? props.theme.colors.textWhite
         : 'rgba(35, 38, 42, 0.3)'};
   background: transparent;
@@ -56,11 +56,11 @@ export const FieldStyled = styled(Field)`
   letter-spacing: -0.02em;
 
   color: ${props =>
-    props.darktheme === 'true'
+    props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textDark};
 
-  opacity: ${props => (props.darktheme === 'true' ? '0.8' : '1')};
+  opacity: ${props => (props.theme.darkTheme ? '0.8' : '1')};
 
   :focus:invalid {
     border-color: rgba(231, 74, 59, 0.3);
@@ -100,7 +100,7 @@ export const EditIcon = styled(FiEdit2)`
   top: 20px;
   right: 20px;
   color: ${props =>
-    props.darktheme === 'true'
+    props.theme.darkTheme
       ? 'rgba(250, 250, 250, 0.8)'
       : props.theme.colors.textDark};
 `;
@@ -110,7 +110,7 @@ export const UserIcon = styled(FiUser)`
   top: 16px;
   left: 18px;
   color: ${props =>
-    props.darktheme === 'true'
+    props.theme.darkTheme
       ? 'rgba(250, 250, 250, 0.8)'
       : props.theme.colors.textDark};
 `;

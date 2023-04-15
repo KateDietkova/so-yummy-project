@@ -14,7 +14,7 @@ import { PreviewPhoto } from './PreviewPhoto/PreviewPhoto';
 import { FiUser } from 'react-icons/fi';
 import { IoAdd } from 'react-icons/io5';
 
-export const UserInfoForm = ({ closeModal, darkTheme }) => {
+export const UserInfoForm = ({ closeModal }) => {
   const userName = 'Olena';
   const userPhoto = null;
   const [photoRef, setPhotoRef] = useState(userPhoto);
@@ -66,10 +66,9 @@ export const UserInfoForm = ({ closeModal, darkTheme }) => {
               name="name"
               title="Name may contain only letters, apostrophe, dash and spaces."
               required
-              darktheme={darkTheme ? 'true' : 'false'}
             />
-            <UserIcon size={24} darktheme={darkTheme ? 'true' : 'false'} />
-            <EditIcon size={19} darktheme={darkTheme ? 'true' : 'false'} />
+            <UserIcon size={24} />
+            <EditIcon size={19} />
           </LabelStyled>
 
           <SaveChangeBtn type="submit">Save Changes</SaveChangeBtn>

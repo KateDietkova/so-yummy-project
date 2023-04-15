@@ -35,7 +35,7 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.m};
   line-height: 1;
   color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.bgBlackDark;
   }};
@@ -58,7 +58,7 @@ export const NavLinkStyled = styled(NavLink)`
     line-height: 1.6;
     padding: 10px 0;
     color: ${props => {
-      return props.darktheme === 'true'
+      return props.theme.darkTheme
         ? props.theme.colors.textWhite
         : props.theme.colors.textDark;
     }};

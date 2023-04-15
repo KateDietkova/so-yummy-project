@@ -13,7 +13,7 @@ export const ModalContainer = styled(Modal)`
 
     padding: 44px 24px;
     background: ${props => {
-      return props.darktheme === 'true'
+      return props.theme.darkTheme
         ? props.theme.colors.bgdarkTheme
         : props.theme.colors.textWhite;
     }};
@@ -54,7 +54,7 @@ export const CloseIcon = styled(VscChromeClose)`
   width: 20px;
   height: 20px;
   color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textDark;
   }};
@@ -73,7 +73,7 @@ export const OuestionText = styled.p`
   letter-spacing: -0.02em;
 
   color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textDark;
   }};
@@ -151,7 +151,7 @@ export const CanselBtn = styled.button`
     background-color: transparent;
     border-color: ${props => props.theme.colors.textDark};
     color: ${props => {
-      return props.darktheme === 'true'
+      return props.theme.darkTheme
         ? props.theme.colors.textWhite
         : props.theme.colors.textDark;
     }};
