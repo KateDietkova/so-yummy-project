@@ -12,22 +12,26 @@ import { ThemeToggler } from './ThemeToggler/ThemeToggler';
 import { BurgerMenuBtn } from './MobileMenu/BurgerMenuBtn/BurgerMenuBtn';
 import { MobileMenu } from './MobileMenu/MobileMenu';
 
-export const Header = ({ setDarkTheme }) => {
+export const Header = ({ setDarkTheme, darkTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <HeaderStyled>
       <Container>
         <HeaderContainer>
           <Logo />
-          <Navigation />
+          <Navigation darkTheme={darkTheme} />
           <UserWithTogglerContainer>
-            <UserLogo />
+            <UserLogo darkTheme={darkTheme} />
             <ThemeToggler setDarkTheme={setDarkTheme} />
             <BurgerMenuBtn isOpen={isOpen} setIsOpen={setIsOpen} />
           </UserWithTogglerContainer>
         </HeaderContainer>
       </Container>
-      <MobileMenu isOpen={isOpen} setDarkTheme={setDarkTheme} />
+      <MobileMenu
+        isOpen={isOpen}
+        setDarkTheme={setDarkTheme}
+        darkTheme={darkTheme}
+      />
     </HeaderStyled>
   );
 };

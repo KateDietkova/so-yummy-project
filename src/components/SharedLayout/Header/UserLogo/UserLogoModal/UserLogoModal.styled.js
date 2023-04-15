@@ -14,8 +14,15 @@ export const UserLogoModalContainer = styled.div`
   gap: 32px;
   padding: 18px;
 
-  background-color: ${props => props.theme.colors.textWhite};
+  background-color: ${props => {
+    return props.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.textWhite;
+  }};
   border-radius: 8px;
+  border: ${props => {
+    return props.darkTheme && `1px solid ${props.theme.colors.accent}`;
+  }};
 
   overflow: hidden;
 
@@ -42,7 +49,11 @@ export const EdidProfileBtn = styled.button`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.6;
 
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
 
   @media screen and (max-width: 767px) {
     gap: 37px;

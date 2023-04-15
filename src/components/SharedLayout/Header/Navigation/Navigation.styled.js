@@ -34,7 +34,11 @@ export const NavLinkStyled = styled(NavLink)`
   font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.m};
   line-height: 1;
-  color: ${props => props.theme.colors.bgBlackDark};
+  color: ${props => {
+    return props.darktheme === 'true'
+      ? props.theme.colors.textWhite
+      : props.theme.colors.bgBlackDark;
+  }};
   text-decoration: none;
   transition: color ${props => props.theme.effects.mainEffect};
   letter-spacing: -0.02em;
@@ -53,7 +57,11 @@ export const NavLinkStyled = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.s};
     line-height: 1.6;
     padding: 10px 0;
-    color: ${props => props.theme.colors.textDark};
+    color: ${props => {
+      return props.darktheme === 'true'
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
+    }};
     letter-spacing: none;
   }
 `;

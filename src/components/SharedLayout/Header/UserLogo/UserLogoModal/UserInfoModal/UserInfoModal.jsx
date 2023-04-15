@@ -6,14 +6,18 @@ import {
 } from './UserInfoModal.styled';
 import { UserInfoForm } from './UserInfoForm/UserInfoForm';
 
-export const UserInfoModal = ({ showInfo, hide }) => {
+export const UserInfoModal = ({ showInfo, hide, darkTheme }) => {
   return (
-    <ModalContainer show={showInfo} onHide={hide}>
+    <ModalContainer
+      show={showInfo}
+      onHide={hide}
+      darktheme={darkTheme ? 'true' : 'false'}
+    >
       <ModalCloseBtn onClick={hide}>
-        <CloseIcon />
+        <CloseIcon darktheme={darkTheme ? 'true' : 'false'} />
       </ModalCloseBtn>
       <Modal.Body>
-        <UserInfoForm closeModal={hide} />
+        <UserInfoForm closeModal={hide} darkTheme={darkTheme} />
       </Modal.Body>
     </ModalContainer>
   );
