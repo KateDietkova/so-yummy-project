@@ -68,7 +68,15 @@ export const LeavesBgContainer = styled.div`
 `;
 
 export const MainSection = styled.section`
-  padding: 144px 0 267px;
+  padding: 50px 0 83px;
+
+  @media screen and (min-width: 768px) {
+    padding: 122px 0 195px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 144px 0 267px;
+  }
 `;
 
 export const MainTitle = styled.h1`
@@ -76,42 +84,89 @@ export const MainTitle = styled.h1`
   z-index: 1;
   margin-bottom: 14px;
 
-  font-size: 100px;
+  font-size: 60px;
   line-height: 1;
 
   letter-spacing: -0.005em;
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    margin: 0 auto 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 75px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 100px;
+    margin-bottom: 14px;
+  }
 `;
 
 export const MainTitleAccent = styled.span`
-  font-size: 100px;
+  font-size: 60px;
   line-height: 1;
 
   letter-spacing: -0.005em;
   color: ${props => props.theme.colors.accent};
+
+  @media screen and (min-width: 768px) {
+    font-size: 75px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 100px;
+  }
 `;
 
 export const MainDesc = styled.p`
   position: relative;
   z-index: 1;
-  max-width: 465px;
-  margin-bottom: 50px;
+  max-width: 248px;
 
-  font-size: 18px;
-  line-height: 1.33;
+  font-size: 14px;
+  line-height: 1.29;
 
   letter-spacing: -0.02em;
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    margin: 0 auto 364px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    max-width: 362px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: 50px;
+    max-width: 465px;
+  }
 `;
 
 export const MainImgContainer = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 60px;
   z-index: 0;
 
   width: 375px;
-  height: 570px;
+  height: 720px;
   background-image: url(${imgMobileMain});
   background-repeat: no-repeat;
   background-position: right top;
@@ -126,6 +181,7 @@ export const MainImgContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    top: 0;
     width: 420px;
     height: 640px;
     background-image: url(${imgTabletMain});
@@ -140,6 +196,7 @@ export const MainImgContainer = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    right: -100px;
     width: 735px;
     height: 800px;
     background-image: url(${imgDesktopMain});

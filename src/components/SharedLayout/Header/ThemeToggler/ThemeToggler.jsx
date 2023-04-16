@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeTheme } from 'redux/theme/themeSlice';
 import { SwitchStyled, SwitchContainer } from './ThemeToggler.styled';
@@ -7,7 +6,6 @@ import { useSelector } from 'react-redux';
 export const ThemeToggler = ({ isMobile }) => {
   const {darkTheme} = useSelector(state => state.theme);
 
-  // const [checked, setChecked] = useState(darkTheme);
   const dispatch = useDispatch();
 
   const handleChange = () => {
