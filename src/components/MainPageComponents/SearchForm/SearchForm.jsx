@@ -21,7 +21,7 @@ export const SearchForm = () => {
 
   const handleSubmit = () => {
     if (!queryValue) return;
-    navigate('search', { state: { searchQuery: queryValue } });
+    navigate(`search/${queryValue}`);
   };
 
   return (
