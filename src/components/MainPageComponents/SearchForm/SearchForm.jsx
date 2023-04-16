@@ -1,4 +1,6 @@
 import { Formik } from 'formik';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   FormSearchMain,
   FieldSearchMain,
@@ -10,15 +12,28 @@ const initialValue = {
 };
 
 export const SearchForm = () => {
-  const handleSubmit = (value, { resetForm }) => {
-    console.log(value);
+  const [queryValue, setqueryValue] = useState('');
+  const navigate = useNavigate();
+
+  const handleChange = e => {
+    setqueryValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (!queryValue) return;
+    navigate('search', { state: { searchQuery: queryValue } });
   };
 
   return (
     <Formik initialValues={initialValue} onSubmit={handleSubmit}>
       <FormSearchMain>
-        <FieldSearchMain type="text" name="searchQuery" />
-        <SearchBtn>
+        <FieldSearchMain
+          type="text"
+          name="searchQuery"
+          onChange={handleChange}
+          value={queryValue}
+        />
+        <SearchBtn type="submit">
           <div className="inner">Search</div>
         </SearchBtn>
       </FormSearchMain>
