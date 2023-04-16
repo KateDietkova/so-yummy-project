@@ -1,18 +1,19 @@
-import { Field, Formik, Form } from 'formik';
+import { Formik } from 'formik';
+import { VscNoNewline } from 'react-icons/vsc';
 import Select from 'react-select';
-import { maxHeight } from 'styled-system';
-
 import {
   CameraIconStyled,
   FieldFileWrapper,
   FieldsWrapper,
   FormStyled,
   ImageInput,
+  SelectWrapper,
   StyledField,
+  StyledSelectLabel,
 } from './RecipeDescriptionFields.styled';
 
 const initialValues = {
-  image: null,
+  image: '',
   title: '',
   about: '',
   category: '',
@@ -20,21 +21,25 @@ const initialValues = {
 };
 
 const selectOptions = [
-  { value: 'beef', label: 'Beef' },
-  { value: 'breakfast', label: 'Breakfast' },
-  { value: 'chicken', label: 'Chicken' },
-  { value: 'dessert', label: 'Dessert' },
-  { value: 'goat', label: 'Goat' },
-  { value: 'lamb', label: 'Lamb' },
-  { value: 'miscellaneous', label: 'Miscellaneous' },
-  { value: 'pasta', label: 'Pasta' },
-  { value: 'pork', label: 'Pork' },
-  { value: 'seafood', label: 'Seafood' },
-  { value: 'side', label: 'Side' },
-  { value: 'starter', label: 'Starter' },
-  { value: 'vegan', label: 'Vegan' },
-  { value: 'vegetarian', label: 'Vegetarian' },
+  'Beef',
+  'Breakfast',
+  'Chicken',
+  'Dessert',
+  'Goat',
+  'Lamb',
+  'Miscellaneous',
+  'Pasta',
+  'Pork',
+  'Seafood',
+  'Side',
+  'Starter',
+  'Vegan',
+  'Vegetarian',
 ];
+const options = selectOptions.map(option => ({
+  value: option.toLowerCase(),
+  label: option,
+}));
 
 const schema = {};
 
@@ -64,19 +69,81 @@ export const RecipeDescriptionFields = () => {
             name="about"
             placeholder="Enter about recipe"
           ></StyledField>
-          <div>
-            <label>Category</label>
+          <SelectWrapper>
+            <StyledSelectLabel>Category</StyledSelectLabel>
             <Select
-              style={(maxHeight = 162px)}
-              options={selectOptions}
+              styles={{
+                dropdownIndicator: () => ({
+                  color: '#8BAA36',
+                  width: '10px',
+                  height: '5px',
+                  cursor: 'pointer',
+                  marginRight: '5px',
+                  marginLeft: '13px',
+                  marginBottom: '23px',
+                }),
+                indicatorSeparator: () => ({
+                  display: 'none',
+                }),
+                placeholder: styles => {
+                  return {
+                    ...styles,
+                    fontFamily: 'PoppinsRegular',
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    fontSize: '12px',
+                    lineHeight: '1',
+                    color: '#000000',
+                  };
+                },
+                control: (baseStyles, state) => ({
+                  ...baseStyles,
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  marginLeft: 'auto',
+                  border: 'none',
+                  fontFamily: 'PoppinsRegular',
+                  fontWeight: '400',
+                  fontSize: '12px',
+                  lineHeight: '1',
+                  letterSpacing: '-0.02em',
+                  color: '#000000',
+                }),
+                option: (styles, { data }) => {
+                  return {
+                    ...styles,
+                    fontFamily: 'PoppinsRegular',
+                    fontWeight: '400',
+                    fontSize: '12px',
+                    lineHeight: '1.5',
+                    letterSpacing: '-0.02em',
+                    color: '#000000',
+                    opacity: '0.5',
+                  };
+                },
+                menu: (styles, { data }) => {
+                  return {
+                    ...styles,
+                    width: '123px',
+                    height: '144px',
+                    backgroundColor: '#FFFFFF',
+                    boxShadow:
+                      ' 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
+                    borderRadius: ' 6px',
+                    fontFamily: 'PoppinsRegular',
+                    fontWeight: '400',
+                    fontSize: '12px',
+                    lineHeight: '1.5',
+                    letterSpacing: '-0.02em',
+                    color: '#000000',
+                    opacity: 0.5,
+                  };
+                },
+              }}
+              options={options}
               placeholder="Breakfast"
             ></Select>
-            {/* <StyledField
-              type="text"
-              name="category"
-              placeholder="Category"
-            ></StyledField> */}
-          </div>
+          </SelectWrapper>
 
           <StyledField
             type="text"

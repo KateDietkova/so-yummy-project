@@ -5,11 +5,13 @@ import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camer
 export const FormStyled = styled(Form)`
   display: flex;
   gap: 32px;
+  margin-bottom: 100px;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 67px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -21,6 +23,7 @@ export const FieldFileWrapper = styled.div`
   position: relative;
   width: 279px;
   height: 268px;
+
   border-radius: 8px;
 
   background-color: ${props => props.theme.colors.accent};
@@ -46,6 +49,7 @@ export const ImageInput = styled(Field)`
 export const StyledField = styled(Field)`
   outline: none;
   border: none;
+  padding: 0;
   border-bottom: 1px solid;
   border-color: #e0e0e0;
   width: 100%;
@@ -55,11 +59,50 @@ export const StyledField = styled(Field)`
     color: #000000;
     font-family: PoppinsRegular;
     font-weight: 400;
-    font-size: 14px;
+    font-size: ${props => props.theme.fontSizes.m};
     line-height: 1.5;
     letter-spacing: -0.02em;
     opacity: 0.5;
   }
+`;
+
+// export const StyledSelect = styled(Field)`
+//   outline: none;
+//   border: none;
+//   width: 85px;
+//   max-height: 144px;
+//   padding-bottom: 16px;
+
+//   font-family: PoppinsRegular;
+//   font-weight: 400;
+//   font-size: ${props => props.theme.fontSizes.xs};
+//   line-height: 1.5;
+//   letter-spacing: -0.02em;
+
+//   color: #000000;
+//   opacity: 0.5;
+// `;
+
+export const StyledSelectLabel = styled.label`
+  font-family: PoppinsRegular;
+  font-weight: 400;
+  font-size: ${props => props.theme.fontSizes.s};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  opacity: 0.5;
+  color: #000000;
+  padding-bottom: 18px;
+`;
+
+export const SelectWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+  border-color: #e0e0e0;
+  width: 100%;
 `;
 
 export const CameraIconStyled = styled(CameraIcon)`
