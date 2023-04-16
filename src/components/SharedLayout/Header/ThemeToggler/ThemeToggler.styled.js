@@ -14,6 +14,7 @@ export const SwitchStyled = styled(Switch)`
 `;
 
 export const SwitchContainer = styled.div`
+  z-index: 1;
   @media screen and (max-width: 767px) {
     left: 16px;
   }

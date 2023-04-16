@@ -1,8 +1,7 @@
-
-
+import { Main } from 'components/MainPageComponents/Main/Main';
 
 const MainPage = () => {
-  return <h1>MainPage</h1>;
+  return <Main />;
 };
 
 export default MainPage;
