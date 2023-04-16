@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const FormSearchMain = styled(Form)`
   position: relative;
   z-index: 1;
-  width: 250px;
+  width: 283px;
   display: flex;
   transform: skew(15deg, 0);
   border-radius: 2.1rem;
@@ -21,9 +21,17 @@ export const FormSearchMain = styled(Form)`
 
   @media screen and (max-width: 767px) {
     margin: 0 auto;
+    background: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.bgBlackLight : '#fff';
+    }};
   }
   @media screen and (min-width: 768px) {
-    width: 370px;
+    width: 345px;
+    background: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.bgBlackLight
+        : 'transparent';
+    }};
   }
 
   @media screen and (min-width: 1280px) {
@@ -35,7 +43,7 @@ export const FieldSearchMain = styled(Field)`
   outline: none;
   transform: skew(-15deg, 0);
   width: 250px;
-  padding: 17px 32px;
+  padding: 16px 32px;
   border: none;
   background-color: transparent;
 
@@ -48,9 +56,9 @@ export const FieldSearchMain = styled(Field)`
   }};
 
   @media screen and (min-width: 768px) {
-    padding: 17px 17px 17px 38px;
+    padding: 16px 17px 17px 38px;
     font-size: 16px;
-    width: 203px;
+    width: 198px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -63,8 +71,8 @@ export const SearchBtn = styled.button`
   position: absolute;
   right: -2px;
   top: -2px;
-  max-width: 161px;
-  padding: 19px 24px;
+  max-width: 113px;
+  padding: 16px 25px;
 
   background-color: ${props => {
     return props.theme.darkTheme
@@ -100,10 +108,13 @@ export const SearchBtn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 19px 47px;
+    padding: 19px 48px;
+    right: -3px;
+    top: -1px;
   }
 
   @media screen and (min-width: 1280px) {
     padding: 25px 47px;
+    max-width: 161px;
   }
 `;
