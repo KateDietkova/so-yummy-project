@@ -20,6 +20,14 @@ export const UserLogoBtn = styled.button`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.7;
   color: ${props => props.theme.colors.textDark};
+
+  @media screen and (max-width: 1279px) {
+    color: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
+    }};
+  }
 `;
 
 export const UserAvatarWrapper = styled.div`
