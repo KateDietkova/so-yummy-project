@@ -2,9 +2,10 @@ import { useDispatch } from 'react-redux';
 import { changeTheme } from 'redux/theme/themeSlice';
 import { SwitchStyled, SwitchContainer } from './ThemeToggler.styled';
 import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/selectors';
 
 export const ThemeToggler = ({ isMobile }) => {
-  const {darkTheme} = useSelector(state => state.theme);
+  const darkTheme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 

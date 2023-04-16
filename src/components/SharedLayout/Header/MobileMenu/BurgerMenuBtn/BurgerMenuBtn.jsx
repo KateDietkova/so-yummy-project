@@ -3,11 +3,12 @@ import {
   BurgerMenuIconStyled,
 } from './BurgerMenuBtn.styled';
 import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/selectors';
 
 import { VscChromeClose } from 'react-icons/vsc';
 
 export const BurgerMenuBtn = ({ isOpen, setIsOpen }) => {
-  const darkTheme = useSelector(state => state.theme.darkTheme);
+  const darkTheme = useSelector(selectTheme);
   const openMenu = () => {
     setIsOpen(!isOpen);
   };
