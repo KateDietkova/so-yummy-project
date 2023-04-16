@@ -28,6 +28,14 @@ export const UserLogoBtn = styled.button`
         : props.theme.colors.textDark;
     }};
   }
+
+  @media screen and (min-width: 1720px) {
+    color: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
+    }};
+  }
 `;
 
 export const UserAvatarWrapper = styled.div`
