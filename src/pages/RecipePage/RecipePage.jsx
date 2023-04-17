@@ -1,8 +1,22 @@
 
-
-
+import RecipePageHero  from "components/RecipePageComponents/RecipePageHero/RecipePageHero";
+import RecipeIngredientsList from "components/RecipePageComponents/RecipeIngredientsList/RecipeIngredientsList";
+import RecipePreparation from "components/RecipePageComponents/RecipePreparation/RecipePreparation";
+import {
+  RecipeSection,
+ 
+} from './RecipePage.styled';
 const RecipePage = () => {
-  return <h1>RecipePage</h1>;
+
+  
+  return (
+    <RecipeSection>
+      <RecipePageHero />
+      <RecipeIngredientsList />
+      <RecipePreparation />
+    </RecipeSection> 
+    
+  )
 };
 
 export default RecipePage;
