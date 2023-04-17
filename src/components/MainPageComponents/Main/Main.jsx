@@ -7,7 +7,7 @@ import {
   LeavesBgContainer,
   MainImgContainer,
 } from './Main.styled';
-import { SearchForm } from '../SearchForm/SearchForm';
+import { Search } from '../Search/Search';
 
 export const Main = () => {
   return (
@@ -21,7 +21,7 @@ export const Main = () => {
           "What to cook?" is not only a recipe app, it is, in fact, your
           cookbook. You can add your own recipes to save them for the future.
         </MainDesc>
-        <SearchForm />
+        <Search />
         <MainImgContainer></MainImgContainer>
       </Container>
     </MainSection>
