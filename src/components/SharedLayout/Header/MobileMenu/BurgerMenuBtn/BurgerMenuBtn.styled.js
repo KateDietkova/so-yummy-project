@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as BurgerMenuIcon } from '../../../../../assets/svg/other/burger-menu.svg';
 
 export const BurgerMenuBtnStyled = styled.button`
   background-color: transparent;
@@ -9,5 +10,21 @@ export const BurgerMenuBtnStyled = styled.button`
   @media screen and (max-width: 1279px) {
     display: block;
     z-index: 5;
+  }
+`;
+
+export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
+  stroke: ${props => props.theme.colors.textWhite};
+
+  @media screen and (min-width: 768px) and (max-width: 879px) {
+    stroke: ${props => props.theme.colors.bgBlackDark};
+  }
+
+  @media screen and (min-width: 880px) and (max-width: 1279px) {
+    stroke: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.bgBlackDark;
+    }};
   }
 `;

@@ -1,5 +1,7 @@
-import { ReactComponent as BurgerMenuIcon } from '../../../../../assets/svg/other/burger-menu.svg';
-import { BurgerMenuBtnStyled } from './BurgerMenuBtn.styled';
+import {
+  BurgerMenuBtnStyled,
+  BurgerMenuIconStyled,
+} from './BurgerMenuBtn.styled';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/theme/selectors';
 
@@ -15,7 +17,7 @@ export const BurgerMenuBtn = ({ isOpen, setIsOpen }) => {
       {isOpen ? (
         <VscChromeClose size={24} color={darkTheme ? 'fafafa' : '#23262A'} />
       ) : (
-        <BurgerMenuIcon />
+        <BurgerMenuIconStyled />
       )}
     </BurgerMenuBtnStyled>
   );

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavContainer = styled.nav`
+  position: relative;
+  z-index: 1;
   @media screen and (max-width: 1279px) {
     display: ${props => {
       return props.isMobile ? 'block' : 'none';
