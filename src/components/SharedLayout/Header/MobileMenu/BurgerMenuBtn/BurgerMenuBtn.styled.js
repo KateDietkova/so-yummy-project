@@ -25,7 +25,7 @@ export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
     stroke: ${props => props.theme.colors.bgBlackDark};
   }
 
-  @media screen and (min-width: 880px) and (max-width: 1279px) {
+  @media screen and (min-width: 880px) {
     stroke: ${props => {
       return props.theme.darkTheme
         ? props.theme.colors.textWhite
