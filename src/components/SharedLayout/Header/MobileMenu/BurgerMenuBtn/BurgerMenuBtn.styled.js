@@ -14,8 +14,13 @@ export const BurgerMenuBtnStyled = styled.button`
 `;
 
 export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
-  stroke: ${props => props.theme.colors.textWhite};
-
+  @media screen and (max-width: 767px) {
+    stroke: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.bgBlackDark;
+    }};
+  }
   @media screen and (min-width: 768px) and (max-width: 879px) {
     stroke: ${props => props.theme.colors.bgBlackDark};
   }
