@@ -11,7 +11,6 @@ const CategoriesTabs = ({ items = [] }) => {
             {items.map(category => (
                 <Tab to={`/categories/${category.toLowerCase()}`} key={category}>{category }</Tab>
             ))}
-
     </TabsList>
 )
 }
