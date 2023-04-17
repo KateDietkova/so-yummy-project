@@ -9,7 +9,9 @@ export const ButtonSkewStyled = styled.button`
   transform: skew(15deg, 0);
   border-radius: 1.7rem;
   cursor: pointer;
-  padding: 12px 32px;
+  padding: ${props => {
+    return props.padding ? props.padding : '12px 32px';
+  }};
   width: ${props => {
     return props.width ? props.width : '141px';
   }};
@@ -50,13 +52,13 @@ export const ButtonSkewStyled = styled.button`
 
 export const LinkSkewStyled = styled(NavLink)`
   display: block;
-  background-color: ${props =>  props.theme.colors.accent};
+  background-color: ${props => props.theme.colors.accent};
   border: ${props => props.theme.borders.none};
   transform: skew(15deg, 0);
   border-radius: 1.7rem;
   cursor: pointer;
   padding: 12px 32px;
-  width:  '141px';
+  width: 141px;
 
   font-family: PoppinsRegular;
   font-weight: 400;

@@ -4,10 +4,10 @@ import { Header } from 'components/SharedLayout/Header/Header';
 import { Footer } from 'components/SharedLayout/Footer/Footer';
 import { ContainerThemeWrapper } from './SharedLayout.styled';
 
-export const SharedLayout = ({ setDarkTheme, darkTheme}) => {
+export const SharedLayout = () => {
   return (
-    <ContainerThemeWrapper darkTheme={darkTheme}>
-      <Header setDarkTheme={setDarkTheme} darkTheme={darkTheme} />
+    <ContainerThemeWrapper>
+      <Header />
 
       <Suspense fallback={null}>
         <Outlet />

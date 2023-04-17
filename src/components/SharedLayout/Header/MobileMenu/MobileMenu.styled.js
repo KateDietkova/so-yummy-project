@@ -8,9 +8,15 @@ export const MobileMenuContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
+
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.colors.bgLightGreen};
+  background-color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.bgLightGreen;
+  }};
   background-image: url(${imgMobile});
   background-repeat: no-repeat;
   background-position: right bottom;

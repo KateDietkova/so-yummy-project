@@ -7,12 +7,12 @@ import {
 } from './UserLogo.styled';
 import { UserLogoModal } from './UserLogoModal/UserLogoModal';
 
-export const UserLogo = ({ darkTheme }) => {
-  const [isOpenUserModal, setisOpenUserModal] = useState(false);
+export const UserLogo = () => {
+  const [isOpenUserModal, setIsOpenUserModal] = useState(false);
   const userAvatar = null;
   return (
     <UserLogoBtnWrapper>
-      <UserLogoBtn onClick={() => setisOpenUserModal(!isOpenUserModal)}>
+      <UserLogoBtn onClick={() => setIsOpenUserModal(!isOpenUserModal)}>
         <UserAvatarWrapper>
           {userAvatar ? (
             <img src="" alt="" />
@@ -22,7 +22,7 @@ export const UserLogo = ({ darkTheme }) => {
         </UserAvatarWrapper>
         Olena
       </UserLogoBtn>
-      <UserLogoModal isOpenUserModal={isOpenUserModal} darkTheme={darkTheme} />
+      <UserLogoModal isOpenUserModal={isOpenUserModal} />
     </UserLogoBtnWrapper>
   );
 };

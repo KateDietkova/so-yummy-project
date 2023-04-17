@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavContainer = styled.nav`
+  position: relative;
+  z-index: 1;
   @media screen and (max-width: 1279px) {
     display: ${props => {
       return props.isMobile ? 'block' : 'none';
@@ -35,7 +37,7 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.m};
   line-height: 1;
   color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.bgBlackDark;
   }};
@@ -58,7 +60,7 @@ export const NavLinkStyled = styled(NavLink)`
     line-height: 1.6;
     padding: 10px 0;
     color: ${props => {
-      return props.darktheme === 'true'
+      return props.theme.darkTheme
         ? props.theme.colors.textWhite
         : props.theme.colors.textDark;
     }};

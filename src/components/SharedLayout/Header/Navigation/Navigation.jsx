@@ -5,37 +5,40 @@ import {
   NavLinkStyled,
 } from './Navigation.styled';
 
-export const Navigation = ({ isMobile, darkTheme }) => {
+export const Navigation = ({ isMobile, setIsOpen }) => {
   return (
     <NavContainer isMobile={isMobile}>
       <NavListStyled>
         <li>
           <NavLinkStyled
             to="categories/beef"
-            darktheme={darkTheme ? 'true' : 'false'}
+            onClick={() => setIsOpen && setIsOpen(false)}
           >
             Categories
           </NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="add" darktheme={darkTheme ? 'true' : 'false'}>
+          <NavLinkStyled to="add" onClick={() => setIsOpen && setIsOpen(false)}>
             Add recipes
           </NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="my" darktheme={darkTheme ? 'true' : 'false'}>
+          <NavLinkStyled to="my" onClick={() => setIsOpen && setIsOpen(false)}>
             My recipes
           </NavLinkStyled>
         </li>
         <li>
-          <NavLinkStyled to="favorite" darktheme={darkTheme ? 'true' : 'false'}>
+          <NavLinkStyled
+            to="favorite"
+            onClick={() => setIsOpen && setIsOpen(false)}
+          >
             Favorites
           </NavLinkStyled>
         </li>
         <li>
           <NavLinkStyled
             to="shopinglist"
-            darktheme={darkTheme ? 'true' : 'false'}
+            onClick={() => setIsOpen && setIsOpen(false)}
           >
             Shopping list
           </NavLinkStyled>
@@ -44,7 +47,7 @@ export const Navigation = ({ isMobile, darkTheme }) => {
           <NavLinkStyled
             to="search"
             ismobile="true"
-            darktheme={darkTheme ? 'true' : 'false'}
+            onClick={() => setIsOpen(false)}
           >
             <FiSearch size={isMobile ? 20 : 24} />
             {isMobile && 'Search'}

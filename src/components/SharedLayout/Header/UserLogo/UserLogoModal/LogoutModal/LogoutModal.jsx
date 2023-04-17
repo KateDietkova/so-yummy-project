@@ -9,33 +9,23 @@ import {
   CloseIcon,
 } from './LogoutModal.styled';
 
-export const LogoutModal = ({ show, hide, darkTheme }) => {
+export const LogoutModal = ({ show, hide }) => {
   const handleLogout = () => {
     console.log('Logout');
     hide();
   };
   return (
-    <ModalContainer
-      show={show}
-      onHide={hide}
-      darktheme={darkTheme ? 'true' : 'false'}
-    >
+    <ModalContainer show={show} onHide={hide}>
       <ModalCloseBtn onClick={hide}>
-        <CloseIcon darktheme={darkTheme ? 'true' : 'false'} />
+        <CloseIcon />
       </ModalCloseBtn>
       <Modal.Body>
-        <OuestionText darktheme={darkTheme ? 'true' : 'false'}>
-          Are you sure you want to log out?
-        </OuestionText>
+        <OuestionText>Are you sure you want to log out?</OuestionText>
         <BtnsWrapper>
           <LogoutBtn type="button" onClick={handleLogout}>
             Log out
           </LogoutBtn>
-          <CanselBtn
-            type="button"
-            onClick={hide}
-            darktheme={darkTheme ? 'true' : 'false'}
-          >
+          <CanselBtn type="button" onClick={hide}>
             Cansel
           </CanselBtn>
         </BtnsWrapper>

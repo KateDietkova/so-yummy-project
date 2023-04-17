@@ -11,7 +11,7 @@ export const ModalContainer = styled(Modal)`
 
     padding: 32px 24px;
     background: ${props => {
-      return props.darktheme === 'true'
+      return props.theme.darkTheme
         ? props.theme.colors.bgdarkTheme
         : props.theme.colors.textWhite;
     }};
@@ -56,7 +56,7 @@ export const CloseIcon = styled(VscChromeClose)`
   width: 20px;
   height: 20px;
   color: ${props => {
-    return props.darktheme === 'true'
+    return props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textDark;
   }};

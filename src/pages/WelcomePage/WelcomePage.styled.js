@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import imgBgMobile from '../../assets/images/mobile/register-page/bg-wellcome.jpg';
-import imgBgMobileRetina from '../../assets/images/mobile/register-page/bg-wellcome-2x.jpg';
-import imgBgTablet from '../../assets/images/tablet/register-page/bg-wellcome.jpg';
-import imgBgTabletRetina from '../../assets/images/tablet/register-page/bg-wellcome-2x.jpg';
-import imgBgDesktop from '../../assets/images/desktop/register-page/bg-wellcome.jpg';
-import imgBgDesktopRetina from '../../assets/images/desktop/register-page/bg-wellcome-2x.jpg';
+import imgBgMobile from '../../assets/images/mobile/register-page/bg-welcome.jpg';
+import imgBgMobileRetina from '../../assets/images/mobile/register-page/bg-welcome-2x.jpg';
+import imgBgTablet from '../../assets/images/tablet/register-page/bg-welcome.jpg';
+import imgBgTabletRetina from '../../assets/images/tablet/register-page/bg-welcome-2x.jpg';
+import imgBgDesktop from '../../assets/images/desktop/register-page/bg-welcome.jpg';
+import imgBgDesktopRetina from '../../assets/images/desktop/register-page/bg-welcome-2x.jpg';
 import { ReactComponent as LogoIcon } from '../../assets/svg/logo/logo.svg';
 import { Container } from 'components/universalComponents/Container/Container.styled';
 
-export const WellcomeWrapper = styled.div`
+export const WelcomeWrapper = styled.div`
   display: flex;
   justify-content: center;
 
@@ -51,13 +51,13 @@ export const WellcomeWrapper = styled.div`
   }
 `;
 
-export const SectionWellcome = styled.section`
+export const SectionWelcome = styled.section`
   display: flex;
   align-items: center;
   padding: 15px;
 `;
 
-export const ContainerWellcomeStyled = styled(Container)`
+export const ContainerWelcomeStyled = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +96,7 @@ export const LogoIconStyled = styled(LogoIcon)`
   }
 `;
 
-export const WellcomeTitle = styled.h1`
+export const WelcomeTitle = styled.h1`
   margin-bottom: 14px;
 
   font-family: PoppinsSemiBold;
@@ -115,7 +115,7 @@ export const WellcomeTitle = styled.h1`
   }
 `;
 
-export const WellcomeDesc = styled.p`
+export const WelcomeDesc = styled.p`
   margin-bottom: 44px;
   max-width: 305px;
 
