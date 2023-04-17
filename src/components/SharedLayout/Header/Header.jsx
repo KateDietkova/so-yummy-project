@@ -27,7 +27,7 @@ export const Header = () => {
           </UserWithTogglerContainer>
         </HeaderContainer>
       </Container>
-      <MobileMenu isOpen={isOpen} />
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </HeaderStyled>
   );
 };
