@@ -18,7 +18,7 @@ export const Header = () => {
     <HeaderStyled>
       <Container>
         <HeaderContainer>
-          <Logo />
+          <Logo setIsOpen={setIsOpen} />
           <Navigation />
           <UserWithTogglerContainer>
             <UserLogo />
@@ -27,7 +27,7 @@ export const Header = () => {
           </UserWithTogglerContainer>
         </HeaderContainer>
       </Container>
-      <MobileMenu isOpen={isOpen} />
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </HeaderStyled>
   );
 };
