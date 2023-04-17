@@ -1,13 +1,13 @@
 import { AddRecipeForm } from 'components/AddRecipePageComponents/AddRecipeForm/AddRecipeForm';
 import { MainTitle } from '../../components/universalComponents/MainTitle/MainTitle';
-import { Container } from '../../components/universalComponents/Container/Container.styled';
+import { AddRecipeContainer } from './AddRecipePage.styled';
 
 const AddRecipePage = () => {
   return (
-    <Container>
+    <AddRecipeContainer>
       <MainTitle text="Add recipe" />
       <AddRecipeForm />
-    </Container>
+    </AddRecipeContainer>
   );
 };
 

@@ -5,13 +5,13 @@ import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camer
 export const FormStyled = styled(Form)`
   display: flex;
   gap: 32px;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 67px;
+    /* margin-bottom: 67px; */
   }
 
   @media screen and (min-width: 1280px) {
@@ -19,13 +19,12 @@ export const FormStyled = styled(Form)`
   }
 `;
 
-export const FieldFileWrapper = styled.div`
+export const AddFileInputWrapper = styled.div`
   position: relative;
   width: 279px;
   height: 268px;
 
   border-radius: 8px;
-
   background-color: ${props => props.theme.colors.accent};
 
   @media screen and (min-width: 1280px) {
@@ -34,7 +33,7 @@ export const FieldFileWrapper = styled.div`
   }
 `;
 
-export const ImageInput = styled(Field)`
+export const AddFileInput = styled(Field)`
   position: absolute;
   top: 0;
   left: 0;
@@ -46,44 +45,44 @@ export const ImageInput = styled(Field)`
   cursor: pointer;
 `;
 
+export const StyledPhotoRecipe = styled.img`
+  z-index: 50;
+  position: relative;
+  object-fit: cover;
+`;
+
 export const StyledField = styled(Field)`
+  width: 100%;
+  padding: 0;
+  padding-bottom: 18px;
   outline: none;
   border: none;
-  padding: 0;
   border-bottom: 1px solid;
   border-color: #e0e0e0;
-  width: 100%;
-  padding-bottom: 18px;
+  background-color: ${props => props.theme.colors.textWhite};
+  font-size: ${props => props.theme.fontSizes.s};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 
   &::placeholder {
     color: #000000;
     font-family: PoppinsRegular;
     font-weight: 400;
-    font-size: ${props => props.theme.fontSizes.m};
+    font-size: ${props => props.theme.fontSizes.s};
     line-height: 1.5;
     letter-spacing: -0.02em;
     opacity: 0.5;
+
+    @media screen and (min-width: 768px) {
+      font-size: ${props => props.theme.fontSizes.m};
+    }
   }
 `;
 
-// export const StyledSelect = styled(Field)`
-//   outline: none;
-//   border: none;
-//   width: 85px;
-//   max-height: 144px;
-//   padding-bottom: 16px;
-
-//   font-family: PoppinsRegular;
-//   font-weight: 400;
-//   font-size: ${props => props.theme.fontSizes.xs};
-//   line-height: 1.5;
-//   letter-spacing: -0.02em;
-
-//   color: #000000;
-//   opacity: 0.5;
-// `;
-
 export const StyledSelectLabel = styled.label`
+  padding-bottom: 18px;
   font-family: PoppinsRegular;
   font-weight: 400;
   font-size: ${props => props.theme.fontSizes.s};
@@ -91,18 +90,21 @@ export const StyledSelectLabel = styled.label`
   letter-spacing: -0.02em;
   opacity: 0.5;
   color: #000000;
-  padding-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
 export const SelectWrapper = styled.div`
   position: relative;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   outline: none;
   border: none;
   border-bottom: 1px solid;
   border-color: #e0e0e0;
-  width: 100%;
 `;
 
 export const CameraIconStyled = styled(CameraIcon)`
@@ -131,4 +133,24 @@ export const FieldsWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     gap: 40px;
   }
+`;
+
+export const ErrorValidation = styled.span`
+  display: block;
+  padding-top: 5px;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: ${props => props.theme.colors.validateRed};
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: -23px;
+    left: 0;
+  }
+`;
+
+export const PositionBox = styled.div`
+  position: relative;
 `;

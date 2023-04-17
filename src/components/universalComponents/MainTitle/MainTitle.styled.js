@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const MainTitleStyled = styled.h1`
   padding-bottom: 72px;
+  background-color: ${props => props.theme.colors.textWhite};
 
   @media screen and (min-width: 768px) {
     margin-top: 72px;
