@@ -41,7 +41,6 @@ export const RecipeDescriptionFields = ({
       lineHeight: '1',
       letterSpacing: '-0.02em',
       color: '#000000',
-      backgroundColor: '#FAFAFA',
       boxShadow: 'none',
     }),
     singleValue: styles => {

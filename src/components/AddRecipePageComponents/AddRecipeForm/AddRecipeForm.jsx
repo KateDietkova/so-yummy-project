@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './RecipeDescriptionFields/RecipeDescriptionFields.styled';
+import { cookingTimeOptions } from '../../../helpers/helper';
 
 //categoryList взяти з беку
 // GET: /api/recipes/category-list heder:Autorization: Bearer token
@@ -23,23 +24,6 @@ const categoryList = [
   'Vegan',
   'Vegetarian',
 ];
-//-------------------------------------------------
-//function, which create arr for coooking time(5min-120min)
-const cteateArrCookingTime = () => {
-  const start = 5;
-  const end = 120;
-  const range = [];
-  for (let i = start; i <= end; i += 5) {
-    range.push(i);
-  }
-  return range.map(item => ({
-    value: item.toString() + 'min',
-    label: item.toString() + 'min',
-  }));
-};
-
-const cookingTimeOptions = cteateArrCookingTime();
-//------------------------------------------------------
 
 const categoryOptions = categoryList.map(option => ({
   value: option.toLowerCase(),
@@ -127,7 +111,6 @@ export const AddRecipeForm = () => {
           categoryValue={categoryValue}
           timeValue={timeValue}
         />
-        <button type="submit" />
       </FormStyled>
     </Formik>
   );

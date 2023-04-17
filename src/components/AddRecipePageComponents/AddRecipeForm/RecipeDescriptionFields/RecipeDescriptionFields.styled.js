@@ -5,13 +5,12 @@ import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camer
 export const FormStyled = styled(Form)`
   display: flex;
   gap: 32px;
-  margin-bottom: 300px;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 67px; */
+    margin-bottom: 67px;
   }
 
   @media screen and (min-width: 1280px) {
