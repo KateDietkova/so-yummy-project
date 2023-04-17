@@ -5,6 +5,8 @@ export const ContainerThemeWrapper = styled.div`
   overflow: hidden;
   height: 100vh;
   background-color: ${props => {
-    return props.theme.darkTheme ? props.theme.colors.bgdarkTheme : '#fff';
+    return props.theme.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.textWhite;
   }};
 `;
