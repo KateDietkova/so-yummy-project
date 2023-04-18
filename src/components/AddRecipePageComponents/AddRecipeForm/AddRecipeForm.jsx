@@ -5,9 +5,11 @@ import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
+import { useSelector } from 'react-redux';
 
 //categoryList взяти з беку
 // GET: /api/recipes/category-list heder:Autorization: Bearer token
+
 const categoryList = [
   'Beef',
   'Breakfast',
@@ -41,6 +43,7 @@ export const AddRecipeForm = () => {
   const [timeValue, setTimeValue] = useState('5 min');
   const [selectedImgPath, setSelectedImgPath] = useState();
   const [selectedImgFile, setSelectedImgFile] = useState();
+  // const categoryList= useSelector(selectCategories)
 
   const navigate = useNavigate();
 
