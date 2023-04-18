@@ -12,4 +12,3 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-
