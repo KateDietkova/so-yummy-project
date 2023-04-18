@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
-import { FormStyled } from './RecipeDescriptionFields/RecipeDescriptionFields.styled';
+import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
 
 //categoryList взяти з беку

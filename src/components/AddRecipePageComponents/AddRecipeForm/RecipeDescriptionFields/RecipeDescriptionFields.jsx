@@ -1,6 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
-import { useMediaQuery } from 'react-responsive';
+import PropTypes from 'prop-types';
 
 import {
   AddFileInput,
@@ -12,6 +11,7 @@ import {
   StyledField,
   StyledPhotoRecipe,
   StyledSelectLabel,
+  StyledSelect,
 } from './RecipeDescriptionFields.styled';
 import { FormError } from '../validationAddRecipe';
 
@@ -20,98 +20,11 @@ export const RecipeDescriptionFields = ({
   handleCategoryInputChange,
   handleTimeInputChange,
   selectedImgPath,
-  selectedImgFile,
   categoryOptions,
   categoryValue,
   timeValue,
   cookingTimeOptions,
 }) => {
-  const isMobileScreen = useMediaQuery({ query: '(max-width: 767px)' });
-
-  const selectInputStyles = {
-    control: (styles, { isFocused }) => ({
-      ...styles,
-      display: 'flex',
-      justifyContent: 'flex-end',
-      marginLeft: 'auto',
-      border: 'none',
-      fontFamily: 'PoppinsRegular',
-      fontWeight: '400',
-      fontSize: isMobileScreen ? '12px' : '14px',
-      lineHeight: '1',
-      letterSpacing: '-0.02em',
-      color: '#000000',
-      boxShadow: 'none',
-    }),
-    singleValue: styles => {
-      return { ...styles, paddingBottom: '10px' };
-    },
-    option: (styles, { data, isSelected, isFocused }) => {
-      return {
-        ...styles,
-        fontFamily: 'PoppinsRegular',
-        fontWeight: '400',
-        fontSize: isMobileScreen ? '12px' : '14px',
-        lineHeight: '0.7',
-        letterSpacing: '-0.02em',
-        color: '#000000',
-        opacity: '0.5',
-        cursor: 'pointer',
-        backgroundColor: '#ffffff',
-      };
-    },
-    menu: (styles, { data }) => {
-      return {
-        ...styles,
-        position: 'absolute',
-        top: '25px',
-        right: 0,
-        width: isMobileScreen ? '123px' : '132px',
-        height: isMobileScreen ? '144px' : '162px',
-        margin: 0,
-        backgroundColor: '#FFFFFF',
-        boxShadow: ' 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
-        borderRadius: ' 6px',
-        cursor: 'pointer',
-      };
-    },
-    menuList: (styles, { isFocused }) => {
-      return {
-        ...styles,
-        width: isMobileScreen ? '123px' : '132px',
-        height: isMobileScreen ? '144px' : '162px',
-        margin: 0,
-        overflowY: 'scroll',
-        backgroundColor: '#FFFFFF',
-        borderRadius: ' 6px',
-        cursor: 'pointer',
-      };
-    },
-    dropdownIndicator: () => ({
-      marginRight: '5px',
-      marginLeft: '13px',
-      marginBottom: '23px',
-      width: '10px',
-      height: '5px',
-      color: '#8BAA36',
-      cursor: 'pointer',
-    }),
-    indicatorSeparator: () => ({
-      display: 'none',
-    }),
-    placeholder: styles => {
-      return {
-        ...styles,
-        paddingBottom: '10px',
-        fontFamily: 'PoppinsRegular',
-        fontWeight: '400',
-        fontSize: isMobileScreen ? '12px' : '14px',
-        lineHeight: '1',
-        color: '#000000',
-      };
-    },
-  };
-
   return (
     <>
       <AddFileInputWrapper>
@@ -157,27 +70,38 @@ export const RecipeDescriptionFields = ({
         </PositionBox>
         <SelectWrapper>
           <StyledSelectLabel>Category</StyledSelectLabel>
-          <Select
-            styles={selectInputStyles}
+          <StyledSelect
+            classNamePrefix="Select"
             name="category"
             options={categoryOptions}
             value={categoryValue}
             placeholder={categoryValue}
             onChange={e => handleCategoryInputChange(e.label)}
-          ></Select>
+          ></StyledSelect>
         </SelectWrapper>
         <SelectWrapper>
           <StyledSelectLabel>Cooking time</StyledSelectLabel>
-          <Select
-            styles={selectInputStyles}
+          <StyledSelect
+            classNamePrefix="Select"
             name="time"
             options={cookingTimeOptions}
             value={timeValue}
             placeholder={timeValue}
             onChange={e => handleTimeInputChange(e.label)}
-          ></Select>
+          ></StyledSelect>
         </SelectWrapper>
       </FieldsWrapper>
     </>
   );
+};
+
+RecipeDescriptionFields.propTypes = {
+  handleUploadFile: PropTypes.func.isRequired,
+  handleCategoryInputChange: PropTypes.func.isRequired,
+  handleTimeInputChange: PropTypes.func.isRequired,
+  selectedImgPath: PropTypes.string,
+  categoryOptions: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  categoryValue: PropTypes.string.isRequired,
+  timeValue: PropTypes.string.isRequired,
+  cookingTimeOptions: PropTypes.array.isRequired,
 };
