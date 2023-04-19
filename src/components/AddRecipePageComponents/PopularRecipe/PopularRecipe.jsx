@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularRecipe } from 'redux/recipes/recipesOperations';
 import {
-  selectIsLoading,
+  // selectIsLoading,
   selectPopularRecipes,
-  selectRecipesError,
+  // selectRecipesError,
 } from 'redux/recipes/recipesSelectors';
 import {
   StyledCard,
@@ -25,8 +25,8 @@ export const PopularRecipe = () => {
   }, [dispatch]);
 
   const popularRecipes = useSelector(selectPopularRecipes);
-  const isLoading = useSelector(selectIsLoading);
-  const RecipesError = useSelector(selectRecipesError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const RecipesError = useSelector(selectRecipesError);
 
   return (
     <StyledSectionWrapper>
