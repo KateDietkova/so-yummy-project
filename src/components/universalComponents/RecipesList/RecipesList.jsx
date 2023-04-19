@@ -1,9 +1,24 @@
-import {List, Recipe, RecipeContainer,Description, RecipeImg } from "./RecipesList.styled"
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { fetchRecipesByCategory } from 'redux/categories/categoriesOperations';
+import { selectRecipesByCategory } from 'redux/categories/categoriesSelectors';
 
-export const RecipesList = ({items = []}) => {
-    return (
+
+import { List, Recipe, RecipeContainer, Description, RecipeImg } from "./RecipesList.styled"
+
+export const RecipesList = () => {
+    const recipes = useSelector(selectRecipesByCategory);
+    const dispatch = useDispatch();
+    const { categoryName } = useParams();
+
+    useEffect(() => {
+        dispatch(fetchRecipesByCategory(categoryName ))
+    }, [dispatch, categoryName]);
+
+        return (
         <List>
-            {items.map(({ _id, title, thumb }) => (
+            {recipes && recipes.map(({ _id, title, thumb }) => (
                 <Recipe key={_id}>
                     <RecipeContainer>
                         <Description>
@@ -15,5 +30,23 @@ export const RecipesList = ({items = []}) => {
            ))}
         </List>
 )
+    
 }
+
+// export const RecipesList = ({items = []}) => {
+//     return (
+//         <List>
+//             {items.map(({ _id, title, thumb }) => (
+//                 <Recipe key={_id}>
+//                     <RecipeContainer>
+//                         <Description>
+//                             <p>{title}</p>
+//                             </Description>
+//                         <RecipeImg src={thumb} alt={title} />
+//                         </RecipeContainer>
+//                </Recipe>
+//            ))}
+//         </List>
+// )
+// }
 

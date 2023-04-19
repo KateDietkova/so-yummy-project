@@ -24,6 +24,7 @@ export const TabsList = styled.ul`
 `;
 
 export const Tab = styled(NavLink)`
+  text-decoration: none;
   position: relative;
   display: block;
   padding: 10px 0 32px;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: 'https://so-yummy-api.herokuapp.com/api/',
   headers: {
     Authorization:
@@ -11,7 +11,8 @@ const instance = axios.create({
 export const getRecipesByCategory = async categoryName => {
   try {
     const response = await instance.get(`recipes/category/${categoryName}`);
-    return response.data;
+    console.log(response.data.data.recipes);
+    return response.data.data.recipes;
   } catch (error) {
     console.log(error.message);
   }
@@ -20,7 +21,7 @@ export const getRecipesByCategory = async categoryName => {
 export const getCategoriesList = async () => {
   try {
     const response = await instance.get('recipes/category-list');
-    return response.data.categorys;
+    return response.data.categories;
   } catch (error) {
     console.log(error.message);
   }
