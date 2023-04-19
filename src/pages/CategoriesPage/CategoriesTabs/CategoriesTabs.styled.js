@@ -50,6 +50,9 @@ export const Tab = styled(NavLink)`
   &.active {
     color: ${props => props.theme.colors.accent};
   }
+  &:hover {
+    color: ${props => props.theme.colors.accent};
+  }
   @media screen and (min-width: 768px) {
     padding-bottom: 28px;
   }

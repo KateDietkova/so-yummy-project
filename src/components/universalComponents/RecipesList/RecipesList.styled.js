@@ -40,6 +40,7 @@ export const Description = styled.div`
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
+    left: 16px;
     width: 300px;
   }
   @media screen and (min-width: 1440px) {
@@ -48,8 +49,16 @@ export const Description = styled.div`
 `;
 
 export const RecipeImg = styled.img`
-  width: 100%;
+  width: 343px;
   height: 323px;
   object-fit: cover;
   transition: ${props => props.theme.effects.mainEffect};
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 299px;
+    gap: 14px;
+  }
 `;
