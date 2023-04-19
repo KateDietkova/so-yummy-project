@@ -19,7 +19,7 @@ export const recipesSlice = createSlice({
       state.isLoading = true;
     },
     [fetchPopularRecipe.fulfilled](state, action) {
-      state.isLoadinf = false;
+      state.isLoading = false;
       state.error = null;
       state.popularRecipes = action.payload;
     },

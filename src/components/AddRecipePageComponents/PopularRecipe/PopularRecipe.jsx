@@ -6,6 +6,7 @@ import {
   selectPopularRecipes,
   // selectRecipesError,
 } from 'redux/recipes/recipesSelectors';
+// import { Error } from './Error';
 import {
   StyledCard,
   StyledCardList,
@@ -26,7 +27,7 @@ export const PopularRecipe = () => {
 
   const popularRecipes = useSelector(selectPopularRecipes);
   // const isLoading = useSelector(selectIsLoading);
-  // const RecipesError = useSelector(selectRecipesError);
+  // const isError = useSelector(selectRecipesError);
 
   return (
     <StyledSectionWrapper>
@@ -36,7 +37,7 @@ export const PopularRecipe = () => {
           popularRecipes.map(({ _id, preview, title, instructions }) => {
             return (
               <StyledWrapper key={_id}>
-                <StyledNav to="recipe / recipe._id">
+                <StyledNav to="recipe / {_id}">
                   <StyledCard>
                     <StyledPicture src={preview} alt="recipe" />
                     <div>
@@ -49,8 +50,8 @@ export const PopularRecipe = () => {
             );
           })}
       </StyledCardList>
-      {/* {isLoading && Loader} */}
-      {/* {isError && <Error/>} */}
+      {/* {isLoading && Loader}  */}
+      {/* {isError && <Error/> } */}
     </StyledSectionWrapper>
   );
 };
