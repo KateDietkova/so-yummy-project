@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 import { TabsList, Tab } from "./CategoriesTabs.styled";
 
-const CategoriesTabs = ({ items = [] }) => {
+export const CategoriesTabs = ({ items = [] }) => {
     const ref = useRef(); 
     const { events } = useDraggable(ref);
 
@@ -15,4 +15,3 @@ const CategoriesTabs = ({ items = [] }) => {
 )
 }
 
-export default CategoriesTabs;

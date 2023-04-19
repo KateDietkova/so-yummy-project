@@ -1,6 +1,6 @@
 import {List, Recipe, RecipeContainer,Description, RecipeImg } from "./RecipesList.styled"
 
-const RecipesList = ({items = []}) => {
+export const RecipesList = ({items = []}) => {
     return (
         <List>
             {items.map(({ _id, title, thumb }) => (
@@ -17,4 +17,3 @@ const RecipesList = ({items = []}) => {
 )
 }
 
-export default RecipesList;
