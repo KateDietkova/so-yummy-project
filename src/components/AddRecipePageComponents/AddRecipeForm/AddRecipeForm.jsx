@@ -5,7 +5,7 @@ import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 //categoryList взяти з беку
 // GET: /api/recipes/category-list heder:Autorization: Bearer token
@@ -124,5 +124,5 @@ export const AddRecipeForm = () => {
 // formData.append('title', values.title);
 // formData.append('about', values.about);
 // formData.append('category', categoryValue);
-// formData.append('about', timeValue);
+// formData.append('time', timeValue);
 // console.log(formData.get('thumb'));

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Container } from '../../components/universalComponents/Container/Container.styled';
 
 export const AddRecipeContainer = styled(Container)`
+  position: relative;
   background-color: ${props =>
     props.theme.darkTheme
       ? props.theme.colors.bgdarkTheme

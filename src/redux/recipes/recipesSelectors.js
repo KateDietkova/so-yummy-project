@@ -6,5 +6,5 @@ export const selectRecipesByTitle = state => state.recipes.recipesByTitle;
 export const selectRecipesByIngredients = state =>
   state.recipes.recipesBuIngredients;
 
-export const selectIsLoading = state => state.recipes.isLoggedIn;
+export const selectIsLoading = state => state.recipes.isLoading;
 export const selectRecipesError = state => state.recipes.error;
