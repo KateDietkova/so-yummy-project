@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import {
@@ -14,9 +15,9 @@ import {
 
 import { SigninTitle, LinkRegisterStyled } from './SigninForm.styled';
 import { signinSchema, ValidMassege } from './validationSignin';
-
+import { login } from 'redux/auth/authOperations';
 const initialValue = {
-  name: '',
+  // name: '',
   email: '',
   password: '',
 };
@@ -24,13 +25,26 @@ const initialValue = {
 export const SigninForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const handleSubmit = (value, { resetForm }) => {
+  //   // console.log('Register data', value);
+    
+  //   resetForm();
+  //   setIsSubmit(false);
+  //   navigate('/');
+  // };
 
-  const handleSubmit = (value, { resetForm }) => {
-    console.log('Register data', value);
-    resetForm();
-    setIsSubmit(false);
+  const handleSubmit = (value, action) => {
+    // console.log(value);
+    const data = {
+      email: value.email,
+      password: value.password,
+    };
+    dispatch(login(data));
     navigate('/');
-  };
+    setIsSubmit(false);
+    action.resetForm();
+  }
 
   return (
     <FormWrapper>
@@ -72,7 +86,7 @@ export const SigninForm = () => {
             </FieldsWrapper>
 
             <SubmitBtn type="submit" onClick={() => setIsSubmit(true)}>
-              Sign up
+              Sign in
             </SubmitBtn>
           </FormStyled>
         )}

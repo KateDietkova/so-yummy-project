@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
-import { FormStyled } from './RecipeDescriptionFields/RecipeDescriptionFields.styled';
+import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
+// import { useSelector } from 'react-redux';
 
 //categoryList взяти з беку
 // GET: /api/recipes/category-list heder:Autorization: Bearer token
+
 const categoryList = [
   'Beef',
   'Breakfast',
@@ -41,6 +43,7 @@ export const AddRecipeForm = () => {
   const [timeValue, setTimeValue] = useState('5 min');
   const [selectedImgPath, setSelectedImgPath] = useState();
   const [selectedImgFile, setSelectedImgFile] = useState();
+  // const categoryList= useSelector(selectCategories)
 
   const navigate = useNavigate();
 
@@ -121,5 +124,5 @@ export const AddRecipeForm = () => {
 // formData.append('title', values.title);
 // formData.append('about', values.about);
 // formData.append('category', categoryValue);
-// formData.append('about', timeValue);
+// formData.append('time', timeValue);
 // console.log(formData.get('thumb'));
