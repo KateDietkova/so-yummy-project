@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import {
@@ -15,7 +16,7 @@ import {
   LinkStyled,
 } from './RegisterForm.styled';
 import { signupSchema, ValidMassege } from './validationRegister';
-
+import { register } from 'redux/auth/authOperations';
 
 
 const initialValue = {
@@ -27,12 +28,24 @@ const initialValue = {
 export const RegisterForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
-
-  const handleSubmit = (value, { resetForm }) => {
-    console.log('Register data', value);
-    resetForm();
+  const dispatch = useDispatch();
+  // const handleSubmit = (value, { resetForm }) => {
+  //   console.log('Register data', value);
+  //   resetForm();
+  //   setIsSubmit(false);
+  //   navigate('/');
+  // };
+  const handleSubmit = (value, action) => {
+  const data = {
+      name: value.name,
+      email: value.email,
+      password: value.password,
+    };
+    
+    dispatch(register(data)); 
     setIsSubmit(false);
     navigate('/');
+    action.resetForm();
   };
 
   return (
