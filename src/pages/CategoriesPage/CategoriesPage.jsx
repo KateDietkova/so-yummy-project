@@ -2,7 +2,8 @@
 import { Container } from "components/universalComponents/Container/Container.styled";
 import { MainTitle } from "components/universalComponents/MainTitle/MainTitle";
 import { CategoriesTabs } from "./CategoriesTabs/CategoriesTabs";
-import { RecipesGallery } from "components/universalComponents/RecipesGallery/RecipesGallery";
+import { CategoriesRecipesList } from "components/CategoriesPageComponents/CategoriesMenuList/CategoriesRecipesList";
+
 
 
 const CategoriesPage = () => {
@@ -13,7 +14,7 @@ const CategoriesPage = () => {
     <Container>
     <MainTitle text="Categories"/>
     <CategoriesTabs  />
-    <RecipesGallery />
+    <CategoriesRecipesList />
     </Container>
   )
 };

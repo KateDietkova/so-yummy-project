@@ -19,7 +19,7 @@ export const CategoriesTabs = () => {
 
     return (
          <TabsList  {...events} ref={ref}>
-            {categories && categories.map(category => (
+            {categories.length > 0 && categories.map(category => (
                 <Tab to={`/categories/${category.toLowerCase()}`} key={category}>{category }</Tab>
             ))}
     </TabsList>

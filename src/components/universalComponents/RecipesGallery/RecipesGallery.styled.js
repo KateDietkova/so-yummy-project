@@ -40,6 +40,7 @@ export const Description = styled.div`
   background: #ffffff;
   color: #3e4462;
   border-radius: 8px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     left: 16px;
@@ -47,6 +48,13 @@ export const Description = styled.div`
   }
   @media screen and (min-width: 1440px) {
     width: 268px;
+  }
+  p {
+    font-weight: ${props => props.theme.fontWeights.medium};
+    font-size: ${props => props.theme.fontSizes.m};
+    line-height: 1.25;
+    letter-spacing: -0.24px;
+    text-align: left;
   }
 `;
 
