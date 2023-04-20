@@ -14,20 +14,20 @@ const initialState = {
 export const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
-  extraReducers: builder => {
-    builder
-      .addCase(fetchPopularRecipe.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(fetchPopularRecipe.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.popularRecipes = action.payload;
-      })
-      .addCase(fetchPopularRecipe.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
+
+  extraReducers: {
+    [fetchPopularRecipe.pending](state, action) {
+      state.isLoading = true;
+    },
+    [fetchPopularRecipe.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.popularRecipes = action.payload;
+    },
+    [fetchPopularRecipe.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 
   // {
