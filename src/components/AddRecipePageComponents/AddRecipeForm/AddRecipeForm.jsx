@@ -5,27 +5,28 @@ import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+// import { selectCategories } from 'redux/categories/categoriesSelectors';
 
 //categoryList взяти з беку
 // GET: /api/recipes/category-list heder:Autorization: Bearer token
 
-// const categoryList = [
-//   'Beef',
-//   'Breakfast',
-//   'Chicken',
-//   'Dessert',
-//   'Goat',
-//   'Lamb',
-//   'Miscellaneous',
-//   'Pasta',
-//   'Pork',
-//   'Seafood',
-//   'Side',
-//   'Starter',
-//   'Vegan',
-//   'Vegetarian',
-// ];
+const categoryList = [
+  'Beef',
+  'Breakfast',
+  'Chicken',
+  'Dessert',
+  'Goat',
+  'Lamb',
+  'Miscellaneous',
+  'Pasta',
+  'Pork',
+  'Seafood',
+  'Side',
+  'Starter',
+  'Vegan',
+  'Vegetarian',
+];
 
 const initialValues = {
   thumb: '',
@@ -38,7 +39,7 @@ export const AddRecipeForm = () => {
   const [timeValue, setTimeValue] = useState('5 min');
   const [selectedImgPath, setSelectedImgPath] = useState();
   const [selectedImgFile, setSelectedImgFile] = useState();
-  const categoryList = useSelector(selectCategories);
+  // const categoryList = useSelector(selectCategories);
 
   const categoryOptions = categoryList.map(option => ({
     value: option.toLowerCase(),
