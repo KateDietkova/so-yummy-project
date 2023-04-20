@@ -31,7 +31,7 @@ export const RecipeDescriptionFields = ({
         <CameraIconStyled />
         <AddFileInput
           type="file"
-          accept="image/*,.png,.jpg,.web,.gif,.png"
+          accept="image/*,.png,.jpg,.web,.png"
           name="image"
           onChange={handleUploadFile}
         ></AddFileInput>
