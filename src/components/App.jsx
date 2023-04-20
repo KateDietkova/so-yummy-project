@@ -9,7 +9,7 @@ import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
 import { RestrictedRoute } from './RestrictedRoute';
-import { VerificationPage } from 'pages/VarificationPage/VarificationPage';
+import { VerificationPage } from 'pages/VerificationPage/VerificationPage';
 import { PrivateRoute } from './PrivateRoute';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';

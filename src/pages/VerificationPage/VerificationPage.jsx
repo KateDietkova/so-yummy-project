@@ -1,5 +1,5 @@
 import { Container } from 'components/universalComponents/Container/Container.styled';
-import { VerifyTitle } from './VarificationPage.styled';
+import { VerifyTitle } from './VerificationPage.styled';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
