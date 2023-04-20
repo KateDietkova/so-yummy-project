@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com';
 
 export const fetchPopularRecipe = createAsyncThunk(
-  'recipies/fetchPopular',
+  'recipes/fetchPopular',
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get('/api/popular-recipe');
