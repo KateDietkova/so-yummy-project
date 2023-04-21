@@ -37,8 +37,14 @@ export const Description = styled.div`
   bottom: 24px;
   padding: 16px;
   width: 307px;
-  background: #ffffff;
-  color: #3e4462;
+  background: ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.textWhite};
+  color: ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.bgdarkTheme};
   border-radius: 8px;
   overflow: hidden;
 
