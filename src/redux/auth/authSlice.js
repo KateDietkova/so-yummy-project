@@ -45,8 +45,6 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
         state.isLoggedIn = true;
-        console.log('Token in state slice', payload.token);
-        console.log('State', state.isLoggedIn);
         state.token = payload.token;
       })
       .addCase(verification.rejected, (state, { payload }) => {
@@ -63,6 +61,7 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
         state.isLoggedIn = true;
+        state.token = payload.token;
         state.user = payload.user;
       })
       .addCase(login.rejected, (state, { payload }) => {

@@ -11,10 +11,8 @@ export const VerificationPage = () => {
   const email = JSON.parse(localStorage.getItem('userEmail'));
 
   useEffect(() => {
-    console.log('Send verification', email, vCode);
-
     dispatch(verification({ email, vCode }));
-  }, []);
+  }, [dispatch, email, vCode]);
 
   return (
     <Container>

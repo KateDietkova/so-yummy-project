@@ -8,10 +8,14 @@ import {
   CanselBtn,
   CloseIcon,
 } from './LogoutModal.styled';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/auth/authOperations';
 
 export const LogoutModal = ({ show, hide }) => {
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
-    console.log('Logout');
+    dispatch(logout());
     hide();
   };
   return (
