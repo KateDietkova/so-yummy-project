@@ -1,9 +1,8 @@
 // import { useNavigate } from "react-router-dom";
-import { Container } from "components/universalComponents/Container/Container.styled";
 import { MainTitle } from "components/universalComponents/MainTitle/MainTitle";
 import { CategoriesTabs } from "./CategoriesTabs/CategoriesTabs";
 import { CategoriesRecipesList } from "components/CategoriesPageComponents/CategoriesMenuList/CategoriesRecipesList";
-
+import { CategoriesPageContainer } from "./CategoriesPage.styled";
 
 
 
@@ -12,11 +11,11 @@ const CategoriesPage = () => {
 // const goBack = () => navigate (-1)
 
   return (
-    <Container>
+    <CategoriesPageContainer>
     <MainTitle text="Categories"/>
     <CategoriesTabs  />
     <CategoriesRecipesList />
-    </Container>
+    </CategoriesPageContainer>
   )
 };
 

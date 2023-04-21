@@ -7,7 +7,7 @@ import { selectRecipesByCategory } from 'redux/categories/categoriesSelectors';
 import { RecipesGallery } from 'components/universalComponents/RecipesGallery/RecipesGallery';
 
 export const CategoriesRecipesList = () => {
-        const recipes = useSelector(selectRecipesByCategory);
+    const recipes = useSelector(selectRecipesByCategory);
     const dispatch = useDispatch();
     const { categoryName } = useParams();
 
