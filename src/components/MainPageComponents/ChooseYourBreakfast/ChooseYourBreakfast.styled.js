@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { HiOutlineArrowRight } from 'react-icons/hi';
 
 export const MainDescRecipes = styled.div`
   position: absolute;
@@ -90,24 +91,37 @@ export const RecipesBtn = styled(NavLink)`
   margin-top: 7px;
   margin-left: 123px;
   padding: 0px;
-  display: flex;
-  flex-direction: row;
-  margin-right: 7px;
   align-items: center;
   font-size: 10px;
   line-height: 12px;
-  gap: 7px;
-
-  @media screen and (max-width: 767px) {
-  }
 
   @media screen and (min-width: 768px) {
     font-weight: 400;
     font-size: 10px;
-    margin-left: 148px;
+    margin-left: 152px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 180px;
+    margin-left: 175px;
+  }
+`;
+
+export const ArrowStyled = styled(HiOutlineArrowRight)`
+  height: 18px;
+  width: 18px;
+  margin-left: 4px;
+  background-position: right;
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textBlue;
+  }};
+
+  @media screen and (min-width: 768px) {
+    margin-left: 4px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 7px;
   }
 `;

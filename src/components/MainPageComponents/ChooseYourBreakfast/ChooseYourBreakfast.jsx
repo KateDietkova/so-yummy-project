@@ -3,8 +3,8 @@ import {
   RecipesBtn,
   TextDescRecipes,
   DescRecipeAccent,
+  ArrowStyled,
 } from '../ChooseYourBreakfast/ChooseYourBreakfast.styled';
-import { ReactComponent as Icon } from '../../../assets/svg/other/Icon.svg';
 
 export const ChooseYourBreakfast = () => {
   return (
@@ -16,7 +16,7 @@ export const ChooseYourBreakfast = () => {
         </TextDescRecipes>
         <RecipesBtn to="categories/:breakfast">
           See recipes
-          <Icon size={12} />
+          <ArrowStyled />
         </RecipesBtn>
       </MainDescRecipes>
     </>
