@@ -10,7 +10,7 @@ import {
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
 
- const RecipePageHero = ({ description, time, title }) => {
+ const RecipePageHero = ({ title, description, time  }) => {
   return (
     <SectionHero>
         <SectionHeroTitle>{title}</SectionHeroTitle>

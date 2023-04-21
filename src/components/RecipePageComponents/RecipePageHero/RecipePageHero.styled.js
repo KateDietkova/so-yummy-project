@@ -22,6 +22,7 @@ export const SectionHero = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -48,11 +49,14 @@ export const SectionHero = styled.div`
 `;
 
 export const SectionHeroTitle = styled.h1`
-   font-weight: 600;
+  max-width:360px;
+  margin-right:auto;
+  margin-left:auto;
+  font-weight: ${({ theme }) => `${theme.fontWeights.semibold}`};
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #8baa36;
+  color: ${({ theme }) => `${theme.colors.accent}`};
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     font-size: 44px;
@@ -61,6 +65,9 @@ export const SectionHeroTitle = styled.h1`
 `;
 
 export const RecipeDescription = styled.p`
+  max-width:300px;
+  margin-right:auto;
+  margin-left:auto;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
@@ -68,9 +75,11 @@ export const RecipeDescription = styled.p`
   margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
+    max-width:506px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 30px;
+    width:656px;
   }
 `;
 
