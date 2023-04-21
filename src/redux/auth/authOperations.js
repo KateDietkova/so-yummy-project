@@ -18,7 +18,6 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/registration', credentials);
-      console.log('register', data);
       localStorage.setItem('userEmail', JSON.stringify(data.user.email));
       return data;
     } catch (error) {
@@ -31,7 +30,9 @@ export const verification = createAsyncThunk(
   'auth/verification',
   async ({ email, vCode }, { rejectWithValue }) => {
     try {
-      const { data: {data} } = await axios.post(`/auth/verify/${vCode}`, { email });
+      const {
+        data: { data },
+      } = await axios.post(`/auth/verify/${vCode}`, { email });
       token.set(data.token);
       return data;
     } catch (error) {
@@ -44,7 +45,9 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data: {data} } = await axios.post('/auth/login', credentials);
+      const {
+        data: { data },
+      } = await axios.post('/auth/login', credentials);
       token.set(data.token);
       return data;
     } catch (error) {
