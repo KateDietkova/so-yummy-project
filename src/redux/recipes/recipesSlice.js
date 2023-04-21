@@ -14,6 +14,7 @@ const initialState = {
 export const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
+
   extraReducers: builder => {
     builder
       .addCase(fetchPopularRecipe.pending, state => {

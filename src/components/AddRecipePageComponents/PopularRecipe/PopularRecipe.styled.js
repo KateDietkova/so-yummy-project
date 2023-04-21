@@ -16,7 +16,8 @@ export const StyledTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.xl};
   line-height: 1;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props =>
+    props.theme.darkTheme ? props.theme.colors.textWhite : '#3e4462'};
 `;
 
 export const StyledCardList = styled.ul`
@@ -58,7 +59,7 @@ export const StyledCard = styled.div`
 `;
 
 export const StyledPicture = styled.img`
-  width: 104px;
+  min-width: 104px;
   height: 100%;
   border-radius: 8px;
 
@@ -77,19 +78,35 @@ export const StyledRecipeTitle = styled.h3`
   font-size: ${props => props.theme.fontSizes.m};
   line-height: 1.25;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: ${props =>
+    props.theme.darkTheme ? props.theme.colors.textWhite : '#3e4462'};
 `;
 
 export const StyledInstructions = styled.p`
   display: block;
   width: 213px;
-  height: 56px;
-  overflow: hidden;
+  height: 48px;
   font-family: PoppinsRegular;
   font-weight: ${props => props.theme.fontWeights.normal};
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: 1.3;
   letter-spacing: -0.24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
-  color: #7e7e7e;
+  color: ${props =>
+    props.theme.darkTheme ? 'rgba(250, 250, 250, 0.6)' : '#7e7e7e'};
+
+  @media screen and (min-width: 768px) {
+    width: 209px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 198px;
+  }
 `;

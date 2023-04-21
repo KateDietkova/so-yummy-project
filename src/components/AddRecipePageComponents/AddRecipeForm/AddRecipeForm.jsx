@@ -1,36 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './AddRecipeForm.styled';
 import { cookingTimeOptions } from '../../../helpers/helper';
-// import { useSelector } from 'react-redux';
-
-//categoryList взяти з беку
-// GET: /api/recipes/category-list heder:Autorization: Bearer token
-
-const categoryList = [
-  'Beef',
-  'Breakfast',
-  'Chicken',
-  'Dessert',
-  'Goat',
-  'Lamb',
-  'Miscellaneous',
-  'Pasta',
-  'Pork',
-  'Seafood',
-  'Side',
-  'Starter',
-  'Vegan',
-  'Vegetarian',
-];
-
-const categoryOptions = categoryList.map(option => ({
-  value: option.toLowerCase(),
-  label: option,
-}));
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCategories } from 'redux/categories/categoriesSelectors';
+import { fetchCategoriesList } from 'redux/categories/categoriesOperations';
 
 const initialValues = {
   thumb: '',
@@ -43,9 +20,18 @@ export const AddRecipeForm = () => {
   const [timeValue, setTimeValue] = useState('5 min');
   const [selectedImgPath, setSelectedImgPath] = useState();
   const [selectedImgFile, setSelectedImgFile] = useState();
-  // const categoryList= useSelector(selectCategories)
-
+  const { categories } = useSelector(selectCategories);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    categories.length === 0 && dispatch(fetchCategoriesList());
+  }, [dispatch, categories]);
+
+  const categoryOptions = categories.map(option => ({
+    value: option.toLowerCase(),
+    label: option,
+  }));
 
   const handleUploadFile = e => {
     const file = e.target.files[0];
@@ -58,13 +44,7 @@ export const AddRecipeForm = () => {
       return;
     }
     if (
-      ![
-        'image/jpeg',
-        'image/jpg',
-        'image/web',
-        'image/gif',
-        'image/png',
-      ].includes(file.type)
+      !['image/jpeg', 'image/jpg', 'image/web', 'image/png'].includes(file.type)
     ) {
       alert('You can upload only images');
       return;
