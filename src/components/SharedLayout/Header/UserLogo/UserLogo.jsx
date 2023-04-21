@@ -6,9 +6,12 @@ import {
   UserAvatarWrapper,
 } from './UserLogo.styled';
 import { UserLogoModal } from './UserLogoModal/UserLogoModal';
+import { useAuth } from 'hooks/useAuth';
 
 export const UserLogo = () => {
   const [isOpenUserModal, setIsOpenUserModal] = useState(false);
+  const { user: {name: userName} } = useAuth()
+
   const userAvatar = null;
   return (
     <UserLogoBtnWrapper>
@@ -20,7 +23,7 @@ export const UserLogo = () => {
             <FiUser size={30} color={'#C4C4C4'} />
           )}
         </UserAvatarWrapper>
-        Olena
+        {userName ? userName : "User"}
       </UserLogoBtn>
       <UserLogoModal isOpenUserModal={isOpenUserModal} />
     </UserLogoBtnWrapper>

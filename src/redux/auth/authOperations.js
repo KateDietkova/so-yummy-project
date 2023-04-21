@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = ' https://so-yummy-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
 
 const token = {
   set(token) {
@@ -31,10 +31,8 @@ export const verification = createAsyncThunk(
   'auth/verification',
   async ({ email, vCode }, { rejectWithValue }) => {
     try {
-      console.log('in verification vCode', vCode, email);
-      const { data } = await axios.post(`/auth/verify/${vCode}`, { email });
+      const { data: {data} } = await axios.post(`/auth/verify/${vCode}`, { email });
       token.set(data.token);
-      console.log('verification', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -46,7 +44,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/auth/login', credentials);
+      const { data: {data} } = await axios.post('/auth/login', credentials);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -67,7 +65,6 @@ export const logout = createAsyncThunk(
   }
 );
 
-
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
@@ -86,4 +83,3 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
-
