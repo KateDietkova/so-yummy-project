@@ -7,6 +7,7 @@ export const ButtonSkew = ({
   width,
   padding,
   children,
+  isShadow,
 }) => {
   return (
     <ButtonSkewStyled
@@ -15,6 +16,7 @@ export const ButtonSkew = ({
       hoverColor={hoverColor}
       width={width}
       padding={padding}
+      isShadow={isShadow}
     >
       <div className="inner">{children}</div>
     </ButtonSkewStyled>

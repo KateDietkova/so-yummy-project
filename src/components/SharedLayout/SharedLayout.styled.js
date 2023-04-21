@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ContainerThemeWrapper = styled.div`
-  position: relative;
   overflow: hidden;
   min-height: 100vh;
   background-color: ${props => {

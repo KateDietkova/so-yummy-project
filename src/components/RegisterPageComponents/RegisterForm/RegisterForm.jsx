@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import {
   FormWrapper,
@@ -18,7 +17,6 @@ import {
 import { signupSchema, ValidMassege } from './validationRegister';
 import { register } from 'redux/auth/authOperations';
 
-
 const initialValue = {
   name: '',
   email: '',
@@ -27,25 +25,13 @@ const initialValue = {
 
 export const RegisterForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const handleSubmit = (value, { resetForm }) => {
-  //   console.log('Register data', value);
-  //   resetForm();
-  //   setIsSubmit(false);
-  //   navigate('/');
-  // };
-  const handleSubmit = (value, action) => {
-  const data = {
-      name: value.name,
-      email: value.email,
-      password: value.password,
-    };
-    
-    dispatch(register(data)); 
+  const handleSubmit = (value, { resetForm }) => {
+    console.log('Register data', value);
+    dispatch(register(value));
     setIsSubmit(false);
-    navigate('/');
-    action.resetForm();
+    resetForm();
+
   };
 
   return (
@@ -70,7 +56,7 @@ export const RegisterForm = () => {
                   pattern="^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$"
                   placeholder="Name"
                 />
-                <UserIcon/>
+                <UserIcon />
                 <ErrorMessage name="name" />
                 {touched.name && !errors.name && isSubmit && <ValidMassege />}
               </LabelStyled>
@@ -92,7 +78,7 @@ export const RegisterForm = () => {
                   placeholder="Password"
                   required
                 />
-                <PasswordIcon/>
+                <PasswordIcon />
                 <ErrorMessage name="password" />
                 {touched.password && !errors.password && isSubmit && (
                   <ValidMassege>Password is secure</ValidMassege>
