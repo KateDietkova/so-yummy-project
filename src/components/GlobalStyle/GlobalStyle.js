@@ -17,6 +17,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     list-style: none;
   }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
+  
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 

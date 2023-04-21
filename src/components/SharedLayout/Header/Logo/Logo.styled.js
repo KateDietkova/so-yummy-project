@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const LogoIconLink = styled(NavLink)`
   width: 44px;
   height: 44px;
+  stroke: ${props => props.theme.colors.textWhite};
   border-radius: ${props => props.theme.radii.roundedSquere};
   padding: 7px;
   display: flex;
