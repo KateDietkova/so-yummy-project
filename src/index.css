@@ -34,6 +34,10 @@ body {
   min-height: 100%;
 }
 
+body {
+  position: relative;
+}
+
 *,
 ::after,
 ::before {
