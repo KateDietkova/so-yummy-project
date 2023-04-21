@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchPopularRecipe } from './recipesOperations';
+import { fetchPopularRecipe, getAllByCategory } from './recipesOperations';
 
 const initialState = {
   popularRecipes: null,
@@ -25,6 +25,19 @@ export const recipesSlice = createSlice({
         state.popularRecipes = action.payload;
       })
       .addCase(fetchPopularRecipe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getAllByCategory.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getAllByCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipesByCategory = action.payload;
+        console.log(action.payload);
+      })
+      .addCase(getAllByCategory.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

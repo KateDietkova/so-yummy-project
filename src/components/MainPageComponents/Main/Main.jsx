@@ -8,6 +8,7 @@ import {
   MainImgContainer,
 } from './Main.styled';
 import { Search } from '../Search/Search';
+import { PreviewCategories } from '../PreviewCategories/PreviewCategories';
 
 export const Main = () => {
   return (
@@ -22,6 +23,7 @@ export const Main = () => {
           cookbook. You can add your own recipes to save them for the future.
         </MainDesc>
         <Search />
+        <PreviewCategories />
         <MainImgContainer></MainImgContainer>
       </Container>
     </MainSection>
