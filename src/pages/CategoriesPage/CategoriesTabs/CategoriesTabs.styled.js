@@ -31,7 +31,10 @@ export const Tab = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.l};
   font-weight: ${props => props.theme.fontWeights.normal};
   line-height: 1;
-  color: #e0e0e0;
+  color: ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textGray};
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
   &::after {
     position: absolute;
