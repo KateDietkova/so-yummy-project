@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/so-yummy-project/static/css/main.32fd390e.css",
-    "main.js": "/so-yummy-project/static/js/main.1902aada.js",
+    "main.js": "/so-yummy-project/static/js/main.91d11fa4.js",
     "static/js/281.bac40734.chunk.js": "/so-yummy-project/static/js/281.bac40734.chunk.js",
-    "static/js/73.21584a24.chunk.js": "/so-yummy-project/static/js/73.21584a24.chunk.js",
+    "static/js/7.5883c7c1.chunk.js": "/so-yummy-project/static/js/7.5883c7c1.chunk.js",
     "static/js/341.b94756c6.chunk.js": "/so-yummy-project/static/js/341.b94756c6.chunk.js",
     "static/js/418.8f5888bc.chunk.js": "/so-yummy-project/static/js/418.8f5888bc.chunk.js",
     "static/js/305.23dfe4e9.chunk.js": "/so-yummy-project/static/js/305.23dfe4e9.chunk.js",
@@ -36,9 +36,9 @@
     "static/media/valid-icon.svg": "/so-yummy-project/static/media/valid-icon.2c20cfce5010676dc2acf065541b3183.svg",
     "static/media/burger-menu.svg": "/so-yummy-project/static/media/burger-menu.ad2d6f185ba02a09996f801b576c8d03.svg",
     "main.32fd390e.css.map": "/so-yummy-project/static/css/main.32fd390e.css.map",
-    "main.1902aada.js.map": "/so-yummy-project/static/js/main.1902aada.js.map",
+    "main.91d11fa4.js.map": "/so-yummy-project/static/js/main.91d11fa4.js.map",
     "281.bac40734.chunk.js.map": "/so-yummy-project/static/js/281.bac40734.chunk.js.map",
-    "73.21584a24.chunk.js.map": "/so-yummy-project/static/js/73.21584a24.chunk.js.map",
+    "7.5883c7c1.chunk.js.map": "/so-yummy-project/static/js/7.5883c7c1.chunk.js.map",
     "341.b94756c6.chunk.js.map": "/so-yummy-project/static/js/341.b94756c6.chunk.js.map",
     "418.8f5888bc.chunk.js.map": "/so-yummy-project/static/js/418.8f5888bc.chunk.js.map",
     "305.23dfe4e9.chunk.js.map": "/so-yummy-project/static/js/305.23dfe4e9.chunk.js.map",
@@ -50,6 +50,6 @@
   },
   "entrypoints": [
     "static/css/main.32fd390e.css",
-    "static/js/main.1902aada.js"
+    "static/js/main.91d11fa4.js"
   ]
 }
