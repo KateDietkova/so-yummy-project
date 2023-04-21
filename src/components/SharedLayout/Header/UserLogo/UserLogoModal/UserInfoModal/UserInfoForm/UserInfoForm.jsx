@@ -13,12 +13,15 @@ import {
 import { PreviewPhoto } from './PreviewPhoto/PreviewPhoto';
 import { FiUser } from 'react-icons/fi';
 import { IoAdd } from 'react-icons/io5';
+import { useAuth } from 'hooks/useAuth';
 
 export const UserInfoForm = ({ closeModal }) => {
-  const userName = 'Olena';
+  const {
+    user: { name},
+  } = useAuth();
   const userPhoto = null;
   const [photoRef, setPhotoRef] = useState(userPhoto);
-  const initialValue = { name: userName, photo: photoRef };
+  const initialValue = { name, photo: photoRef };
 
   const fileRef = useRef(null);
 
