@@ -22,7 +22,16 @@ export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
     }};
   }
   @media screen and (min-width: 768px) and (max-width: 879px) {
-    stroke: ${props => props.theme.colors.bgBlackDark};
+    stroke: ${props => {
+      if (
+        (props.theme.darkTheme && props.location === 'true') ||
+        !props.theme.darkTheme
+      ) {
+        return props.theme.colors.bgBlackDark;
+      }
+
+      return props.theme.colors.textWhite;
+    }};
   }
 
   @media screen and (min-width: 880px) {
