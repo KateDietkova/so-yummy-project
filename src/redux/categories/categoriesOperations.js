@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getCategoriesList, instance } from 'servicesApi/api';
+import { instance } from 'servicesApi/api';
 
 axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com';
 
@@ -8,8 +8,9 @@ export const fetchCategoriesList = createAsyncThunk(
   'categories/fetchCategoriesList',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await getCategoriesList('/recipes/category-list');
-      return response;
+      const { data } = await instance.get('/recipes/category-list');
+      console.log(data.categories);
+      return data.categories;
     } catch (error) {
       return rejectWithValue(error.message);
     }
