@@ -46,7 +46,9 @@ export const ButtonSkewStyled = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: ${props => {
+      return props.isShadow ? '0 4px 3px 0 rgba(0, 0, 0, 0.3)' : 'none';
+    }};
   }
 `;
 
