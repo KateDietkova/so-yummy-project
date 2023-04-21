@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { json } from 'react-router-dom';
 
 axios.defaults.baseURL = ' https://so-yummy-api.herokuapp.com/api';
 

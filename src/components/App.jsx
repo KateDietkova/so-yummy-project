@@ -43,7 +43,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={{ ...theme, darkTheme }}>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import {
   FormWrapper,
@@ -26,13 +25,11 @@ const initialValue = {
 
 export const RegisterForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = (value, { resetForm }) => {
     console.log('Register data', value);
     dispatch(register(value));
     setIsSubmit(false);
-    // navigate('/');
     resetForm();
 
   };
