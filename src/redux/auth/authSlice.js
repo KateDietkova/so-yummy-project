@@ -51,6 +51,7 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.user.verify = payload.user.verify;
+        state.isLoggedIn = true;
       })
       .addCase(verification.rejected, (state, { payload }) => {
         state.isRefreshing = false;

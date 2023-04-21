@@ -45,7 +45,6 @@ export const App = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-
   return (
     <ThemeProvider theme={{ ...theme, darkTheme }}>
       <GlobalStyle />
@@ -67,6 +66,16 @@ export const App = () => {
             path="/signin"
             element={
               <RestrictedRoute redirectTo="/" component={<SigninPage />} />
+            }
+          />
+
+          <Route
+            path="verification/:vCode"
+            element={
+              <RestrictedRoute
+                redirectTo="/"
+                component={<VerificationPage />}
+              />
             }
           />
           <Route path="/" element={<SharedLayout />}>
@@ -133,7 +142,6 @@ export const App = () => {
                 />
               }
             />
-            <Route path="verification/:vCode" element={<VerificationPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
