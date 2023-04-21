@@ -47,7 +47,7 @@ export const Navigation = ({ isMobile, setIsOpen }) => {
           <NavLinkStyled
             to="search"
             ismobile="true"
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen && setIsOpen(false)}
           >
             <FiSearch size={isMobile ? 20 : 24} />
             {isMobile && 'Search'}
