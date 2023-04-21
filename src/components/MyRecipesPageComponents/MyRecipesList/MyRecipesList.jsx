@@ -604,20 +604,18 @@ const userRecipes = [
   },
 ];
 
-export const MyRecipesList = ({ _id, preview, title, description, time }) => {
-  const pageName = 'My recipes';
-
+export const MyRecipesList = () => {
   return (
     <RecipeCard>
       {userRecipes &&
         userRecipes.map(({ _id, preview, title, description, time }) => (
           <MyRecipesListItem
-            type={pageName}
-            key={_id}
+            key={_id.$oid}
             preview={preview}
             title={title}
             description={description}
             time={time}
+            _id={_id}
           />
         ))}
     </RecipeCard>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { LinkSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
 
-import { ReactComponent as DeleteIcon } from '../../../assets/svg/other/camera.svg';
+import { ReactComponent as DeleteIcon } from '../../../assets/svg/other/trash-icon.svg';
 
 export const RecipeCardWrapper = styled.li`
   display: flex;
@@ -30,6 +30,14 @@ export const RecipeCardWrapper = styled.li`
 export const InfoCardWrapper = styled.div`
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 export const RecipeTitle = styled.h2`
   margin-bottom: 14px;
@@ -81,6 +89,12 @@ export const StyledDescription = styled.p`
   }
 `;
 
+export const TimeLinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
 export const StyledPicture = styled.img`
   width: 124px;
   height: 100%;
@@ -94,16 +108,26 @@ export const StyledPicture = styled.img`
   }
 `;
 
-export const DeleteButton = styled(DeleteIcon)`
+export const DeleteButton = styled.button`
   position: absolute;
   top: 0;
   right: 0;
   width: 24px;
   height: 24px;
+  padding: 0;
   border: none;
   border-radius: 4px;
 
-  background-color: ${props => props.theme.colors.accent};
+  background-color: ${props => {
+    if (props.type === 'my') {
+      return props.theme.darkTheme
+        ? props.theme.colors.bgdarkTheme
+        : props.theme.colors.accent;
+    }
+    return props.theme.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.bgLightGreen;
+  }};
 
   @media screen and (min-width: 768px) {
     width: 38px;
@@ -112,6 +136,33 @@ export const DeleteButton = styled(DeleteIcon)`
   @media screen and (min-width: 1280px) {
     width: 44px;
     height: 44px;
+  }
+`;
+
+export const StyledDeleteIcon = styled(DeleteIcon)`
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 14px;
+  height: 14px;
+
+  stroke: ${props => {
+    if (props.type === 'favorite') {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.bgBlackDark;
+    }
+    return props.theme.colors.textWhite;
+  }};
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 22px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 24px;
+    height: 24px;
   }
 `;
 
@@ -133,21 +184,38 @@ export const StyledTimeText = styled.p`
   }
 `;
 
-export const StyledButton = styled(LinkSkewStyled)`
-  /* background-color: ${props => props.theme.colors.accent};
-
-  &:hover {
-    background-color: ${props => props.theme.colors.bgBlackDark};
-  } */
+export const StyledLink = styled(LinkSkewStyled)`
   width: 87px;
   padding: 6px 14px;
+  font-size: 10px;
+
+  background-color: ${props => {
+    if (props.type === 'favorite') {
+      return props.theme.darkTheme
+        ? props.theme.colors.accent
+        : props.theme.colors.bgBlackDark;
+    }
+  }};
+
+  &:hover,
+  &:focus {
+    background-color: ${props => {
+      if (props.type === 'favorite') {
+        return props.theme.darkTheme
+          ? props.theme.colors.bgBlackDark
+          : props.theme.colors.accent;
+      }
+    }};
+  }
 
   @media screen and (min-width: 768px) {
     width: 138px;
     padding: 12px 32px;
+    font-size: ${props => props.theme.fontSizes.s};
   }
   @media screen and (min-width: 1280px) {
     width: 172px;
     padding: 18px 44px;
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;

@@ -1,46 +1,48 @@
-import { useNavigate } from 'react-router-dom';
-import { ButtonSkew } from 'components/universalComponents/ButtonSkew/ButtonSkew';
-import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
 import { getHoursFromMins } from 'helpers/helper';
 import {
   DeleteButton,
   InfoCardWrapper,
   RecipeCardWrapper,
   RecipeTitle,
-  StyledButton,
+  StyledDeleteIcon,
   StyledDescription,
+  StyledLink,
   StyledPicture,
   StyledTimeText,
+  TextWrapper,
+  TimeLinkWrapper,
 } from './MyRecipesListItem.styled';
 
-export const MyRecipesListItem = ({ preview, title, description, time }) => {
+export const MyRecipesListItem = ({
+  preview,
+  title,
+  description,
+  time,
+  _id,
+}) => {
   const timeInHours = getHoursFromMins(time);
-  const navigate = useNavigate();
-  const handleSeeRecipeButton = () => {
-    navigate('/recipe/{_id}');
-  };
   const handleDeleteButton = () => {};
-
+  const typePage = 'my';
+  // const typePage = 'favorite';
   return (
     <RecipeCardWrapper>
       <StyledPicture src={preview} alt="recipe" loading="lazy" />
       <InfoCardWrapper>
-        <DeleteButton onClick={handleDeleteButton} />
-        <RecipeTitle>{title}</RecipeTitle>
-        {description && <StyledDescription>{description}</StyledDescription>}
-        <StyledTimeText>
-          {time > 60 ? timeInHours : time + ' min'}
-        </StyledTimeText>
-
-        <StyledButton>
-          {/* onClick={handleSeeRecipeButton}
-          // color={color}
-          // hoverColor={hoverColor}
-          // width={width}
-          // padding={padding}
-          //children={} */}
-          <div className="inner">See recipe</div>
-        </StyledButton>
+        <DeleteButton type={typePage} onClick={handleDeleteButton}>
+          <StyledDeleteIcon type={typePage} />
+        </DeleteButton>
+        <TextWrapper>
+          <RecipeTitle>{title}</RecipeTitle>
+          {description && <StyledDescription>{description}</StyledDescription>}
+        </TextWrapper>
+        <TimeLinkWrapper>
+          <StyledTimeText>
+            {time > 60 ? timeInHours : time + ' min'}
+          </StyledTimeText>
+          <StyledLink type={typePage} to="recipe/{_id.$oid}">
+            <div className="inner">See recipe</div>
+          </StyledLink>
+        </TimeLinkWrapper>
       </InfoCardWrapper>
     </RecipeCardWrapper>
   );
