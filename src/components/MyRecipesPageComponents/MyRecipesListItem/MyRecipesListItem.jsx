@@ -31,14 +31,16 @@ export const MyRecipesListItem = ({ preview, title, description, time }) => {
         <StyledTimeText>
           {time > 60 ? timeInHours : time + ' min'}
         </StyledTimeText>
-        <StyledButton
-          onClick={handleSeeRecipeButton}
+
+        <StyledButton>
+          {/* onClick={handleSeeRecipeButton}
           // color={color}
           // hoverColor={hoverColor}
           // width={width}
           // padding={padding}
-          children="See recipe"
-        />
+          //children={} */}
+          <div className="inner">See recipe</div>
+        </StyledButton>
       </InfoCardWrapper>
     </RecipeCardWrapper>
   );

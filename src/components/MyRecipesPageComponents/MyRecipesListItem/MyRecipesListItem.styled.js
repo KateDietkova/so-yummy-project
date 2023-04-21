@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ButtonSkew } from 'components/universalComponents/ButtonSkew/ButtonSkew';
 import { LinkSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
 
 import { ReactComponent as DeleteIcon } from '../../../assets/svg/other/camera.svg';
@@ -134,12 +133,12 @@ export const StyledTimeText = styled.p`
   }
 `;
 
-export const StyledButton = styled(ButtonSkew)`
-  background-color: ${props => props.theme.colors.accent};
+export const StyledButton = styled(LinkSkewStyled)`
+  /* background-color: ${props => props.theme.colors.accent};
 
   &:hover {
     background-color: ${props => props.theme.colors.bgBlackDark};
-  }
+  } */
   width: 87px;
   padding: 6px 14px;
 
