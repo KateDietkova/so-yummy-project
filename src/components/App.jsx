@@ -45,6 +45,7 @@ export const App = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
+
   return (
     <ThemeProvider theme={{ ...theme, darkTheme }}>
       <GlobalStyle />

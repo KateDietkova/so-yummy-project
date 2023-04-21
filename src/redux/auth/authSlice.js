@@ -8,7 +8,13 @@ import {
 } from './authOperations';
 
 const initialState = {
-  user: { name: null, email: null, avatarUrl: null, createdAt: null },
+  user: {
+    name: null,
+    email: null,
+    avatarUrl: null,
+    createdAt: null,
+    verify: false,
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -28,8 +34,6 @@ export const authSlice = createSlice({
       .addCase(register.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = null;
-        console.log('Payload register', payload.user);
-        state.user = payload.user;
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isRefreshing = false;
@@ -44,8 +48,9 @@ export const authSlice = createSlice({
       .addCase(verification.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = null;
-        state.isLoggedIn = true;
+        state.user = payload.user;
         state.token = payload.token;
+        state.user.verify = payload.user.verify;
       })
       .addCase(verification.rejected, (state, { payload }) => {
         state.isRefreshing = false;
