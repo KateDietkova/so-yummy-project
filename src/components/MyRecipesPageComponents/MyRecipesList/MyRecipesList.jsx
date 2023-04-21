@@ -1,5 +1,4 @@
-import { MyRecipesListItem } from '../MyRecipesListItem/MyRecipesListItem';
-import { RecipeCard } from './MyRecipesList.styled';
+import { RecipesList } from 'components/universalComponents/RecipesList/RecipesList';
 
 const userRecipes = [
   {
@@ -605,19 +604,14 @@ const userRecipes = [
 ];
 
 export const MyRecipesList = () => {
+  const handleClickDeleteButton = () => {
+    console.log('works');
+  };
   return (
-    <RecipeCard>
-      {userRecipes &&
-        userRecipes.map(({ _id, preview, title, description, time }) => (
-          <MyRecipesListItem
-            key={_id.$oid}
-            preview={preview}
-            title={title}
-            description={description}
-            time={time}
-            _id={_id}
-          />
-        ))}
-    </RecipeCard>
+    <RecipesList
+      recipes={userRecipes}
+      type="my"
+      onClick={handleClickDeleteButton}
+    />
   );
 };
