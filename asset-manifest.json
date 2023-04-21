@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy-project/static/css/main.b651fdc2.css",
-    "main.js": "/so-yummy-project/static/js/main.06bd567b.js",
+    "main.js": "/so-yummy-project/static/js/main.50fcb819.js",
     "static/js/281.bac40734.chunk.js": "/so-yummy-project/static/js/281.bac40734.chunk.js",
     "static/js/127.dc2d4245.chunk.js": "/so-yummy-project/static/js/127.dc2d4245.chunk.js",
     "static/js/341.99b0d720.chunk.js": "/so-yummy-project/static/js/341.99b0d720.chunk.js",
@@ -28,15 +28,19 @@
     "static/media/bg-welcome.jpg": "/so-yummy-project/static/media/bg-welcome.5c50a5a8fc815835f6b8.jpg",
     "static/media/spinach-leaves-mobile-menu.png": "/so-yummy-project/static/media/spinach-leaves-mobile-menu.3f2241783a604f89a4f6.png",
     "static/media/spinach-leaves.png": "/so-yummy-project/static/media/spinach-leaves.b91365e6548d6eb4138f.png",
+    "static/media/insta.svg": "/so-yummy-project/static/media/insta.4385421b081be485149f92853df2e866.svg",
     "static/media/camera.svg": "/so-yummy-project/static/media/camera.64fb944f2bd998a99c7c9f5cf8ab6110.svg",
-    "static/media/logo.svg": "/so-yummy-project/static/media/logo.f398f441d4a6af13bdbe2e3a3ac16b8f.svg",
+    "static/media/twitter.svg": "/so-yummy-project/static/media/twitter.e1b5c3f31a4d7c3c2bdf79d29dec20ba.svg",
+    "static/media/logo.svg": "/so-yummy-project/static/media/logo.230e902d9f4b8f0698b960978764152c.svg",
     "index.html": "/so-yummy-project/index.html",
     "static/media/error-icon.svg": "/so-yummy-project/static/media/error-icon.9dffa3c548a425b2581fb25922c3c0aa.svg",
+    "static/media/youtube.svg": "/so-yummy-project/static/media/youtube.5bcc5068957d60b64505e22c0ec45123.svg",
     "static/media/warning-icon.svg": "/so-yummy-project/static/media/warning-icon.e0b8838cef8aa334e62f5a69bf5558fe.svg",
     "static/media/valid-icon.svg": "/so-yummy-project/static/media/valid-icon.2c20cfce5010676dc2acf065541b3183.svg",
+    "static/media/facebook.svg": "/so-yummy-project/static/media/facebook.75cfde24e4d0fb6a69c22959fbc47ece.svg",
     "static/media/burger-menu.svg": "/so-yummy-project/static/media/burger-menu.ad2d6f185ba02a09996f801b576c8d03.svg",
     "main.b651fdc2.css.map": "/so-yummy-project/static/css/main.b651fdc2.css.map",
-    "main.06bd567b.js.map": "/so-yummy-project/static/js/main.06bd567b.js.map",
+    "main.50fcb819.js.map": "/so-yummy-project/static/js/main.50fcb819.js.map",
     "281.bac40734.chunk.js.map": "/so-yummy-project/static/js/281.bac40734.chunk.js.map",
     "127.dc2d4245.chunk.js.map": "/so-yummy-project/static/js/127.dc2d4245.chunk.js.map",
     "341.99b0d720.chunk.js.map": "/so-yummy-project/static/js/341.99b0d720.chunk.js.map",
@@ -50,6 +54,6 @@
   },
   "entrypoints": [
     "static/css/main.b651fdc2.css",
-    "static/js/main.06bd567b.js"
+    "static/js/main.50fcb819.js"
   ]
 }
