@@ -41,6 +41,7 @@ export const App = () => {
   const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
