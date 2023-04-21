@@ -6,6 +6,7 @@ import { CategoriesRecipesList } from "components/CategoriesPageComponents/Categ
 
 
 
+
 const CategoriesPage = () => {
   // const navigate = useNavigate();
 // const goBack = () => navigate (-1)
