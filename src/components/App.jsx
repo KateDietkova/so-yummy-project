@@ -1,12 +1,18 @@
 import GlobalStyle from 'components/GlobalStyle/GlobalStyle';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme/theme';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import WellcomePage from '../pages/WelcomePage/WelcomePage';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
+import { RestrictedRoute } from './RestrictedRoute';
+import { VerificationPage } from 'pages/VerificationPage/VerificationPage';
+import { PrivateRoute } from './PrivateRoute';
+import { fetchCurrentUser } from 'redux/auth/authOperations';
+import { useAuth } from 'hooks/useAuth';
 import { lazy } from 'react';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
@@ -32,26 +38,106 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const { darkTheme } = useSelector(state => state.theme);
+  const { isRefreshing } = useAuth();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
 
   return (
     <ThemeProvider theme={{ ...theme, darkTheme }}>
       <GlobalStyle />
-      <Routes>
-        <Route path="/wellcome" element={<WellcomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/signin" element={<SigninPage />} />
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
-          <Route path="categories/:categoryName" element={<CategoriesPage />} />
-          <Route path="add" element={<AddRecipePage />} />
-          <Route path="favorite" element={<FavoritesPage />} />
-          <Route path="recipe/:recipeId" element={<RecipePage />} />
-          <Route path="my" element={<MyRecipesPage />} />
-          <Route path="search" element={<SearchPage />} />
-          <Route path="shopinglist" element={<ShopingListPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
+      {!isRefreshing && (
+        <Routes>
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute redirectTo="/" component={<SigninPage />} />
+            }
+          />
+          <Route path="/" element={<SharedLayout />}>
+            <Route
+              index
+              element={
+                <PrivateRoute redirectTo="/signin" component={<MainPage />} />
+              }
+            />
+            <Route
+              path="categories/:categoryName"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<CategoriesPage />}
+                />
+              }
+            />
+            <Route
+              path="add"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<AddRecipePage />}
+                />
+              }
+            />
+            <Route
+              path="favorite"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<FavoritesPage />}
+                />
+              }
+            />
+            <Route
+              path="recipe/:recipeId"
+              element={
+                <PrivateRoute redirectTo="/signin" component={<RecipePage />} />
+              }
+            />
+            <Route
+              path="my"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<MyRecipesPage />}
+                />
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <PrivateRoute redirectTo="/signin" component={<SearchPage />} />
+              }
+            />
+            <Route
+              path="shopinglist"
+              element={
+                <PrivateRoute
+                  redirectTo="/signin"
+                  component={<ShopingListPage />}
+                />
+              }
+            />
+            <Route path="verification/:vCode" element={<VerificationPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      )}
     </ThemeProvider>
   );
 };

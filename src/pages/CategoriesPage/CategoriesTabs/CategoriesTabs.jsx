@@ -16,6 +16,14 @@ export const CategoriesTabs = () => {
 
   const ref = useRef();
   const { events } = useDraggable(ref);
+    return (
+         <TabsList  {...events} ref={ref}>
+            {categories.length > 0 && categories.map(category => (
+                <Tab to={`/categories/${category.toLowerCase()}`} key={category}>{category }</Tab>
+            ))}
+    </TabsList>
+)
+}
 
   return (
     <TabsList {...events} ref={ref}>

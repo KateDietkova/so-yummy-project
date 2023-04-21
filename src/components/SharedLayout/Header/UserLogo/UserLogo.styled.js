@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const UserLogoBtnWrapper = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const UserLogoBtn = styled.button`
