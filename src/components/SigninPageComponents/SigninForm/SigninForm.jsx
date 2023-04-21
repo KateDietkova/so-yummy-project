@@ -17,7 +17,6 @@ import { SigninTitle, LinkRegisterStyled } from './SigninForm.styled';
 import { signinSchema, ValidMassege } from './validationSignin';
 import { login } from 'redux/auth/authOperations';
 const initialValue = {
-  // name: '',
   email: '',
   password: '',
 };
@@ -26,25 +25,14 @@ export const SigninForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const handleSubmit = (value, { resetForm }) => {
-  //   // console.log('Register data', value);
-    
-  //   resetForm();
-  //   setIsSubmit(false);
-  //   navigate('/');
-  // };
+  const handleSubmit = (value, { resetForm }) => {
+    console.log('Register data', value);
 
-  const handleSubmit = (value, action) => {
-    // console.log(value);
-    const data = {
-      email: value.email,
-      password: value.password,
-    };
-    dispatch(login(data));
-    navigate('/');
+    dispatch(login(value));
     setIsSubmit(false);
-    action.resetForm();
-  }
+    navigate('/');
+    resetForm();
+  };
 
   return (
     <FormWrapper>

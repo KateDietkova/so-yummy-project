@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCategoriesList, instance } from 'servicesApi/api';
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com';
+axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
 
 export const fetchCategoriesList = createAsyncThunk(
   'categories/fetchCategoriesList',
