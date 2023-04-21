@@ -1,7 +1,14 @@
-
+import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
+import { MyRecipesList } from 'components/MyRecipesPageComponents/MyRecipesList/MyRecipesList';
+import { MyRecipeContainer } from './MyRecipesPage.styled';
 
 const MyRecipesPage = () => {
-  return <h1>MyRecipesPage</h1>;
+  return (
+    <MyRecipeContainer>
+      <MainTitle text="My recipes" />
+      <MyRecipesList />
+    </MyRecipeContainer>
+  );
 };
 
 export default MyRecipesPage;

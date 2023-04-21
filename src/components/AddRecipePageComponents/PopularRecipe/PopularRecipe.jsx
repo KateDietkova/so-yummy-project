@@ -39,7 +39,7 @@ export const PopularRecipe = () => {
               <StyledWrapper key={_id}>
                 <StyledNav to="recipe / {_id}">
                   <StyledCard>
-                    <StyledPicture src={preview} alt="recipe" />
+                    <StyledPicture src={preview} alt="recipe" loading="lazy" />
                     <div>
                       <StyledRecipeTitle>{title}</StyledRecipeTitle>
                       <StyledInstructions>{instructions}</StyledInstructions>
