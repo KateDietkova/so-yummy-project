@@ -13,11 +13,23 @@ export const cookingTimeOptions = (() => {
   }));
 })();
 //----------------------------------------------------------------------------
-//function that converts minutes to hours
+//function that converts minutes to hours with minutes
 
 export const getHoursFromMins = mins => {
-  const hours = Number.parseInt(mins / 60);
-  const minutes = mins % 60;
-  if (hours > 1) return hours + ' hours ' + minutes + ' mins';
-  return hours + ' hour ' + minutes + ' mins';
+  const hours = Number.parseInt(Number.parseInt(mins) / 60);
+  const minutes = Number.parseInt(Number.parseInt(mins) % 60);
+
+  if (hours === 1 && minutes !== 0) return hours + ' hour ' + minutes + ' mins';
+
+  if (hours === 1 && minutes === 0) {
+    return hours + ' hour ';
+  }
+
+  if (hours > 1 && minutes !== 0) return hours + ' hours ' + minutes + ' mins';
+
+  if (hours > 1 && minutes === 0) {
+    return hours + ' hours ';
+  }
+
+  return minutes + ' mins';
 };

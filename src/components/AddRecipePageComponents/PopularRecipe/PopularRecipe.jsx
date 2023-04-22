@@ -34,7 +34,7 @@ export const PopularRecipe = () => {
     <StyledSectionWrapper>
       <StyledTitle>Popular recipe</StyledTitle>
       <StyledCardList>
-        {popularRecipes &&
+        {popularRecipes.length > 0 &&
           popularRecipes.map(({ _id, preview, title, instructions }) => {
             return (
               <StyledWrapper key={_id}>

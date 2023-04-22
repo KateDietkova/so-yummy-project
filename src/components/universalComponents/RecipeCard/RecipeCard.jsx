@@ -25,10 +25,10 @@ export const RecipeCard = ({
   const timeInHours = getHoursFromMins(time);
 
   return (
-    <RecipeCardWrapper>
+    <RecipeCardWrapper key={_id}>
       <StyledPicture src={preview} alt="recipe" loading="lazy" />
       <InfoCardWrapper>
-        <DeleteButton type={type} onClick={onClick}>
+        <DeleteButton type={type} onClick={() => onClick(_id)}>
           <StyledDeleteIcon type={type} />
         </DeleteButton>
         <TextWrapper>
@@ -36,9 +36,7 @@ export const RecipeCard = ({
           {description && <StyledDescription>{description}</StyledDescription>}
         </TextWrapper>
         <TimeLinkWrapper>
-          <StyledTimeText>
-            {time > 60 ? timeInHours : time + ' min'}
-          </StyledTimeText>
+          <StyledTimeText>{timeInHours}</StyledTimeText>
           <StyledLink type={type} to="recipe/{_id.$oid}">
             <div className="inner">See recipe</div>
           </StyledLink>

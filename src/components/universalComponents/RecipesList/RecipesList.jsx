@@ -7,7 +7,7 @@ export const RecipesList = ({ recipes, type, onClick }) => {
       {recipes.length > 0 &&
         recipes.map(({ _id, preview, title, description, time }) => (
           <RecipeCard
-            key={_id.$oid}
+            key={_id}
             preview={preview}
             title={title}
             description={description}
