@@ -1,4 +1,6 @@
+// import { useSelector } from 'react-redux';
 import { RecipesList } from 'components/universalComponents/RecipesList/RecipesList';
+// import { selectUserRecipes } from 'redux/recipes/recipesSelectors';
 
 const userRecipes = [
   {
@@ -604,6 +606,8 @@ const userRecipes = [
 ];
 
 export const MyRecipesList = () => {
+  // const userRecipes = useSelector(selectUserRecipes);
+
   const handleClickDeleteButton = () => {
     console.log('works');
   };

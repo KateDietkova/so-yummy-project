@@ -1,12 +1,13 @@
+import { Loader } from 'components/universalComponents/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularRecipe } from 'redux/recipes/recipesOperations';
 import {
-  // selectIsLoading,
+  selectIsLoading,
   selectPopularRecipes,
-  // selectRecipesError,
+  selectRecipesError,
 } from 'redux/recipes/recipesSelectors';
-// import { Error } from './Error';
+import { Error } from './Error';
 import {
   StyledCard,
   StyledCardList,
@@ -26,8 +27,8 @@ export const PopularRecipe = () => {
   }, [dispatch]);
 
   const popularRecipes = useSelector(selectPopularRecipes);
-  // const isLoading = useSelector(selectIsLoading);
-  // const isError = useSelector(selectRecipesError);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectRecipesError);
 
   return (
     <StyledSectionWrapper>
@@ -50,8 +51,8 @@ export const PopularRecipe = () => {
             );
           })}
       </StyledCardList>
-      {/* {isLoading && Loader}  */}
-      {/* {isError && <Error/> } */}
+      {isLoading && <Loader />}
+      {isError && <Error />}
     </StyledSectionWrapper>
   );
 };

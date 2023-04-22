@@ -5,7 +5,7 @@ const initialState = {
   popularRecipes: null,
   recipesByCategory: [],
   favoritesRecipes: null,
-  userRecipes: null,
+  userRecipes: [],
   recipesByTitle: null,
   recipesBuIngredients: null,
   isLoading: false,
