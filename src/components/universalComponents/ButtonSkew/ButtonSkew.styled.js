@@ -33,7 +33,7 @@ export const ButtonSkewStyled = styled.button`
   }
 
   .inner {
-    /* transform: skew(-15deg, 0); */
+    transform: skew(-15deg, 0);
     display: flex;
     align-items: center;
     justify-content: center;
