@@ -36,7 +36,6 @@ export const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipesByCategory = action.payload;
-        console.log(action.payload);
       })
       .addCase(getAllByCategory.rejected, (state, action) => {
         state.isLoading = false;
