@@ -11,20 +11,24 @@ import {
   IngedientsItem,
   Wrap,
   IngedientsImg,
+  Image,
   IngedientsTitle,
-  IngedientsMeasure
- 
+  IngedientsMeasure,
+  CheckBox
 } from './RecipeIngredientsList.styled';
 
 
 const RecipeIngredientsList = ({ingredients}) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getAllIngredients())
-  // },[dispatch]);
-  // const ingredients = useSelector(selectIngredients);
-
+  useEffect(() => {
+    dispatch(getAllIngredients())
+  }, [dispatch]);
+  // const currentIngredients = useSelector(selectIngredients);
+  // if (!currentIngredients) {
+  //   return;
+  // }
+// console.log('string', currentIngredients)
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -33,11 +37,23 @@ const RecipeIngredientsList = ({ingredients}) => {
         <ListSpan>Add to list</ListSpan>
       </ListTitle>
       <IngredientsList>
-         
-        <IngedientsItem>{ingredients}</IngedientsItem>
-          
         
-           
+          {ingredients}
+            {/* <IngedientsItem key={currentIngredients._id}>
+              <Wrap>
+              <IngedientsImg>
+                <Image src={currentIngredients.thb} alt={currentIngredients.ttl}></Image>
+              </IngedientsImg> 
+              <IngedientsTitle>{currentIngredients.ttl}</IngedientsTitle>
+              </Wrap>
+              <Wrap>
+                <IngedientsMeasure>{currentIngredients.measure}</IngedientsMeasure>
+                <CheckBox>
+                </CheckBox>
+              </Wrap>
+           </IngedientsItem> */}
+         
+         
       </IngredientsList>
     </IngredientsListSection>
   );

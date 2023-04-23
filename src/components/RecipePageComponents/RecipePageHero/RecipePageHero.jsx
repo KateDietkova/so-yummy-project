@@ -8,9 +8,21 @@ import {
 } from './RecipePageHero.styled';
 
 import { AiOutlineClockCircle } from 'react-icons/ai';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getRecipeById } from 'servicesApi/api';
+import { fetchRecipe } from 'redux/recipes/recipesOperations';
 
 
- const RecipePageHero = ({ title, description, time  }) => {
+const RecipePageHero = ({ title, description, time }) => {
+  // const { recipeId } = useParams();
+  
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchRecipe(recipeId));
+  // }, [dispatch]);
   return (
     <SectionHero>
         <SectionHeroTitle>{title}</SectionHeroTitle>

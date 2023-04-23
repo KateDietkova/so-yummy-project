@@ -9,4 +9,4 @@ export const selectRecipesByIngredients = state =>
 export const selectIsLoading = state => state.recipes.isLoading;
 export const selectRecipesError = state => state.recipes.error;
 
-export const selectRecipe = state => state.recipes.recipes;
+export const selectRecipes = state => state.recipes.recipe;

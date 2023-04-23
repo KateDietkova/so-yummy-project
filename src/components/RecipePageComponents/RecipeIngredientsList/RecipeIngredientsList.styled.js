@@ -65,7 +65,7 @@ export const IngedientsItem = styled.li`
   display: flex;
   width: 1240px;
   height:182px;
-  background-color: ${({ theme }) => `${theme.colors.bgLightGreen}`};
+  background-color: ${props=>props.theme.colors.bgLightGreen};
   padding: 14px 29px 14px 14px;
   justify-content: space-between;
   border-radius: 8px;
@@ -79,6 +79,20 @@ export const IngedientsItem = styled.li`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 78px;
+    &:first-child {
+      gap: 24px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 151px;
+    &:first-child {
+      gap: 40px;
+    }
+  }
 `;
 
 export const IngedientsImg = styled.img`
@@ -96,14 +110,18 @@ export const IngedientsImg = styled.img`
     margin-right: 66px;
   }
 `;
+export const Image = styled.img`
+  display: block;
+  object-fit: contain;
+`;
 
 export const IngedientsTitle = styled.p`
   
-  font-weight: ${({ theme }) => `${theme.fontWeights.medium}`};
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 12px;
   line-height: 1.16;
   max-width: 200px;
-  color: ${({ theme }) => `${theme.colors.textTitleDark}`};
+  color: ${props=>props.theme.colors.textDark};
   @media (min-width: 768px) {
     max-width: 220px;
     font-size: 24px;
@@ -118,12 +136,12 @@ export const IngedientsMeasure = styled.span`
   margin-right: 28px;
   border-radius: 4px;
   padding: 4px;
-  background-color: ${({ theme }) => `${theme.colors.accent}`};
+  background-color: ${props => props.theme.colors.accent};
   font-family: "Poppins";
-  font-weight: ${({ theme }) => `${theme.fontWeights.semiBold}`};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 10px;
   line-height: 1.5;
-  color: ${({ theme }) => `${theme.colors.textWhite}`};
+  color: ${props => props.theme.colors.textWhite};
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 1.5;
@@ -135,7 +153,7 @@ export const IngedientsMeasure = styled.span`
   }
 `;
 
-export const CheckBoxWrap = styled.span`
+export const CheckBox = styled.span`
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
   display: flex;
@@ -150,35 +168,7 @@ export const CheckBoxWrap = styled.span`
   }
 `;
 
-export const IngedientsCheck = styled.input`
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-`;
 
-export const CheckBoxLabel = styled.label`
-  display: flex;
-  cursor: pointer;
-  // ${IngedientsCheck}:checked + ${CheckBoxWrap} {
-  //   color: ${({ theme }) => `${theme.colors.accent}`};
-  // }
-`;
-
-// export const CheckMarkIcon = styled(BsCheck)`
-//   width: 18px;
-//   height: 18px;
-//   @media (min-width: 768px) {
-//     width: 35px;
-//     height: 35px;
-//   }
-// `;
 export const ListSpan = styled.span`
   font-weight: 600;
   font-size: 10px;

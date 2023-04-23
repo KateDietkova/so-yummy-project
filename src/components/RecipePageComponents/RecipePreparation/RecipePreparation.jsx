@@ -2,8 +2,8 @@ import {
     PreparationSection,
     Title,
     PrepeaRecipe,
-  PrepeaRecipeImage,
-  Steps,
+    PrepeaRecipeImage,
+    Steps,
     Step
 } from './RecipePreparation.styled';
 

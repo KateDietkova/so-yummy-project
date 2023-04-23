@@ -1,14 +1,10 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchPopularRecipe } from './recipesOperations';
+
+import { fetchRecipe } from './recipesOperations';
 
 const initialState = {
-  popularRecipes: null,
-  recipesByCategory: [],
-  favoritesRecipes: null,
-  userRecipes: null,
-  recipesByTitle: null,
-  recipesBuIngredients: null,
+  recipe: [],
   isLoading: false,
   error: null,
 };
@@ -17,15 +13,16 @@ export const recipesSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(fetchPopularRecipe.pending, state => {
+      .addCase(fetchRecipe.pending, state => {
         state.isLoading = true;
       })
-      .addCase(fetchPopularRecipe.fulfilled, (state, action) => {
+      .addCase(fetchRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.popularRecipes = action.payload;
+        state.recipe = action.payload;
+        console.log(action.payload)
       })
-      .addCase(fetchPopularRecipe.rejected, (state, action) => {
+      .addCase(fetchRecipe.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

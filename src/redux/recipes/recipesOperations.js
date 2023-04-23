@@ -1,25 +1,30 @@
-
-
-// export const fetchRecipe = createAsyncThunk(
-//   'recipe/fetchRecipe',
-//   async (id, thunkAPI) => {
-    
-//     try {
-//       const response = await axios.get(`/recipes/${id}`);
-//       if (response.status === 304) {
-//         return;
-//       }
-//       return response?.data.data.recipe;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
 
-// axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com';
+export const fetchRecipe = createAsyncThunk(
+  '/recipes/fetchRecipe',
+  async (id, thunkAPI) => {
+    
+    try {
+      const response = await axios.get(`/recipes/${id}`);
+      // console.log(response)
+      console.log(response.data)
+      // if (!response) {
+      //   return;
+      // }
+      return response.data;
+    
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+    
+  }
+  
+);
+
+
+
 
 export const fetchPopularRecipe = createAsyncThunk(
   'recipes/fetchPopular',
