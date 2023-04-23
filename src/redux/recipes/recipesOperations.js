@@ -26,6 +26,11 @@ export const fetchRecipe = createAsyncThunk(
 
 
 
+
+axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+
+
+
 export const fetchPopularRecipe = createAsyncThunk(
   'recipes/fetchPopular',
   async (_, { rejectWithValue }) => {
