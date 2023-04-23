@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   deleteUserRecipe,
   fetchPopularRecipe,
   fetchUserRecipes,
+  getAllByCategory,
 } from './recipesOperations';
+
 
 const initialState = {
   popularRecipes: [],
@@ -23,6 +26,19 @@ export const recipesSlice = createSlice({
     builder
       .addCase(fetchPopularRecipe.pending, state => {
         state.isLoading = true;
+      })
+
+      .addCase(getAllByCategory.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getAllByCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipesByCategory = action.payload;
+      })
+      .addCase(getAllByCategory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       })
       .addCase(fetchPopularRecipe.fulfilled, (state, { payload }) => {
         state.isLoading = false;
