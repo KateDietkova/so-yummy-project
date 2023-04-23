@@ -10,6 +10,7 @@ export const FormStyled = styled(Form)`
     justify-content: center;
     align-items: center;
     margin-bottom: 67px;
+    margin-top: 22px;
   }
 
   @media screen and (min-width: 1280px) {
