@@ -29,6 +29,17 @@ export const recipesSlice = createSlice({
       state.error = action.payload;
     },
   },
+  //  .addCase(getAllByCategory.pending, state => {
+  //     state.isLoading = true;
+  //   })
+  //   .addCase(getAllByCategory.fulfilled, (state, action) => {
+  //     state.isLoading = false;
+  //     state.error = null;
+  //     state.recipesByCategory = action.payload;
+  //   })
+  //   .addCase(getAllByCategory.rejected, (state, action) => {
+  //     state.isLoading = false;
+  //     state.error = action.payload;
 
   // {
   //   [fetchPopularRecipe.pending](state, action) {

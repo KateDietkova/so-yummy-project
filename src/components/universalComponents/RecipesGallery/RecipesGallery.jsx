@@ -1,4 +1,4 @@
-import { List, Recipe, RecipeContainer, Description, RecipeImg, RecipeNavLink } from './RecipesGallery.styled'
+import { List, Recipe, RecipeContainer, Description, RecipeImg, RecipeNavLink } from './RecipesGallery.styled';
 
 export const RecipesGallery = ({recipes}) => {
     return (

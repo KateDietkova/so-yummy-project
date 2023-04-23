@@ -7,6 +7,7 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: 28px;
+  padding-bottom: 32px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -29,6 +30,7 @@ export const Recipe = styled.li`
 
 export const RecipeContainer = styled.div`
   position: relative;
+  display: block;
 `;
 
 export const Description = styled.div`
@@ -61,6 +63,8 @@ export const Description = styled.div`
     line-height: 1.25;
     letter-spacing: -0.24px;
     text-align: left;
+    height: 20px;
+    overflow: hidden;
   }
 `;
 
