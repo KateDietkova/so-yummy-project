@@ -76,7 +76,7 @@ export const StyledField = styled(Field)`
     font-size: ${props => props.theme.fontSizes.s};
     line-height: 1.5;
     letter-spacing: -0.02em;
-    opacity: 0.5;
+    opacity: ${props => (props.theme.darkTheme ? '1' : '0.5')};
 
     @media screen and (min-width: 768px) {
       font-size: ${props => props.theme.fontSizes.m};
@@ -102,7 +102,7 @@ export const StyledSelectLabel = styled.label`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.5;
   letter-spacing: -0.02em;
-  opacity: 0.5;
+  opacity: ${props => (props.theme.darkTheme ? '1' : '0.5')};
   color: ${props => (props.theme.darkTheme ? '#fff' : '#000000')};
 
   @media screen and (min-width: 768px) {
