@@ -22,8 +22,8 @@ export const MyRecipesList = () => {
   // const isError = useSelector(selectRecipesError);
 
   useEffect(() => {
-    dispatch(fetchUserRecipes());
-  }, [dispatch]);
+    userRecipes.length === 0 && dispatch(fetchUserRecipes());
+  }, [dispatch, userRecipes]);
 
   const handleClickDeleteButton = id => {
     dispatch(deleteUserRecipe(id));

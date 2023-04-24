@@ -34,6 +34,12 @@ export const StyledCardList = styled.ul`
   @media screen and (min-width: 1280px) {
     flex-direction: column;
   }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 100px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 200px;
+  }
 `;
 
 export const StyledWrapper = styled.li`

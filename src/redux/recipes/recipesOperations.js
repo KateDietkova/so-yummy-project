@@ -43,8 +43,8 @@ export const deleteUserRecipe = createAsyncThunk(
   'recipes/deleteUserRecipe',
   async (id, { rejectWithValue }) => {
     try {
-      const data = await axios.delete(`/ownRecipes/${id}`);
-      return data;
+      const { data } = await axios.delete(`/ownRecipes/${id}`);
+      return data.data;
     } catch (error) {
       rejectWithValue(error.message);
     }
