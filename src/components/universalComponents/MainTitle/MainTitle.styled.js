@@ -6,7 +6,8 @@ export const MainTitleBox = styled.div`
 
 export const MainTitleStyled = styled.h1`
   margin-top: 35px;
-  padding-bottom: 72px;
+  margin-bottom: 0;
+  padding-bottom: 50px;
   font-family: PoppinsSemiBold;
   font-weight: 600;
   font-size: 28px;
@@ -96,7 +97,7 @@ export const DecorBoxRight = styled.span`
     height: 14px;
   }
   @media screen and (min-width: 1280px) {
-    top: 34px;
+    top: -34px;
     left: 1150px;
   }
 `;

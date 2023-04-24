@@ -9,6 +9,11 @@ import { ReactComponent as CorrectIcon } from '../../../assets/svg/other/valid-i
 
 export const FormWrapper = styled.div`
   position: relative;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    gap: 115px;
+  }
 `;
 
 export const FormStyled = styled(Form)`
@@ -240,7 +245,6 @@ export const ErrorValidationIcon = styled(ErrorIcon)`
   right: 18px;
   width: 16px;
   height: 16px;
-
 
   @media screen and (min-width: 768px) {
     top: 20px;

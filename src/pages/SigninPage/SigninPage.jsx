@@ -1,18 +1,17 @@
 import {
-  AuthPagesSection,
   BgOrderFoodImg,
 } from '../RegisterPage/RegisterPage.styled';
-import { ContainerSigninPage } from './SigninPage.styled';
+import { ContainerSigninPage, SigninPageSection } from './SigninPage.styled';
 import { SigninForm } from 'components/SigninPageComponents/SigninForm/SigninForm';
 
 const SigninPage = () => {
   return (
-    <AuthPagesSection>
+    <SigninPageSection>
       <ContainerSigninPage>
-        <BgOrderFoodImg></BgOrderFoodImg>
+        {/* <BgOrderFoodImg></BgOrderFoodImg> */}
         <SigninForm />
       </ContainerSigninPage>
-    </AuthPagesSection>
+    </SigninPageSection>
   );
 };
 

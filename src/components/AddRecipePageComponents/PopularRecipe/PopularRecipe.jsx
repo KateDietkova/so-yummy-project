@@ -1,11 +1,13 @@
+import { Loader } from 'components/universalComponents/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularRecipe } from 'redux/recipes/recipesOperations';
 import {
-  // selectIsLoading,
+  selectIsLoading,
   selectPopularRecipes,
-  // selectRecipesError,
+  selectRecipesError,
 } from 'redux/recipes/recipesSelectors';
+import { Error } from './Error';
 import {
   StyledCard,
   StyledCardList,
@@ -25,20 +27,20 @@ export const PopularRecipe = () => {
   }, [dispatch]);
 
   const popularRecipes = useSelector(selectPopularRecipes);
-  // const isLoading = useSelector(selectIsLoading);
-  // const RecipesError = useSelector(selectRecipesError);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectRecipesError);
 
   return (
     <StyledSectionWrapper>
       <StyledTitle>Popular recipe</StyledTitle>
       <StyledCardList>
-        {popularRecipes &&
+        {popularRecipes.length > 0 &&
           popularRecipes.map(({ _id, preview, title, instructions }) => {
             return (
               <StyledWrapper key={_id}>
-                <StyledNav to="recipe / recipe._id">
+                <StyledNav to="recipe / {_id}">
                   <StyledCard>
-                    <StyledPicture src={preview} alt="recipe" />
+                    <StyledPicture src={preview} alt="recipe" loading="lazy" />
                     <div>
                       <StyledRecipeTitle>{title}</StyledRecipeTitle>
                       <StyledInstructions>{instructions}</StyledInstructions>
@@ -49,8 +51,8 @@ export const PopularRecipe = () => {
             );
           })}
       </StyledCardList>
-      {/* {isLoading && Loader} */}
-      {/* {isError && <Error/>} */}
+      {isLoading && <Loader />}
+      {isError && <Error />}
     </StyledSectionWrapper>
   );
 };

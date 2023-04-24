@@ -57,7 +57,7 @@ export const StyledField = styled(Field)`
   padding-bottom: 18px;
   outline: none;
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: ${props => props.theme.borders.normal};
   border-color: #e0e0e0;
   background-color: ${props =>
     props.theme.darkTheme
@@ -73,14 +73,15 @@ export const StyledField = styled(Field)`
   }
 
   &::placeholder {
-    color: ${props =>
-      props.theme.darkTheme ? props.theme.colors.textWhite : '#000000'};
+    color: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
+    }};
     font-family: PoppinsRegular;
-    font-weight: 400;
+    font-weight: ${props => props.theme.fontWeights.normal};
     font-size: ${props => props.theme.fontSizes.s};
     line-height: 1.5;
     letter-spacing: -0.02em;
-    opacity: 0.5;
+    opacity: ${props => (props.theme.darkTheme ? '1' : '0.5')};
 
     @media screen and (min-width: 768px) {
       font-size: ${props => props.theme.fontSizes.m};
@@ -106,7 +107,7 @@ export const StyledSelectLabel = styled.label`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.5;
   letter-spacing: -0.02em;
-  opacity: 0.5;
+  opacity: ${props => (props.theme.darkTheme ? '1' : '0.5')};
   color: ${props => (props.theme.darkTheme ? '#fff' : '#000000')};
 
   @media screen and (min-width: 768px) {
@@ -123,8 +124,8 @@ export const StyledSelect = styled(Select)`
     margin-left: auto;
     border: none;
     font-family: PoppinsRegular;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: ${props => props.theme.fontWeights.normal};
+    font-size: ${props => props.theme.fontSizes.s};
     line-height: 1;
     letter-spacing: -0.02em;
     box-shadow: none;
@@ -137,7 +138,7 @@ export const StyledSelect = styled(Select)`
         : props.theme.colors.textWhite;
     }};
     @media screen and (max-width: 767px) {
-      font-size: 12px;
+      font-size: ${props => props.theme.fontSizes.xs};
       height: 39px;
     }
   }
@@ -151,7 +152,7 @@ export const StyledSelect = styled(Select)`
     padding-bottom: 4px;
     font-family: PoppinsRegular;
     font-weight: 400;
-    font-size: 14px;
+    font-size: ${props => props.theme.fontSizes.s};
     line-height: 1.5;
     letter-spacing: -0.02em;
     color: ${props => {
@@ -161,7 +162,11 @@ export const StyledSelect = styled(Select)`
     cursor: pointer;
 
     @media screen and (max-width: 767px) {
-      font-size: 12px;
+      font-size: ${props => props.theme.fontSizes.xs};
+    }
+
+    &--is-focused {
+      background-color: transparent;
     }
   }
 
@@ -207,7 +212,9 @@ export const StyledSelect = styled(Select)`
     height: 93px;
   }
   .Select__menu-list::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.accent : '#ffffff';
+    }};
   }
   .Select__menu-list::-webkit-scrollbar-thumb {
     background: ${props => {
@@ -235,8 +242,8 @@ export const StyledSelect = styled(Select)`
   .Select__placeholder {
     padding-bottom: 32px;
     font-family: PoppinsRegular;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: ${props => props.theme.fontWeights.normal};
+    font-size: ${props => props.theme.fontSizes.s};
     @media screen and (max-width: 767px) {
       font-size: 12px;
     }
@@ -269,9 +276,8 @@ export const FieldsWrapper = styled.div`
 export const ErrorValidation = styled.span`
   display: block;
   padding-top: 5px;
-
   font-family: inherit;
-  font-size: 14px;
+  font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.5;
   color: ${props => props.theme.colors.validateRed};
 

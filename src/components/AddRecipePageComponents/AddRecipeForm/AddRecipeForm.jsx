@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
@@ -78,13 +79,7 @@ export const AddRecipeForm = () => {
       return;
     }
     if (
-      ![
-        'image/jpeg',
-        'image/jpg',
-        'image/web',
-        'image/gif',
-        'image/png',
-      ].includes(file.type)
+      !['image/jpeg', 'image/jpg', 'image/web', 'image/png'].includes(file.type)
     ) {
       alert('You can upload only images');
       return;

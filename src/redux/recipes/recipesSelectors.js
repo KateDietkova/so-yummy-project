@@ -1,5 +1,6 @@
 export const selectPopularRecipes = state => state.recipes.popularRecipes;
-export const selectRecipesByCategory = state => state.recipes.recipesByCategory;
+export const selectMainRecipesByCategory = state =>
+  state.recipes.recipesByCategory;
 export const selectFavoritesRecipes = state => state.recipes.favoritesRecipes;
 export const selectUserRecipes = state => state.recipes.userRecipes;
 export const selectRecipesByTitle = state => state.recipes.recipesByTitle;

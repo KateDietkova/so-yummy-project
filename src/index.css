@@ -34,10 +34,16 @@ body {
   min-height: 100%;
 }
 
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 *,
 ::after,
 ::before {
   box-sizing: border-box;
+
 }
 
 code {

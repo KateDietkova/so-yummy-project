@@ -1,4 +1,5 @@
 import { Container } from 'components/universalComponents/Container/Container.styled';
+import { ChooseYourBreakfast } from 'components/MainPageComponents/ChooseYourBreakfast/ChooseYourBreakfast';
 import {
   MainSection,
   MainTitle,
@@ -6,6 +7,8 @@ import {
   MainDesc,
   LeavesBgContainer,
   MainImgContainer,
+  TailIcon,
+  ArrowIcon,
 } from './Main.styled';
 import { Search } from '../Search/Search';
 
@@ -22,7 +25,11 @@ export const Main = () => {
           cookbook. You can add your own recipes to save them for the future.
         </MainDesc>
         <Search />
-        <MainImgContainer></MainImgContainer>
+        <MainImgContainer>
+          <ChooseYourBreakfast />
+          <TailIcon />
+          <ArrowIcon />
+        </MainImgContainer>
       </Container>
     </MainSection>
   );
