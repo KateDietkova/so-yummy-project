@@ -14,7 +14,7 @@ export const ChooseYourBreakfast = () => {
           <DescRecipeAccent>Delicious and healthy</DescRecipeAccent> way to
           enjoy a variety of fresh ingredients in one satisfying meal
         </TextDescRecipes>
-        <RecipesBtn to="categories/:breakfast">
+        <RecipesBtn to="categories/breakfast">
           See recipes
           <ArrowStyled />
         </RecipesBtn>
