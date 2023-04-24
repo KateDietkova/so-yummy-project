@@ -9,7 +9,7 @@ const RegisterPage = () => {
   return (
     <AuthPagesSection>
       <ContainerAuthPageStyled>
-        <BgOrderFoodImg></BgOrderFoodImg>
+        {/* <BgOrderFoodImg></BgOrderFoodImg> */}
         <RegisterForm />
       </ContainerAuthPageStyled>
     </AuthPagesSection>

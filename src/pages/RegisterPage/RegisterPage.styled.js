@@ -17,7 +17,7 @@ export const AuthPagesSection = styled.section`
   background-position: left bottom;
   background-size: 100% 490px;
   padding-top: 305px;
-  padding-bottom: 172px;
+  padding-bottom: 140px;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -30,8 +30,8 @@ export const AuthPagesSection = styled.section`
   @media screen and (min-width: 768px) {
     background-image: url(${imgAuthTablet});
     background-size: 100% 606px;
-    padding-top: 96px;
-    padding-bottom: 180px;
+    padding-top: 443px;
+    padding-bottom: 120px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -46,7 +46,7 @@ export const AuthPagesSection = styled.section`
     background-image: url(${imgAuthDesktop});
     background-size: 100% 325px;
     padding-top: 122px;
-    padding-bottom: 220px;
+    padding-bottom: 185px;
     display: flex;
     align-items: flex-end;
 
@@ -73,6 +73,7 @@ export const BgOrderFoodImg = styled.div`
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 100% 250px;
+  z-index: -1;
 
   @media screen and (min-width: 768px) {
     width: 409px;
@@ -80,10 +81,12 @@ export const BgOrderFoodImg = styled.div`
     background-size: 100% 359px;
   }
   @media screen and (max-width: 767px) {
-    top: -215px;
+    top: -220px;
+    left: 32px;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    top: -345px;
+    top: -340px;
+    left: 50px;
   }
 
   @media screen and (max-width: 1279px) {
@@ -95,6 +98,7 @@ export const BgOrderFoodImg = styled.div`
     height: 468px;
     background-size: 100% 468px;
     background-image: url(${imgOrderFood});
+    z-index: 1;
   }
 `;
 
