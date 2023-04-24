@@ -11,11 +11,13 @@ import imgOrderFood from '../../assets/svg/register-page-content/register-conten
 import imgOrderFoodTablet from '../../assets/svg/register-page-content/register-content-tablet.svg';
 
 export const AuthPagesSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(${imgAuthMobile});
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 100% 490px;
+  padding-top: 305px;
+  padding-bottom: 172px;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -28,6 +30,8 @@ export const AuthPagesSection = styled.section`
   @media screen and (min-width: 768px) {
     background-image: url(${imgAuthTablet});
     background-size: 100% 606px;
+    padding-top: 96px;
+    padding-bottom: 180px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -41,6 +45,10 @@ export const AuthPagesSection = styled.section`
   @media screen and (min-width: 1280px) {
     background-image: url(${imgAuthDesktop});
     background-size: 100% 325px;
+    padding-top: 122px;
+    padding-bottom: 220px;
+    display: flex;
+    align-items: flex-end;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -49,6 +57,12 @@ export const AuthPagesSection = styled.section`
         background-image: url(${imgAuthDesktopRetina});
       }
     }
+  }
+
+  @media screen and (max-width: 1279px) {
+    /* padding-bottom: 125px; */
+    min-height: 100vh;
+    display: flex;
   }
 `;
 
@@ -85,19 +99,19 @@ export const BgOrderFoodImg = styled.div`
 `;
 
 export const ContainerAuthPageStyled = styled(Container)`
-  position: absolute;
-  bottom: 180px;
+  /* position: absolute; */
+  /* bottom: 180px; */
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  flex-direction: column;
 
-  @media screen and (min-width: 768px) {
-    flex-direction: column;
-  }
+  /* @media screen and (min-width: 768px) {
+  } */
 
   @media screen and (max-width: 1279px) {
-    bottom: 125px;
+    /* bottom: 125px; */
   }
 
   @media screen and (min-width: 1280px) {
