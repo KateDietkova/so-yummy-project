@@ -3,6 +3,11 @@ import { Field } from 'formik';
 import Select from 'react-select';
 import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camera.svg';
 
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 32px;
+`;
+
 export const AddFileInputWrapper = styled.div`
   position: relative;
   width: 279px;

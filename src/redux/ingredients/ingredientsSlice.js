@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchIngredients } from './ingredientsOperations';
 
 const initialState = {
   ingredients: null,
@@ -9,7 +10,14 @@ const initialState = {
 export const ingredientsSlice = createSlice({
   name: 'ingredients',
   initialState,
-  extraReducers: {},
+  extraReducers: {
+    [fetchIngredients.fulfilled]:   (state, action) =>{
+      return{
+        ...state,
+        ingredients: action.payload
+      }
+    }
+  },
 });
 
 export const ingredientsReducer = ingredientsSlice.reducer;

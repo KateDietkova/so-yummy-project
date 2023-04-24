@@ -21,7 +21,7 @@ export const descrFieldsSchema = yup.object().shape({
       message: 'Title may contain only letters, apostrophe, dash and spaces.',
       excludeEmptyString: true,
     })
-    .required('Please, enter title of the dish'),
+    .required('Please enter title of the dish'),
   about: yup
     .string()
     .matches(inputRegex, {
@@ -29,5 +29,52 @@ export const descrFieldsSchema = yup.object().shape({
         'Description may contain only letters, apostrophe, dash and spaces.',
       excludeEmptyString: true,
     })
-    .required('Please, enter a short description of the dish'),
+    .required('Please enter a short description of the dish'),
+
+  ingredients: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id: yup.string().required(),
+
+        ingredient: yup
+          .object()
+          .shape({
+            label: yup.string().required(),
+            value: yup
+              .object()
+              .shape({
+                $oid: yup.string().required(),
+              })
+              .required(),
+          })
+          .required('Please choose ingredient'),
+
+        measure: yup
+          .string()
+          .matches(inputRegex, {
+            message:
+              'Measure field may contain only letters, apostrophe, dash and spaces.',
+            excludeEmptyString: true,
+          })
+          .required('Please choose measure'),
+
+        quantity: yup
+          .string()
+          .matches(inputRegex, {
+            message: 'Ingredient field may contain only numbers.',
+          })
+          .required('Please enter the quantity'),
+      })
+      .required()
+  ),
+
+  preparation: yup
+    .string()
+    .matches(inputRegex, {
+      message:
+        'Preparation description field may contain only letters, apostrophe, dash and spaces.',
+      excludeEmptyString: true,
+    })
+    .required('Please enter preparation description'),
 });
