@@ -7,7 +7,6 @@ import {
   getAllByCategory,
 } from './recipesOperations';
 
-
 const initialState = {
   popularRecipes: [],
   recipesByCategory: [],
@@ -27,7 +26,15 @@ export const recipesSlice = createSlice({
       .addCase(fetchPopularRecipe.pending, state => {
         state.isLoading = true;
       })
-
+      .addCase(fetchPopularRecipe.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.popularRecipes = payload;
+      })
+      .addCase(fetchPopularRecipe.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
       .addCase(getAllByCategory.pending, state => {
         state.isLoading = true;
       })
@@ -39,15 +46,6 @@ export const recipesSlice = createSlice({
       .addCase(getAllByCategory.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
-      .addCase(fetchPopularRecipe.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = null;
-        state.popularRecipes = payload;
-      })
-      .addCase(fetchPopularRecipe.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
       })
       .addCase(fetchUserRecipes.pending, state => {
         state.isLoading = true;

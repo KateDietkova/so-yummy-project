@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
- axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
-
+axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
 
 export const fetchPopularRecipe = createAsyncThunk(
   'recipes/fetchPopularRecipe',
@@ -17,7 +15,6 @@ export const fetchPopularRecipe = createAsyncThunk(
   }
 );
 
-
 export const getAllByCategory = createAsyncThunk(
   'recipes/fetchAllByCategory',
   async (_, { rejectWithValue }) => {
@@ -26,6 +23,9 @@ export const getAllByCategory = createAsyncThunk(
       return data.recipes;
     } catch (error) {
       return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const fetchUserRecipes = createAsyncThunk(
   'recipes/fetchUserRecipes',
@@ -47,7 +47,6 @@ export const deleteUserRecipe = createAsyncThunk(
       return data;
     } catch (error) {
       rejectWithValue(error.message);
-
     }
   }
 );
