@@ -4,7 +4,6 @@ import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { FormStyled } from './AddRecipeForm.styled';
-// import { cookingTimeOptions } from '../../../helpers/helper';
 import { IngredientsField } from './RecipeIngridientsFields/RecipeIngridientsFields';
 import { PreparationField } from './RecipePreparationFields/RecipePreparationFields';
 import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
@@ -67,41 +66,20 @@ export const AddRecipeForm = () => {
     setPreparation(data);
   };
 
-  const handleUploadFile = e => {
-    const file = e.target.files[0];
-    const fileURL = file && URL.createObjectURL(file);
-    setSelectedImgFile(file);
-    setSelectedImgPath(fileURL);
-
-    if (!file) {
-      alert('Please, upload the image file');
-      return;
-    }
-    if (
-      !['image/jpeg', 'image/jpg', 'image/web', 'image/png'].includes(file.type)
-    ) {
-      alert('You can upload only images');
-      return;
-    }
-    if (!file.size > 2 * 1024 * 1024) {
-      alert('File must be less than 2MB');
-      return;
-    }
-  };
-
-  const handleCategoryInputChange = value => {
-    setCategoryValue(value);
-  };
-  const handleTimeInputChange = value => {
-    setTimeValue(value);
-  };
-
-  const handleTitleInputChange = value => {
-    setTitleValue(value);
-  };
-
-  const handleAboutInputChange = value => {
-    setAboutValue(value);
+  const pullDescrsData = (
+    categoryValue,
+    timeValue,
+    selectedImgPath,
+    selectedImgFile,
+    titleValue,
+    aboutValue
+  ) => {
+    setCategoryValue(categoryValue);
+    setTimeValue(timeValue);
+    setSelectedImgPath(selectedImgPath);
+    setSelectedImgFile(selectedImgFile);
+    setTitleValue(titleValue);
+    setAboutValue(aboutValue);
   };
 
   const submissionData = {
@@ -118,16 +96,7 @@ export const AddRecipeForm = () => {
     // event.preventDefault();
     console.log(submissionData);
     axios.post('/ownRecipes', submissionData);
-    // const descFieldsValues = {
-    //   ...values,
-    //   category: categoryValue,
-    //   time: timeValue,
-    //   thumb: selectedImgFile,
-    // };
-    // console.log(descFieldsValues);
 
-    // setCategoryValue('Breakfast');
-    // setTimeValue('5 min');
     // navigate('/my');
   };
 
@@ -135,22 +104,10 @@ export const AddRecipeForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={descrFieldsSchema}
-      onSubmit={handleFormSubmit}
+      onSubmit={values => console.log(values)}
     >
       <FormStyled>
-        <RecipeDescriptionFields
-          handleUploadFile={handleUploadFile}
-          handleCategoryInputChange={handleCategoryInputChange}
-          handleTimeInputChange={handleTimeInputChange}
-          selectedImgPath={selectedImgPath}
-          selectedImgFile={selectedImgFile}
-          categoryValue={categoryValue}
-          timeValue={timeValue}
-          titleValue={titleValue}
-          aboutValue={aboutValue}
-          handleTitleInputChange={handleTitleInputChange}
-          handleAboutInputChange={handleAboutInputChange}
-        />
+        <RecipeDescriptionFields funct={pullDescrsData} />
 
         <IngredientsField funct={pullIngredientsData}></IngredientsField>
 
@@ -158,7 +115,6 @@ export const AddRecipeForm = () => {
 
         <ButtonSkewStyled
           type="submit"
-          // onClick={handleFormSubmit}
           color={props => {
             return props.theme.darkTheme
               ? props.theme.colors.accent
