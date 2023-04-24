@@ -1,17 +1,26 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import { getAllByCategory } from 'redux/recipes/recipesOperations';
-import { selectMainRecipesByCategory } from 'redux/recipes/recipesSelectors';
+import { selectMainRecipesByCategory, selectIsLoading, selectRecipesError } from 'redux/recipes/recipesSelectors';
 
+import { Container } from 'components/universalComponents/Container/Container.styled';
 import { RecipesGallery } from 'components/universalComponents/RecipesGallery/RecipesGallery';
+import { Loader } from 'components/universalComponents/Loader/Loader';
+
+import {CategoriesWrapList, WrapperSeeAllBtn, SectionWrapper, WrapperOtherBtn, OtherCategoriesBtnLink, TitleCategories, SeeAllBtnLink } from './PreviewCategories.styled';
+
 
 export const PreviewCategories = () => {
   const dispatch = useDispatch();
   const recipesByCategory = useSelector(selectMainRecipesByCategory);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectRecipesError);
+
   const { categoryName } = useParams();
+
   const isMobileDevice = useMediaQuery({ maxWidth: 767 });
   const isTabletDevice = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
 
@@ -30,11 +39,13 @@ export const PreviewCategories = () => {
   });
 
   return (
-    <>
-      <div>
-        {filteredRecipes.map(({ category, recipes }) => (
+    <SectionWrapper>
+      <Container>
+        {isLoading && <Loader />}
+        <CategoriesWrapList>
+        {filteredRecipes.length > 0 && filteredRecipes.map(({ category, recipes }) => (
           <li key={category}>
-            <p>{category}</p>
+            <TitleCategories>{category}</TitleCategories>
             <RecipesGallery
               recipes={recipes.slice(
                 0,
@@ -43,15 +54,20 @@ export const PreviewCategories = () => {
             />
             {recipes.length >=
               (isMobileDevice ? 1 : isTabletDevice ? 2 : 4) && (
-              <Link to={`/categories/${category.toLowerCase()}`}>See all</Link>
+              <WrapperSeeAllBtn>
+                <SeeAllBtnLink to={`/categories/${category.toLowerCase()}`}>See all</SeeAllBtnLink>
+                </WrapperSeeAllBtn>
             )}
           </li>
         ))}
-      </div>
-      <div>
-        <Link to="/categories">Other categories</Link>
-      </div>
-    </>
+          </CategoriesWrapList>
+      <WrapperOtherBtn>
+        <OtherCategoriesBtnLink to="/categories/beef">Other categories</OtherCategoriesBtnLink>
+        </WrapperOtherBtn>
+      </Container>
+
+      {error && <p>Whoops, something went wrong...</p>}
+    </SectionWrapper>
   );
 };
 

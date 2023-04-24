@@ -41,7 +41,7 @@ export const Description = styled.div`
   width: 307px;
   background: ${props =>
     props.theme.darkTheme
-      ? props.theme.colors.bgdarkTheme
+      ? props.theme.colors.bgBlackLight
       : props.theme.colors.textWhite};
   color: ${props =>
     props.theme.darkTheme
@@ -54,9 +54,11 @@ export const Description = styled.div`
     left: 16px;
     width: 300px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 268px;
   }
+
   p {
     font-weight: ${props => props.theme.fontWeights.medium};
     font-size: ${props => props.theme.fontSizes.m};
@@ -72,11 +74,14 @@ export const RecipeImg = styled.img`
   width: 343px;
   height: 323px;
   object-fit: cover;
-  transition: ${props => props.theme.effects.mainEffect};
+  :hover {
+    transition: ${props => props.theme.effects.mainEffect};
+  }
 
   @media screen and (min-width: 768px) {
     width: 336px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 299px;
     gap: 14px;
