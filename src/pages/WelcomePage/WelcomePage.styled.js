@@ -89,6 +89,7 @@ export const LogoWrapper = styled.div`
 export const LogoIconStyled = styled(LogoIcon)`
   width: 37px;
   height: 37px;
+  stroke: ${props => props.theme.colors.textWhite};
 
   @media screen and (min-width: 768px) {
     width: 44px;
