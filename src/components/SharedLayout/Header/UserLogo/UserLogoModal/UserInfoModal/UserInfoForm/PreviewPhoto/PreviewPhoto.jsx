@@ -10,7 +10,6 @@ export const PreviewPhoto = ({ photo, avatarUrl }) => {
     reader.readAsDataURL(photo);
     reader.onload = () => {
       setPreview(reader.result);
-      // setAvatarUrl(reader.result);
     };
   }
 
