@@ -1,12 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useDraggable } from 'react-use-draggable-scroll';
-import { TabsList, Tab } from './CategoriesTabs.styled';
-import { selectCategories, selectCategoriesIsLoading, selectCategoriesRecipesError } from 'redux/categories/categoriesSelectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+
+import { selectCategories, selectCategoriesIsLoading, selectCategoriesRecipesError } from 'redux/categories/categoriesSelectors';
 import { fetchCategoriesList } from 'redux/categories/categoriesOperations';
 import { Loader } from 'components/universalComponents/Loader/Loader';
-
+import { TabsList, Tab } from './CategoriesTabs.styled';
 
 export const CategoriesTabs = () => {
   const { categories } = useSelector(selectCategories);

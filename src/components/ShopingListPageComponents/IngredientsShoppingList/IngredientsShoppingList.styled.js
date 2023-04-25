@@ -34,7 +34,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const Container = styled.div`
+export const ContainerTitle = styled.div`
   display: flex;
   gap: 24px;
 
@@ -67,4 +67,38 @@ export const IngredientsItem = styled.li`
   display: flex;
 
   width: 100%;
+`;
+
+export const IngredientImgFrame = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  background-color: ${props => props.theme.colors.bgLightGreen};
+
+  @media screen and (min-width: 768px) {
+    width: 93px;
+    height: 97px;
+  }
+`;
+
+export const IngredientImg = styled.img`
+  width: 48px;
+  height: 48px;
+
+  @media screen and (min-width: 768px) {
+    width: 81px;
+    height: 81px;
+  }
+`;
+
+export const IngredientTitle = styled.h3`
+  font-size: 10px;
+  font-weight: ${props => props.theme.fontWeights.medium};
+  line-height: 1.2;
+  color: #3e4462;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+    line-height: 1.5;
+  }
 `;
