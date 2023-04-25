@@ -42,9 +42,16 @@ export const UserAvatarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   width: 44px;
   height: 44px;
   border-radius: ${props => props.theme.radii.round};
   background-color: ${props => props.theme.colors.bgGray};
 `;
+
+export const UserAvatarImg = styled.img`
+  display: block;
+  width: 44px;
+  height: 44px;
+`
