@@ -14,6 +14,7 @@ export const ContainerSigninPage = styled(ContainerAuthPageStyled)`
   @media screen and (min-width: 1280px) {
     bottom: 225px;
     align-items: flex-end;
+    justify-content: center;
   }
 `;
 
