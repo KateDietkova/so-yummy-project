@@ -3,6 +3,9 @@ import React from 'react';
 import { cookingTimeOptions } from 'helpers/helper';
 import { useState } from 'react';
 import { useFormikContext } from 'formik';
+import { selectCategories } from 'redux/categories/categoriesSelectors';
+import { fetchCategoriesList } from 'redux/categories/categoriesOperations';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   AddFileInput,
@@ -67,6 +70,21 @@ export const RecipeDescriptionFields = props => {
     aboutValue,
   ]);
 
+    // const dispatch = useDispatch();
+
+  // const categoriesList = useSelector(selectCategories)
+
+
+  // useEffect(() => {
+  //   if (!categoriesList) {
+  //   dispatch(fetchCategoriesList())
+  
+  // }}, [dispatch, categoriesList]);
+   
+  ///  ф-ція отримання даних з редакс//
+
+
+
   const formikProps = useFormikContext();
 
   const setFormikValue = (name, value) => {
@@ -113,19 +131,7 @@ export const RecipeDescriptionFields = props => {
     setAboutValue(value);
     setFormikValue('about', value);
   };
-  //
 
-  // const getReduxData = () => {
-  // const categoriesList = selectCategories();
-  // if (list) {
-  //   return list
-  // }
-  //  dispatch(fetchIngredients());
-  // }
-
-  //const categoriesList = getReduxData();
-
-  ///  ф-ція отримання даних з редакс//
 
   return (
     <>

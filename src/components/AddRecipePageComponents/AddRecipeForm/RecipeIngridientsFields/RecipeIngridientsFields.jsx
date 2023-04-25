@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormikContext } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchIngredients } from 'redux/ingredients/ingredientsOperations';
 import { useEffect } from 'react';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
@@ -20,6 +20,7 @@ import {
   SelectMeasureWrapper,
   SubTitleStyled,
   FlexWrapper,
+  CrossIconStyled
 } from './RecipeIngridientsFields.styled';
 import { FormError } from '../validationAddRecipe';
 export const IngredientsField = props => {
@@ -29,12 +30,22 @@ export const IngredientsField = props => {
   ]);
   // const dispatch = useDispatch();
 
+  // const ingredientsList = useSelector(selectIngredients)
+
+
   // useEffect(() => {
-  //   dispatch(fetchIngredients());
-  // }, [dispatch]);
+  //   if (!ingredientsList) {
+  //   dispatch(fetchIngredients())
+  
+  // }}, [dispatch, ingredientsList]);
+   
+  ///  ф-ція отримання даних з редакс//
+
+
 
   useEffect(() => {
     props.funct(ingredients);
+    
   }, [ingredients]);
 
   const measureList = ['tbs', 'tsp', 'kg', 'g'];
@@ -69,17 +80,6 @@ export const IngredientsField = props => {
     },
   ];
 
-  // const getReduxData = () => {
-  //  const list = selectIngredients();
-  // if (list) {
-  //   return list
-  // }
-  //  dispatch(fetchIngredients());
-  // }
-
-  //const ingredientsList = getReduxData();
-
-  ///  ф-ція отримання даних з редакс//
 
   const formikProps = useFormikContext();
 
@@ -225,7 +225,7 @@ export const IngredientsField = props => {
                 disabled={counter < 2 ? true : false}
                 onClick={() => deleteItem(item.id)}
               >
-                X
+                <CrossIconStyled/>
               </StyledDeleteButton>
             </StyledItemWrapper>
           );

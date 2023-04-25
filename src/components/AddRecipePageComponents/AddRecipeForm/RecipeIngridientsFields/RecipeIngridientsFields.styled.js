@@ -1,6 +1,20 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
 import Select from 'react-select';
+import { ReactComponent as CrossIcon } from '../../../../assets/svg/other/cross.svg';
+
+
+
+export const CrossIconStyled = styled(CrossIcon)`
+  width: 18px;
+  height: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+   
+  }
+`;
 
 export const FlexWrapper = styled.div`
   display: flex;
@@ -58,7 +72,7 @@ export const StyledMeasureField = styled(Field)`
   outline: none;
 
   width: 30px;
-  padding-left: 16px;
+  padding-left: 10px;
   padding-right: 0px;
   border: none;
 
@@ -74,6 +88,7 @@ export const StyledMeasureField = styled(Field)`
 
   @media screen and (min-width: 768px) {
     width: 35px;
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;
 
@@ -89,6 +104,8 @@ export const SelectWrapper = styled.div`
   }};
   border-radius: 6px;
   border: none;
+
+  
 `;
 
 export const SelectMeasureWrapper = styled(SelectWrapper)`
@@ -114,6 +131,15 @@ export const SelectMeasureWrapper = styled(SelectWrapper)`
   @media screen and (min-width: 1280px) {
     margin-right: 60px;
   }
+  &:hover {
+        color: ${props => props.theme.colors.bgBlackDark};
+      }
+
+ 
+
+   
+  }
+
 `;
 
 export const StyledCounterWrapper = styled.div`
@@ -324,7 +350,7 @@ export const StyledSelect = styled(Select)`
     display: none;
   }
   .Select__indicator {
-    padding-right: 6px;
+    padding-right: 3px;
     padding-left: 0px;
     margin: 0;
   }
@@ -332,6 +358,7 @@ export const StyledSelect = styled(Select)`
   .Select__value-container {
     padding: 0;
     margin-left: 0;
+    
   }
 
   .Select__input-container {
@@ -343,21 +370,37 @@ export const StyledSelect = styled(Select)`
     line-height: 21px;
     padding: 0;
     margin: 0;
+ @media screen and (min-width: 768px) {
+      font-size: ${props => props.theme.fontSizes.l};
+    }
+
+
+    
+    
   }
   .Select__placeholder {
     padding-left: 0px;
     padding-bottom: 0px;
     font-family: PoppinsRegular;
     font-weight: 400;
-
-    @media screen and (min-width: 768px) {
-      font-size: ${props => props.theme.fontSizes.m};
-    }
     line-height: 1;
     color: ${props => {
       return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
     }};
-  }
+
+ 
+  &:focus {
+    color: ${props => {
+      return props.theme.darkTheme ? '#ff0000' : '#ff0000';
+    }};
+}
+
+
+    @media screen and (min-width: 768px) {
+      font-size: ${props => props.theme.fontSizes.l};
+    }
+
+
 `;
 
 export const StyledSelectMeasures = styled(StyledSelect)`
