@@ -16,7 +16,7 @@ export const RecipeCardWrapper = styled.li`
 
   @media screen and (min-width: 768px) {
     padding: 28px 24px;
-    height: 232px;
+    height: 288px;
     gap: 24px;
   }
 

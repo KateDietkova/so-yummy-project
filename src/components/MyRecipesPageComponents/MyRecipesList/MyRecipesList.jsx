@@ -5,21 +5,20 @@ import {
   fetchUserRecipes,
 } from 'redux/recipes/recipesOperations';
 import { RecipesList } from 'components/universalComponents/RecipesList/RecipesList';
-// import { Loader } from 'components/universalComponents/Loader/Loader';
+import { Loader } from 'components/universalComponents/Loader/Loader';
 
 import {
-  // selectIsLoading,
-  // selectRecipesError,
+  selectIsLoading,
+  selectRecipesError,
   selectUserRecipes,
 } from 'redux/recipes/recipesSelectors';
-
-// axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+import { Error } from '../Error';
 
 export const MyRecipesList = () => {
   const userRecipes = useSelector(selectUserRecipes);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectRecipesError);
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
-  // const isError = useSelector(selectRecipesError);
 
   useEffect(() => {
     userRecipes.length === 0 && dispatch(fetchUserRecipes());
@@ -36,8 +35,8 @@ export const MyRecipesList = () => {
         type="my"
         onClick={handleClickDeleteButton}
       />
-      {/* {isLoading && <Loader />} */}
-      {/* {isError && <Error />} */}
+      {isLoading && <Loader />}
+      {isError && <Error />}
     </>
   );
 };

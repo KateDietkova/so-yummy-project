@@ -34,7 +34,7 @@ export const fetchUserRecipes = createAsyncThunk(
       const { data } = await axios.get('/ownRecipes');
       return data.recipes;
     } catch (error) {
-      rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
