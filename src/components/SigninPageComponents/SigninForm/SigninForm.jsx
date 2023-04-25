@@ -11,6 +11,7 @@ import {
   PasswordIcon,
   SubmitBtn,
 } from '../../RegisterPageComponents/RegisterForm/RegisterForm.styled';
+import { BgOrderFoodImg } from 'pages/RegisterPage/RegisterPage.styled';
 
 import { SigninTitle, LinkRegisterStyled } from './SigninForm.styled';
 import { signinSchema, ValidMassege } from './validationSignin';
@@ -31,6 +32,7 @@ export const SigninForm = () => {
 
   return (
     <FormWrapper>
+      <BgOrderFoodImg></BgOrderFoodImg>
       <Formik
         initialValues={initialValue}
         validationSchema={signinSchema}

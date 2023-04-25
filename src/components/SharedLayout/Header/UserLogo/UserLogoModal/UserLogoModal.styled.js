@@ -6,6 +6,12 @@ export const UserLogoModalContainer = styled.div`
   top: 65px;
 
   display: flex;
+  pointer-events: ${props => {
+    return props.isOpenUserModal ? 'auto' : 'none';
+  }};
+  visibility: ${props => {
+    return props.isOpenUserModal ? 'visible' : 'hidden';
+  }};
   opacity: ${props => {
     return props.isOpenUserModal ? '1' : '0';
   }};
@@ -27,7 +33,8 @@ export const UserLogoModalContainer = styled.div`
   overflow: hidden;
 
   transition: height ${props => props.theme.effects.mainEffect},
-    opacity ${props => props.theme.effects.mainEffect};
+    opacity ${props => props.theme.effects.mainEffect},
+    visibility ${props => props.theme.effects.mainEffect};
 
   @media screen and (max-width: 767px) {
     border: 1px solid ${props => props.theme.colors.accent};

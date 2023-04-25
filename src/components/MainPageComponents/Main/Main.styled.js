@@ -15,6 +15,9 @@ import imgMobileMainRetina from '../../../assets/images/mobile/homepage/main-sec
 import imgTabletMainRetina from '../../../assets/images/tablet/homepage/main-section-2x.png';
 import imgDesktopMainRetina from '../../../assets/images/desktop/homepage/main-section-2x.png';
 
+import TailImage from '../../../assets/svg/other/arrow1.svg';
+import ArrowImage from '../../../assets/svg/other/arrow2.svg';
+
 export const LeavesBgContainer = styled.div`
   position: absolute;
   top: 0;
@@ -208,5 +211,59 @@ export const MainImgContainer = styled.div`
         background-image: url(${imgDesktopMainRetina});
       }
     }
+  }
+`;
+
+export const TailIcon = styled.div`
+  position: absolute;
+  z-index: 4;
+  background-image: url(${TailImage});
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 89px;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 480px;
+    left: 190px;
+    width: 120px;
+    transform: rotate(0deg);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 600px;
+    left: 370px;
+    width: 136.88px;
+    height: 89px;
+    transform: rotate(-10deg);
+  }
+`;
+
+export const ArrowIcon = styled.div`
+  position: absolute;
+  z-index: 4;
+  background-image: url(${ArrowImage});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 488px;
+    left: 300px;
+    width: 20.93px;
+    height: 20.93px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 595px;
+    left: 492px;
+    width: 25.79px;
+    height: 25.79px;
   }
 `;

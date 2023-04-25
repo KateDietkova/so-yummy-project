@@ -16,6 +16,7 @@ import {
 } from './RegisterForm.styled';
 import { signupSchema, ValidMassege } from './validationRegister';
 import { register } from 'redux/auth/authOperations';
+import { BgOrderFoodImg } from 'pages/RegisterPage/RegisterPage.styled';
 
 const initialValue = {
   name: '',
@@ -36,6 +37,7 @@ export const RegisterForm = () => {
 
   return (
     <FormWrapper>
+      <BgOrderFoodImg></BgOrderFoodImg>
       <Formik
         initialValues={initialValue}
         validationSchema={signupSchema}

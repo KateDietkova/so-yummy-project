@@ -9,6 +9,11 @@ import { ReactComponent as CorrectIcon } from '../../../assets/svg/other/valid-i
 
 export const FormWrapper = styled.div`
   position: relative;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    gap: 115px;
+  }
 `;
 
 export const FormStyled = styled(Form)`
@@ -241,7 +246,6 @@ export const ErrorValidationIcon = styled(ErrorIcon)`
   width: 16px;
   height: 16px;
 
-
   @media screen and (min-width: 768px) {
     top: 20px;
     width: 20px;
@@ -279,7 +283,8 @@ export const CorrectIconValidationIcon = styled(CorrectIcon)`
 
 export const LinkStyled = styled(Link)`
   position: absolute;
-  left: 127px;
+  bottom: -50px;
+  right: 128px;
 
   display: block;
   color: ${props => props.theme.colors.textWhite};
@@ -293,6 +298,7 @@ export const LinkStyled = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-    left: 220px;
+    bottom: -50px;
+    right: 220px;
   }
 `;
