@@ -11,15 +11,29 @@ export const getRecipeById = async id => {
       //   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQyOTY2MmNmY2NlNzNhNjg4NzUzZTIiLCJpYXQiOjE2ODIwODY5NTEsImV4cCI6MTY4MzI5NjU1MX0.FfXjqrQvxNQ651VJkFnH2MbyotCAahhsVUfiKRW7zec`,
       // },
     console.log(data.data)
-    return data.data;
+    return data.data.recipes;
   } catch (error) {
     console.log(error.message)
   }
 };
+// export const getAllIngredientsAPI = async () => {
+//   const { data } = await axios.get(`/ingredients/list`);
+//   return data;
+// };
 export const getAllIngredientsAPI = async () => {
-  const { data } = await axios.get(`/ingredients/list`);
-  return data;
-};
+  const { data } = await axios.get(`/ingredients/list`)
+    return data.data;
+  };
+
+export const getFavorite = async () => {
+  try {
+      const response = await axios.get(`/favorite`);
+      return response.data.data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
 // import axios from 'axios';
 
 // export const instance = axios.create({

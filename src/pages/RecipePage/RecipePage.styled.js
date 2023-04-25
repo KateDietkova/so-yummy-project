@@ -1,10 +1,9 @@
-
+// import { Container } from 'components/universalComponents/Container/Container.styled';
 import styled from 'styled-components';
 
-
 export const RecipeSection = styled.div`
-
-  width: 100%;
-  min-height:100%;
-
+  background-color: ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.bgdarkTheme
+      : props.theme.colors.textWhite};
 `;

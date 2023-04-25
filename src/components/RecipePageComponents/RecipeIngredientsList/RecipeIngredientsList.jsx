@@ -17,18 +17,17 @@ import {
   CheckBox
 } from './RecipeIngredientsList.styled';
 
+import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg';
 
-const RecipeIngredientsList = ({ingredients}) => {
-  const dispatch = useDispatch();
+export const RecipeIngredientsList = ({ ingredients }) => {
 
-  useEffect(() => {
-    dispatch(getAllIngredients())
-  }, [dispatch]);
-  // const currentIngredients = useSelector(selectIngredients);
-  // if (!currentIngredients) {
-  //   return;
-  // }
-// console.log('string', currentIngredients)
+  const allIngredients = useSelector(selectIngredients);
+  const selectIngred = allIngredients
+       .filter(data => {
+       return  ingredients.map((item) => item.id === data._id 
+     ) 
+    });
+    console.log('ingred', selectIngred);
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -38,25 +37,26 @@ const RecipeIngredientsList = ({ingredients}) => {
       </ListTitle>
       <IngredientsList>
         
-          {ingredients}
-            {/* <IngedientsItem key={currentIngredients._id}>
+        {ingredients && selectIngred.map(({  _id, ttl, thb , measure }) => {
+        
+            return(
+              <IngedientsItem key={_id}>
               <Wrap>
-              <IngedientsImg>
-                <Image src={currentIngredients.thb} alt={currentIngredients.ttl}></Image>
-              </IngedientsImg> 
-              <IngedientsTitle>{currentIngredients.ttl}</IngedientsTitle>
+              <Image src={thb} alt={ttl}/>
+              <IngedientsTitle>{ttl}</IngedientsTitle>
               </Wrap>
               <Wrap>
-                <IngedientsMeasure>{currentIngredients.measure}</IngedientsMeasure>
-                <CheckBox>
-                </CheckBox>
+                  <IngedientsMeasure>{measure}</IngedientsMeasure>
+                <CheckBox
+                 >
+              </CheckBox>
               </Wrap>
-           </IngedientsItem> */}
-         
-         
+            </IngedientsItem>
+         )   
+        }
+        )}
       </IngredientsList>
     </IngredientsListSection>
   );
 };
 
-export default RecipeIngredientsList;

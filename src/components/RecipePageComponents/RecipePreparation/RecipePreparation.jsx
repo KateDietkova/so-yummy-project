@@ -4,10 +4,11 @@ import {
     PrepeaRecipe,
     PrepeaRecipeImage,
     Steps,
-    Step
+    Step,
+    Image
 } from './RecipePreparation.styled';
-
-const RecipePreparation = ({instructions, thumb}) => {
+import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
+export const RecipePreparation = ({instructions, thumb}) => {
   let steps = [];
   if (instructions) {
     if (!instructions.includes('\r\n')) {
@@ -19,25 +20,27 @@ const RecipePreparation = ({instructions, thumb}) => {
 
   return (
     <PreparationSection>
-      
+      <div>
       <Title>Recipe Preparation</Title>
       <PrepeaRecipe>
-      {steps.length > 0 ? (
-       <Steps>
-              {steps.length > 0 &&
-                steps.map((step, idx) => (
-                  <Step key={idx}>
+            <Steps>
+              {steps.length > 0 ? (
+              steps.map((step, numb) => (
+                  <Step key={numb}>
                     <p>{step}</p>
                   </Step>
-                ))}
-            </Steps>
+              ))
           ) : (
             instructions
           )}
+          </Steps>
       </PrepeaRecipe>
-      <PrepeaRecipeImage img={thumb}></PrepeaRecipeImage>
+      </div>
+      <Image>
+       <PrepeaRecipeImage src={thumb ?? IngredientsPlaceholder}></PrepeaRecipeImage> 
+      </Image>
+      
     </PreparationSection>
   );
 };
 
-export default RecipePreparation;

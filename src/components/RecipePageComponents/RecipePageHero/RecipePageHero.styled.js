@@ -49,14 +49,14 @@ export const SectionHero = styled.div`
 `;
 
 export const SectionHeroTitle = styled.h1`
-  max-width:360px;
+  // max-width:360px;
   margin-right:auto;
   margin-left:auto;
-  font-weight: ${({ theme }) => `${theme.fontWeights.semibold}`};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${({ theme }) => `${theme.colors.accent}`};
+  color: ${props => props.theme.colors.accent};
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     font-size: 44px;

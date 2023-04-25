@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 
 export const IngredientsListSection = styled.div`
-position:relative;
-top:400px;
+
+  padding-top:400px;
   width: 100%;
-  height:100%;
+  // height:100%;
   padding-left: 16px;
   padding-right: 16px;
   margin-bottom: 50px;
@@ -13,6 +13,7 @@ top:400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
@@ -52,19 +53,17 @@ export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 24px;
+  width: 100%;
   @media (min-width: 768px) {
     gap: 24px;
-    margin-top: 32px;
   }
   @media (min-width: 1440px) {
-    margin-top: 50px;
+   
+     width: 1240px;
   }
 `;
 export const IngedientsItem = styled.li`
   display: flex;
-  width: 1240px;
-  height:182px;
   background-color: ${props=>props.theme.colors.bgLightGreen};
   padding: 14px 29px 14px 14px;
   justify-content: space-between;
@@ -79,7 +78,7 @@ export const IngedientsItem = styled.li`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 
   @media screen and (min-width: 768px) {
     gap: 78px;
@@ -111,8 +110,8 @@ export const IngedientsImg = styled.img`
   }
 `;
 export const Image = styled.img`
-  display: block;
-  object-fit: contain;
+   width: 57px;
+  height: 57px;
 `;
 
 export const IngedientsTitle = styled.p`
@@ -121,7 +120,7 @@ export const IngedientsTitle = styled.p`
   font-size: 12px;
   line-height: 1.16;
   max-width: 200px;
-  color: ${props=>props.theme.colors.textDark};
+  color: ${props => props.theme.colors.textDark};
   @media (min-width: 768px) {
     max-width: 220px;
     font-size: 24px;

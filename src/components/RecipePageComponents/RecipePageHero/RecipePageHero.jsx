@@ -15,14 +15,15 @@ import { getRecipeById } from 'servicesApi/api';
 import { fetchRecipe } from 'redux/recipes/recipesOperations';
 
 
-const RecipePageHero = ({ title, description, time }) => {
+export const RecipePageHero = ({ title, description, time }) => {
   // const { recipeId } = useParams();
   
   // const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(fetchRecipe(recipeId));
+  //   dispatch(getRecipeById(recipeId));
   // }, [dispatch]);
+  
   return (
     <SectionHero>
         <SectionHeroTitle>{title}</SectionHeroTitle>
@@ -38,4 +39,3 @@ const RecipePageHero = ({ title, description, time }) => {
   );
 };
 
-export default RecipePageHero;
