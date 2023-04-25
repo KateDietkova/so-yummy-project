@@ -1,8 +1,9 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjsz/toolkit';
 import axios from 'axios';
 import { getAllIngredientsAPI } from '../../servicesApi/api'
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+
+
 
 export const getAllIngredients = createAsyncThunk(
   'ingredients/list',
@@ -18,4 +19,5 @@ export const getAllIngredients = createAsyncThunk(
     }
   }
 );
+
 

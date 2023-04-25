@@ -3,6 +3,7 @@ export const theme = {
     textDark: '#23262A',
     textWhite: '#FAFAFA',
     textGray: '#BDBDBD',
+    textBlue: '#3E4462',
 
     textTitleDark: '#001833',
 
@@ -28,6 +29,7 @@ export const theme = {
     m: '16px',
     l: '18px',
     xl: '24px',
+    xxl: '28px',
   },
   fontWeights: {
     normal: 400,
