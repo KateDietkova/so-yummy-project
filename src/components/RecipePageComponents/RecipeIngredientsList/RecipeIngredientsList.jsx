@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
@@ -14,20 +13,19 @@ import {
   Image,
   IngedientsTitle,
   IngedientsMeasure,
-  CheckBox
+  CheckBox,
 } from './RecipeIngredientsList.styled';
 
 import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg';
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-
   const allIngredients = useSelector(selectIngredients);
-  const selectIngred = allIngredients
-       .filter(data => {
-       return  ingredients.map((item) => item.id === data._id 
-     ) 
-    });
-    console.log('ingred', selectIngred);
+  const selectIngred = allIngredients.filter(data => {
+    ingredients.map(item => item.id === data._id);
+  });
+
+  
+  console.log('ingred', selectIngred);
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -36,27 +34,22 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         <ListSpan>Add to list</ListSpan>
       </ListTitle>
       <IngredientsList>
-        
-        {ingredients && selectIngred.map(({  _id, ttl, thb , measure }) => {
-        
-            return(
+        {ingredients &&
+          selectIngred.map(({ _id, ttl, thb, measure }) => {
+            return (
               <IngedientsItem key={_id}>
-              <Wrap>
-              <Image src={thb} alt={ttl}/>
-              <IngedientsTitle>{ttl}</IngedientsTitle>
-              </Wrap>
-              <Wrap>
+                <Wrap>
+                  <Image src={thb} alt={ttl} />
+                  <IngedientsTitle>{ttl}</IngedientsTitle>
+                </Wrap>
+                <Wrap>
                   <IngedientsMeasure>{measure}</IngedientsMeasure>
-                <CheckBox
-                 >
-              </CheckBox>
-              </Wrap>
-            </IngedientsItem>
-         )   
-        }
-        )}
+                  <CheckBox></CheckBox>
+                </Wrap>
+              </IngedientsItem>
+            );
+          })}
       </IngredientsList>
     </IngredientsListSection>
   );
 };
-
