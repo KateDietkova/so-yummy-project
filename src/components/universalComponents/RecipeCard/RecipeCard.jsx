@@ -42,7 +42,7 @@ export const RecipeCard = ({
         </TextWrapper>
         <TimeLinkWrapper>
           <StyledTimeText>{timeInHours}</StyledTimeText>
-          <StyledLink type={type} to="recipe/{_id.$oid}">
+          <StyledLink type={type} to={`/recipe/${_id}`}>
             <div className="inner">See recipe</div>
           </StyledLink>
         </TimeLinkWrapper>
