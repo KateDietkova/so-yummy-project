@@ -44,7 +44,7 @@ export const AuthNavLinkSignIn = styled(LinkSkewStyled)`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 20px 44px;
+    padding: 20px 40px;
     font-size: ${props => props.theme.fontSizes.m};
     line-height: 1.3;
   }

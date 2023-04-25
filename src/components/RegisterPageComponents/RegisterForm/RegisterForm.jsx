@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
   FormWrapper,
@@ -15,8 +15,8 @@ import {
   LinkStyled,
 } from './RegisterForm.styled';
 import { signupSchema, ValidMassege } from './validationRegister';
-
-
+import { register } from 'redux/auth/authOperations';
+import { BgOrderFoodImg } from 'pages/RegisterPage/RegisterPage.styled';
 
 const initialValue = {
   name: '',
@@ -26,17 +26,18 @@ const initialValue = {
 
 export const RegisterForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleSubmit = (value, { resetForm }) => {
     console.log('Register data', value);
-    resetForm();
+    dispatch(register(value));
     setIsSubmit(false);
-    navigate('/');
+    resetForm();
+
   };
 
   return (
     <FormWrapper>
+      <BgOrderFoodImg></BgOrderFoodImg>
       <Formik
         initialValues={initialValue}
         validationSchema={signupSchema}
@@ -57,7 +58,7 @@ export const RegisterForm = () => {
                   pattern="^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$"
                   placeholder="Name"
                 />
-                <UserIcon/>
+                <UserIcon />
                 <ErrorMessage name="name" />
                 {touched.name && !errors.name && isSubmit && <ValidMassege />}
               </LabelStyled>
@@ -79,7 +80,7 @@ export const RegisterForm = () => {
                   placeholder="Password"
                   required
                 />
-                <PasswordIcon/>
+                <PasswordIcon />
                 <ErrorMessage name="password" />
                 {touched.password && !errors.password && isSubmit && (
                   <ValidMassege>Password is secure</ValidMassege>

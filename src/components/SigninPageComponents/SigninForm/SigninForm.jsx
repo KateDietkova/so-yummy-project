@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
   FormWrapper,
@@ -11,29 +11,28 @@ import {
   PasswordIcon,
   SubmitBtn,
 } from '../../RegisterPageComponents/RegisterForm/RegisterForm.styled';
+import { BgOrderFoodImg } from 'pages/RegisterPage/RegisterPage.styled';
 
 import { SigninTitle, LinkRegisterStyled } from './SigninForm.styled';
 import { signinSchema, ValidMassege } from './validationSignin';
-
+import { login } from 'redux/auth/authOperations';
 const initialValue = {
-  name: '',
   email: '',
   password: '',
 };
 
 export const SigninForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleSubmit = (value, { resetForm }) => {
-    console.log('Register data', value);
-    resetForm();
+    dispatch(login(value));
     setIsSubmit(false);
-    navigate('/');
+    resetForm();
   };
 
   return (
     <FormWrapper>
+      <BgOrderFoodImg></BgOrderFoodImg>
       <Formik
         initialValues={initialValue}
         validationSchema={signinSchema}
@@ -72,7 +71,7 @@ export const SigninForm = () => {
             </FieldsWrapper>
 
             <SubmitBtn type="submit" onClick={() => setIsSubmit(true)}>
-              Sign up
+              Sign in
             </SubmitBtn>
           </FormStyled>
         )}
