@@ -13,9 +13,11 @@ export const SigninTitle = styled(FormTitle)`
 `;
 
 export const LinkRegisterStyled = styled(LinkStyled)`
-  left: 105px;
+  bottom: -50px;
+  right: 105px;
 
   @media screen and (min-width: 768px) {
-    left: 200px;
+    bottom: -50px;
+    right: 192px;
   }
 `;

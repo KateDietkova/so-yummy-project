@@ -283,7 +283,8 @@ export const CorrectIconValidationIcon = styled(CorrectIcon)`
 
 export const LinkStyled = styled(Link)`
   position: absolute;
-  left: 127px;
+  bottom: -50px;
+  right: 128px;
 
   display: block;
   color: ${props => props.theme.colors.textWhite};
@@ -297,6 +298,7 @@ export const LinkStyled = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-    left: 220px;
+    bottom: -50px;
+    right: 220px;
   }
 `;
