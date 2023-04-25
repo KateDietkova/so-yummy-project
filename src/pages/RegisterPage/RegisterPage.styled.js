@@ -121,5 +121,6 @@ export const ContainerAuthPageStyled = styled(Container)`
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     gap: 115px;
+    justify-content: center;
   }
 `;
