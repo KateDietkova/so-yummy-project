@@ -4,26 +4,27 @@ import {
   UserLogoBtnWrapper,
   UserLogoBtn,
   UserAvatarWrapper,
+  UserAvatarImg,
 } from './UserLogo.styled';
 import { UserLogoModal } from './UserLogoModal/UserLogoModal';
 import { useAuth } from 'hooks/useAuth';
 
 export const UserLogo = () => {
   const [isOpenUserModal, setIsOpenUserModal] = useState(false);
-  const { user: {name: userName} } = useAuth()
+  const { user: {name: userName, avatarUrl} } = useAuth()
 
-  const userAvatar = null;
+  const userAvatar = avatarUrl || null;
   return (
     <UserLogoBtnWrapper>
       <UserLogoBtn onClick={() => setIsOpenUserModal(!isOpenUserModal)}>
         <UserAvatarWrapper>
           {userAvatar ? (
-            <img src="" alt="" />
+            <UserAvatarImg src={userAvatar} alt="user avatar" />
           ) : (
             <FiUser size={30} color={'#C4C4C4'} />
           )}
         </UserAvatarWrapper>
-        {userName ? userName : "User"}
+        {userName ? userName : 'User'}
       </UserLogoBtn>
       <UserLogoModal isOpenUserModal={isOpenUserModal} />
     </UserLogoBtnWrapper>

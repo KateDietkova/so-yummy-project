@@ -88,6 +88,7 @@ export const fetchCurrentUser = createAsyncThunk(
 );
 
 
+
 export const addToFavoriteList = createAsyncThunk(
     "auth/addToFavoriteList",
     async ({ recipeId }, thunkAPI) => {
@@ -101,3 +102,17 @@ export const addToFavoriteList = createAsyncThunk(
         }
     }
 );
+
+export const updateUserInfo = createAsyncThunk(
+  'auth/updateUserInfo',
+  async (userInfo, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch('/user', userInfo);
+      // console.log('Update user info', data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+

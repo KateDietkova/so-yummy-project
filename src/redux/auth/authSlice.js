@@ -5,6 +5,7 @@ import {
   login,
   fetchCurrentUser,
   logout,
+  updateUserInfo
 } from './authOperations';
 
 const initialState = {
@@ -102,6 +103,19 @@ export const authSlice = createSlice({
         state.token = null;
       })
       .addCase(logout.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload;
+      })
+
+      .addCase(updateUserInfo.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(updateUserInfo.fulfilled, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = null;
+        state.user = payload.user;
+      })
+      .addCase(updateUserInfo.rejected, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = payload;
       });
