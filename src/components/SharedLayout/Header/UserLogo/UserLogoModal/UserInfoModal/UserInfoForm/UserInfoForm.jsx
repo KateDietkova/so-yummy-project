@@ -14,19 +14,28 @@ import { PreviewPhoto } from './PreviewPhoto/PreviewPhoto';
 import { FiUser } from 'react-icons/fi';
 import { IoAdd } from 'react-icons/io5';
 import { useAuth } from 'hooks/useAuth';
+import { updateUserInfo } from 'redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
 
 export const UserInfoForm = ({ closeModal }) => {
+  const dispatch = useDispatch();
   const {
-    user: { name},
+    user: { name, avatarUrl },
   } = useAuth();
-  const userPhoto = null;
-  const [photoRef, setPhotoRef] = useState(userPhoto);
-  const initialValue = { name, photo: photoRef };
+  const [avatarFile, setAvatarFile] = useState(null);
+  const initialValue = { name, image: avatarFile };
 
   const fileRef = useRef(null);
 
-  const handleSubmit = (value, { resetForm }) => {
-    console.log('UserInfoSubmit', value);
+  const handleSubmit = ({ name }, { resetForm }) => {
+    const formData = new FormData();
+    formData.append('name', name);
+
+    if (avatarFile) {
+      formData.append('image', avatarFile);
+    }
+
+    dispatch(updateUserInfo(formData));
     resetForm();
     closeModal();
   };
@@ -35,24 +44,27 @@ export const UserInfoForm = ({ closeModal }) => {
     <Formik initialValues={initialValue} onSubmit={handleSubmit}>
       {({ values, setFieldValue }) => (
         <FormStyled>
-          <LabelStyled htmlFor="photo" className="photo">
+          <LabelStyled htmlFor="image" className="photo">
             <input
               ref={fileRef}
               hidden
               type="file"
-              name="photo"
+              name="image"
               onChange={e => {
-                setFieldValue('photo', e.target.files[0]);
-                setPhotoRef(e.target.files[0]);
+                setFieldValue('image', e.target.files[0]);
+                setAvatarFile(e.target.files[0]);
               }}
             />
 
             <UserPhotoWrapper>
-              {values.photo ? (
-                <PreviewPhoto photo={values.photo} />
-              ) : (
+              {(values.image || avatarUrl) && (
+                <PreviewPhoto photo={values.image} avatarUrl={avatarUrl} />
+              )}
+
+              {!values.image && !avatarUrl && (
                 <FiUser size={47} color={'#C4C4C4'} />
               )}
+
               <UploadBtn
                 type="button"
                 onClick={() => {
