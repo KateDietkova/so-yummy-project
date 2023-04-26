@@ -3,6 +3,34 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api'
 
+export const fetchUserRecipes = async currentPage => {
+  try {
+    const { data } = await axios.get(`/ownRecipes?page=${currentPage}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteUserRecipe = async id => {
+  try {
+    const { data } = await axios.delete(`/ownRecipes/${id}`);
+    return data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchPopularRecipe = async () => {
+  try {
+    const { data } = await axios.get('/popular-recipe');
+    return data.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+
 export const getRecipeById = async id => {
   try {
     const { data } = await axios.get(`/recipes/${id}`)
@@ -24,11 +52,4 @@ export const getAllIngredientsAPI = async () => {
 //     return data.data;
 //   };
 
-export const getFavorite = async () => {
-  try {
-      const response = await axios.get(`/favorite`);
-      return response.data.data;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+

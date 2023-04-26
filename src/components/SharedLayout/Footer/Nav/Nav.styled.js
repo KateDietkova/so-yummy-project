@@ -14,7 +14,8 @@ export const NavFooterContainer = styled.div`
   }
   @media screen and (min-width: 1440px) {
     gap: 24px;
-        margin-right: 235px;
+    margin-right: 235px;
+    width: 89px;
   }
 `;
 
@@ -25,6 +26,7 @@ export const Link = styled(NavLink)`
     line-height: 1.29;
     letter-spacing: -0.02em;
     color: ${props => props.theme.colors.textWhite};
+    transition: color ${props => props.theme.effects.mainEffect};
 
     :hover {
       color: ${props => {

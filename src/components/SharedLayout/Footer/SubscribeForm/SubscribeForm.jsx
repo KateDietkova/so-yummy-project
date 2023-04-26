@@ -1,16 +1,16 @@
 import React from 'react';
 import { SubscribeInput, SubscribeButton, IconMail, Form } from './SubscribeForm.styled'
-//import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
+// import { toast } from "react-hot-toast";
 import { Formik } from 'formik';
 
 
 export const SubscribeForm = () => {
 
-
-
     return (
         <Formik>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <SubscribeInput
                     type="email"
                     placeholder="Enter your email address"
