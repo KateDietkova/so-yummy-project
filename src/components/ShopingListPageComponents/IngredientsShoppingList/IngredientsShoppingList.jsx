@@ -1,14 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getShoppingList, deleteFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
 import { selectShoppingList, selectShoppingListError, selectShoppingListIsLoading } from 'redux/shoppingList/shoppingListSelectors';
 
-import { Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
+import { RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
+import { CgClose } from "react-icons/cg";
 
 
 export const IngredientsShoppingList = () => {
     const list = useSelector(selectShoppingList);
+    console.log(list)
     const isLoading = useSelector(selectShoppingListIsLoading);
     const error = useSelector(selectShoppingListError);
     const dispatch = useDispatch();
@@ -16,7 +18,6 @@ export const IngredientsShoppingList = () => {
     useEffect(() => {
     dispatch(getShoppingList())
     }, [dispatch])
-
 
     return (
         <>
@@ -26,9 +27,16 @@ export const IngredientsShoppingList = () => {
                 <Title>Number</Title>   
                 <Title>Remove</Title> 
             </ContainerTitle>
-        </Wrapper>
-                    <IngredientsList>
-                <IngredientsItem></IngredientsItem>
+            </Wrapper>
+
+            <IngredientsList>
+            {list?.map(({_id, measure}) => (
+                <IngredientsItem key={_id}>
+                    <p>{measure}</p>
+                    <RemoveBtn onClick={() => dispatch(deleteFromShoppingList(_id))}>{<CgClose size={20} />}</RemoveBtn>
+                </IngredientsItem>
+
+            ))}
             </IngredientsList>
             </>
 )

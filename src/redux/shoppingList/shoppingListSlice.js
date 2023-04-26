@@ -33,8 +33,13 @@ export const shoppingListSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.shoppingList = state.shoppingList.filter(
-          ({ id }) => id !== action.payload
+          ({ _id }) => _id !== action.payload._id
         );
+        // const id = state.shoppingList.findIndex(
+        //   ({ _id }) => _id === action.payload
+        // );
+        // state.shoppingList.splice(id, 1);
+        console.log(action.payload);
       })
       .addCase(deleteFromShoppingList.rejected, (state, action) => {
         state.isLoading = false;

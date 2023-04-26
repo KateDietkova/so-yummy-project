@@ -65,8 +65,11 @@ export const IngredientsList = styled.ul`
 `;
 export const IngredientsItem = styled.li`
   display: flex;
+  justify-content: space-between;
 
   width: 100%;
+
+  border-bottom: 1px solid #e0e0e0;
 `;
 
 export const IngredientImgFrame = styled.div`
@@ -100,5 +103,16 @@ export const IngredientTitle = styled.h3`
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.m};
     line-height: 1.5;
+  }
+`;
+
+export const RemoveBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  :hover {
+    color: ${props => props.theme.colors.accent};
+    transition: ${props => props.theme.effects.mainEffect};
   }
 `;
