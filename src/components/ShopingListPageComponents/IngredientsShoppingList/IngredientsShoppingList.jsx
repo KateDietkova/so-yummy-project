@@ -1,43 +1,58 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
 
-import { getShoppingList, deleteFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
-import { selectShoppingList, selectShoppingListError, selectShoppingListIsLoading } from 'redux/shoppingList/shoppingListSelectors';
+// import { getShoppingList, deleteFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
+// import { selectShoppingList, selectShoppingListError, selectShoppingListIsLoading } from 'redux/shoppingList/shoppingListSelectors';
 
-import { RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
-import { CgClose } from "react-icons/cg";
+// import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
+// import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+
+// import {MeasureWrap, IngredientWrap, Measure, IngredientImgFrame, IngredientTitle, IngredientImg, RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
+// import { CgClose } from "react-icons/cg";
+// import { Loader } from 'components/universalComponents/Loader/Loader';
 
 
-export const IngredientsShoppingList = () => {
-    const list = useSelector(selectShoppingList);
-    console.log(list)
-    const isLoading = useSelector(selectShoppingListIsLoading);
-    const error = useSelector(selectShoppingListError);
-    const dispatch = useDispatch();
+// export const IngredientsShoppingList = () => {
+//     // const list = useSelector(selectShoppingList);
+//     // console.log(list)
 
-    useEffect(() => {
-    dispatch(getShoppingList())
-    }, [dispatch])
+//     const allIngredients = useSelector(selectIngredients);
+//         console.log(allIngredients)
+//     const isLoading = useSelector(selectShoppingListIsLoading);
+//     const error = useSelector(selectShoppingListError);
+//     const dispatch = useDispatch();
 
-    return (
-        <>
-        <Wrapper>
-            <Title>Products</Title> 
-            <ContainerTitle>
-                <Title>Number</Title>   
-                <Title>Remove</Title> 
-            </ContainerTitle>
-            </Wrapper>
+//     useEffect(() => {
+//         dispatch(getAllIngredients())
+//     dispatch(getShoppingList())
+//     }, [dispatch])
 
-            <IngredientsList>
-            {list?.map(({_id, measure}) => (
-                <IngredientsItem key={_id}>
-                    <p>{measure}</p>
-                    <RemoveBtn onClick={() => dispatch(deleteFromShoppingList(_id))}>{<CgClose size={20} />}</RemoveBtn>
-                </IngredientsItem>
-
-            ))}
-            </IngredientsList>
-            </>
-)
-}
+//     return (
+//         <>
+//         <Wrapper>
+//             <Title>Products</Title> 
+//             <ContainerTitle>
+//                 <Title>Number</Title>   
+//                 <Title>Remove</Title> 
+//             </ContainerTitle>
+//             </Wrapper>
+//         {isLoading && <Loader />}
+//             <IngredientsList>
+//             {!isLoading && allIngredients?.map(({_id, ttl, thb, measure}) => (
+//                 <IngredientsItem key={_id}>
+//                     <IngredientWrap>
+//                         <IngredientImgFrame>
+//                             <IngredientImg src={thb } alt={ttl } />
+//                         </IngredientImgFrame>
+//                         <IngredientTitle>{ ttl}</IngredientTitle>
+//                     </IngredientWrap>
+//                     <MeasureWrap>
+//                         <Measure>{5}</Measure>
+//                     <RemoveBtn onClick={() => dispatch(deleteFromShoppingList(_id))}>{<CgClose size={20} />}</RemoveBtn>
+//                     </MeasureWrap>
+//                 </IngredientsItem>
+//             ))}
+//             </IngredientsList>
+//             </>
+// )
+// }
