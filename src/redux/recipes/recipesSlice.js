@@ -1,21 +1,29 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  deleteUserRecipe,
+
+import { fetchRecipe, deleteUserRecipe,
   fetchPopularRecipe,
   fetchUserRecipes,
-  getAllByCategory,
-} from './recipesOperations';
+  getAllByCategory,} from './recipesOperations';
 
-const initialState = {
+
+  
+
+
+
+  const initialState = {
+  recipe: null,
   popularRecipes: [],
   recipesByCategory: [],
   favoritesRecipes: null,
   userRecipes: [],
   recipesByTitle: null,
   recipesBuIngredients: null,
+
   isLoading: false,
   error: null,
+  
 };
 export const recipesSlice = createSlice({
   name: 'recipes',
@@ -23,6 +31,20 @@ export const recipesSlice = createSlice({
 
   extraReducers: builder => {
     builder
+
+      .addCase(fetchRecipe.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipe = action.payload;
+        console.log(action.payload)
+      })
+      .addCase(fetchRecipe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchPopularRecipe.pending, state => {
         state.isLoading = true;
       })
@@ -73,7 +95,8 @@ export const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       });
-  },
-});
+  }
+})
+
 
 export const recipesReducer = recipesSlice.reducer;
