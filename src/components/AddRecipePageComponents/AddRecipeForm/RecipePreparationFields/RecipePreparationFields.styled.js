@@ -10,11 +10,7 @@ export const StyledPreparationField = styled(Field)`
   line-height: 21px;
   letter-spacing: -0.02em;
 
-  color: ${props => {
-    return props.theme.darkTheme
-      ? props.theme.colors.textWhite
-      : 'rgba(0, 0, 0, 1)';
-  }};
+
 
   outline: ${props => {
     return props.theme.darkTheme
@@ -42,6 +38,13 @@ export const StyledPreparationField = styled(Field)`
   }};
   margin-top: 24px;
   margin-bottom: 18px;
+
+  
+&::placeholder{
+  color: ${props => {
+    return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
+  }};
+}
 
   @media screen and (min-width: 768px) {
     width: 505px;
