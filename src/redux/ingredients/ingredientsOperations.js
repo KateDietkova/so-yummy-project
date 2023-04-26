@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+
 import { getAllIngredientsAPI } from '../../servicesApi/api';
 
 export const getAllIngredients = createAsyncThunk(
