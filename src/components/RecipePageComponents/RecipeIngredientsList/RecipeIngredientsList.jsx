@@ -20,10 +20,12 @@ export const RecipeIngredientsList = ({ ingredients }) => {
   const ingredientsId = ingredients.map(data => data.id);
 
   const selectIngred = allIngredients.filter(data => {
+
     if (ingredientsId.includes(data._id)) {
       return data;
     }
     return null;
+
   });
 
   console.log('ingred', selectIngred);
@@ -36,20 +38,32 @@ export const RecipeIngredientsList = ({ ingredients }) => {
       </ListTitle>
 
       <IngredientsList>
-        {selectIngred.map(({ _id, ttl, thb, measure }) => {
-          return (
-            <IngedientsItem key={_id}>
-              <Wrap>
-                <Image src={thb} alt={ttl} />
-                <IngedientsTitle>{ttl}</IngedientsTitle>
-              </Wrap>
-              <Wrap>
-                <IngedientsMeasure>{measure}</IngedientsMeasure>
-                <CheckBox></CheckBox>
-              </Wrap>
-            </IngedientsItem>
-          );
-        })}
+
+        
+        {
+          selectIngred.map(({ _id, ttl, thb, measure }) => {
+        
+            return (
+              <IngedientsItem key={_id}>
+                <Wrap>
+                  <Image src={thb} alt={ttl} />
+                  <IngedientsTitle>{ttl}</IngedientsTitle>
+                </Wrap>
+                <Wrap>
+                  
+                  <IngedientsMeasure>{measure }</IngedientsMeasure>
+                  <CheckBox
+                  //   ingredientsId={_id}
+                  //   isCheck={ingredMeasure}
+                  // measure={measure}
+                  >
+                    
+                  </CheckBox>
+                </Wrap>
+              </IngedientsItem>
+            );
+          })}
+
       </IngredientsList>
     </IngredientsListSection>
   );

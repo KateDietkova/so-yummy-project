@@ -29,9 +29,10 @@ export const IngredientsListSection = styled.div`
 export const ListTitle = styled.div`
   background: #8baa36;
   border-radius: 8px;
-  height: 40px;
+  height: 42px;
   width: 100%;
   padding: 12px 14px;
+  
   display: flex;
   align-items: center;
   gap: 18px;

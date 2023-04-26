@@ -5,13 +5,12 @@ export const PreparationSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
   margin-bottom: 100px;
   
   @media screen and (min-width: 768px) {
     width: 704px;
-    padding: 0;
+    padding: 0 32px;
     margin-bottom: 200px;
   }
   @media screen and (min-width: 1440px) {
@@ -22,12 +21,13 @@ export const PreparationSection = styled.div`
     align-items: center;
     margin: auto;
     margin-bottom: 200px;
+    padding: 0;
    
   }
 `;
 export const Title = styled.h2`
   margin-bottom: 28px;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 24px;
   line-height: 1;
   color: ${props => props.theme.colors.textDark};
@@ -38,66 +38,70 @@ export const Title = styled.h2`
   }
 `;
 export const PrepeaRecipe = styled.ul`
+  list-style: none;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  @media screen and (min-width: 768px) {
+    // margin-bottom: 50px;
+    gap: 18px;
+  }
+`;
+
+export const ListItem = styled.li`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 40px;
-  display:flex;
-  flex-direction: column;
+  color: ${props => props.theme.colors.textDark};
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.29;
-    letter-spacing: -0.02em;
-    margin-bottom: 50px;
   }
   @media screen and (min-width: 1440px) {
-    margin-bottom: 0;
   }
 `;
-export const Steps = styled.ol`
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  counter-reset: step;
+export const Steps = styled.span`
+ 
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.accent};
+  padding: 0, 7px;
+
+  font-size: 14px;
+  font-weight: ${props => props.theme.fontWeights.semiBold}; 
+  color: ${props => props.theme.colors.textWhite};
+  line-height: 1.5;
+  
+`;
+export const Step = styled.div`
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-width: 21px;
+  min-height: 21px;
+  color: white;
+`;
+export const ListText = styled.p`
+  line-height: 1.5;
+  margin-left: 14px;
+  font-size: 12px;
+  line-height: 1.33;
+  color: rgba(0, 0, 0, 0.8);
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 `;
 
-export const Step = styled.li`
-  display: flex;
-  &:not(:last-child) {
-    margin-bottom: 14px;
-    @media screen and (min-width: 768px) {
-      margin-bottom: 18px;
-    }
-  }
-  &::before {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    counter-increment: step;
-    content: counter(step);
-    margin-right: 14px;
-    font-size: 14px;
-    line-height: 1.5;
-    font-weight: 600;
-    color: #ffffff;
-    background: #8baa36;
-    width: 21px;
-    height: 21px;
-    border-radius: 50%;
-  }
-  p {
-    flex: 1;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.02em;
-    color: rgba(0, 0, 0, 0.8);
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-      line-height: 1.29;
-    }
-  }
-`;
 export const Image = styled.div`
   width: 100%;
   height: auto;
@@ -111,4 +115,6 @@ export const PrepeaRecipeImage = styled.img`
   object-fit: contain;
   overflow: hidden;
   border-radius: 8px;
+  width:433px;
+  height:332px;
 `;
