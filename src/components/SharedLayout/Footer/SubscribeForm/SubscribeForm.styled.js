@@ -32,6 +32,7 @@ export const SubscribeInput = styled.input`
     line-height: 1.5;
     letter-spacing: -0.02em;
     border: 1px solid ${props => props.theme.colors.textWhite};
+    opacity: 0.5;
     border-radius: 6px;
     background-color: transparent;
     padding: 0px;
@@ -39,6 +40,7 @@ export const SubscribeInput = styled.input`
     margin-bottom: 8px;
     color: ${props => props.theme.colors.textWhite};
     padding-left: 42px;
+    transition: opacity ${props => props.theme.effects.mainEffect};
 
   @media screen and (min-width: 768px) {
     width: 259px;
@@ -67,7 +69,6 @@ export const SubscribeInput = styled.input`
     }
   }
 
-
 ::placeholder {
     font-family: 'PoppinsRegular';
     font-style: normal;
@@ -75,8 +76,10 @@ export const SubscribeInput = styled.input`
     font-size: 10px;
     line-height: 1.5;
     letter-spacing: -0.02em;
+    opacity: 1;
     color: ${props => props.theme.colors.textWhite};
-    opacity: 0.3;
+
+    transition: opacity ${props => props.theme.effects.mainEffect};
 
     @media screen and (min-width: 768px) {
       font-size: ${props => props.theme.fontSizes.s};
@@ -92,12 +95,11 @@ export const SubscribeInput = styled.input`
 export const IconMail = styled(AiOutlineMail)`
     position: absolute;
     color: ${props => props.theme.colors.textWhite};
-    opacity: 1;
     width: 16px;
     height: 12px;
     top: 13px;
     left: 14px;
-    opacity: 0.8;
+    opacity: 1;
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -132,6 +134,7 @@ export const SubscribeButton = styled.button`
     cursor: pointer;
     padding: 0px;
     margin: 0px;
+    transition: color ${props => props.theme.effects.mainEffect};
     
 
     @media screen and (min-width: 768px) {

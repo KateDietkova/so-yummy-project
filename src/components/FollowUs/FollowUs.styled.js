@@ -27,7 +27,8 @@ export const Link = styled.a`
         return props.theme.darkTheme
             ? props.theme.colors.textWhite
             : props.theme.colors.accent
-    }};
+}};
+    transition: fill ${props => props.theme.effects.mainEffect};
     
     :hover, :focus {
         fill: ${props => {
