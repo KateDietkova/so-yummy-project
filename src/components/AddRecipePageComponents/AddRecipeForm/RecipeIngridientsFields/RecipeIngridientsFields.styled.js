@@ -278,6 +278,12 @@ export const StyledSelect = styled(Select)`
     @media screen and (min-width: 768px) {
       font-size: ${props => props.theme.fontSizes.s};
     }
+    &--is-focused {
+      background-color: transparent;
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.accent;
+      }};
+    }
   }
 
   .Select__menu {

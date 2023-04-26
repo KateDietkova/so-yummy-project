@@ -184,6 +184,7 @@ export const RecipeDescriptionFields = props => {
           <SelectWrapper>
             <StyledSelectLabel>Category</StyledSelectLabel>
             <StyledSelect
+            isSearchable={false}
               classNamePrefix="Select"
               name="category"
               options={categoryOptions}

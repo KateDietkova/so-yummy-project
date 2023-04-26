@@ -173,6 +173,9 @@ export const StyledSelect = styled(Select)`
 
     &--is-focused {
       background-color: transparent;
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.accent;
+      }};
     }
   }
 
