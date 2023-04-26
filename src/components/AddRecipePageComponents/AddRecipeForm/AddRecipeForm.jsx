@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
@@ -7,8 +7,8 @@ import { FormStyled } from './AddRecipeForm.styled';
 import { IngredientsField } from './RecipeIngridientsFields/RecipeIngridientsFields';
 import { PreparationField } from './RecipePreparationFields/RecipePreparationFields';
 import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
-import axios from 'axios';
-import { ErrorMessage } from 'formik';
+// import axios from 'axios';
+// import { ErrorMessage } from 'formik';
 
 // import { useSelector } from 'react-redux';
 
@@ -40,17 +40,17 @@ const initialValues = {
 };
 
 export const AddRecipeForm = () => {
-  const [categoryValue, setCategoryValue] = useState('Breakfast');
-  const [timeValue, setTimeValue] = useState('5 min');
-  const [selectedImgPath, setSelectedImgPath] = useState();
-  const [selectedImgFile, setSelectedImgFile] = useState();
+  // const [categoryValue, setCategoryValue] = useState('Breakfast');
+  // const [timeValue, setTimeValue] = useState('5 min');
+  // const [selectedImgPath, setSelectedImgPath] = useState();
+  // const [selectedImgFile, setSelectedImgFile] = useState();
   const [ingredients, setIngredients] = useState();
   const [preparation, setPreparation] = useState([]);
-  const [titleValue, setTitleValue] = useState('');
-  const [aboutValue, setAboutValue] = useState('');
+  // const [titleValue, setTitleValue] = useState('');
+  // const [aboutValue, setAboutValue] = useState('');
   // const categoryList= useSelector(selectCategories)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const pullIngredientsData = data => {
     const newArray = data.map(item => {
@@ -74,31 +74,33 @@ export const AddRecipeForm = () => {
     titleValue,
     aboutValue
   ) => {
-    setCategoryValue(categoryValue);
-    setTimeValue(timeValue);
-    setSelectedImgPath(selectedImgPath);
-    setSelectedImgFile(selectedImgFile);
-    setTitleValue(titleValue);
-    setAboutValue(aboutValue);
+    // setCategoryValue(categoryValue);
+    // setTimeValue(timeValue);
+    // setSelectedImgPath(selectedImgPath);
+    // setSelectedImgFile(selectedImgFile);
+    // setTitleValue(titleValue);
+    // setAboutValue(aboutValue);
   };
 
-  const submissionData = {
-    title: titleValue,
-    category: categoryValue,
-    instructions: preparation,
-    description: aboutValue,
-    time: timeValue,
-    thumb: selectedImgFile,
-    ingredients,
-  };
+  // const submissionData = {
+  //   title: titleValue,
+  //   category: categoryValue,
+  //   instructions: preparation,
+  //   description: aboutValue,
+  //   time: timeValue,
+  //   thumb: selectedImgFile,
+  //   ingredients,
+  // };
 
-  const handleFormSubmit = async event => {
+  // const handleFormSubmit = async event => {
 
-    console.log(submissionData);
-    axios.post('/ownRecipes', submissionData);
-  
-    navigate('/my');
-  };
+  //   console.log(submissionData);
+  //   axios.post('/ownRecipes', submissionData);
+
+  //   navigate('/my');
+  // };
+
+  //Then delete inner vars in IngredientsField !!!!!!!!!
 
   return (
     <Formik
@@ -109,10 +111,11 @@ export const AddRecipeForm = () => {
       <FormStyled>
         <RecipeDescriptionFields funct={pullDescrsData} />
 
-        <IngredientsField funct={pullIngredientsData}></IngredientsField>
-
+        <IngredientsField funct={pullIngredientsData}>
+          {ingredients}
+          {preparation}
+        </IngredientsField>
         <PreparationField funct={pullPreparationData} />
-
         <ButtonSkewStyled
           type="submit"
           color={props => {

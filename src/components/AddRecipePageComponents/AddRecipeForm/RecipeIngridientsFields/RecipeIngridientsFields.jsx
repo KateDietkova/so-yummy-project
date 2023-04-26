@@ -33,9 +33,7 @@ export const IngredientsField = props => {
 
 
   useEffect(() => {
-    
-    dispatch(getAllIngredients())
-  
+    dispatch(getAllIngredients());
   }, [dispatch]);
    
   const ingredientsList = useSelector(selectIngredients)
@@ -45,8 +43,7 @@ export const IngredientsField = props => {
 
   useEffect(() => {
     props.funct(ingredients);
-    
-  }, [ingredients]);
+  }, [props, ingredients]);
 
   const measureList = ['tbs', 'tsp', 'kg', 'g'];
 

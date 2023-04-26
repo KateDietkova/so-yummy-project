@@ -88,6 +88,7 @@ export const RecipeDescriptionFields = props => {
     selectedImgFile,
     titleValue,
     aboutValue,
+    props,
   ]);
 
   

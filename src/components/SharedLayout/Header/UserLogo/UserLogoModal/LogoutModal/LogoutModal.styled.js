@@ -126,7 +126,7 @@ export const LogoutBtn = styled.button`
   }
 `;
 
-export const CanselBtn = styled.button`
+export const CancelBtn = styled.button`
   padding: 14px 18px;
   gap: 8px;
   width: 137px;
