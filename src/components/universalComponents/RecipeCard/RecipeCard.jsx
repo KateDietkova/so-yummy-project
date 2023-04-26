@@ -4,6 +4,7 @@ import {
   InfoCardWrapper,
   RecipeCardWrapper,
   RecipeTitle,
+  StubBox,
   StyledDeleteIcon,
   StyledDescription,
   StyledLink,
@@ -26,7 +27,11 @@ export const RecipeCard = ({
 
   return (
     <RecipeCardWrapper key={_id}>
-      <StyledPicture src={preview} alt="recipe" loading="lazy" />
+      {preview ? (
+        <StyledPicture src={preview} alt="recipe" loading="lazy" />
+      ) : (
+        <StubBox />
+      )}
       <InfoCardWrapper>
         <DeleteButton type={type} onClick={() => onClick(_id)}>
           <StyledDeleteIcon type={type} />
@@ -37,7 +42,7 @@ export const RecipeCard = ({
         </TextWrapper>
         <TimeLinkWrapper>
           <StyledTimeText>{timeInHours}</StyledTimeText>
-          <StyledLink type={type} to="recipe/{_id.$oid}">
+          <StyledLink type={type} to={`/recipe/${_id}`}>
             <div className="inner">See recipe</div>
           </StyledLink>
         </TimeLinkWrapper>

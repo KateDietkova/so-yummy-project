@@ -1,12 +1,7 @@
 import { Loader } from 'components/universalComponents/Loader/Loader';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularRecipe } from 'redux/recipes/recipesOperations';
-import {
-  selectIsLoading,
-  selectPopularRecipes,
-  selectRecipesError,
-} from 'redux/recipes/recipesSelectors';
+import { useEffect, useState } from 'react';
+import { fetchPopularRecipe } from 'servicesApi/api';
+
 import { Error } from './Error';
 import {
   StyledCard,
@@ -21,38 +16,56 @@ import {
 } from './PopularRecipe.styled';
 
 export const PopularRecipe = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPopularRecipe());
-  }, [dispatch]);
+  const [popularRecipes, setPopularRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const popularRecipes = useSelector(selectPopularRecipes);
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectRecipesError);
+  useEffect(() => {
+    const getPopularRecipe = async () => {
+      setIsLoading(true);
+      const data = await fetchPopularRecipe();
+
+      if (data.name === 'AxiosError') {
+        setIsError(true);
+      }
+      setPopularRecipes(data);
+      setIsLoading(false);
+    };
+
+    getPopularRecipe();
+  }, []);
 
   return (
     <StyledSectionWrapper>
       <StyledTitle>Popular recipe</StyledTitle>
-      <StyledCardList>
-        {popularRecipes.length > 0 &&
-          popularRecipes.map(({ _id, preview, title, instructions }) => {
-            return (
-              <StyledWrapper key={_id}>
-                <StyledNav to="recipe / {_id}">
-                  <StyledCard>
-                    <StyledPicture src={preview} alt="recipe" loading="lazy" />
-                    <div>
-                      <StyledRecipeTitle>{title}</StyledRecipeTitle>
-                      <StyledInstructions>{instructions}</StyledInstructions>
-                    </div>
-                  </StyledCard>
-                </StyledNav>
-              </StyledWrapper>
-            );
-          })}
-      </StyledCardList>
+      {isError ? (
+        <Error />
+      ) : (
+        <StyledCardList>
+          {popularRecipes.length > 0 &&
+            popularRecipes.map(({ _id, preview, title, instructions }) => {
+              return (
+                <StyledWrapper key={_id}>
+                  <StyledNav to={`/recipe/${_id}`}>
+                    <StyledCard>
+                      <StyledPicture
+                        src={preview}
+                        alt="recipe"
+                        loading="lazy"
+                      />
+                      <div>
+                        <StyledRecipeTitle>{title}</StyledRecipeTitle>
+                        <StyledInstructions>{instructions}</StyledInstructions>
+                      </div>
+                    </StyledCard>
+                  </StyledNav>
+                </StyledWrapper>
+              );
+            })}
+        </StyledCardList>
+      )}
+
       {isLoading && <Loader />}
-      {isError && <Error />}
     </StyledSectionWrapper>
   );
 };

@@ -146,6 +146,7 @@ export const StyledSelect = styled(Select)`
     line-height: 1;
     letter-spacing: -0.02em;
     box-shadow: none;
+    caret-color: transparent;
     color: ${props => {
       return props.theme.darkTheme ? '#000' : props.theme.colors.textWhite;
     }};

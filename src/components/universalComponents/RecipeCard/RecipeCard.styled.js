@@ -16,7 +16,7 @@ export const RecipeCardWrapper = styled.li`
 
   @media screen and (min-width: 768px) {
     padding: 28px 24px;
-    height: 232px;
+    height: 288px;
     gap: 24px;
   }
 
@@ -29,10 +29,10 @@ export const RecipeCardWrapper = styled.li`
 
 export const InfoCardWrapper = styled.div`
   position: relative;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1;
 `;
 
 export const TextWrapper = styled.div`
@@ -62,10 +62,6 @@ export const RecipeTitle = styled.h2`
 `;
 
 export const StyledDescription = styled.p`
-  /* display: block; */
-  /* width: 213px; */
-  /* height: 56px; */
-  /* overflow: hidden; */
   font-family: PoppinsRegular;
   font-weight: ${props => props.theme.fontWeights.normal};
   font-size: 8px;
@@ -97,14 +93,37 @@ export const TimeLinkWrapper = styled.div`
 
 export const StyledPicture = styled.img`
   width: 124px;
-  height: 100%;
+  height: 124px;
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     width: 228px;
+    height: 232px;
   }
   @media screen and (min-width: 1280px) {
     width: 318px;
+    height: 324px;
+  }
+`;
+
+export const StubBox = styled.div`
+  width: 124px;
+  height: 124px;
+  border-radius: 8px;
+
+  background-color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.accent
+      : props.theme.colors.bgBlackDark;
+  }};
+
+  @media screen and (min-width: 768px) {
+    width: 228px;
+    height: 232px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 318px;
+    height: 324px;
   }
 `;
 
