@@ -47,10 +47,10 @@ export const ValidMassege = ({ children }) => {
 
 export const signupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, errorMassege('Name is too short'))
-    .max(70, errorMassege('Name is too long'))
+    .min(1, errorMassege('Name is too short'))
+    .max(16, errorMassege('Name is too long'))
     .matches(nameRules, {
-      message: errorMassege(),
+      message: errorMassege('Invalid name'),
       excludeEmptyString: true,
     })
     .required(errorMassege('This field is required')),
