@@ -4,13 +4,13 @@ import {RecipeIngredientsList} from 'components/RecipePageComponents/RecipeIngre
 import {RecipePreparation} from 'components/RecipePageComponents/RecipePreparation/RecipePreparation';
 import { RecipeSection } from './RecipePage.styled';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 
 import { useDispatch } from 'react-redux';
 import { fetchRecipe } from 'redux/recipes/recipesOperations';
-import { selectRecipes,  selectIsLoading, selectRecipesError} from '../../redux/recipes/recipesSelectors';
+import { selectRecipes,  selectIsLoading} from '../../redux/recipes/recipesSelectors';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
 
 

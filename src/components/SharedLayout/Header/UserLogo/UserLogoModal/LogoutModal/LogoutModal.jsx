@@ -5,7 +5,7 @@ import {
   OuestionText,
   BtnsWrapper,
   LogoutBtn,
-  CanselBtn,
+  CancelBtn,
   CloseIcon,
 } from './LogoutModal.styled';
 import { useDispatch } from 'react-redux';
@@ -29,9 +29,9 @@ export const LogoutModal = ({ show, hide }) => {
           <LogoutBtn type="button" onClick={handleLogout}>
             Log out
           </LogoutBtn>
-          <CanselBtn type="button" onClick={hide}>
-            Cansel
-          </CanselBtn>
+          <CancelBtn type="button" onClick={hide}>
+            Cancel
+          </CancelBtn>
         </BtnsWrapper>
       </Modal.Body>
     </ModalContainer>
