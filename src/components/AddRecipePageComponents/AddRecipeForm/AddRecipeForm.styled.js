@@ -2,20 +2,19 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
 
+
+
 export const FormStyled = styled(Form)`
   display: block;
-  gap: 32px;
+  margin-bottom: 72px;
 
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 67px;
-    margin-top: 22px;
+  @media screen and (min-width: 767px) {
+    
+    margin-bottom: 100px;
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 50px;
+    margin-bottom: 200px;
   }
 `;
 
@@ -34,10 +33,10 @@ export const AddButton = styled(ButtonSkewStyled)`
 
   font-size: ${props => props.theme.fontSizes.s}
   color:  ${props => {
-    return props.theme.darkTheme
-      ? props.theme.colors.accent
-      : props.theme.colors.bgBlackDark;
-  }};
+  return props.theme.darkTheme
+    ? props.theme.colors.accent 
+    : props.theme.colors.bgBlackDark;
+}};
 
 
 @media screen and (min-width: 768px) {
