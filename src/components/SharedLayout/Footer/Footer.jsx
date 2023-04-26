@@ -1,13 +1,14 @@
 import { FollowUs } from '../../FollowUs/FollowUs';
 import { Nav } from './Nav/Nav'
-import { FooterContainer, BackgrImage, Wrapper, TextWrapper, LogoContainer, LogoIconLink, Logo, ProjectName, Benefits, Subscribe, FooterLicense } from './Footer.styled';
+import { FooterWrapper, FooterContainer, BackgrImage, Wrapper, TextWrapper, LogoContainer, LogoIconLink, Logo, ProjectName, Benefits, Subscribe, FooterLicense } from './Footer.styled';
 import { SubscribeForm } from './SubscribeForm/SubscribeForm'
 
 export const Footer = () => {
   return (
-<div>
+    <FooterWrapper>
+      <BackgrImage/>
       <FooterContainer>
-
+      
         <Wrapper>
 
           <TextWrapper>
@@ -46,9 +47,8 @@ export const Footer = () => {
       © 2023 All Rights Reserved. 
       <span>Terms of Service</span>
     </p>
-    <BackgrImage/> 
   </FooterLicense>  
 
-</div>
+</FooterWrapper>
   );
 };
