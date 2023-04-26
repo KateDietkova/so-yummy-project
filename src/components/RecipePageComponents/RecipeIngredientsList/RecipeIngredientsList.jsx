@@ -20,11 +20,13 @@ import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-
 
 export const RecipeIngredientsList = ({ ingredients }) => {
   const allIngredients = useSelector(selectIngredients);
+
+  const ingredientsId = ingredients.map(data => data.id);
+
   const selectIngred = allIngredients.filter(data => {
-    ingredients.map(item => item.id === data._id);
+    if (ingredientsId.includes(data._id)) return data;
   });
 
-  
   console.log('ingred', selectIngred);
   return (
     <IngredientsListSection>
