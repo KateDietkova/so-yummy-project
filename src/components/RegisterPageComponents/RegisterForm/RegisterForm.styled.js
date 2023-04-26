@@ -286,6 +286,8 @@ export const LinkStyled = styled(Link)`
   bottom: -50px;
   right: 128px;
 
+  text-decoration: underline;
+
   display: block;
   color: ${props => props.theme.colors.textWhite};
   padding: 5px;
