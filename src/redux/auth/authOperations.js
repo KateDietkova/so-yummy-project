@@ -13,6 +13,7 @@ const token = {
   },
 };
 
+
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
