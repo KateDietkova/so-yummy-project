@@ -93,11 +93,11 @@ export const AddRecipeForm = () => {
   };
 
   const handleFormSubmit = async event => {
-    // event.preventDefault();
+
     console.log(submissionData);
     axios.post('/ownRecipes', submissionData);
-
-    // navigate('/my');
+  
+    navigate('/my');
   };
 
   return (

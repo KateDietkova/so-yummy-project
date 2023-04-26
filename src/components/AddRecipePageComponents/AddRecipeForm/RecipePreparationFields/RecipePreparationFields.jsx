@@ -14,7 +14,7 @@ export const PreparationField = props => {
   };
   const handlePreparationInputChange = value => {
     const newArray = value.split('\n');
-    setFormikValue('preparation', value);
+    setFormikValue('preparation', newArray);
     setPreparation(newArray);
   };
 

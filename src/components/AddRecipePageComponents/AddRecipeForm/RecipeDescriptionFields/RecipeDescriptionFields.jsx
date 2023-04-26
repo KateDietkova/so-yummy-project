@@ -24,22 +24,42 @@ import { FormError } from '../validationAddRecipe';
 import { useEffect } from 'react';
 
 export const RecipeDescriptionFields = props => {
-  const categoriesList = [
-    'Beef',
-    'Breakfast',
-    'Chicken',
-    'Dessert',
-    'Goat',
-    'Lamb',
-    'Miscellaneous',
-    'Pasta',
-    'Pork',
-    'Seafood',
-    'Side',
-    'Starter',
-    'Vegan',
-    'Vegetarian',
-  ];
+
+
+
+
+   const dispatch = useDispatch();
+
+ 
+
+
+  useEffect(() => {
+    
+    dispatch(fetchCategoriesList())
+  
+  }, [dispatch]);
+
+   const categoriesList = useSelector(selectCategories) 
+  ///  ф-ція отримання даних з редакс//
+  
+
+
+//  const categoriesList = [
+//     'Beef',
+//     'Breakfast',
+//     'Chicken',
+//     'Dessert',
+//     'Goat',
+//     'Lamb',
+//     'Miscellaneous',
+//     'Pasta',
+//     'Pork',
+//     'Seafood',
+//     'Side',
+//     'Starter',
+//     'Vegan',
+//     'Vegetarian',
+//   ];
   const categoryOptions = categoriesList.map(option => ({
     value: option.toLowerCase(),
     label: option,
@@ -70,19 +90,7 @@ export const RecipeDescriptionFields = props => {
     aboutValue,
   ]);
 
-    // const dispatch = useDispatch();
-
-  // const categoriesList = useSelector(selectCategories)
-
-
-  // useEffect(() => {
-  //   if (!categoriesList) {
-  //   dispatch(fetchCategoriesList())
   
-  // }}, [dispatch, categoriesList]);
-   
-  ///  ф-ція отримання даних з редакс//
-
 
 
   const formikProps = useFormikContext();

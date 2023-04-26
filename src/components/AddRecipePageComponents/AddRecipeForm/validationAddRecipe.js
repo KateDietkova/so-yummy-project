@@ -71,10 +71,10 @@ export const descrFieldsSchema = yup.object().shape({
 
   preparation: yup
     .string()
-    .matches(inputRegex, {
-      message:
-        'Preparation description field may contain only letters, apostrophe, dash and spaces.',
-      excludeEmptyString: true,
-    })
+    // .matches(inputRegex, {
+    //   message:
+    //     'Preparation description field may contain only letters, apostrophe, dash and spaces.',
+    //   excludeEmptyString: true,
+    // })
     .required('Please enter preparation description'),
 });

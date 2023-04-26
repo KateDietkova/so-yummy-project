@@ -1,4 +1,4 @@
-export const selectCategories = state => state.categories;
+export const selectCategories = state => state.categories.categories;
 
 export const selectRecipesByCategory = state =>
   state.categories.recipesByCategory;
