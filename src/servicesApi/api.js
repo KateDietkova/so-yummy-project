@@ -16,14 +16,14 @@ export const getRecipeById = async id => {
     console.log(error.message)
   }
 };
-// export const getAllIngredientsAPI = async () => {
-//   const { data } = await axios.get(`/ingredients/list`);
-//   return data;
-// };
 export const getAllIngredientsAPI = async () => {
-  const { data } = await axios.get(`/ingredients/list`)
-    return data.data;
-  };
+  const { data } = await axios.get(`/ingredients/list`);
+  return data;
+};
+// export const getAllIngredientsAPI = async (_id) => {
+//   const { data } = await axios.get(`/ingredients/?ingredient=${_id}`)
+//     return data.data;
+//   };
 
 export const getFavorite = async () => {
   try {
