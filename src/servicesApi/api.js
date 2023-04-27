@@ -61,6 +61,26 @@ export const getFavorite = async () => {
 
 // axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api'
 
+
+export const fetchUserFavoriteRecipes = async currentPage => {
+  try {
+    const { data } = await axios.get(`/favorite?page=${currentPage}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+export const deleteUserFavoriteRecipe = async id => {
+  try {
+    const { data } = await axios.patch(`/favorite/${id}`);
+    return data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // export const getRecipeById = async (id) => {
 //   try {
 //     const { data } = await axios.get(`recipes/640cd5ac2d9fecf12e8898a6`, {
@@ -73,3 +93,4 @@ export const getFavorite = async () => {
 //     console.log(error.message)
 //   }
 // };
+
