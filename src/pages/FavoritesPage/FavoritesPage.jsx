@@ -2,7 +2,7 @@ import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
 import { MyFavoriteContainer } from './FavoritesPage.styled'
 import { Loader } from 'components/universalComponents/Loader/Loader';
-// import { Error } from 'components/MyRecipesPageComponents/Error';
+import { Error } from 'components/MyRecipesPageComponents/Error';
 import { useEffect, useState } from 'react';
 import { FavoriteRecipesList } from '../../components/FavoriteList/FavoriteList';
 
@@ -12,7 +12,7 @@ import { deleteUserFavoriteRecipe, fetchUserFavoriteRecipes } from 'servicesApi/
 const FavoritesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-//   const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [count, setCount] = useState();
   const [limit, setLimit] = useState();
   const [recipes, setRecipes] = useState([]);
@@ -23,9 +23,9 @@ const FavoritesPage = () => {
         const data = await fetchUserFavoriteRecipes(currentPage);
             console.log(data);
 
-            // if (data.name === 'AxiosError') {
-            //     setIsError(true);
-            // }
+            if (data.name === 'AxiosError') {
+                setIsError(true);
+            }
 
         const totalCount = data.count;
         setCount(totalCount);
@@ -34,7 +34,7 @@ const FavoritesPage = () => {
         setLimit(limit);
         setIsLoading(false);
 
-        const recipes = data.recipes;
+        const recipes = data.data;
         setRecipes(recipes);
         };
 
@@ -49,7 +49,7 @@ const FavoritesPage = () => {
 
   const handleClickDeleteButton = id => {
     deleteUserFavoriteRecipe(id);
-      setRecipes(recipes.filter(recipe => recipe._id !== id));
+    setRecipes(recipes.filter(recipe => recipe._id !== id));
   };
     
 
@@ -59,20 +59,17 @@ const FavoritesPage = () => {
           <MainTitle text="Favorites" />
             
             {isLoading && <Loader />}
-            {/* {isError
+            {isError
                 ? (<Error />)
-                : (<> hi</>)
-            } */}
-
-                    <>
+                : (<>
                         <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
                         <Pagination
                             totalPages={totalPages}
                             currentPage={currentPage}
                             onClick={handleClickPaginationButton}
                         />
-                    </>
-            
+                    </>)
+            } 
         </MyFavoriteContainer>
   )
 };

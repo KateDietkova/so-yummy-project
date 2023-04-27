@@ -53,24 +53,14 @@ export const getAllIngredientsAPI = async () => {
 //   };
 
 
-export const fetchUserFavoriteRecipes = async () => {
+export const fetchUserFavoriteRecipes = async currentPage => {
   try {
-    const { data } = await axios.get(`/favorite`);
-    return data.data;
+    const { data } = await axios.get(`/favorite?page=${currentPage}`);
+    return data;
   } catch (error) {
     return error;
   }
 };
-
-
-// export const fetchUserFavoriteRecipes = async currentPage => {
-//   try {
-//     const { data } = await axios.get(`/favorite?page=${currentPage}`);
-//     return data;
-//   } catch (error) {
-//     return error;
-//   }
-// };
 
 
 export const deleteUserFavoriteRecipe = async id => {
