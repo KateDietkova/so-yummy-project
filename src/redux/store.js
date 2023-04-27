@@ -15,6 +15,7 @@ import { themeReducer } from './theme/themeSlice';
 import { recipesReducer } from './recipes/recipesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
+import { shoppingListReducer } from './shoppingList/shoppingListSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,6 +30,7 @@ export const store = configureStore({
     recipes: recipesReducer,
     ingredients: ingredientsReducer,
     categories: categoriesReducer,
+    shoppingList: shoppingListReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

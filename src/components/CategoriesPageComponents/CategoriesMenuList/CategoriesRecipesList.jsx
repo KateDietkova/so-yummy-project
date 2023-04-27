@@ -20,7 +20,7 @@ export const CategoriesRecipesList = () => {
     }, [dispatch, categoryName]);
     return (
         <>
-            {recipes.length > 0 && <RecipesGallery recipes={recipes} />}
+            {recipes.length > 0 && !isLoading && <RecipesGallery recipes={recipes} />}
             {isLoading && <Loader />}
             {error && <p>Whoops, something went wrong...</p>}
         </>

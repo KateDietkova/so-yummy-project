@@ -115,7 +115,7 @@ export const OtherCategoriesBtnLink = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
-    width: 240px;
+    width: 243px;
     padding: 20px 52px;
     font-size: ${props => props.theme.fontSizes.m};
   }
