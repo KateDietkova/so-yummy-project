@@ -9,9 +9,8 @@ export const StyledSectionWrapper = styled.div`
     margin-bottom: 200px;
   }
   @media screen and (min-width: 1280px) {
-    position: absolute;
-    top: 332px;
-    right: 0;
+    margin-top: 100px;
+   
   }
 `;
 

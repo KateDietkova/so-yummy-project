@@ -9,7 +9,7 @@ export const StyledPreparationField = styled(Field)`
 
   line-height: 21px;
   letter-spacing: -0.02em;
-
+  margin-top: 24px;
 
 
   outline: ${props => {
@@ -36,7 +36,7 @@ export const StyledPreparationField = styled(Field)`
   color: ${props => {
     return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
   }};
-  margin-top: 24px;
+ 
   margin-bottom: 18px;
 
   

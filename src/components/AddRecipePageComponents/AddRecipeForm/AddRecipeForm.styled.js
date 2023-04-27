@@ -7,7 +7,7 @@ import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/Butt
 export const FormStyled = styled(Form)`
 position:relative;
   margin-bottom: 72px;
-z-index: 50;
+z-index: 2;
   @media screen and (min-width: 767px) {
     
     margin-bottom: 100px;

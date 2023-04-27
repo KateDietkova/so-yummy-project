@@ -45,7 +45,8 @@ export const RecipeDescriptionFields = props => {
     selectedImgFile,
     titleValue,
     aboutValue,
-    props,
+    props
+    
   ]);
 
   const dispatch = useDispatch();

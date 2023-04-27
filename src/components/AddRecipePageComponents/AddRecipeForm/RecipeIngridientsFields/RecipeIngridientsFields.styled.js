@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Field } from 'formik';
 import Select from 'react-select';
 import { ReactComponent as CrossIcon } from '../../../../assets/svg/other/cross.svg';
+import { ReactComponent as PlusIcon } from '../../../../assets/svg/other/plus.svg';
+import { ReactComponent as MinusIcon } from '../../../../assets/svg/other/minus.svg';
 
 
 
@@ -16,24 +18,48 @@ export const CrossIconStyled = styled(CrossIcon)`
   }
 `;
 
+
+export const PlusIconStyled = styled(PlusIcon)`
+  width: 14px;
+  height: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+   
+  }
+`;
+
+export const MinusIconStyled = styled(MinusIcon)`
+  width: 14px;
+  height: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+   
+  }
+`;
+
 export const FlexWrapper = styled.div`
   display: flex;
   width: 343px;
   height: 28px;
   margin-top: 67px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   justify-content: space-between;
   outline: none;
 
   border: none;
   @media screen and (min-width: 768px) {
-    width: 398px;
-    height: 32px;
-    margin-bottom: 36px;
+    width: 704px;
+    height: 36px;
+    margin-bottom: 32px;
     margin-top: 104px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: 609px;
   }
 `;
 
@@ -160,7 +186,8 @@ export const StyledCounterWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 110px;
-    height: 32px;
+    height: 36px;
+
   }
 `;
 
@@ -184,8 +211,11 @@ export const StyledCounterWindow = styled.p`
   line-height: 18px;
 
   color: ${props => {
-    return props.theme.darkTheme ? props.theme.colors.textWhite : '#3333334D';
+    return props.theme.darkTheme ? props.theme.colors.textWhite : '#333333';
   }};
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
 export const StyledDeleteButton = styled.button`
@@ -242,6 +272,7 @@ export const StyledSelect = styled(Select)`
     line-height: 1;
     letter-spacing: -0.02em;
     box-shadow: none;
+    border-radius: 8px;
     color: ${props => {
       return props.theme.darkTheme ? '#000' : '#d9d9d999';
     }};
@@ -294,7 +325,7 @@ export const StyledSelect = styled(Select)`
     top: 53px;
     right: 0px;
     width: 194px;
-
+    height: 154px;
     margin: 0;
     padding: 8px 4px 8px 18px;
     background-color: ${props => {
@@ -307,6 +338,7 @@ export const StyledSelect = styled(Select)`
     @media screen and (min-width: 768px) {
       top: 59px;
       width: 398px;
+      height: 172px;
     }
   }
 
@@ -318,11 +350,11 @@ export const StyledSelect = styled(Select)`
     background-color: ${props => {
       return props.theme.darkTheme ? props.theme.colors.accent : '#fff';
     }};
-
+ height: 135px;
     cursor: pointer;
 
     @media screen and (min-width: 768px) {
-      height: 128px;
+      height: 150px;
 
       font-size: ${props => props.theme.fontSizes.s};
     }
@@ -432,22 +464,39 @@ export const StyledSelectMeasures = styled(StyledSelect)`
   }
 
   .Select__menu {
+   
     width: 84px;
+    height: 112px;
     padding-left: 28px;
+
     @media screen and (min-width: 768px) {
       width: 97px;
+      height: 128px;
     }
+    .Select__menu-list { 
+       margin-top: 12px; 
+      height: 100px;
+      overflow: hidden;
+      
+      @media screen and (min-width: 768px) {
+        height: 100px;
+  
+        
+      }
   }
 `;
 
 export const SubTitleStyled = styled.h3`
+
+
+margin-bottom: 0px;
   font-family: PoppinsSemiBold;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: ${props => props.theme.fontSizes.xl};
   line-height: 1;
+  letter-spacing: -0.24px;
   color: ${props =>
-    props.theme.darkTheme
-      ? props.theme.colors.textWhite
-      : props.theme.colors.textTitleDark};
-  margin-bottom: 0px;
+    props.theme.darkTheme ? props.theme.colors.textWhite : '#3e4462'};
+
+
 `;

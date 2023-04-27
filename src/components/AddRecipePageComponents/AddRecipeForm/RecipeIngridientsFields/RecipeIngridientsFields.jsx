@@ -21,6 +21,8 @@ import {
   SubTitleStyled,
   FlexWrapper,
   CrossIconStyled,
+  MinusIconStyled,
+  PlusIconStyled
 } from './RecipeIngridientsFields.styled';
 import { FormError } from '../validationAddRecipe';
 
@@ -30,10 +32,7 @@ export const IngredientsField = props => {
     { id: 0, ingredient: {}, quantity: 1, measure: 'tbs' },
   ]);
 
-  useEffect(() => {
-    props.funct(ingredients);
-  }, [ingredients, props]);
-
+ 
   const dispatch = useDispatch();
 
   const ingredientsList = useSelector(selectIngredients);
@@ -70,7 +69,7 @@ export const IngredientsField = props => {
     newArray.splice(index, 1, { ...ingredients[index], ingredient: object });
     setFormikValue('ingredients', newArray);
     setIngredients(newArray);
-    // funct(ingredients)
+    props.funct(newArray)
   };
 
   const handleMeasureInputChange = (value, index) => {
@@ -79,7 +78,7 @@ export const IngredientsField = props => {
     setFormikValue('ingredients', newArray);
 
     setIngredients(newArray);
-    // funct(ingredients)
+    props.funct(newArray)
   };
   const handleQuantityInputChange = (value, index) => {
     const newArray = [...ingredients];
@@ -87,7 +86,7 @@ export const IngredientsField = props => {
     setFormikValue('ingredients', newArray);
 
     setIngredients(newArray);
-    // funct(ingredients)
+    props.funct(newArray)
   };
 
   function decrement() {
@@ -97,7 +96,7 @@ export const IngredientsField = props => {
     setCounter(result);
     setFormikValue('ingredients', newArray);
     setIngredients(newArray);
-    // funct(ingredients)
+    props.funct(newArray)
   }
 
   function increment() {
@@ -112,7 +111,7 @@ export const IngredientsField = props => {
     setCounter(result);
     setFormikValue('ingredients', newArray);
     setIngredients(newArray);
-    // funct(ingredients)
+    props.funct(newArray)
   }
 
   function deleteItem(id) {
@@ -135,7 +134,7 @@ export const IngredientsField = props => {
             disabled={counter < 2 ? true : false}
             onClick={decrement}
           >
-            -
+            <MinusIconStyled/>
           </StyledCounterButton>
           <StyledCounterWindow>{counter} </StyledCounterWindow>
           <StyledCounterButton
@@ -143,7 +142,7 @@ export const IngredientsField = props => {
             onClick={increment}
             style={{ color: '#8BAA36' }}
           >
-            +
+              <PlusIconStyled/>
           </StyledCounterButton>
         </StyledCounterWrapper>
       </FlexWrapper>
