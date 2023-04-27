@@ -41,12 +41,8 @@ export const descrFieldsSchema = yup.object().shape({
           .object()
           .shape({
             label: yup.string().required(),
-            value: yup
-              .object()
-              .shape({
-                $oid: yup.string().required(),
-              })
-              .required(),
+            value: yup.string().required(),
+            
           })
           .required('Please choose ingredient'),
 

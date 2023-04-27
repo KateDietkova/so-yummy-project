@@ -24,47 +24,6 @@ import { FormError } from '../validationAddRecipe';
 import { useEffect } from 'react';
 
 export const RecipeDescriptionFields = props => {
-
-
-
-
-   const dispatch = useDispatch();
-
- 
-
-
-  useEffect(() => {
-    
-    dispatch(fetchCategoriesList())
-  
-  }, [dispatch]);
-
-   const categoriesList = useSelector(selectCategories) 
-  ///  ф-ція отримання даних з редакс//
-  
-
-
-//  const categoriesList = [
-//     'Beef',
-//     'Breakfast',
-//     'Chicken',
-//     'Dessert',
-//     'Goat',
-//     'Lamb',
-//     'Miscellaneous',
-//     'Pasta',
-//     'Pork',
-//     'Seafood',
-//     'Side',
-//     'Starter',
-//     'Vegan',
-//     'Vegetarian',
-//   ];
-  const categoryOptions = categoriesList.map(option => ({
-    value: option.toLowerCase(),
-    label: option,
-  }));
-
   const [categoryValue, setCategoryValue] = useState('Breakfast');
   const [timeValue, setTimeValue] = useState('5 min');
   const [selectedImgPath, setSelectedImgPath] = useState();
@@ -76,7 +35,6 @@ export const RecipeDescriptionFields = props => {
     props.funct(
       categoryValue,
       timeValue,
-      selectedImgPath,
       selectedImgFile,
       titleValue,
       aboutValue
@@ -84,15 +42,26 @@ export const RecipeDescriptionFields = props => {
   }, [
     categoryValue,
     timeValue,
-    selectedImgPath,
     selectedImgFile,
     titleValue,
     aboutValue,
     props,
   ]);
 
-  
+  const dispatch = useDispatch();
 
+  const categoriesList = useSelector(selectCategories);
+
+  useEffect(() => {
+    if (!categoriesList || categoriesList?.length === 0) {
+      dispatch(fetchCategoriesList());
+    }
+  }, [dispatch, categoriesList]);
+
+  const categoryOptions = categoriesList.map(option => ({
+    value: option.toLowerCase(),
+    label: option,
+  }));
 
   const formikProps = useFormikContext();
 
@@ -140,7 +109,6 @@ export const RecipeDescriptionFields = props => {
     setAboutValue(value);
     setFormikValue('about', value);
   };
-
 
   return (
     <>
@@ -193,7 +161,7 @@ export const RecipeDescriptionFields = props => {
           <SelectWrapper>
             <StyledSelectLabel>Category</StyledSelectLabel>
             <StyledSelect
-            isSearchable={false}
+              isSearchable={false}
               classNamePrefix="Select"
               name="category"
               options={categoryOptions}
@@ -219,14 +187,3 @@ export const RecipeDescriptionFields = props => {
     </>
   );
 };
-
-// RecipeDescriptionFields.propTypes = {
-//   handleUploadFile: PropTypes.func.isRequired,
-//   handleCategoryInputChange: PropTypes.func.isRequired,
-//   handleTimeInputChange: PropTypes.func.isRequired,
-//   selectedImgPath: PropTypes.string,
-//   categoryOptions: PropTypes.arrayOf(PropTypes.shape).isRequired,
-//   categoryValue: PropTypes.string.isRequired,
-//   timeValue: PropTypes.string.isRequired,
-//   cookingTimeOptions: PropTypes.array.isRequired,
-// };

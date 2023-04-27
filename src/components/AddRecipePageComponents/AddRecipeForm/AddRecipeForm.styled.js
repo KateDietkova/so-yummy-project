@@ -5,9 +5,9 @@ import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/Butt
 
 
 export const FormStyled = styled(Form)`
-  display: block;
+position:relative;
   margin-bottom: 72px;
-
+z-index: 50;
   @media screen and (min-width: 767px) {
     
     margin-bottom: 100px;
@@ -17,6 +17,7 @@ export const FormStyled = styled(Form)`
     margin-bottom: 200px;
   }
 `;
+
 
 export const StyledErrorMessage = styled.p`
   position: absolute;
