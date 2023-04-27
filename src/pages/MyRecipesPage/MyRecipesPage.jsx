@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { MyRecipesList } from 'components/MyRecipesPageComponents/MyRecipesList/MyRecipesList';
-import { MyRecipeContainer } from './MyRecipesPage.styled';
+import { MyRecipeContainer, RecipeListContainer } from './MyRecipesPage.styled';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
 import { deleteUserRecipe, fetchUserRecipes } from 'servicesApi/api';
 import { Loader } from 'components/universalComponents/Loader/Loader';
@@ -56,14 +56,14 @@ const MyRecipesPage = () => {
       {isError ? (
         <Error />
       ) : (
-        <>
+        <RecipeListContainer>
           <MyRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
           <Pagination
             totalPages={totalPages}
             currentPage={currentPage}
             onClick={handleClickPaginationButton}
           />
-        </>
+        </RecipeListContainer>
       )}
     </MyRecipeContainer>
   );

@@ -1,3 +1,4 @@
+import { scrollToElement } from 'helpers/scrollToElement';
 import {
   Container,
   Page,
@@ -7,7 +8,12 @@ import {
 
 const MAX_DISPLAYED_PAGE_NUMBERS = 5;
 
-export const Pagination = ({ totalPages, currentPage, onClick }) => {
+export const Pagination = ({
+  totalPages,
+  currentPage,
+  onClick,
+  scrollId = null,
+}) => {
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
@@ -28,9 +34,18 @@ export const Pagination = ({ totalPages, currentPage, onClick }) => {
   return (
     <Container>
       <StyledChevronLeft
+        size={30}
         onClick={() => {
           if (Number(currentPage) > 1) {
             onClick(Number(currentPage) - 1);
+          }
+        }}
+      />
+      <StyledChevronRight
+        size={30}
+        onClick={() => {
+          if (Number(currentPage) < totalPages) {
+            onClick(Number(currentPage) + 1);
           }
         }}
       />
@@ -38,18 +53,14 @@ export const Pagination = ({ totalPages, currentPage, onClick }) => {
         <Page
           active={Number(currentPage) === page}
           key={page}
-          onClick={() => onClick(page)}
+          onClick={() => {
+            onClick(page);
+            scrollToElement(scrollId);
+          }}
         >
           {page}
         </Page>
       ))}
-      <StyledChevronRight
-        onClick={() => {
-          if (Number(currentPage) < totalPages) {
-            onClick(Number(currentPage) + 1);
-          }
-        }}
-      />
     </Container>
   );
 };

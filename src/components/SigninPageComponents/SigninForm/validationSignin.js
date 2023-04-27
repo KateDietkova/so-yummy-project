@@ -53,7 +53,8 @@ export const signinSchema = Yup.object().shape({
     .required(errorMassege('This field is required')),
 
   password: Yup.string()
-    .min(8, errorMassege('Enter a valid password'))
+    .min(6, errorMassege('Enter a valid password'))
+    .max(16, errorMassege('Password too long'))
     .matches(passwordRules, {
       message: warningMassege('Your password is little secure'),
       excludeEmptyString: true,
