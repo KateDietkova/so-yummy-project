@@ -95,6 +95,11 @@ export const RecipesBtn = styled(NavLink)`
   font-size: 10px;
   line-height: 12px;
 
+  :hover {
+    color: ${props => props.theme.colors.accent};
+    transition: ${props => props.theme.effects.mainEffect};
+  }
+
   @media screen and (min-width: 768px) {
     font-weight: 400;
     font-size: 10px;

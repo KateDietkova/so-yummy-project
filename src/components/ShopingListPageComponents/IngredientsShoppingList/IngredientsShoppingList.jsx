@@ -10,14 +10,15 @@
 // import {MeasureWrap, IngredientWrap, Measure, IngredientImgFrame, IngredientTitle, IngredientImg, RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
 // import { CgClose } from "react-icons/cg";
 // import { Loader } from 'components/universalComponents/Loader/Loader';
+// import IngredientsPlaceholder from '../../../assets/svg/mocks/food-default.svg';
 
 
 // export const IngredientsShoppingList = () => {
 //     // const list = useSelector(selectShoppingList);
 //     // console.log(list)
 
-//     const allIngredients = useSelector(selectIngredients);
-//         console.log(allIngredients)
+//     const ingredients = useSelector(selectIngredients);
+//         console.log(ingredients)
 //     const isLoading = useSelector(selectShoppingListIsLoading);
 //     const error = useSelector(selectShoppingListError);
 //     const dispatch = useDispatch();
@@ -38,11 +39,11 @@
 //             </Wrapper>
 //         {isLoading && <Loader />}
 //             <IngredientsList>
-//             {!isLoading && allIngredients?.map(({_id, ttl, thb, measure}) => (
+//             {!isLoading && ingredients?.map(({_id, ttl, thb, measure}) => (
 //                 <IngredientsItem key={_id}>
 //                     <IngredientWrap>
 //                         <IngredientImgFrame>
-//                             <IngredientImg src={thb } alt={ttl } />
+//                             <IngredientImg src={thb ?? IngredientsPlaceholder} alt={ttl } />
 //                         </IngredientImgFrame>
 //                         <IngredientTitle>{ ttl}</IngredientTitle>
 //                     </IngredientWrap>
@@ -52,6 +53,7 @@
 //                     </MeasureWrap>
 //                 </IngredientsItem>
 //             ))}
+//                 {error && <p>Whoops, something went wrong...</p>}
 //             </IngredientsList>
 //             </>
 // )
