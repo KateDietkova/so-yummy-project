@@ -9,7 +9,6 @@ import { TabsList, Tab } from './CategoriesTabs.styled';
 
 export const CategoriesTabs = () => {
   const categories = useSelector(selectCategories);
-  console.log(categories)
   const isLoading = useSelector(selectCategoriesIsLoading);
   const error = useSelector(selectCategoriesRecipesError);
   const dispatch = useDispatch();

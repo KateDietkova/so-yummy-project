@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
 
+  margin-top: 50px;
   margin-bottom: 32px;
   padding: 10px 10px;
 
@@ -13,11 +14,12 @@ export const Wrapper = styled.div`
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 72px;
     padding: 20px 20px;
     margin-bottom: 50px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 21px 40px;
   }
 `;
@@ -43,7 +45,7 @@ export const ContainerTitle = styled.div`
     gap: 78px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 142px;
   }
 `;
@@ -53,16 +55,19 @@ export const IngredientsList = styled.ul`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  margin-bottom: 100px;
 
   gap: 24px;
   width: 343px;
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 200px;
     gap: 42px;
     width: 704px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 195px;
     gap: 45px;
     width: 1160px;
   }
@@ -138,7 +143,7 @@ export const RemoveBtn = styled.button`
     margin-right: 30px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 15px;
   }
 
@@ -161,7 +166,7 @@ export const MeasureWrap = styled.div`
   @media screen and (min-width: 768px) {
     gap: 114px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 178px;
   }
 `;

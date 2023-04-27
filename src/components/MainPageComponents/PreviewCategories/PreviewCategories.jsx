@@ -22,7 +22,7 @@ export const PreviewCategories = () => {
   const { categoryName } = useParams();
 
   const isMobileDevice = useMediaQuery({ maxWidth: 767 });
-  const isTabletDevice = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+  const isTabletDevice = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
 
   useEffect(() => {
     dispatch(getAllByCategory(categoryName));

@@ -16,7 +16,7 @@ export const List = styled.ul`
     gap: 32px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 14px;
     row-gap: 100px;
   }
@@ -55,7 +55,7 @@ export const Description = styled.div`
     width: 300px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 268px;
   }
 
@@ -82,7 +82,7 @@ export const RecipeImg = styled.img`
     width: 336px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 299px;
     gap: 14px;
   }
