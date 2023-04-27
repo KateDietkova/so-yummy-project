@@ -5,6 +5,7 @@ export const TabsList = styled.ul`
   list-style: none;
   display: flex;
   margin-bottom: 32px;
+  margin-top: 60px;
   padding: 0 29px;
   gap: 28px;
   border-bottom: ${props => props.theme.borders.normal};
@@ -20,6 +21,10 @@ export const TabsList = styled.ul`
     padding: 0 30px;
     border-width: 1px;
     transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 110px;
   }
 `;
 

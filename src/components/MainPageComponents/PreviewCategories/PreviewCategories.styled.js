@@ -9,7 +9,7 @@ export const SectionWrapper = styled.div`
     padding: 72px 0 100px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 100px 0 118px;
   }
 `;
@@ -23,7 +23,7 @@ export const CategoriesWrapList = styled.ul`
     gap: 50px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 100px;
   }
 `;
@@ -50,7 +50,7 @@ export const TitleCategories = styled.h2`
     margin-bottom: 40px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 50px;
   }
 `;
@@ -63,7 +63,7 @@ export const WrapperSeeAllBtn = styled.div`
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 14px;
   }
 `;
