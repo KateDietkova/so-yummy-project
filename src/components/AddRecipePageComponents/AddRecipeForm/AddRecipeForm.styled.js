@@ -8,8 +8,9 @@ export const FormStyled = styled(Form)`
 position:relative;
   margin-bottom: 72px;
 z-index: 2;
+margin-top: 72px;
   @media screen and (min-width: 767px) {
-    
+    margin-top: 100px;
     margin-bottom: 100px;
   }
 
