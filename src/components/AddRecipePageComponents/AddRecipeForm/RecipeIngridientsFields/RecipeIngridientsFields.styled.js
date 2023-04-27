@@ -251,6 +251,9 @@ export const StyledSelect = styled(Select)`
         : 'rgba(217, 217, 217, 0.16)';
     }};
 
+
+ 
+
     @media screen and (min-width: 767px) {
       padding-left: 18px;
       font-size: ${props => props.theme.fontSizes.m};
@@ -369,7 +372,7 @@ export const StyledSelect = styled(Select)`
 
   .Select__input-container {
     color: ${props => {
-      return props.theme.darkTheme ? '#d9d9d999' : props.theme.colors.textDark;
+      return props.theme.darkTheme ? '#d9d9d999' : '#01010180';
     }};
     height: 53px;
     font-size: ${props => props.theme.fontSizes.s};

@@ -43,7 +43,7 @@ export const PreviewCategories = () => {
       <Container>
         {isLoading && <Loader />}
         <CategoriesWrapList>
-        {filteredRecipes.length > 0 && filteredRecipes.map(({ category, recipes }) => (
+        {filteredRecipes.length > 0 && !isLoading && filteredRecipes.map(({ category, recipes }) => (
           <li key={category}>
             <TitleCategories>{category}</TitleCategories>
             <RecipesGallery

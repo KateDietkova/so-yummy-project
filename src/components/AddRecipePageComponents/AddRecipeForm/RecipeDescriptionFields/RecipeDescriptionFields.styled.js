@@ -4,9 +4,20 @@ import Select from 'react-select';
 import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camera.svg';
 
 export const Wrapper = styled.div`
+display: flex;
+flex-direction: column;
+gap: 30px;
 
-  display: flex;
+@media screen and (min-width: 768px) {
+  
+  flex-direction: row;
   gap: 32px;
+}
+@media screen and (min-width: 768px) {
+ 
+  gap: 50px;
+}
+  
 `;
 
 export const AddFileInputWrapper = styled.div`
