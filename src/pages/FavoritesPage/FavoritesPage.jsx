@@ -21,7 +21,6 @@ const FavoritesPage = () => {
         const fetchFavoriteRecipes = async () => {
         setIsLoading(true);
         const data = await fetchUserFavoriteRecipes(currentPage);
-            console.log(data);
 
             if (data.name === 'AxiosError') {
                 setIsError(true);

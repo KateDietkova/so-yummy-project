@@ -65,7 +65,7 @@ export const fetchUserFavoriteRecipes = async currentPage => {
 
 export const deleteUserFavoriteRecipe = async id => {
   try {
-    const { data } = await axios.delete(`/favorite/${id}`);
+    const { data } = await axios.patch(`/favorite/${id}`);
     return data.data;
   } catch (error) {
     console.log(error);
