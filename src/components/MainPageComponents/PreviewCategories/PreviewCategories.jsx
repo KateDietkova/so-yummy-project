@@ -4,14 +4,25 @@ import { useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import { getAllByCategory } from 'redux/recipes/recipesOperations';
-import { selectMainRecipesByCategory, selectIsLoading, selectRecipesError } from 'redux/recipes/recipesSelectors';
+import {
+  selectMainRecipesByCategory,
+  selectIsLoading,
+  selectRecipesError,
+} from 'redux/recipes/recipesSelectors';
 
 import { Container } from 'components/universalComponents/Container/Container.styled';
 import { RecipesGallery } from 'components/universalComponents/RecipesGallery/RecipesGallery';
 import { Loader } from 'components/universalComponents/Loader/Loader';
 
-import {CategoriesWrapList, WrapperSeeAllBtn, SectionWrapper, WrapperOtherBtn, OtherCategoriesBtnLink, TitleCategories, SeeAllBtnLink } from './PreviewCategories.styled';
-
+import {
+  CategoriesWrapList,
+  WrapperSeeAllBtn,
+  SectionWrapper,
+  WrapperOtherBtn,
+  OtherCategoriesBtnLink,
+  TitleCategories,
+  SeeAllBtnLink,
+} from './PreviewCategories.styled';
 
 export const PreviewCategories = () => {
   const dispatch = useDispatch();
@@ -22,7 +33,7 @@ export const PreviewCategories = () => {
   const { categoryName } = useParams();
 
   const isMobileDevice = useMediaQuery({ maxWidth: 767 });
-  const isTabletDevice = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+  const isTabletDevice = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
 
   useEffect(() => {
     dispatch(getAllByCategory(categoryName));
@@ -43,26 +54,32 @@ export const PreviewCategories = () => {
       <Container>
         {isLoading && <Loader />}
         <CategoriesWrapList>
-        {filteredRecipes.length > 0 && !isLoading && filteredRecipes.map(({ category, recipes }) => (
-          <li key={category}>
-            <TitleCategories>{category}</TitleCategories>
-            <RecipesGallery
-              recipes={recipes.slice(
-                0,
-                isMobileDevice ? 1 : isTabletDevice ? 2 : 4
-              )}
-            />
-            {recipes.length >=
-              (isMobileDevice ? 1 : isTabletDevice ? 2 : 4) && (
-              <WrapperSeeAllBtn>
-                <SeeAllBtnLink to={`/categories/${category.toLowerCase()}`}>See all</SeeAllBtnLink>
-                </WrapperSeeAllBtn>
-            )}
-          </li>
-        ))}
-          </CategoriesWrapList>
-      <WrapperOtherBtn>
-        <OtherCategoriesBtnLink to="/categories/beef">Other categories</OtherCategoriesBtnLink>
+          {filteredRecipes.length > 0 &&
+            !isLoading &&
+            filteredRecipes.map(({ category, recipes }) => (
+              <li key={category}>
+                <TitleCategories>{category}</TitleCategories>
+                <RecipesGallery
+                  recipes={recipes.slice(
+                    0,
+                    isMobileDevice ? 1 : isTabletDevice ? 2 : 4
+                  )}
+                />
+                {recipes.length >=
+                  (isMobileDevice ? 1 : isTabletDevice ? 2 : 4) && (
+                  <WrapperSeeAllBtn>
+                    <SeeAllBtnLink to={`/categories/${category.toLowerCase()}`}>
+                      See all
+                    </SeeAllBtnLink>
+                  </WrapperSeeAllBtn>
+                )}
+              </li>
+            ))}
+        </CategoriesWrapList>
+        <WrapperOtherBtn>
+          <OtherCategoriesBtnLink to="/categories/beef">
+            Other categories
+          </OtherCategoriesBtnLink>
         </WrapperOtherBtn>
       </Container>
 
