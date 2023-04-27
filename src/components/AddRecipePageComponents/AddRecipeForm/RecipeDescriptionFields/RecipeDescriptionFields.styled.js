@@ -4,20 +4,17 @@ import Select from 'react-select';
 import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camera.svg';
 
 export const Wrapper = styled.div`
-display: flex;
-flex-direction: column;
-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
-@media screen and (min-width: 768px) {
-  
-  flex-direction: row;
-  gap: 32px;
-}
-@media screen and (min-width: 768px) {
- 
-  gap: 50px;
-}
-  
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    gap: 50px;
+  }
 `;
 
 export const AddFileInputWrapper = styled.div`
@@ -34,16 +31,16 @@ export const AddFileInputWrapper = styled.div`
 `;
 
 export const StyledPhotoRecipe = styled.img`
-width: 100%;
-height: 100%;
-border-radius: 8px;
-  z-index: 50;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: 1;
   position: relative;
   object-fit: cover;
 `;
 
 export const CameraIconStyled = styled(CameraIcon)`
-z-index: 55;
+  z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,7 +50,7 @@ z-index: 55;
 `;
 
 export const AddFileInput = styled(Field)`
-z-index: 60;
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -186,7 +183,9 @@ export const StyledSelect = styled(Select)`
     &--is-focused {
       background-color: transparent;
       color: ${props => {
-        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.accent;
+        return props.theme.darkTheme
+          ? props.theme.colors.textWhite
+          : props.theme.colors.accent;
       }};
     }
   }
