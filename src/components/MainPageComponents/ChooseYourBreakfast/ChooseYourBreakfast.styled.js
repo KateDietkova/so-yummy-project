@@ -48,6 +48,7 @@ export const MainDescRecipes = styled.div`
 `;
 
 export const TextDescRecipes = styled.p`
+  font-family: PoppinsMedium;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -82,6 +83,15 @@ export const RecipesBtn = styled(NavLink)`
   cursor: pointer;
   background: transparent;
   text-decoration: none;
+  &:hover,
+  &:focus,
+  &.active {
+    color: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textBlue;
+    }};
+  }
   color: ${props => {
     return props.theme.darkTheme
       ? props.theme.colors.textWhite
@@ -94,6 +104,11 @@ export const RecipesBtn = styled(NavLink)`
   align-items: center;
   font-size: 10px;
   line-height: 12px;
+
+  :hover {
+    color: ${props => props.theme.colors.accent};
+    transition: ${props => props.theme.effects.mainEffect};
+  }
 
   @media screen and (min-width: 768px) {
     font-weight: 400;
