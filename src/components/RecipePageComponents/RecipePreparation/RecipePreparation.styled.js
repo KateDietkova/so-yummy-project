@@ -30,7 +30,11 @@ export const Title = styled.h2`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 24px;
   line-height: 1;
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
   @media screen and (min-width: 768px) {
     letter-spacing: -0.24px;
   }
@@ -95,7 +99,11 @@ export const ListText = styled.p`
   margin-left: 14px;
   font-size: 12px;
   line-height: 1.33;
-  color: rgba(0, 0, 0, 0.8);
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
   @media (min-width: 768px) {
     font-size: 14px;
     line-height: 1.2;

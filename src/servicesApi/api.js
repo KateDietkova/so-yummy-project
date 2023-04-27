@@ -53,29 +53,38 @@ export const getAllIngredientsAPI = async () => {
 //   };
 
 
-export const getFavorite = async () => {
-  try {
-      const response = await axios.get(`/favorite`);
-      return response.data.data;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+// export const getFavorite = async () => {
+//   try {
+//       const response = await axios.get(`/favorite`);
+//       return response.data.data;
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
 
-export const addToFavorite = async id => {
+export const addToFavorite = async (id) => {
       try {
-        const response = await axios.put(`/favorite/${id}`);
-        return response.data;
+        const { data }= await axios.get(`/favorite/${id}`);
+        return data;
       } catch (error) {
         console.log(error.message);
       }
     }
 
-
-export const deleteFromFavorite = async id => {
+export const getShoppingList = async () => {
+  try {
+      const { data } = await axios.get(`/shopping-list`);
+      return data.ingrediens;
+    } catch (error) {
+      console.log(error.message);
+    }
+}
+    
+  
+export const deleteFromFavorite = async (_id) => {
     try {
-      await axios.patch(`/favorite/${id}`);
-      return id;
+      const { data } = await axios.patch(`/favorite/${_id}`);
+      return data;
     } catch (error) {
       console.log(error.message);
     }

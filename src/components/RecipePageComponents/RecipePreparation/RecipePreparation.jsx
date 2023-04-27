@@ -5,11 +5,10 @@ import {
     PrepeaRecipeImage,
     Steps,
     Step,
-  Image,
-  ListItem,
+    ListItem,
     ListText
 } from './RecipePreparation.styled';
-import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
+// import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
 export const RecipePreparation = ({instructions, thumb}) => {
   // let steps = [];
   // if (instructions) {
@@ -38,10 +37,9 @@ export const RecipePreparation = ({instructions, thumb}) => {
             })}
           </PrepeaRecipe>
       </div>  
-      
       <PrepeaRecipeImage
         src={thumb}
-      />
+      ></PrepeaRecipeImage>
        
     </PreparationSection>
   );

@@ -8,33 +8,19 @@ import {
 } from './RecipePageHero.styled';
 
 import { AiOutlineClockCircle } from 'react-icons/ai';
-
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getFavorite, deleteFromFavorite, addToFavorite } from 'servicesApi/api';
-import { selectFavoritesRecipes } from 'redux/recipes/recipesSelectors';
+import {  addToFavorite } from 'servicesApi/api';
 
 
 
-export const RecipePageHero = ({ title, description, time }) => {
-  const { recipeId } = useParams();
-  const dispatch = useDispatch();
-  const favorites = useSelector(selectFavoritesRecipes);
 
-  useEffect(() => {
-    dispatch(getFavorite());
-  }, [dispatch]);
-   
-  const inFavoriteCollection = favorites.find(item => item._id === recipeId);
-
-  function toggleFavorite() {
-    if(inFavoriteCollection){
-      dispatch(deleteFromFavorite(recipeId));
-    } else {
-      dispatch(addToFavorite(recipeId));
-  }
-  }
+export const RecipePageHero = ({title, description, time, recipeId, isFavorite}) => {
+ 
+  const addFavorite = () => {
+    console.log('add');
+    if (isFavorite === false) {
+      return addToFavorite(recipeId);
+    }
+  };
   
   return (
     <SectionHero>
@@ -43,12 +29,12 @@ export const RecipePageHero = ({ title, description, time }) => {
       <Button
         type="button"
         aria-label="add/remove to favorite"
-        onClick={toggleFavorite}
+        onClick={addFavorite}
       >
-        {inFavoriteCollection
-          ? 'Remove from favorite recipes'
-          : 'Add to favorite recipes'
-        }
+       {isFavorite 
+           ? 'Remove from favorite recipes' 
+           : 'Add to favorite recipes'
+         } 
         </Button>
         <RecipeTimer>
           <AiOutlineClockCircle color="black" />

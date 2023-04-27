@@ -52,6 +52,8 @@ export const SectionHeroTitle = styled.h1`
   // max-width:360px;
   margin-right:auto;
   margin-left:auto;
+  padding-left: 50px;
+  padding-right: 50px;
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 24px;
   line-height: 1;
@@ -93,6 +95,7 @@ export const Button = styled.button`
   color: #22252a;
   margin-bottom: 42px;
   cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1850ms;
   @media only screen and (min-width: 768px) {
     font-size: 16px;
     max-width: 330px;

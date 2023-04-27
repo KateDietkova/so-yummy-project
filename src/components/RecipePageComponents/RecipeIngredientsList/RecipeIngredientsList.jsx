@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
-
+// import { getShoppingList } from 'servicesApi/api';
+// import { useEffect } from 'react';
 import {
   IngredientsListSection,
   ListTitle,
@@ -14,21 +15,28 @@ import {
   CheckBox,
 } from './RecipeIngredientsList.styled';
 
-export const RecipeIngredientsList = ({ ingredients }) => {
-  const allIngredients = useSelector(selectIngredients);
 
-  const ingredientsId = ingredients.map(data => data.id);
 
-  const selectIngred = allIngredients.filter(data => {
+export const RecipeIngredientsList = ({ ingredients}) => {
+ const allIngredients = useSelector(selectIngredients);
 
-    if (ingredientsId.includes(data._id)) {
-      return data;
-    }
-    return null;
 
-  });
+  const selectIngred = allIngredients
+    .filter(ingredient =>
+      ingredients
+        .map(recipeIngredient => recipeIngredient.id)
+        .includes(ingredient._id)
+    )
+    .map(ingredient => ({
+      ...ingredient,
+      measure: ingredients.find(
+        recipeIngredient => recipeIngredient.id === ingredient._id
+      ).measure,
+    }));
 
   console.log('ingred', selectIngred);
+   
+  
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -36,35 +44,31 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         <ListSpan>Number</ListSpan>
         <ListSpan>Add to list</ListSpan>
       </ListTitle>
-
       <IngredientsList>
-
-        
-        {
-          selectIngred.map(({ _id, ttl, thb, measure }) => {
-        
+        {selectIngred.map(({ _id, ttl, thb, measure }) => {
             return (
               <IngedientsItem key={_id}>
                 <Wrap>
                   <Image src={thb} alt={ttl} />
                   <IngedientsTitle>{ttl}</IngedientsTitle>
                 </Wrap>
-                <Wrap>
+                     <Wrap>
+                  <IngedientsMeasure >{measure}</IngedientsMeasure>
+                
                   
-                  <IngedientsMeasure>{measure }</IngedientsMeasure>
+               
                   <CheckBox
                   //   ingredientsId={_id}
                   //   isCheck={ingredMeasure}
                   // measure={measure}
                   >
-                    
                   </CheckBox>
                 </Wrap>
               </IngedientsItem>
-            );
-          })}
-
-      </IngredientsList>
+            )
+          })
+        }
+            </IngredientsList>
     </IngredientsListSection>
   );
 };

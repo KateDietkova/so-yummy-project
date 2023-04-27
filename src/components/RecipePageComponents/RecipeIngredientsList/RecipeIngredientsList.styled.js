@@ -65,7 +65,12 @@ export const IngredientsList = styled.ul`
 `;
 export const IngedientsItem = styled.li`
   display: flex;
-  background-color: ${props=>props.theme.colors.bgLightGreen};
+  background-color:${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.bgBlackLight
+      : props.theme.colors.bgLightGreen
+  }};
+  
   padding: 14px 29px 14px 14px;
   justify-content: space-between;
   border-radius: 8px;
@@ -121,7 +126,11 @@ export const IngedientsTitle = styled.p`
   font-size: 12px;
   line-height: 1.16;
   max-width: 200px;
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark;
+  }};
   @media (min-width: 768px) {
     max-width: 220px;
     font-size: 24px;
@@ -137,7 +146,7 @@ export const IngedientsMeasure = styled.span`
   border-radius: 4px;
   padding: 4px;
   background-color: ${props => props.theme.colors.accent};
-  font-family: "Poppins";
+  
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 10px;
   line-height: 1.5;
