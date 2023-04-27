@@ -7,7 +7,6 @@ export const MainTitleBox = styled.div`
 export const MainTitleStyled = styled.h1`
   margin-top: 35px;
   margin-bottom: 0;
-  padding-bottom: 50px;
   font-family: PoppinsSemiBold;
   font-weight: 600;
   font-size: 28px;
@@ -19,7 +18,6 @@ export const MainTitleStyled = styled.h1`
 
   @media screen and (min-width: 768px) {
     margin-top: 54px;
-    padding-bottom: 100px;
     font-size: 32px;
   }
 
