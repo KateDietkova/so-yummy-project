@@ -39,16 +39,16 @@
 //             </Wrapper>
 //         {isLoading && <Loader />}
 //             <IngredientsList>
-//             {!isLoading && ingredients?.map(({_id, ttl, thb, measure}) => (
-//                 <IngredientsItem key={_id}>
+//             {!isLoading && ingredients?.map(({_id,id, ttl, thb, measure}) => (
+//                 <IngredientsItem key={id}>
 //                     <IngredientWrap>
 //                         <IngredientImgFrame>
-//                             <IngredientImg src={thb ?? IngredientsPlaceholder} alt={ttl } />
+//                             <IngredientImg src={thb ? thb : IngredientsPlaceholder} alt={ttl } />
 //                         </IngredientImgFrame>
 //                         <IngredientTitle>{ ttl}</IngredientTitle>
 //                     </IngredientWrap>
 //                     <MeasureWrap>
-//                         <Measure>{5}</Measure>
+//                         <Measure>{measure}</Measure>
 //                     <RemoveBtn onClick={() => dispatch(deleteFromShoppingList(_id))}>{<CgClose size={20} />}</RemoveBtn>
 //                     </MeasureWrap>
 //                 </IngredientsItem>
