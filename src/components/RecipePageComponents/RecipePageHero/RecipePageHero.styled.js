@@ -37,7 +37,7 @@ export const SectionHero = styled.div`
       background-image: url(${bgTabletX2});
     }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     background-image: url(${bgDesktop});
     height:493px;
     @media (min-device-pixel-ratio: 2),
@@ -79,7 +79,7 @@ export const RecipeDescription = styled.p`
     font-size: 18px;
     max-width:506px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 30px;
     width:656px;
   }
@@ -103,7 +103,7 @@ export const Button = styled.button`
     padding: 18px 44px;
     border: 2px solid ${props => props.theme.colors.accentGreen};
   }
-  @media only screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1280px) {
     margin-bottom: 48px;
   }
   &:hover,

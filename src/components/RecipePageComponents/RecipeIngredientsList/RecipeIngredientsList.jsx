@@ -1,7 +1,8 @@
-import {useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
-// import { getShoppingList } from 'servicesApi/api';
-// import { useEffect } from 'react';
+import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
+import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
+import { useEffect } from 'react';
 import {
   IngredientsListSection,
   ListTitle,
@@ -12,15 +13,14 @@ import {
   Image,
   IngedientsTitle,
   IngedientsMeasure,
-  CheckBox,
+  
 } from './RecipeIngredientsList.styled';
+import { Checkbox  }  from './CheckBox/CheckBox';
 
-
-
-export const RecipeIngredientsList = ({ ingredients}) => {
+export const RecipeIngredientsList = ({ ingredients }) => {
+  const dispatch = useDispatch();
+  
  const allIngredients = useSelector(selectIngredients);
-
-
   const selectIngred = allIngredients
     .filter(ingredient =>
       ingredients
@@ -35,8 +35,14 @@ export const RecipeIngredientsList = ({ ingredients}) => {
     }));
 
   console.log('ingred', selectIngred);
-   
-  
+
+  useEffect(() => {
+    dispatch(getShoppingList());
+  }, [dispatch]);
+
+  const shoppingList = useSelector(selectShoppingList);
+
+
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -46,23 +52,18 @@ export const RecipeIngredientsList = ({ ingredients}) => {
       </ListTitle>
       <IngredientsList>
         {selectIngred.map(({ _id, ttl, thb, measure }) => {
-            return (
-              <IngedientsItem key={_id}>
+          return (
+            <IngedientsItem key={_id}>
                 <Wrap>
                   <Image src={thb} alt={ttl} />
                   <IngedientsTitle>{ttl}</IngedientsTitle>
                 </Wrap>
                      <Wrap>
                   <IngedientsMeasure >{measure}</IngedientsMeasure>
-                
-                  
-               
-                  <CheckBox
-                  //   ingredientsId={_id}
-                  //   isCheck={ingredMeasure}
-                  // measure={measure}
-                  >
-                  </CheckBox>
+                  <Checkbox
+                  ingredient={{_id, ttl, thb, measure}}
+                  shopList={shoppingList}
+                   ></Checkbox>
                 </Wrap>
               </IngedientsItem>
             )

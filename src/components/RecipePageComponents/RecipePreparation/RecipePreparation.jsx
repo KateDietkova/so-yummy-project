@@ -8,17 +8,9 @@ import {
     ListItem,
     ListText
 } from './RecipePreparation.styled';
-// import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
-export const RecipePreparation = ({instructions, thumb}) => {
-  // let steps = [];
-  // if (instructions) {
-  //   if (!instructions.includes('\r\n')) {
-  //     return;
-  //   } else {
-  //     steps = instructions.split('\n');
-  //   }
-  // }
-
+import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
+export const RecipePreparation = ({instructions, preview}) => {
+console.log(preview)
   return (
     <PreparationSection>
       <div >
@@ -38,8 +30,8 @@ export const RecipePreparation = ({instructions, thumb}) => {
           </PrepeaRecipe>
       </div>  
       <PrepeaRecipeImage
-        src={thumb}
-      ></PrepeaRecipeImage>
+        src={preview ? preview : IngredientsPlaceholder}
+      />
        
     </PreparationSection>
   );

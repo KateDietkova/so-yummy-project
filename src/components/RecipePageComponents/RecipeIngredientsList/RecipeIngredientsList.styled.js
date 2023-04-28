@@ -19,7 +19,7 @@ export const IngredientsListSection = styled.div`
     padding-right: 32px;
     margin-top: 50px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-left: 0;
     padding-right: 0;
     margin-top: 50px;
@@ -43,7 +43,7 @@ export const ListTitle = styled.div`
     gap: 38px;
     margin-bottom: 50px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     max-width: 1240px;
     padding: 21px 40px;
     gap: 110px;
@@ -58,7 +58,7 @@ export const IngredientsList = styled.ul`
   @media (min-width: 768px) {
     gap: 24px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
    
      width: 1240px;
   }
@@ -77,7 +77,7 @@ export const IngedientsItem = styled.li`
   @media (min-width: 768px) {
     padding: 33px 58px 33px 40px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     padding: 27px 70px 27px 58px;
   }
 `;
@@ -92,7 +92,7 @@ export const Wrap = styled.div`
       gap: 24px;
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 151px;
     &:first-child {
       gap: 40px;
@@ -109,7 +109,7 @@ export const IngedientsImg = styled.img`
     height: 112px;
     margin-right: 40px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     width: 128px;
     height: 128px;
     margin-right: 66px;
@@ -136,12 +136,18 @@ export const IngedientsTitle = styled.p`
     font-size: 24px;
     line-height: 1;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     max-width: 420px;
   }
 `;
 
-export const IngedientsMeasure = styled.span`
+export const IngedientsMeasure = styled.div`
+  width:100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align:center;
+  align-items: center;
   margin-right: 28px;
   border-radius: 4px;
   padding: 4px;
@@ -157,8 +163,8 @@ export const IngedientsMeasure = styled.span`
     padding: 4px 8px;
     margin-right: 78px;
   }
-  @media (min-width: 1440px) {
-    margin-right: 151px;
+  @media (min-width: 1280px) {
+    margin-right: 140px;
   }
 `;
 
@@ -191,7 +197,7 @@ export const ListSpan = styled.span`
     font-size: 18px;
     line-height: 27px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 

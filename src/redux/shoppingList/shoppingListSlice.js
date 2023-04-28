@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   getShoppingList,
   deleteFromShoppingList,
+  addToShoppingList,
 } from './shoppingListOperations';
 
 const initialState = {
@@ -39,12 +41,25 @@ export const shoppingListSlice = createSlice({
         //   ({ _id }) => _id === action.payload
         // );
         // state.shoppingList.splice(id, 1);
-        console.log(action.payload);
+        // console.log(action.payload);
       })
       .addCase(deleteFromShoppingList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(addToShoppingList.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addToShoppingList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.shoppingList = action.payload.data.ingredients;
+        console.log(action.payload);
+      })
+      .addCase(addToShoppingList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
   },
 });
 

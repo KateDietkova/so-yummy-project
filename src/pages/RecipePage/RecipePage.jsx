@@ -43,10 +43,11 @@ const RecipePage = () => {
             <RecipePageHero
               title={currentRecipe.title}
               description={currentRecipe.description}
-              time={currentRecipe.time}
+                time={currentRecipe.time}
+                favorites={currentRecipe.favorites}
             />
               <RecipeIngredientsList recipeId={recipeId} ingredients={currentRecipe.ingredients} />
-            <RecipePreparation instructions={currentRecipe.instructions} foto={currentRecipe.thumb} />
+            <RecipePreparation instructions={currentRecipe.instructions} preview={currentRecipe.preview} />
           </>
         </RecipeSection>  
         )}
