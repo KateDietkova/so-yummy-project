@@ -62,7 +62,7 @@ export const App = () => {
         pauseOnHover
         theme="dark"
       />
-      ;
+      
       {!isRefreshing && (
         <Routes>
           <Route
