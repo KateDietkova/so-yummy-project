@@ -31,7 +31,7 @@ export const BackgrImage = styled.div`
     background-repeat: no-repeat;
     width: 256px;
     height: 392px;
-    z-index: 0;
+    z-index: -1;
 
     @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),

@@ -139,7 +139,7 @@ export const SubscribeButton = styled.button`
     transition: color ${props => props.theme.effects.mainEffect};
 
     &:disabled {
-      opacity: 0.5;
+      cursor: not-allowed;
     }
     
 
