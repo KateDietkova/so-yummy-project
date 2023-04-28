@@ -15,7 +15,7 @@ export const Form = styled.div`
     margin-left: 131px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     margin: 0px;
     flex-direction: column;
 }
@@ -32,6 +32,7 @@ export const SubscribeInput = styled.input`
     line-height: 1.5;
     letter-spacing: -0.02em;
     border: 1px solid ${props => props.theme.colors.textWhite};
+    outline: none;
     opacity: 0.5;
     border-radius: 6px;
     background-color: transparent;
@@ -51,7 +52,7 @@ export const SubscribeInput = styled.input`
     padding-left: 51px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 338px;
     height: 59px;
     margin-right: 0px;
@@ -85,7 +86,7 @@ export const SubscribeInput = styled.input`
       font-size: ${props => props.theme.fontSizes.s};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
       font-size: ${props => props.theme.fontSizes.l};
     }
 }
@@ -108,7 +109,7 @@ export const IconMail = styled(AiOutlineMail)`
     left: 15px;
   }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     width: 20px;
     height: 16px;
     top: 20px;
@@ -125,6 +126,7 @@ export const SubscribeButton = styled.button`
                 : props.theme.colors.accent
     }};
     color: ${props => props.theme.colors.textWhite};
+    border: none;
     border-radius: 6px;
     font-family: 'PoppinsRegular';
     font-style: normal;
@@ -144,7 +146,7 @@ export const SubscribeButton = styled.button`
         line-height: 1.12;
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
         width: 339px;
         height: 60px;
     }

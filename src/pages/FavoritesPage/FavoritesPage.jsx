@@ -1,10 +1,10 @@
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
-import { MyFavoriteContainer } from './FavoritesPage.styled'
+import { RecipeListContainer, MyFavoriteContainer } from './FavoritesPage.styled'
 import { Loader } from 'components/universalComponents/Loader/Loader';
 import { Error } from 'components/MyRecipesPageComponents/Error';
 import { useEffect, useState } from 'react';
-import { FavoriteRecipesList } from '../../components/FavoriteList/FavoriteList';
+import {  FavoriteRecipesList } from '../../components/FavoriteList/FavoriteList';
 
 import { deleteUserFavoriteRecipe, fetchUserFavoriteRecipes } from 'servicesApi/api';
 
@@ -60,14 +60,14 @@ const FavoritesPage = () => {
             {isLoading && <Loader />}
             {isError
                 ? (<Error />)
-                : (<>
+                : (<RecipeListContainer>
                         <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
                         <Pagination
                             totalPages={totalPages}
                             currentPage={currentPage}
                             onClick={handleClickPaginationButton}
                         />
-                    </>)
+                    </RecipeListContainer>)
             } 
         </MyFavoriteContainer>
   )
