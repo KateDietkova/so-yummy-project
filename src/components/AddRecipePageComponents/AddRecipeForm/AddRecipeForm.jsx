@@ -56,6 +56,12 @@ export const AddRecipeForm = () => {
     setIngredients(newArray);
   }, [])
 
+  // const formikProps = useFormikContext();
+
+  // const setFormikValue = (name, value) => {
+  //   formikProps.setFieldValue(name, value);
+  // };
+
   const pullDescrsData = useCallback((category,
     time,
     selectedImgFile,

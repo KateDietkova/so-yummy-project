@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { cookingTimeOptions } from 'helpers/helper';
 import { useState } from 'react';
 import { useFormikContext } from 'formik';

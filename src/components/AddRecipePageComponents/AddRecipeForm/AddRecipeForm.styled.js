@@ -26,6 +26,7 @@ export const StyledErrorMessage = styled.p`
   left: 0;
   font-size: 14px;
   color: ${props => props.theme.colors.validateRed};
+  z-index: 2;
 `;
 
 export const AddButton = styled(ButtonSkewStyled)`
