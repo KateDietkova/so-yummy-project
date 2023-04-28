@@ -4,7 +4,6 @@ import { getRecipesByQuery } from 'services/api';
 import { SearchForm } from 'components/MainPageComponents/SearchForm/SearchForm';
 import { RecipesGallery } from 'components/universalComponents/RecipesGallery/RecipesGallery';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
-import { BiChevronDown } from 'react-icons/bi';
 
 import { MainTitleStyled } from 'components/universalComponents/MainTitle/MainTitle.styled';
 import { Container } from 'components/universalComponents/Container/Container.styled';
