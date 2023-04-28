@@ -24,3 +24,23 @@ export const RecipeListContainer = styled.section`
     padding-bottom: 100px;
   }
 `;
+
+export const StyledText = styled.p`
+  font-family: PoppinsMedium;
+
+  font-size: 14px;
+  line-height: 1.29;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.textWhite
+      : props.theme.colors.textDark};
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+`;

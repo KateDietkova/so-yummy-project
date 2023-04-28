@@ -24,42 +24,31 @@ import { FormError } from '../validationAddRecipe';
 import { useEffect } from 'react';
 
 export const RecipeDescriptionFields = props => {
-
-
-
-
-   const dispatch = useDispatch();
-
- 
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    dispatch(fetchCategoriesList())
-  
+    dispatch(fetchCategoriesList());
   }, [dispatch]);
 
-   const categoriesList = useSelector(selectCategories) 
+  const categoriesList = useSelector(selectCategories);
   ///  ф-ція отримання даних з редакс//
-  
 
-
-//  const categoriesList = [
-//     'Beef',
-//     'Breakfast',
-//     'Chicken',
-//     'Dessert',
-//     'Goat',
-//     'Lamb',
-//     'Miscellaneous',
-//     'Pasta',
-//     'Pork',
-//     'Seafood',
-//     'Side',
-//     'Starter',
-//     'Vegan',
-//     'Vegetarian',
-//   ];
+  //  const categoriesList = [
+  //     'Beef',
+  //     'Breakfast',
+  //     'Chicken',
+  //     'Dessert',
+  //     'Goat',
+  //     'Lamb',
+  //     'Miscellaneous',
+  //     'Pasta',
+  //     'Pork',
+  //     'Seafood',
+  //     'Side',
+  //     'Starter',
+  //     'Vegan',
+  //     'Vegetarian',
+  //   ];
   const categoryOptions = categoriesList.map(option => ({
     value: option.toLowerCase(),
     label: option,
@@ -90,9 +79,6 @@ export const RecipeDescriptionFields = props => {
     aboutValue,
     props,
   ]);
-
-  
-
 
   const formikProps = useFormikContext();
 
@@ -140,7 +126,6 @@ export const RecipeDescriptionFields = props => {
     setAboutValue(value);
     setFormikValue('about', value);
   };
-
 
   return (
     <>
@@ -193,7 +178,7 @@ export const RecipeDescriptionFields = props => {
           <SelectWrapper>
             <StyledSelectLabel>Category</StyledSelectLabel>
             <StyledSelect
-            isSearchable={false}
+              isSearchable={false}
               classNamePrefix="Select"
               name="category"
               options={categoryOptions}

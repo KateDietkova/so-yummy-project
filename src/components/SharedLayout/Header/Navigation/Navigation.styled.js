@@ -60,6 +60,9 @@ export const NavLinkStyled = styled(NavLink)`
     line-height: 1.6;
     padding: 10px 0;
     color: ${props => {
+      if (props.theme.darkTheme && props.isdark === 'true') {
+        return props.theme.colors.bgBlackDark;
+      }
       return props.theme.darkTheme
         ? props.theme.colors.textWhite
         : props.theme.colors.textDark;

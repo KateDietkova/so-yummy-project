@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { MyRecipesList } from 'components/MyRecipesPageComponents/MyRecipesList/MyRecipesList';
-import { MyRecipeContainer, RecipeListContainer } from './MyRecipesPage.styled';
+import {
+  MyRecipeContainer,
+  RecipeListContainer,
+  StyledText,
+} from './MyRecipesPage.styled';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
 import { deleteUserRecipe, fetchUserRecipes } from 'servicesApi/api';
 import { Loader } from 'components/universalComponents/Loader/Loader';
@@ -50,7 +54,7 @@ const MyRecipesPage = () => {
   };
 
   return (
-    <MyRecipeContainer>
+    <MyRecipeContainer id="container">
       <MainTitle text="My recipes" />
       {isLoading && <Loader />}
       {isError ? (
@@ -58,11 +62,21 @@ const MyRecipesPage = () => {
       ) : (
         <RecipeListContainer>
           <MyRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onClick={handleClickPaginationButton}
-          />
+          {recipes?.length > 0 ? (
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onClick={handleClickPaginationButton}
+              scrollId={'container'}
+            />
+          ) : (
+            <>
+              <StyledText>You don't have any recipe.</StyledText>
+              <StyledText>
+                Please, go to the "Add recipes"page and save your recipe :)
+              </StyledText>
+            </>
+          )}
         </RecipeListContainer>
       )}
     </MyRecipeContainer>

@@ -2,8 +2,8 @@ import * as Yup from 'yup';
 import {
   ErrorValidation,
   ErrorValidationIcon,
-  WarningValidation,
-  WarningValidationIcon,
+  // WarningValidation,
+  // WarningValidationIcon,
   CorrectValidation,
   CorrectIconValidationIcon,
 } from '../../RegisterPageComponents/RegisterForm/RegisterForm.styled';
@@ -25,14 +25,14 @@ const errorMassege = msg => {
   );
 };
 
-const warningMassege = msg => {
-  return (
-    <div className="warning">
-      <WarningValidation>{msg}</WarningValidation>
-      <WarningValidationIcon />
-    </div>
-  );
-};
+// const warningMassege = msg => {
+//   return (
+//     <div className="warning">
+//       <WarningValidation>{msg}</WarningValidation>
+//       <WarningValidationIcon />
+//     </div>
+//   );
+// };
 
 export const ValidMassege = ({ children }) => {
   return (
@@ -53,10 +53,10 @@ export const signinSchema = Yup.object().shape({
     .required(errorMassege('This field is required')),
 
   password: Yup.string()
-    .min(6, errorMassege('Enter a valid password'))
+    .min(6, errorMassege('Password too short'))
     .max(16, errorMassege('Password too long'))
     .matches(passwordRules, {
-      message: warningMassege('Your password is little secure'),
+      message: errorMassege('Password is not valid'),
       excludeEmptyString: true,
     })
     .required(errorMassege('This field is required')),
