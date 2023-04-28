@@ -2,14 +2,14 @@ import * as Yup from 'yup';
 import {
   ErrorValidation,
   ErrorValidationIcon,
-  WarningValidation,
-  WarningValidationIcon,
+  // WarningValidation,
+  // WarningValidationIcon,
   CorrectValidation,
   CorrectIconValidationIcon,
 } from './RegisterForm.styled';
 
 const nameRules =
-  /^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$/;
+  /^[a-zA-Z0-9а-яА-Я]+((['-](?=[a-zA-Z0-9а-яА-Я])|[ ](?=[a-zA-Z0-9а-яА-Я]))?[a-zA-Z0-9а-яА-Я]*)*$/;
 const emailRules =
   /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -27,14 +27,14 @@ const errorMassege = msg => {
   );
 };
 
-const warningMassege = msg => {
-  return (
-    <div className="warning">
-      <WarningValidation>{msg}</WarningValidation>
-      <WarningValidationIcon />
-    </div>
-  );
-};
+// const warningMassege = msg => {
+//   return (
+//     <div className="warning">
+//       <WarningValidation>{msg}</WarningValidation>
+//       <WarningValidationIcon />
+//     </div>
+//   );
+// };
 
 export const ValidMassege = ({ children }) => {
   return (
@@ -63,10 +63,10 @@ export const signupSchema = Yup.object().shape({
     .required(errorMassege('This field is required')),
 
   password: Yup.string()
-    .min(6, errorMassege('Enter a valid password'))
+    .min(6, errorMassege('Password too short'))
     .max(16, errorMassege('Password is too long'))
     .matches(passwordRules, {
-      message: warningMassege('Your password is little secure'),
+      message: errorMassege('Password is not valid'),
       excludeEmptyString: true,
     })
     .required(errorMassege('This field is required')),
