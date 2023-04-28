@@ -71,50 +71,36 @@ export const IngedientsItem = styled.li`
       : props.theme.colors.bgLightGreen
   }};
   
-  padding: 14px 29px 14px 14px;
+  padding: 14px 12px 14px 14px;
   justify-content: space-between;
   border-radius: 8px;
   @media (min-width: 768px) {
-    padding: 33px 58px 33px 40px;
+    padding: 33px 40px 33px 40px;
   }
   @media (min-width: 1280px) {
-    padding: 27px 70px 27px 58px;
+    padding: 27px 66px 27px 58px;
   }
 `;
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  // gap: 12px;
 
-  @media screen and (min-width: 768px) {
-    gap: 78px;
-    &:first-child {
-      gap: 24px;
-    }
-  }
-  @media screen and (min-width: 1280px) {
-    gap: 151px;
-    &:first-child {
-      gap: 40px;
-    }
-  }
+  // @media screen and (min-width: 768px) {
+  //   gap: 78px;
+  //   &:first-child {
+  //     gap: 24px;
+  //   }
+  // }
+  // @media screen and (min-width: 1280px) {
+  //   gap: 151px;
+  //   &:first-child {
+  //     gap: 40px;
+  //   }
+  // }
 `;
 
-export const IngedientsImg = styled.img`
-  width: 57px;
-  height: 57px;
-  margin-right: 12px;
-  @media (min-width: 768px) {
-    width: 112px;
-    height: 112px;
-    margin-right: 40px;
-  }
-  @media (min-width: 1280px) {
-    width: 128px;
-    height: 128px;
-    margin-right: 66px;
-  }
-`;
+
 export const Image = styled.img`
    width: 57px;
   height: 57px;
@@ -142,15 +128,15 @@ export const IngedientsTitle = styled.p`
 `;
 
 export const IngedientsMeasure = styled.div`
-  width:100px;
-  height: 100%;
+  width: 68px;
+  // height: 35px;
   display: flex;
   justify-content: center;
   text-align:center;
   align-items: center;
   margin-right: 28px;
   border-radius: 4px;
-  padding: 4px;
+  padding: 4px 4px;
   background-color: ${props => props.theme.colors.accent};
   
   font-weight: ${props => props.theme.fontWeights.semiBold};
@@ -161,35 +147,25 @@ export const IngedientsMeasure = styled.div`
     font-size: 18px;
     line-height: 1.5;
     padding: 4px 8px;
-    margin-right: 78px;
+    margin-right: 86px;
+    
   }
   @media (min-width: 1280px) {
-    margin-right: 140px;
+    margin-right: 151px;
+    padding: 4px 8px;
+   
   }
 `;
 
-export const CheckBox = styled.span`
-  border: 1px solid rgba(126, 126, 126, 0.5);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  color: transparent;
-  @media (min-width: 768px) {
-    width: 35px;
-    height: 35px;
-  }
-`;
+
 
 
 export const ListSpan = styled.span`
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 10px;
   line-height: 15px;
   letter-spacing: 0.03em;
-  color: #fafafa;
+  color: ${props => props.theme.colors.textWhite};
   &:first-child {
     margin-right: auto;
   }

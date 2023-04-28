@@ -73,7 +73,7 @@ export const RecipeDescription = styled.p`
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
-  color: #22252a;
+  color:  ${props => props.theme.colors.textDark};
   margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -92,7 +92,7 @@ export const Button = styled.button`
   font-size: 10px;
   line-height: 1.5;
   padding: 10px 18px;
-  color: #22252a;
+  color: ${props => props.theme.colors.textDark};
   margin-bottom: 42px;
   cursor: pointer;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1850ms;
@@ -108,8 +108,8 @@ export const Button = styled.button`
   }
   &:hover,
   &:focus {
-    background-color: #8baa36;
-    color: #fafafa;
+    background-color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.textWhite};
   }
 `;
 
@@ -128,11 +128,11 @@ export const RecipeTimer = styled.div`
 `;
 
 export const RecipeTime = styled.p`
-  font-weight: 500;
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: #23262a;
+  color: ${props => props.theme.colors.textDark};
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }

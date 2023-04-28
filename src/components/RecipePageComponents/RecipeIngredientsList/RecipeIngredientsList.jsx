@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
-import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
-import { useEffect } from 'react';
+// import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
+// import { useEffect } from 'react';
 import {
   IngredientsListSection,
   ListTitle,
@@ -15,11 +15,19 @@ import {
   IngedientsMeasure,
   
 } from './RecipeIngredientsList.styled';
-import { Checkbox  }  from './CheckBox/CheckBox';
+import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
+import { Checkbox } from './CheckBox/CheckBox';
+
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  const dispatch = useDispatch();
-  
+//  const dispatch = useDispatch();
+ const shoppingList = useSelector(selectShoppingList);
+
+// useEffect(() => {
+//   dispatch(getShoppingList());
+//   },[dispatch]);
+
+
  const allIngredients = useSelector(selectIngredients);
   const selectIngred = allIngredients
     .filter(ingredient =>
@@ -36,13 +44,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
 
   console.log('ingred', selectIngred);
 
-  useEffect(() => {
-    dispatch(getShoppingList());
-  }, [dispatch]);
-
-  const shoppingList = useSelector(selectShoppingList);
-
-
   return (
     <IngredientsListSection>
       <ListTitle>
@@ -52,18 +53,23 @@ export const RecipeIngredientsList = ({ ingredients }) => {
       </ListTitle>
       <IngredientsList>
         {selectIngred.map(({ _id, ttl, thb, measure }) => {
+         if (!_id) {
+            return null;
+          }
+          const isChecked = shoppingList.some((item) => item.ingredId === _id && item.measure[0] === measure );
           return (
             <IngedientsItem key={_id}>
                 <Wrap>
-                  <Image src={thb} alt={ttl} />
+                  <Image src={thb ? thb : IngredientsPlaceholder} alt={ttl} />
                   <IngedientsTitle>{ttl}</IngedientsTitle>
                 </Wrap>
                      <Wrap>
                   <IngedientsMeasure >{measure}</IngedientsMeasure>
-                  <Checkbox
-                  ingredient={{_id, ttl, thb, measure}}
-                  shopList={shoppingList}
-                   ></Checkbox>
+                <Checkbox
+                  ingredient={{ _id, ttl, thb }}
+                  isChecked={isChecked}
+                  measure={measure}
+                   />
                 </Wrap>
               </IngedientsItem>
             )

@@ -92,7 +92,7 @@ export const Step = styled.div`
   justify-content: center;
   min-width: 21px;
   min-height: 21px;
-  color: white;
+  color: ${props => props.theme.colors.textWhite};
 `;
 export const ListText = styled.p`
   line-height: 1.5;

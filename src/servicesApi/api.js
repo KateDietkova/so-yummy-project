@@ -92,14 +92,14 @@ export const addToFavorite = async (id) => {
       }
     }
 
-export const getShoppingList = async () => {
-  try {
-      const { data } = await axios.get(`/shopping-list`);
-      return data.ingrediens;
-    } catch (error) {
-      console.log(error.message);
-    }
-}
+// export const getShoppingList = async () => {
+//   try {
+//       const { data } = await axios.get(`/shopping-list`);
+//       return data.ingrediens;
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+// }
     
   
 // export const deleteFromFavorite = async (id) => {

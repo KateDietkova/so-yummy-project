@@ -14,6 +14,7 @@ export const Box = styled.div`
     border: 2px solid rgba(126, 126, 126, 0.5);
     width: 35px;
     height: 35px;
+   
   }
 `;
 
