@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { AiOutlineMail } from "react-icons/ai";
 
 
-export const Form = styled.div`
+export const Form = styled.form`
     position: relative;
     flex-direction: column;
     display: flex;
@@ -137,6 +137,10 @@ export const SubscribeButton = styled.button`
     padding: 0px;
     margin: 0px;
     transition: color ${props => props.theme.effects.mainEffect};
+
+    &:disabled {
+      opacity: 0.5;
+    }
     
 
     @media screen and (min-width: 768px) {
