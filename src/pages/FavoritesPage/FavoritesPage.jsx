@@ -1,6 +1,7 @@
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
-import { MyFavoriteContainer, H3 } from './FavoritesPage.styled'
+
+import { MyFavoriteContainer, H3,  RecipeListContainer } from './FavoritesPage.styled'
 import { Loader } from 'components/universalComponents/Loader/Loader';
 import { Error } from 'components/MyRecipesPageComponents/Error';
 import { useEffect, useState } from 'react';
@@ -66,14 +67,14 @@ const FavoritesPage = () => {
 
             {isError
                 ? (<Error />)
-                : (<>
+                : (<RecipeListContainer>
                         <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
                         <Pagination
                             totalPages={totalPages}
                             currentPage={currentPage}
                             onClick={handleClickPaginationButton}
                         />
-                    </>)
+                    </RecipeListContainer>)
             } 
         </MyFavoriteContainer>
   )

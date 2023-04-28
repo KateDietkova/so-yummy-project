@@ -31,7 +31,7 @@ export const BackgrImage = styled.div`
     background-repeat: no-repeat;
     width: 256px;
     height: 392px;
-    z-index: 0;
+    z-index: -1;
 
     @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
@@ -54,7 +54,7 @@ export const BackgrImage = styled.div`
         }
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
        background-image: url('${deskBGIBig}');
        top: -425px;
        width: 558px;
@@ -94,10 +94,10 @@ export const FooterContainer = styled.div`
     text-align: left;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 64px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 50px;
   }
 `;
@@ -114,7 +114,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
   }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     flex-wrap: no-wrap;
     align-items: start;
 }
@@ -125,7 +125,7 @@ export const TextWrapper = styled.div`
         margin-right: 173px;
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
         margin-right: 159px;
     }
 `
@@ -198,7 +198,7 @@ export const Benefits = styled.ul`
         }
       }
    
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1280px) {
         margin-top: 40px;
         font-size: ${props => props.theme.fontSizes.l};
         line-height: 1.33;
@@ -240,7 +240,7 @@ export const FooterLicense = styled.div`
     }
 }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 50px 0;
     background-image: url('${deskBGISmall}');
     background-size: 424px 348px;
@@ -281,7 +281,7 @@ export const FooterLicense = styled.div`
         margin-left: 28px;
       }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
         margin-left: 40px;
     }
   }
@@ -294,16 +294,17 @@ export const Subscribe = styled.div`
     align-items: flex-start;
     padding: 0px;
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
     width: 339px;
     height: 77px;
 }
 
 h3 {
-    @media only screen and (max-width: 1439px) {
+    @media only screen and (max-width: 1279px) {
         display: none;
     }
 
+    display: flex; 
     font-family: 'PoppinsBold';
     font-style: normal;
     font-weight: 700;
@@ -315,7 +316,7 @@ h3 {
 }
 
 p {
-    @media only screen and (max-width: 1439px) {
+    @media only screen and (max-width: 1279px) {
         display: none;
     }
 

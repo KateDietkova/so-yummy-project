@@ -9,6 +9,23 @@ export const MyFavoriteContainer = styled(Container)`
       : props.theme.colors.textWhite};
 `;
 
+
+export const RecipeListContainer = styled.section`
+  padding-top: 50px;
+  padding-bottom: 100px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 200px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 100px;
+  }
+`;
+
+
 export const H3 = styled.h3`
       font-size: ${props => props.theme.fontSizes.s};
     line-height: 1;
