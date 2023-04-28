@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
 
@@ -13,15 +14,32 @@ const token = {
   },
 };
 
-
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/registration', credentials);
       localStorage.setItem('userEmail', JSON.stringify(data.user.email));
+      toast.success(
+        'Congratulations! To verify your account, follow the link sent to your email',
+        {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        }
+      );
       return data;
     } catch (error) {
+      if (error.response.status === 409) {
+        toast.error('This email already exists');
+        return rejectWithValue(error.message);
+      }
+      toast.error('This email already exists');
       return rejectWithValue(error.message);
     }
   }
@@ -88,20 +106,18 @@ export const fetchCurrentUser = createAsyncThunk(
   }
 );
 
-
-
 export const addToFavoriteList = createAsyncThunk(
-    "auth/addToFavoriteList",
-    async ({ recipeId }, thunkAPI) => {
-        try {
-            const { data } = await axios.patch(`/favorite/${recipeId}`, {
-                recipeId,
-            });
-            return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+  'auth/addToFavoriteList',
+  async ({ recipeId }, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/favorite/${recipeId}`, {
+        recipeId,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 );
 
 export const updateUserInfo = createAsyncThunk(
@@ -116,4 +132,3 @@ export const updateUserInfo = createAsyncThunk(
     }
   }
 );
-
