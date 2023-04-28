@@ -61,11 +61,7 @@ const MyRecipesPage = () => {
         <Error />
       ) : (
         <RecipeListContainer>
-          <MyRecipesList
-            style={{ minHeight: '1766px' }}
-            recipes={recipes}
-            onClick={handleClickDeleteButton}
-          />
+          <MyRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
           {recipes?.length > 0 ? (
             <Pagination
               totalPages={totalPages}

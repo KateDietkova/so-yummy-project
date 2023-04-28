@@ -6,13 +6,12 @@ import { ReactComponent as CameraIcon } from '../../../../assets/svg/other/camer
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 32px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     gap: 50px;
   }
 `;
