@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
 export const PreparationSection = styled.div`
+  position:relative;
+  top:-100px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 0 16px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
   
   @media screen and (min-width: 768px) {
     width: 704px;
     padding: 0 32px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
   }
   @media screen and (min-width: 1280px) {
     width: 1240px;
@@ -20,7 +22,7 @@ export const PreparationSection = styled.div`
     flex-direction: row;
     align-items: center;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     padding: 0 16px;
    
   }

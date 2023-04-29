@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   addToShoppingList,
   deleteFromShoppingList,
@@ -29,5 +29,6 @@ export const Checkbox = ({
     }
   };
 
-  return <Box onClick={handleCheck}>{checked && <CheckBoxSvg />}</Box>;
+  return <Box onClick={handleCheck}
+    >{checked && <CheckBoxSvg />}</Box>;
 };
