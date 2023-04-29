@@ -162,7 +162,7 @@ export const MainDesc = styled.p`
   }
 `;
 
-const ImgWrapper = styled.div`
+export const ImgWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     overflow: hidden;
     width: 716px;
@@ -207,7 +207,7 @@ export const MainImgContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     right: 0;
-    width: 716px;
+    width: 820px;
     height: 800px;
     background-image: url(${imgDesktopMain});
     background-position: left top;
