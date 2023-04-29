@@ -70,6 +70,10 @@ export const login = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
+      if (error.response.status === 401) {
+        toast.error('Email or password is wrong');
+        return rejectWithValue(error.message);
+      }
       return rejectWithValue(error.message);
     }
   }
