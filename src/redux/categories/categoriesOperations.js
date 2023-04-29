@@ -16,7 +16,7 @@ export const fetchCategoriesList = createAsyncThunk(
 );
 export const fetchRecipesByCategory = createAsyncThunk(
   'categories/fetchRecipesByCategory',
-  async (categoryName, { rejectWithValue }) => {
+  async ({ categoryName }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/recipes/category/${categoryName}`);
       return data.data.recipes;

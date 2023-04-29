@@ -5,7 +5,6 @@ const initialState = {
   ingredients: [],
   isLoading: false,
   error: null,
-  
 };
 export const ingredientsSlice = createSlice({
   name: 'ingredients',
@@ -19,12 +18,11 @@ export const ingredientsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.ingredients = action.payload;
-        console.log(action.payload)
       })
       .addCase(getAllIngredients.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      }),
 });
 
 export const ingredientsReducer = ingredientsSlice.reducer;

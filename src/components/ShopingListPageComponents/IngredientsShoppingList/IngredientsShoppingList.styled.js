@@ -195,3 +195,10 @@ export const Measure = styled.p`
     font-size: ${props => props.theme.fontSizes.l};
   }
 `;
+
+export const TextMessage = styled.h3`
+  font-size: ${props => props.theme.fontSizes.l};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  line-height: 1.5;
+  color: ${props => props.theme.colors.accent};
+`;
