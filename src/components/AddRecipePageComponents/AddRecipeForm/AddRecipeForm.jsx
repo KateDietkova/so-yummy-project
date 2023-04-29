@@ -88,7 +88,8 @@ export const AddRecipeForm = () => {
   
     const formData = new FormData();
     formData.append('image', selectedImgFile);
-
+    console.log(submissionData)
+    
 
     const {data} = await axios.post('/ownRecipes', submissionData);
     const id = (data.recipe._id);
@@ -108,7 +109,8 @@ export const AddRecipeForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={descrFieldsSchema}
-      onSubmit={handleFormSubmit}
+      onSubmit={values=> console.log(values, submissionData)}
+     
     >
       <FormStyled>
         <RecipeDescriptionFields funct={pullDescrsData} />

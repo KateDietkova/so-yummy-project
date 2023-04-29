@@ -17,7 +17,6 @@ export const FormError = ({ name }) => {
 export const descrFieldsSchema = yup.object().shape({
   title: yup
     .string()
-
     .matches(inputRegex, {
       message: 'Title may contain only letters, apostrophe, dash and spaces.',
       excludeEmptyString: true,
@@ -41,8 +40,8 @@ export const descrFieldsSchema = yup.object().shape({
         ingredient: yup
           .object()
           .shape({
-            label: yup.string().required(),
-            value: yup.string().required(),
+            label: yup.string(),
+            value: yup.string(),
             
           })
           .required('Please choose ingredient'),
@@ -66,11 +65,12 @@ export const descrFieldsSchema = yup.object().shape({
       .required()
   ),
 
-  preparation: yup.string()
-    .matches(inputRegex, {
-      message:
-        'Preparation description field may contain only letters, apostrophe, dash and spaces.',
-      excludeEmptyString: true,
-    })
+  preparation: yup
+    .string()
+    // .matches(inputRegex, {
+    //   message:
+    //     'Preparation description field may contain only letters, apostrophe, dash and spaces.',
+    //   excludeEmptyString: true,
+    // })
     .required('Please enter preparation description'),
 });

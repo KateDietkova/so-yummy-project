@@ -37,7 +37,7 @@ export const StyledPreparationField = styled(Field)`
     return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
   }};
  
-  margin-bottom: 18px;
+  // margin-bottom: 18px;
 
   
 &::placeholder{
@@ -55,12 +55,18 @@ export const StyledPreparationField = styled(Field)`
     padding-bottom: 16px;
     font-size: ${props => props.theme.fontSizes.l};
     margin-top: 32px;
-    margin-bottom: 32px;
+    // margin-bottom: 32px;
   }
 `;
+export const PositionBox = styled.div`
+  position: relative;
+  margin-bottom: 18px;
 
+  @media screen and (min-width: 768px) {
+  margin-bottom: 32px;}
+`;
 export const StyledWrapper = styled.div`
-  width: 343px;
+width: 343px;
 
   margin-top: 67px;
   margin-bottom: 18px;

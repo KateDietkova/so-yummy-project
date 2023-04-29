@@ -68,7 +68,8 @@ export const IngredientsField = props => {
     const newArray = [...ingredients];
     newArray.splice(index, 1, { ...ingredients[index], ingredient: object });
     setFormikValue('ingredients', newArray);
-    setIngredients(newArray);
+
+      setIngredients(newArray);
     props.funct(newArray)
   };
 
@@ -156,7 +157,7 @@ export const IngredientsField = props => {
                   classNamePrefix="Select"
                   options={ingredientSelectList}
                   name={`ingredients.ingredient.${index}.label`}
-                  value={item.ingredient.label ? item.ingredient.label : null}
+                  value={item.ingredient.value ? item.ingredient.value : ''}
                   placeholder={
                     item.ingredient.label
                       ? item.ingredient.label
