@@ -1,45 +1,33 @@
-import { useDispatch } from "react-redux";
-import {  useState, useEffect } from "react";
-import { addToShoppingList, deleteFromShoppingList} from '../../../../redux/shoppingList/shoppingListOperations';
+import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import {
+  addToShoppingList,
+  deleteFromShoppingList,
+} from '../../../../redux/shoppingList/shoppingListOperations';
 
-import { CheckBoxSvg, Box } from "./CheckBox.styled";
+import { CheckBoxSvg, Box } from './CheckBox.styled';
 
-
-export const Checkbox = ({ ingredientId: ingredient, isChecked, measure }) => {
+export const Checkbox = ({
+  ingredient,
+  isChecked,
+  idIngredientsShoppingList,
+}) => {
   const dispatch = useDispatch();
-  const [checked, setChecked] = useState();
- 
-useEffect(() => {
-    setChecked(isChecked);
-  }, [isChecked])
+  const [checked, setChecked] = useState(isChecked);
+
+  console.log('idIngredientsShoppingList', idIngredientsShoppingList);
 
   const handleCheck = () => {
     if (!checked) {
-      dispatch(addToShoppingList({ ingredient, measure }));
-      setChecked(true)
+      dispatch(
+        addToShoppingList({ id: ingredient._id, measure: ingredient.measure })
+      );
+      setChecked(true);
     } else {
-      dispatch(deleteFromShoppingList({ ingredient, measure }));
+      dispatch(deleteFromShoppingList({ _id: idIngredientsShoppingList }));
       setChecked(false);
     }
   };
- 
-  return <Box
-    onClick={handleCheck}>
-    {checked && 
-    <CheckBoxSvg />
-    }
-  </Box>;
+
+  return <Box onClick={handleCheck}>{checked && <CheckBoxSvg />}</Box>;
 };
-
-
-
-
-
-
-
-  // useEffect(() => {
-  //   if (shopList.length > 0) {
-  //     const isInList = shopList.find(item => item.ttl === ttl);
-  //     setChecked(isInList ? isInList._id : false);
-  //   }
-  // }, [shopList, dispatch, ttl]);

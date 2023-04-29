@@ -17,11 +17,11 @@ export const getShoppingList = createAsyncThunk(
 
 export const deleteFromShoppingList = createAsyncThunk(
   'shoppingList/deleteFromShoppingList',
-  async (_id, { rejectWithValue }) => {
+  async ({ _id }, { rejectWithValue }) => {
     try {
+      console.log('deleteFromShoppingList ID', _id);
       const { data } = await axios.patch(`/shopping-list/${_id}`);
-      
-      return data.data;
+      return data.data.ingredients;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -30,12 +30,10 @@ export const deleteFromShoppingList = createAsyncThunk(
 
 export const addToShoppingList = createAsyncThunk(
   'shopping-list/addToShoppingList',
-  async  (_, { rejectWithValue }) => {
+  async (ingredientInfo, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/shopping-list');
-      console.log('add', response.data)
-      return response.data;
-      
+      const { data } = await axios.post('/shopping-list', ingredientInfo);
+      return data.data.ingredients;
     } catch (error) {
       return rejectWithValue(error.message);
     }
