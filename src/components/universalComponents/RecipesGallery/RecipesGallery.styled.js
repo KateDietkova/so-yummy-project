@@ -23,6 +23,7 @@ export const List = styled.ul`
 `;
 
 export const Recipe = styled.li`
+  z-index: 2;
   overflow: hidden;
   border-radius: 8px;
   padding: 0;

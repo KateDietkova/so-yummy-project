@@ -1,4 +1,5 @@
 import { List, Recipe, RecipeContainer, Description, RecipeImg, RecipeNavLink } from './RecipesGallery.styled';
+import IngredientsPlaceholder from '../../../assets/svg/mocks/food-default.svg';
 
 export const RecipesGallery = ({recipes}) => {
     return (
@@ -10,7 +11,7 @@ export const RecipesGallery = ({recipes}) => {
                         <Description>
                             <p>{title}</p>
                             </Description>
-                        <RecipeImg src={thumb} loading="lazy" alt={title} />
+                        <RecipeImg src={thumb ? thumb : IngredientsPlaceholder} loading="lazy" alt={title} />
                         </RecipeContainer>
                         </RecipeNavLink>
                </Recipe>

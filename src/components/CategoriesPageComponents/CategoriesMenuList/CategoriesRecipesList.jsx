@@ -16,7 +16,7 @@ export const CategoriesRecipesList = () => {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        dispatch(fetchRecipesByCategory(categoryName ))
+        dispatch(fetchRecipesByCategory({categoryName} ))
     }, [dispatch, categoryName]);
     return (
         <>

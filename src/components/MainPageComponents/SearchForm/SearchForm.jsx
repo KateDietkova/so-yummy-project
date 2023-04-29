@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import {
   FormSearchMain,
   FieldSearchMain,
@@ -18,7 +19,10 @@ export const SearchForm = ({ addParamsToSearch, reversed = false }) => {
   };
 
   const handleSubmit = () => {
-    if (!queryValue) return;
+    if (!queryValue) {
+      toast.error('Field should not be empty');
+      return;
+    }
     addParamsToSearch(queryValue);
   };
 

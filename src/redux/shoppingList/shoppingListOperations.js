@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://so-yummy-api-jvk2.onrender.com/api';
 
 export const getShoppingList = createAsyncThunk(
   'shoppingList/getShoppingList',
@@ -17,11 +17,23 @@ export const getShoppingList = createAsyncThunk(
 
 export const deleteFromShoppingList = createAsyncThunk(
   'shoppingList/deleteFromShoppingList',
-  async (_id, { rejectWithValue }) => {
+  async ({ _id }, { rejectWithValue }) => {
     try {
+      console.log('deleteFromShoppingList ID', _id);
       const { data } = await axios.patch(`/shopping-list/${_id}`);
-      console.log(data);
-      return data;
+      return data.data.ingredients;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addToShoppingList = createAsyncThunk(
+  'shopping-list/addToShoppingList',
+  async (ingredientInfo, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/shopping-list', ingredientInfo);
+      return data.data.ingredients;
     } catch (error) {
       return rejectWithValue(error.message);
     }

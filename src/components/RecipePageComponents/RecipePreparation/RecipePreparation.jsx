@@ -5,41 +5,34 @@ import {
     PrepeaRecipeImage,
     Steps,
     Step,
-    Image
+    ListItem,
+    ListText
 } from './RecipePreparation.styled';
 import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
-export const RecipePreparation = ({instructions, thumb}) => {
-  let steps = [];
-  if (instructions) {
-    if (!instructions.includes('\r\n')) {
-      return;
-    } else {
-      steps = instructions.split('\n');
-    }
-  }
-
+export const RecipePreparation = ({instructions, preview}) => {
+console.log(preview)
   return (
     <PreparationSection>
-      <div>
+      <div >
       <Title>Recipe Preparation</Title>
-      <PrepeaRecipe>
-            <Steps>
-              {steps.length > 0 ? (
-              steps.map((step, numb) => (
-                  <Step key={numb}>
-                    <p>{step}</p>
+        <PrepeaRecipe>
+          {instructions && 
+            instructions.split('. ').map((text, i) => {
+              return (
+                <ListItem key={i} >
+                  <Step>
+                  <Steps>{i + 1}</Steps>
                   </Step>
-              ))
-          ) : (
-            instructions
-          )}
-          </Steps>
-      </PrepeaRecipe>
-      </div>
-      <Image>
-       <PrepeaRecipeImage src={thumb ?? IngredientsPlaceholder}></PrepeaRecipeImage> 
-      </Image>
-      
+                 <ListText>{text}</ListText> 
+                </ListItem>
+              )
+            })}
+          </PrepeaRecipe>
+      </div>  
+      <PrepeaRecipeImage
+        src={preview ? preview : IngredientsPlaceholder}
+      />
+       
     </PreparationSection>
   );
 };
