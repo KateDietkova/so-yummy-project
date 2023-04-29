@@ -23,20 +23,20 @@ export const Footer = () => {
       <FooterContainer>
         <Wrapper>
           <TextWrapper>
-            <LogoContainer to="/">
-              <LogoIconLink>
-                <Logo />
-              </LogoIconLink>
+              <LogoContainer>
+                <LogoIconLink>
+                  <Logo/>
+                </LogoIconLink>
+              
+                <ProjectName>So Yummy</ProjectName>
+              </LogoContainer>
 
-              <ProjectName>So Yummy</ProjectName>
-            </LogoContainer>
-
-            <Benefits>
-              <li>Database of recipes that can be replenished</li>
-              <li>Flexible search for desired and unwanted ingredients</li>
-              <li>Ability to add your own recipes with photos</li>
-              <li>Convenient and easy to use</li>
-            </Benefits>
+              <Benefits>
+                <li>Database of recipes that can be replenished</li>
+                <li>Flexible search for desired and unwanted ingredients</li>
+                <li>Ability to add your own recipes with photos</li>
+                <li>Convenient and easy to use</li>
+              </Benefits>
           </TextWrapper>
 
           <Nav />
