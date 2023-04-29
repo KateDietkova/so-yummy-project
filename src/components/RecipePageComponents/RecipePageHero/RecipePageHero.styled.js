@@ -37,7 +37,7 @@ export const SectionHero = styled.div`
       background-image: url(${bgTabletX2});
     }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     background-image: url(${bgDesktop});
     height:493px;
     @media (min-device-pixel-ratio: 2),
@@ -52,6 +52,8 @@ export const SectionHeroTitle = styled.h1`
   // max-width:360px;
   margin-right:auto;
   margin-left:auto;
+  padding-left: 50px;
+  padding-right: 50px;
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: 24px;
   line-height: 1;
@@ -71,13 +73,13 @@ export const RecipeDescription = styled.p`
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
-  color: #22252a;
+  color:  ${props => props.theme.colors.textDark};
   margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
     max-width:506px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 30px;
     width:656px;
   }
@@ -90,9 +92,10 @@ export const Button = styled.button`
   font-size: 10px;
   line-height: 1.5;
   padding: 10px 18px;
-  color: #22252a;
+  color: ${props => props.theme.colors.textDark};
   margin-bottom: 42px;
   cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1850ms;
   @media only screen and (min-width: 768px) {
     font-size: 16px;
     max-width: 330px;
@@ -100,13 +103,13 @@ export const Button = styled.button`
     padding: 18px 44px;
     border: 2px solid ${props => props.theme.colors.accentGreen};
   }
-  @media only screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1280px) {
     margin-bottom: 48px;
   }
   &:hover,
   &:focus {
-    background-color: #8baa36;
-    color: #fafafa;
+    background-color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.textWhite};
   }
 `;
 
@@ -125,11 +128,11 @@ export const RecipeTimer = styled.div`
 `;
 
 export const RecipeTime = styled.p`
-  font-weight: 500;
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: #23262a;
+  color: ${props => props.theme.colors.textDark};
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
