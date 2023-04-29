@@ -40,7 +40,11 @@ export const descrFieldsSchema = yup.object().shape({
         ingredient: yup
           .object()
           .shape({
-            label: yup.string(),
+            label: yup.string().matches(inputRegex, {
+              message: 'Title may contain only letters, apostrophe, dash and spaces.',
+              excludeEmptyString: true,
+            })
+            .required('Please enter title of the dish'),
             value: yup.string(),
             
           })
@@ -48,16 +52,12 @@ export const descrFieldsSchema = yup.object().shape({
 
         measure: yup
           .string()
-          .matches(inputRegex, {
-            message:
-              'Measure field may contain only letters, apostrophe, dash and spaces.',
-            excludeEmptyString: true,
-          })
+          
           .required('Please choose measure'),
 
         quantity: yup
-          .string()
-          .matches(inputRegex, {
+        .string('Ingredient field may contain only numbers.')
+          .matches("[0-9]", {
             message: 'Ingredient field may contain only numbers.',
           })
           .required('Please enter the quantity'),
@@ -67,10 +67,6 @@ export const descrFieldsSchema = yup.object().shape({
 
   preparation: yup
     .string()
-    // .matches(inputRegex, {
-    //   message:
-    //     'Preparation description field may contain only letters, apostrophe, dash and spaces.',
-    //   excludeEmptyString: true,
-    // })
+  
     .required('Please enter preparation description'),
 });

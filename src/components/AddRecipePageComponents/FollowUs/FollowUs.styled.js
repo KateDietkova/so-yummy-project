@@ -62,8 +62,8 @@ export const Link = styled.a`
     :hover, :focus {
         fill: ${props => {
             return props.theme.darkTheme
-                ? props.theme.colors.bgdarkTheme
-                : props.theme.colors.textWhite
+                ? props.theme.colors.accent
+                : props.theme.colors.bgdarkTheme
     }};
 }
 `

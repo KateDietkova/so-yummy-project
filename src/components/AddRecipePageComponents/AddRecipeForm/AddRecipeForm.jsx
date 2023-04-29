@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
-import { FormStyled } from './AddRecipeForm.styled';
+import { FormStyled, AddButton } from './AddRecipeForm.styled';
 import { IngredientsField } from './RecipeIngridientsFields/RecipeIngridientsFields';
 import { PreparationField } from './RecipePreparationFields/RecipePreparationFields';
 import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
@@ -116,13 +116,14 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields funct={pullDescrsData} />
         <IngredientsField funct={pullIngredientsData}></IngredientsField>
         <PreparationField funct={pullPreparationData} />
-        <ButtonSkewStyled
+        <AddButton
           type="submit"
           width={'129px'}
           padding={0}
+         
         >
           <div className="inner">{'Add'}</div>
-        </ButtonSkewStyled>
+        </AddButton>
       </FormStyled>
     </Formik>
   );

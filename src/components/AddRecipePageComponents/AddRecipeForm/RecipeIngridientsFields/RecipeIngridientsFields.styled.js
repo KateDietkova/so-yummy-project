@@ -10,12 +10,24 @@ import { ReactComponent as MinusIcon } from '../../../../assets/svg/other/minus.
 export const CrossIconStyled = styled(CrossIcon)`
   width: 18px;
   height: 18px;
+  stroke: ${props => {
+    return props.theme.darkTheme ? props.theme.colors.textWhite : '#333333';
+  }};
 
+ 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
    
   }
+  &:hover{
+    stroke: ${props => {
+      return  props.theme.colors.accent ;
+    }};
+  transition: fill ${props => props.theme.effects.mainEffect};
+ }
+
+
 `;
 
 
@@ -23,17 +35,35 @@ export const PlusIconStyled = styled(PlusIcon)`
   width: 14px;
   height: 14px;
 
+stroke: ${props => {
+      return  props.theme.colors.accent ;
+    }};
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+   
+  }
+  
+
+  
+
   @media screen and (min-width: 768px) {
     width: 16px;
     height: 16px;
    
   }
+
+
 `;
 
 export const MinusIconStyled = styled(MinusIcon)`
   width: 14px;
   height: 14px;
-
+  
+    stroke: ${props => {
+return props.theme.darkTheme ? props.theme.colors.textWhite : '#333333';
+}};
   @media screen and (min-width: 768px) {
     width: 16px;
     height: 16px;
@@ -147,7 +177,7 @@ export const SelectMeasureWrapper = styled(SelectWrapper)`
       ? props.theme.colors.bgdarkTheme
       : 'rgba(217, 217, 217, 0.16)';
   }};
-
+  transition: fill ${props => props.theme.effects.mainEffect};
   @media screen and (min-width: 768px) {
     margin-left: 32px;
     margin-right: 157px;
@@ -163,7 +193,15 @@ export const SelectMeasureWrapper = styled(SelectWrapper)`
 
  
 
-   
+    &:focus-within .Select__input-container,  &:focus-within .Select__placeholder, &:focus-within input{
+      
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.textDark;
+      }};
+    }
+
+ 
+
   }
 
 `;
@@ -198,9 +236,7 @@ export const StyledCounterButton = styled.button`
   background-color: Transparent;
   margin: 0;
   padding: 0;
-  color: ${props => {
-    return props.theme.darkTheme ? props.theme.colors.textWhite : '#3333334D';
-  }};
+ 
 `;
 
 export const StyledCounterWindow = styled.p`
@@ -227,13 +263,18 @@ export const StyledDeleteButton = styled.button`
   padding: 0;
   width: 18px;
   height: 18px;
-  color: ${props => {
-    return props.theme.darkTheme ? props.theme.colors.textWhite : '#00000080';
-  }};
+  
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
+  }
+  transition: fill ${props => props.theme.effects.mainEffect};
+  &:hover{
+    color: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.textWhite : '#00000080';
+    }};
+
   }
 `;
 
@@ -290,6 +331,20 @@ export const StyledSelect = styled(Select)`
       font-size: ${props => props.theme.fontSizes.m};
       height: 59px;
       width: 398px;
+    }
+
+    &--is-focused .Select__input-container {
+      background-color: transparent;
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.textDark;
+      }};
+    }
+
+    &--is-focused .Select__placeholder {
+      background-color: transparent;
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.textDark;
+      }};
     }
   }
 
@@ -415,7 +470,11 @@ export const StyledSelect = styled(Select)`
       font-size: ${props => props.theme.fontSizes.l};
     }
 
-
+    .Select__control--is-focused{
+      color: ${props => {
+        return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.accent;
+      }};
+    }
     
     
   }

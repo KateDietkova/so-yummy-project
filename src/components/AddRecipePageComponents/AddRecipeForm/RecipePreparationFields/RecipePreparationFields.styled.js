@@ -34,7 +34,10 @@ export const StyledPreparationField = styled(Field)`
   }};
 
   color: ${props => {
-    return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
+    return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
+  }};
+  opacity: ${props => {
+    return props.theme.darkTheme ? '0.6' : '0.5';
   }};
  
   // margin-bottom: 18px;
@@ -42,7 +45,10 @@ export const StyledPreparationField = styled(Field)`
   
 &::placeholder{
   color: ${props => {
-    return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
+    return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
+  }};
+  opacity: ${props => {
+    return props.theme.darkTheme ? '0.8' : '1';
   }};
 }
 
@@ -57,6 +63,15 @@ export const StyledPreparationField = styled(Field)`
     margin-top: 32px;
     // margin-bottom: 32px;
   }
+
+  &:focus-within,  &:focus-within::placeholder{
+      
+    color: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.textDark;
+    }};
+    opacity: 1;
+  }
+
 `;
 export const PositionBox = styled.div`
   position: relative;

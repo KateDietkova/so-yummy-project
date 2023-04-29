@@ -176,13 +176,13 @@ export const IngredientsField = props => {
                   name={`ingredients.${index}.quantity`}
                   title="This field may contain only numbers."
                   required
-                  pattern="^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$"
+                  pattern="[0-9]+"
                   onChange={e =>
                     handleQuantityInputChange(e.currentTarget.value, index)
                   }
                   value={item.quantity}
                 ></StyledMeasureField>
-                <FormError name={`ingredients.${index}.quantity`} />
+               
                 <StyledSelectMeasures
                   isSearchable={false}
                   classNamePrefix="Select"
@@ -192,13 +192,14 @@ export const IngredientsField = props => {
                   placeholder={item.measure}
                   onChange={e => handleMeasureInputChange(e.label, index)}
                 ></StyledSelectMeasures>
-              </SelectMeasureWrapper>
+              </SelectMeasureWrapper> <FormError name={`ingredients.${index}.quantity`} />
               <StyledDeleteButton
                 type="button"
                 disabled={counter < 2 ? true : false}
                 onClick={() => deleteItem(item.id)}
               >
-                <CrossIconStyled />
+                <CrossIconStyled 
+                 />
               </StyledDeleteButton>
             </StyledItemWrapper>
           );

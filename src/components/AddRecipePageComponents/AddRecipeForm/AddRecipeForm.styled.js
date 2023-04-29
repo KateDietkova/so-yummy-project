@@ -26,8 +26,9 @@ export const StyledErrorMessage = styled.p`
   left: 0;
   font-size: 14px;
   color: ${props => props.theme.colors.validateRed};
-  z-index: 2;
+
 `;
+
 
 export const AddButton = styled(ButtonSkewStyled)`
 
@@ -35,11 +36,11 @@ export const AddButton = styled(ButtonSkewStyled)`
       height: 46px;
 
   font-size: ${props => props.theme.fontSizes.s}
-  color:  ${props => {
-  return props.theme.darkTheme
-    ? props.theme.colors.accent 
-    : props.theme.colors.bgBlackDark;
+
+
+    
 }};
+
 
 
 @media screen and (min-width: 768px) {
@@ -47,6 +48,30 @@ export const AddButton = styled(ButtonSkewStyled)`
   height: 52px;
   font-size: ${props => props.theme.fontSizes.m}
 }
+&:hover {
+  background-color:  ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.textWhite 
+      : props.theme.colors.bgBlackDark 
+  }}
+
+
+
+
+}
+
+&:hover .inner {
+ color:  ${props => {
+    return props.theme.darkTheme
+      ? props.theme.colors.accent 
+      : props.theme.colors.textWhite 
+  }}
+
+ 
+
+
+}
+
 
 
 `;
