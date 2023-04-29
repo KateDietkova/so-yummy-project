@@ -1,30 +1,36 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { getShoppingList, deleteFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
-import { selectShoppingList, selectShoppingListError, selectShoppingListIsLoading } from 'redux/shoppingList/shoppingListSelectors';
-
-import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
-import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
-
-import {TextMessage, MeasureWrap, IngredientWrap, Measure, IngredientImgFrame, IngredientTitle, IngredientImg, RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled'
 import { CgClose } from "react-icons/cg";
 import { Loader } from 'components/universalComponents/Loader/Loader';
+
+import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
+import { getShoppingList, deleteFromShoppingList } from 'redux/shoppingList/shoppingListOperations';
+import { selectShoppingList, selectShoppingListError, selectShoppingListIsLoading } from 'redux/shoppingList/shoppingListSelectors';
+import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
+
+import { TextMessage, MeasureWrap, IngredientWrap, Measure, IngredientImgFrame, IngredientTitle, IngredientImg, RemoveBtn, Wrapper, Title, ContainerTitle, IngredientsList, IngredientsItem } from './IngredientsShoppingList.styled';
 import IngredientsPlaceholder from '../../../assets/svg/mocks/food-default.svg';
 
 
 export const IngredientsShoppingList = () => {
-    // const list = useSelector(selectShoppingList);
-    // console.log(list)
-
+    const list = useSelector(selectShoppingList);
     const ingredients = useSelector(selectIngredients);
-        console.log(ingredients)
+    
+    const addedIngredients = ingredients
+  .filter(ingredient => list.find(item => item.id === ingredient._id))
+  .map(ingredient => ({
+      ...ingredient, 
+      measure: list.find(item => item.id === ingredient._id).measure,
+      id: list.find(item => item.id === ingredient._id)._id
+  }));
+    
     const isLoading = useSelector(selectShoppingListIsLoading);
     const error = useSelector(selectShoppingListError);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllIngredients())
+    dispatch(getAllIngredients())
     dispatch(getShoppingList())
     }, [dispatch])
 
@@ -38,10 +44,10 @@ export const IngredientsShoppingList = () => {
             </ContainerTitle>
             </Wrapper>
             {isLoading && <Loader />}
-            {ingredients.length === 0 && !isLoading && !error && (<TextMessage>Your shopping list is empty...</TextMessage>)}
+            {addedIngredients.length === 0 && !isLoading && !error && (<TextMessage>Your shopping list is empty...</TextMessage>)}
             <IngredientsList>
-            {!isLoading && ingredients?.map(({_id,id, ttl, thb, measure}) => (
-                <IngredientsItem key={id}>
+            {addedIngredients.length > 0 && addedIngredients?.map(({_id,id, ttl, thb, measure}) => (
+                <IngredientsItem key={_id}>
                     <IngredientWrap>
                         <IngredientImgFrame>
                             <IngredientImg src={thb ? thb : IngredientsPlaceholder} alt={ttl } />
@@ -50,7 +56,7 @@ export const IngredientsShoppingList = () => {
                     </IngredientWrap>
                     <MeasureWrap>
                         <Measure>{measure}</Measure>
-                    <RemoveBtn onClick={() => dispatch(deleteFromShoppingList(_id))}>{<CgClose size={20} />}</RemoveBtn>
+                        <RemoveBtn onClick={() => dispatch(deleteFromShoppingList({ _id: id }))}>{<CgClose size={20} />}</RemoveBtn>
                     </MeasureWrap>
                 </IngredientsItem>
             ))}
