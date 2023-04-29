@@ -50,10 +50,21 @@ export const FieldSearchMain = styled(Field)`
   font-size: 12px;
   line-height: 1.5;
   color: ${props => {
+    if (props.reversed && props.theme.darkTheme) {
+      return 'rgba(250, 250, 250, 0.5)';
+    } else if (props.reversed) {
+      return '#3E4462';
+    }
     return props.theme.darkTheme
       ? 'rgba(250, 250, 250, 0.5)'
       : props.theme.colors.textGray;
   }};
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #fafafa !important; /* Цвет фона */
+    -webkit-text-fill-color: rgb(62, 68, 98) !important; /* цвет текста */
+    color: rgb(62, 68, 98) !important; /* цвет текста */
+  }
 
   @media screen and (min-width: 768px) {
     padding: 16px 17px 17px 38px;
@@ -75,6 +86,9 @@ export const SearchBtn = styled.button`
   padding: 16px 25px;
 
   background-color: ${props => {
+    if (props.reversed) {
+      return props.theme.colors.accent;
+    }
     return props.theme.darkTheme
       ? props.theme.colors.accent
       : props.theme.colors.bgBlackDark;
@@ -93,6 +107,9 @@ export const SearchBtn = styled.button`
 
   &:hover {
     background-color: ${props => {
+      if (props.reversed) {
+        return props.theme.colors.bgBlackDark;
+      }
       return props.theme.darkTheme
         ? props.theme.colors.bgBlackDark
         : props.theme.colors.accent;

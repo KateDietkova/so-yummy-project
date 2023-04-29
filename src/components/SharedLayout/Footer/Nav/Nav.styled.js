@@ -12,7 +12,7 @@ export const NavFooterContainer = styled.div`
     margin: 0;
     margin-right: 62px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 24px;
     margin-right: 235px;
     width: 89px;

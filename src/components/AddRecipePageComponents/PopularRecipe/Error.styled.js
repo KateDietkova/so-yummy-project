@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import imgBgMobile from '../../../assets/images/mobile/search-page/search-not-found.png';
-import imgBgMobileRetina from '../../../assets/images/mobile/search-page/search-not-found-2x.jpg';
+import imgBgMobileRetina from '../../../assets/images/mobile/search-page/search-not-found-2x.png';
 import imgBgTablet from '../../../assets/images/tablet/search-page/search-not-found.png';
-import imgBgTabletRetina from '../../../assets/images/tablet/search-page/search-not-found-2x.jpg';
-import imgBgDesktop from '../../../assets/images/desktop/search-page/search-not-found.jpg';
-import imgBgDesktopRetina from '../../../assets/images/desktop/search-page/search-not-found-2x.jpg';
+import imgBgTabletRetina from '../../../assets/images/tablet/search-page/search-not-found-2x.png';
+import imgBgDesktop from '../../../assets/images/desktop/search-page/search-not-found.png';
+import imgBgDesktopRetina from '../../../assets/images/desktop/search-page/search-not-found-2x.png';
 
 export const StyledErrorWrapper = styled.div`
   display: flex;

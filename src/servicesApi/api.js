@@ -58,7 +58,6 @@ export const getFavorite = async () => {
 
 // axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api'
 
-
 export const fetchUserFavoriteRecipes = async currentPage => {
   try {
     const { data } = await axios.get(`/favorite?page=${currentPage}`);
@@ -67,7 +66,6 @@ export const fetchUserFavoriteRecipes = async currentPage => {
     return error;
   }
 };
-
 
 export const deleteUserFavoriteRecipe = async id => {
   try {
@@ -112,4 +110,5 @@ export const addToFavorite = async (id) => {
 //     }
 //   }
 
+// };
 

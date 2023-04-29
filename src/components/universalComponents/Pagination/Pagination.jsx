@@ -38,6 +38,7 @@ export const Pagination = ({
         onClick={() => {
           if (Number(currentPage) > 1) {
             onClick(Number(currentPage) - 1);
+            scrollToElement(scrollId);
           }
         }}
       />
@@ -46,6 +47,7 @@ export const Pagination = ({
         onClick={() => {
           if (Number(currentPage) < totalPages) {
             onClick(Number(currentPage) + 1);
+            scrollToElement(scrollId);
           }
         }}
       />

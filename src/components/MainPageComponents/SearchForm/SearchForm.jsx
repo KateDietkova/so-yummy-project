@@ -10,7 +10,7 @@ const initialValue = {
   searchQuery: '',
 };
 
-export const SearchForm = ({ addParamsToSearch }) => {
+export const SearchForm = ({ addParamsToSearch, reversed = false }) => {
   const [queryValue, setqueryValue] = useState('');
 
   const handleChange = e => {
@@ -26,12 +26,13 @@ export const SearchForm = ({ addParamsToSearch }) => {
     <Formik initialValues={initialValue} onSubmit={handleSubmit}>
       <FormSearchMain>
         <FieldSearchMain
+          reversed={reversed}
           type="text"
           name="searchQuery"
           onChange={handleChange}
           value={queryValue}
         />
-        <SearchBtn type="submit">
+        <SearchBtn type="submit" reversed={reversed}>
           <div className="inner">Search</div>
         </SearchBtn>
       </FormSearchMain>

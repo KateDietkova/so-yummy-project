@@ -17,7 +17,7 @@ export const SocialMediaList = styled.div`
         gap: 18px;
       }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
         margin-top: 41px;
       }
 `

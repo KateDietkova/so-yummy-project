@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { MyRecipesList } from 'components/MyRecipesPageComponents/MyRecipesList/MyRecipesList';
-import { MyRecipeContainer, RecipeListContainer } from './MyRecipesPage.styled';
+import {
+  MyRecipeContainer,
+  RecipeListContainer,
+  StyledText,
+} from './MyRecipesPage.styled';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
 import { deleteUserRecipe, fetchUserRecipes } from 'servicesApi/api';
 import { Loader } from 'components/universalComponents/Loader/Loader';
@@ -19,7 +23,7 @@ const MyRecipesPage = () => {
     const fetchOwnRecipes = async () => {
       setIsLoading(true);
       const data = await fetchUserRecipes(currentPage);
-
+      setIsLoading(false);
       if (data.name === 'AxiosError') {
         setIsError(true);
       }
@@ -29,7 +33,6 @@ const MyRecipesPage = () => {
 
       const limit = data.limit;
       setLimit(limit);
-      setIsLoading(false);
 
       const recipes = data.data;
       setRecipes(recipes);
@@ -47,22 +50,42 @@ const MyRecipesPage = () => {
   const handleClickDeleteButton = id => {
     deleteUserRecipe(id);
     setRecipes(recipes.filter(recipe => recipe._id !== id));
+
+    if (recipes.length === 1 && totalPages !== 1) {
+      setCurrentPage(prevPage => prevPage - 1);
+    }
   };
 
   return (
-    <MyRecipeContainer>
+    <MyRecipeContainer id="container">
       <MainTitle text="My recipes" />
       {isLoading && <Loader />}
       {isError ? (
         <Error />
       ) : (
         <RecipeListContainer>
-          <MyRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onClick={handleClickPaginationButton}
-          />
+          {!isLoading && (
+            <MyRecipesList
+              recipes={recipes}
+              onClick={handleClickDeleteButton}
+            />
+          )}
+          {recipes?.length > 0 && (
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onClick={handleClickPaginationButton}
+              scrollId="container"
+            />
+          )}
+          {totalPages <= 1 && recipes.length === 0 && (
+            <>
+              <StyledText>You don't have any recipe.</StyledText>
+              <StyledText>
+                Please, go to the "Add recipes"page and save your recipe :)
+              </StyledText>
+            </>
+          )}
         </RecipeListContainer>
       )}
     </MyRecipeContainer>
