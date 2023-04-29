@@ -14,6 +14,8 @@ import { PrivateRoute } from './PrivateRoute';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';
 import { lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
@@ -41,7 +43,6 @@ export const App = () => {
   const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
@@ -49,6 +50,19 @@ export const App = () => {
   return (
     <ThemeProvider theme={{ ...theme, darkTheme }}>
       <GlobalStyle />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      
       {!isRefreshing && (
         <Routes>
           <Route

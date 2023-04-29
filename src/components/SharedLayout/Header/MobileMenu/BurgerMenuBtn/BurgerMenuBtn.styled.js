@@ -16,9 +16,13 @@ export const BurgerMenuBtnStyled = styled.button`
 export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
   @media screen and (max-width: 767px) {
     stroke: ${props => {
-      return props.theme.darkTheme
-        ? props.theme.colors.textWhite
-        : props.theme.colors.bgBlackDark;
+      if (props.theme.darkTheme && props.isdark === 'true') {
+        return props.theme.colors.bgBlackDark;
+      } else {
+        return props.theme.darkTheme
+          ? props.theme.colors.textWhite
+          : props.theme.colors.bgBlackDark;
+      }
     }};
   }
   @media screen and (min-width: 768px) and (max-width: 879px) {
@@ -28,14 +32,18 @@ export const BurgerMenuIconStyled = styled(BurgerMenuIcon)`
         !props.theme.darkTheme
       ) {
         return props.theme.colors.bgBlackDark;
+      } else if (props.theme.darkTheme && props.isdark === 'true') {
+        return props.theme.colors.bgBlackDark;
       }
-
       return props.theme.colors.textWhite;
     }};
   }
 
   @media screen and (min-width: 880px) {
     stroke: ${props => {
+      if (props.theme.darkTheme && props.isdark === 'true') {
+        return props.theme.colors.bgBlackDark;
+      }
       return props.theme.darkTheme
         ? props.theme.colors.textWhite
         : props.theme.colors.bgBlackDark;

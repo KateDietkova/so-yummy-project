@@ -1,11 +1,11 @@
 import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
-import { MyFavoriteContainer } from './FavoritesPage.styled'
+
+import { MyFavoriteContainer, H3,  RecipeListContainer } from './FavoritesPage.styled'
 import { Loader } from 'components/universalComponents/Loader/Loader';
 import { Error } from 'components/MyRecipesPageComponents/Error';
 import { useEffect, useState } from 'react';
-import { FavoriteRecipesList } from '../../components/FavoriteList/FavoriteList';
-
+import { FavoriteRecipesList} from '../../components/FavoriteList/FavoriteList';
 import { deleteUserFavoriteRecipe, fetchUserFavoriteRecipes } from 'servicesApi/api';
 
 
@@ -16,6 +16,7 @@ const FavoritesPage = () => {
   const [count, setCount] = useState();
   const [limit, setLimit] = useState();
   const [recipes, setRecipes] = useState([]);
+    
 
       useEffect(() => {
         const fetchFavoriteRecipes = async () => {
@@ -58,20 +59,30 @@ const FavoritesPage = () => {
           <MainTitle text="Favorites" />
             
             {isLoading && <Loader />}
+
+            {/* {recipes.length === 0 && !isLoading && !isError && (
+                <H3> The list is empty... You don't have favorite recipes  </H3>
+            )} */}
+            
+
             {isError
                 ? (<Error />)
-                : (<>
-                        <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
-                        <Pagination
-                            totalPages={totalPages}
-                            currentPage={currentPage}
-                            onClick={handleClickPaginationButton}
-                        />
-                    </>)
+                : (<RecipeListContainer>
+                    <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
+                        {recipes?.length > 0    ? ( <Pagination
+                                                    totalPages={totalPages}
+                                                    currentPage={currentPage}
+                                                    onClick={handleClickPaginationButton}
+                                                    />)
+                                                : (<H3> The list is empty... You don't have favorite recipes  </H3>)
+                        
+                        }
+                    </RecipeListContainer>)
             } 
         </MyFavoriteContainer>
   )
 };
 
 export default FavoritesPage;
+
 
