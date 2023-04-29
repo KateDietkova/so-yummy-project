@@ -11,7 +11,6 @@ export const StyledPreparationField = styled(Field)`
   letter-spacing: -0.02em;
   margin-top: 24px;
 
-
   outline: ${props => {
     return props.theme.darkTheme
       ? '1px solid rgba(250, 250, 250, 0.2)'
@@ -39,18 +38,17 @@ export const StyledPreparationField = styled(Field)`
   opacity: ${props => {
     return props.theme.darkTheme ? '0.6' : '0.5';
   }};
- 
+
   // margin-bottom: 18px;
 
-  
-&::placeholder{
-  color: ${props => {
-    return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
-  }};
-  opacity: ${props => {
-    return props.theme.darkTheme ? '0.8' : '1';
-  }};
-}
+  &::placeholder {
+    color: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
+    }};
+    opacity: ${props => {
+      return props.theme.darkTheme ? '0.8' : '1';
+    }};
+  }
 
   @media screen and (min-width: 768px) {
     width: 505px;
@@ -61,27 +59,28 @@ export const StyledPreparationField = styled(Field)`
     padding-bottom: 16px;
     font-size: ${props => props.theme.fontSizes.l};
     margin-top: 32px;
-    // margin-bottom: 32px;
   }
 
-  &:focus-within,  &:focus-within::placeholder{
-      
+  &:focus-within,
+  &:focus-within::placeholder {
     color: ${props => {
-      return props.theme.darkTheme ? props.theme.colors.textWhite :  props.theme.colors.textDark;
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
     }};
     opacity: 1;
   }
-
 `;
 export const PositionBox = styled.div`
   position: relative;
   margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
-  margin-bottom: 32px;}
+    margin-bottom: 32px;
+  }
 `;
 export const StyledWrapper = styled.div`
-width: 343px;
+  width: 343px;
 
   margin-top: 67px;
   margin-bottom: 18px;

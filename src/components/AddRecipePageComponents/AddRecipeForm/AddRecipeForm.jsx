@@ -6,9 +6,8 @@ import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescrip
 import { FormStyled, AddButton } from './AddRecipeForm.styled';
 import { IngredientsField } from './RecipeIngridientsFields/RecipeIngridientsFields';
 import { PreparationField } from './RecipePreparationFields/RecipePreparationFields';
-import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
-import axios from 'axios';
 
+import axios from 'axios';
 
 axios.defaults.baseURL = ' https://so-yummy-api-jvk2.onrender.com/api';
 
@@ -45,7 +44,7 @@ export const AddRecipeForm = () => {
     setPreparation(data);
   };
 
-  const pullIngredientsData = useCallback((data) => {
+  const pullIngredientsData = useCallback(data => {
     const newArray = data.map(item => {
       return {
         id: item.ingredient.value,
@@ -54,26 +53,18 @@ export const AddRecipeForm = () => {
     });
 
     setIngredients(newArray);
-  }, [])
+  }, []);
 
-  // const formikProps = useFormikContext();
-
-  // const setFormikValue = (name, value) => {
-  //   formikProps.setFieldValue(name, value);
-  // };
-
-  const pullDescrsData = useCallback((category,
-    time,
-    selectedImgFile,
-    title,
-    about )=> {
+  const pullDescrsData = useCallback(
+    (category, time, selectedImgFile, title, about) => {
       setCategory(category);
       setTime(time);
       setSelectedImgFile(selectedImgFile);
       setTitle(title);
       setAbout(about);
-
-  }, [])
+    },
+    []
+  );
 
   const submissionData = {
     title,
@@ -84,44 +75,34 @@ export const AddRecipeForm = () => {
     ingredients,
   };
 
-  const  handleFormSubmit = async () => {
-  
+  const handleFormSubmit = async () => {
     const formData = new FormData();
     formData.append('image', selectedImgFile);
-    console.log(submissionData)
-    
+    console.log(submissionData);
 
-    const {data} = await axios.post('/ownRecipes', submissionData);
-    const id = (data.recipe._id);
-    console.log(selectedImgFile, id)
-    
-   
+    const { data } = await axios.post('/ownRecipes', submissionData);
+    const id = data.recipe._id;
+    console.log(selectedImgFile, id);
+
     if (selectedImgFile) {
       const result = await axios.patch(`/ownRecipes/${id}`, formData);
-      console.log("img patch", result)
+      console.log('img patch', result);
     }
 
     navigate('/my');
-    
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={descrFieldsSchema}
-      onSubmit={values=> console.log(values, submissionData)}
-     
+      onSubmit={handleFormSubmit}
     >
       <FormStyled>
         <RecipeDescriptionFields funct={pullDescrsData} />
         <IngredientsField funct={pullIngredientsData}></IngredientsField>
         <PreparationField funct={pullPreparationData} />
-        <AddButton
-          type="submit"
-          width={'129px'}
-          padding={0}
-         
-        >
+        <AddButton type="submit" width={'129px'} padding={0}>
           <div className="inner">{'Add'}</div>
         </AddButton>
       </FormStyled>
