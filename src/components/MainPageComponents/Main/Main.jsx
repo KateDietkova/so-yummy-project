@@ -25,11 +25,13 @@ export const Main = () => {
           cookbook. You can add your own recipes to save them for the future.
         </MainDesc>
         <Search />
-        <MainImgContainer>
-          <ChooseYourBreakfast />
-          <TailIcon />
-          <ArrowIcon />
-        </MainImgContainer>
+
+          <MainImgContainer>
+            <ChooseYourBreakfast />
+            <TailIcon />
+            <ArrowIcon />
+          </MainImgContainer>
+
       </Container>
     </MainSection>
   );

@@ -45,10 +45,7 @@ export const getAllIngredientsAPI = async () => {
   const { data } = await axios.get(`/ingredients/list`);
   return data;
 };
-// export const getAllIngredientsAPI = async (_id) => {
-//   const { data } = await axios.get(`/ingredients/?ingredient=${_id}`)
-//     return data.data;
-//   };
+
 
 export const getFavorite = async () => {
   try {
@@ -61,7 +58,6 @@ export const getFavorite = async () => {
 
 // axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api'
 
-
 export const fetchUserFavoriteRecipes = async currentPage => {
   try {
     const { data } = await axios.get(`/favorite?page=${currentPage}`);
@@ -70,7 +66,6 @@ export const fetchUserFavoriteRecipes = async currentPage => {
     return error;
   }
 };
-
 
 export const deleteUserFavoriteRecipe = async id => {
   try {
@@ -81,16 +76,39 @@ export const deleteUserFavoriteRecipe = async id => {
   }
 };
 
-// export const getRecipeById = async (id) => {
+
+
+export const addToFavorite = async (id) => {
+      try {
+       const {data}= await axios.patch(`/favorite/${id}`);
+        console.log(data);
+        return data.data;
+
+
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+// export const getShoppingList = async () => {
 //   try {
-//     const { data } = await axios.get(`recipes/640cd5ac2d9fecf12e8898a6`, {
-//       headers: {
-//         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYzE2MDViODU2Mjk2MDA4YzJjYjQiLCJpYXQiOjE2ODE4MzQ1MTMsImV4cCI6MTY4MzA0NDExM30.DbEC8Jzjm7qcBA8vhXnd-HZw_GkXGlV2AbdOM8_qsHc`,
-//       },
-//     });
-//      return data;
-//   } catch (error) {
-//     console.log(error.message)
+//       const { data } = await axios.get(`/shopping-list`);
+//       return data.ingrediens;
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+// }
+    
+  
+// export const deleteFromFavorite = async (id) => {
+//     try {
+//      const {data} = await axios.patch(`/favorite/${id}`);
+//       return data.data;
+
+//     } catch (error) {
+//       console.log(error.message);
+//     }
 //   }
+
 // };
 

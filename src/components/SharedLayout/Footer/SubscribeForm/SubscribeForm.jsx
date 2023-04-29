@@ -7,7 +7,8 @@ import {
 } from './SubscribeForm.styled';
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { toast } from "react-hot-toast";
+import { toast } from 'react-toastify';
+
 
 export const SubscribeForm = () => {
 
@@ -31,16 +32,13 @@ export const SubscribeForm = () => {
           axios
               .post("/subscribe", { email: email })
               .then((response) => {
-                  console.log("Email was successfully submitted!");
-              // toast.success("Email was successfully submitted!");
+                  toast.success("Email was successfully submitted!");
           })
               .catch((error) => {
-              console.log("Something went wrong. Please try again later!");
-              // toast.error("Something went wrong. Please try again later!");
+                  toast.error("Something went wrong. Please try again later!");
           });
       } else {
-          console.log("Please enter a valid email!");
-          // toast.error("Please enter a valid email!");
+            toast.error("Please enter a valid email!");
       }
     };
   
