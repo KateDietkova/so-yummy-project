@@ -60,20 +60,23 @@ const FavoritesPage = () => {
             
             {isLoading && <Loader />}
 
-            {recipes.length === 0 && !isLoading && !isError && (
+            {/* {recipes.length === 0 && !isLoading && !isError && (
                 <H3> The list is empty... You don't have favorite recipes  </H3>
-            )}
+            )} */}
             
 
             {isError
                 ? (<Error />)
                 : (<RecipeListContainer>
-                        <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
-                        <Pagination
-                            totalPages={totalPages}
-                            currentPage={currentPage}
-                            onClick={handleClickPaginationButton}
-                        />
+                    <FavoriteRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
+                        {recipes?.length > 0    ? ( <Pagination
+                                                    totalPages={totalPages}
+                                                    currentPage={currentPage}
+                                                    onClick={handleClickPaginationButton}
+                                                    />)
+                                                : (<H3> The list is empty... You don't have favorite recipes  </H3>)
+                        
+                        }
                     </RecipeListContainer>)
             } 
         </MyFavoriteContainer>
@@ -81,4 +84,5 @@ const FavoritesPage = () => {
 };
 
 export default FavoritesPage;
+
 
