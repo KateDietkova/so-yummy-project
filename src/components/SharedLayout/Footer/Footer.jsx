@@ -12,7 +12,7 @@ export const Footer = () => {
         <Wrapper>
 
           <TextWrapper>
-              <LogoContainer  to="/">
+              <LogoContainer>
                 <LogoIconLink>
                   <Logo/>
                 </LogoIconLink>

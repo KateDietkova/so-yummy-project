@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from '../../../assets/svg/logo/logo.svg';
 
 import mobileBGISmall from '../../../assets/images/mobile/footer/spinach-leaves-small-mobile.png';
@@ -138,7 +138,7 @@ export const LogoContainer = styled.div`
     margin-bottom: 32px;
 `
 
-export const LogoIconLink = styled(NavLink)`
+export const LogoIconLink = styled.svg`
     width: 32px;
     height: 32px;
     border-radius: 12px;
