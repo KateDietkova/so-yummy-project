@@ -23,7 +23,7 @@ const MyRecipesPage = () => {
     const fetchOwnRecipes = async () => {
       setIsLoading(true);
       const data = await fetchUserRecipes(currentPage);
-
+      setIsLoading(false);
       if (data.name === 'AxiosError') {
         setIsError(true);
       }
@@ -33,7 +33,6 @@ const MyRecipesPage = () => {
 
       const limit = data.limit;
       setLimit(limit);
-      setIsLoading(false);
 
       const recipes = data.data;
       setRecipes(recipes);
@@ -51,6 +50,10 @@ const MyRecipesPage = () => {
   const handleClickDeleteButton = id => {
     deleteUserRecipe(id);
     setRecipes(recipes.filter(recipe => recipe._id !== id));
+
+    if (recipes.length === 1 && totalPages !== 1) {
+      setCurrentPage(prevPage => prevPage - 1);
+    }
   };
 
   return (
@@ -61,15 +64,21 @@ const MyRecipesPage = () => {
         <Error />
       ) : (
         <RecipeListContainer>
-          <MyRecipesList recipes={recipes} onClick={handleClickDeleteButton} />
-          {recipes?.length > 0 ? (
+          {!isLoading && (
+            <MyRecipesList
+              recipes={recipes}
+              onClick={handleClickDeleteButton}
+            />
+          )}
+          {recipes?.length > 0 && (
             <Pagination
               totalPages={totalPages}
               currentPage={currentPage}
               onClick={handleClickPaginationButton}
-              scrollId={'container'}
+              scrollId="container"
             />
-          ) : (
+          )}
+          {totalPages <= 1 && recipes.length === 0 && (
             <>
               <StyledText>You don't have any recipe.</StyledText>
               <StyledText>
