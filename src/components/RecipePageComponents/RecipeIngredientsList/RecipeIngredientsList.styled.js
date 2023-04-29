@@ -128,7 +128,7 @@ export const IngedientsTitle = styled.p`
 `;
 
 export const IngedientsMeasure = styled.div`
-  width: 68px;
+  min-width: 68px;
   // height: 35px;
   display: flex;
   justify-content: center;
