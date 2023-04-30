@@ -134,7 +134,7 @@ export const StyledChevron = styled(BiChevronDown)`
 
 export const SearchSelect = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 100%;
   left: 0;
   right: 0;
