@@ -38,6 +38,7 @@ export const InfoCardWrapper = styled.div`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 `;
 export const RecipeTitle = styled.h2`
   margin-bottom: 14px;
