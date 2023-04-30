@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { getRecipesByQuery } from 'services/api';
+import { MainTitle } from 'components/universalComponents/MainTitle/MainTitle';
 import { SearchForm } from 'components/MainPageComponents/SearchForm/SearchForm';
 import { RecipesGallery } from 'components/universalComponents/RecipesGallery/RecipesGallery';
 import { Pagination } from 'components/universalComponents/Pagination/Pagination';
 
-import { MainTitleStyled } from 'components/universalComponents/MainTitle/MainTitle.styled';
 import { Container } from 'components/universalComponents/Container/Container.styled';
 import {
   Main,
@@ -49,6 +50,10 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (query !== '') {
       getRecipesByQuery({
         query,
@@ -56,20 +61,27 @@ const SearchPage = () => {
         page,
         recipesPerPage,
       }).then(data => {
+        if (data.count === 0) {
+          toast.error('Recipes not found, try another query.');
+          return;
+        }
         setRecipes(data.data);
         setRecipesCount(data.count);
       });
     }
   }, [query, selectedValue, page]);
 
-  console.log(recipes, totalPages);
   return (
     <Container>
       <Main id="main">
         <SearchSection>
-          <MainTitleStyled children={'Search'} />
+          <MainTitle text={'Search'} />
           <SearchContainer>
-            <SearchForm addParamsToSearch={addParamsToSearch} reversed={true} />
+            <SearchForm
+              query={query}
+              addParamsToSearch={addParamsToSearch}
+              reversed={true}
+            />
           </SearchContainer>
           <DropdownContainer onClick={() => setIsSelectOpen(!isSelectOpen)}>
             <SearchLabel>Search by:</SearchLabel>
@@ -90,7 +102,9 @@ const SearchPage = () => {
         <RecipesGallerySection>
           {recipes.length === 0 && (
             <NoResultsWrapper>
-              <NoResultsText>Try looking for something else..</NoResultsText>
+              {query && (
+                <NoResultsText>Try looking for something else..</NoResultsText>
+              )}
             </NoResultsWrapper>
           )}
           {recipes?.length > 0 && <RecipesGallery recipes={recipes} />}
