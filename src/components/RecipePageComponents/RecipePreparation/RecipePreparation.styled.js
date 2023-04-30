@@ -45,6 +45,7 @@ export const Title = styled.h2`
   }
 `;
 export const PrepeaRecipe = styled.ul`
+  max-width:600px;
   list-style: none;
   margin-bottom: 40px;
   width: 100%;
@@ -114,9 +115,18 @@ export const ListText = styled.p`
 `;
 
 export const PrepeaRecipeImage = styled.img`
-  display: block;
-  object-fit: contain;
-  overflow: hidden;
+  // display: block;
+  // object-fit: contain;
+  // overflow: hidden;
   border-radius: 8px;
- 
+  width: 343px;
+  height: 250px;
+  @media screen and (min-width: 768px) {
+    width: 433px;
+    height: 332px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 433px;
+    height: 332px;
+  }
 `;
