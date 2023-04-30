@@ -16,7 +16,7 @@ const emailRules =
 // const passwordRules =
 //   /(?=^.{6,255}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*/;
 
-const passwordRules = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{6,255}$/;
+const passwordRules = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{6,255}$/;
 
 const errorMassege = msg => {
   return (
