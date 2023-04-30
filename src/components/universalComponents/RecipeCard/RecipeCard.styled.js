@@ -48,6 +48,7 @@ export const RecipeTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1;
   letter-spacing: -0.24px;
+  text-align: start;
   color: ${props => {
     return props.theme.darkTheme ? props.theme.colors.textWhite : '#3e4462';
   }};
@@ -68,6 +69,7 @@ export const StyledDescription = styled.p`
   font-size: 8px;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  text-align: start;
 
   color: ${props => {
     return props.theme.darkTheme
