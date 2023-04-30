@@ -96,6 +96,7 @@ export const SeeAllBtnLink = styled(Link)`
 `;
 
 export const OtherCategoriesBtnLink = styled(Link)`
+  z-index: 2;
   display: block;
   text-align: center;
   font-weight: ${props => props.theme.fontWeights.normal};
