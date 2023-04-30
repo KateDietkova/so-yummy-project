@@ -18,9 +18,10 @@ import deskBGIBig from '../../../assets/images/desktop/footer/spinach-leaves-des
 import deskBGIBig2x from '../../../assets/images/desktop/footer/spinach-leaves-desktop-2x.png';
 
 export const FooterWrapper = styled.footer`
-    position: relative;
-    z-index: 1;
-`
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+`;
 
 export const BackgrImage = styled.div`
     position: absolute;

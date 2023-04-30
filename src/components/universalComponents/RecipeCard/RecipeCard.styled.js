@@ -38,6 +38,7 @@ export const InfoCardWrapper = styled.div`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 `;
 export const RecipeTitle = styled.h2`
   margin-bottom: 14px;
@@ -47,6 +48,7 @@ export const RecipeTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1;
   letter-spacing: -0.24px;
+  text-align: start;
   color: ${props => {
     return props.theme.darkTheme ? props.theme.colors.textWhite : '#3e4462';
   }};
@@ -67,6 +69,7 @@ export const StyledDescription = styled.p`
   font-size: 8px;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  text-align: start;
 
   color: ${props => {
     return props.theme.darkTheme
@@ -107,6 +110,7 @@ export const StyledPicture = styled.img`
 `;
 
 export const StubBox = styled.div`
+  position: relative;
   width: 124px;
   height: 124px;
   border-radius: 8px;

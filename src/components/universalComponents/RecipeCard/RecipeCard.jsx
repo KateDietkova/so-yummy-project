@@ -1,3 +1,4 @@
+import { CameraIconStyled } from 'components/AddRecipePageComponents/AddRecipeForm/RecipeDescriptionFields/RecipeDescriptionFields.styled';
 import { getHoursFromMins } from '../../../helpers/helper';
 import {
   DeleteButton,
@@ -30,7 +31,9 @@ export const RecipeCard = ({
       {preview ? (
         <StyledPicture src={preview} alt="recipe" loading="lazy" />
       ) : (
-        <StubBox />
+        <StubBox>
+          <CameraIconStyled />
+        </StubBox>
       )}
       <InfoCardWrapper>
         <DeleteButton type={type} onClick={() => onClick(_id)}>

@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
-// import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
+import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
 // import { useEffect } from 'react';
 import {
   IngredientsListSection,
@@ -16,16 +16,12 @@ import {
 } from './RecipeIngredientsList.styled';
 import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg';
 import { Checkbox } from './CheckBox/CheckBox';
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 export const RecipeIngredientsList = ({ ingredients }) => {
-  //  const dispatch = useDispatch();
   const shoppingList = useSelector(selectShoppingList);
-
   console.log('shoppingList', shoppingList);
-
-  // useEffect(() => {
-  //   dispatch(getShoppingList());
-  //   },[dispatch]);
+  const dispatch = useDispatch();
 
   const allIngredients = useSelector(selectIngredients);
   const selectIngred = allIngredients
@@ -40,7 +36,9 @@ export const RecipeIngredientsList = ({ ingredients }) => {
         recipeIngredient => recipeIngredient.id === ingredient._id
       ).measure,
     }));
-
+  useEffect(() => {
+   dispatch(getShoppingList())
+},[dispatch])
   console.log('ingred', selectIngred);
 
   return (
@@ -52,14 +50,13 @@ export const RecipeIngredientsList = ({ ingredients }) => {
       </ListTitle>
       <IngredientsList>
         {selectIngred.map(({ _id, ttl, thb, measure }) => {
-          if (!_id) {
-            return null;
-          }
+         
           const isCheckedIngredientsID = shoppingList.filter(item => {
             if (item.id === _id) {
               console.log('item.id', item.id);
               return item.id;
             }
+            return null;
           });
 
           console.log('isCheckedIngredientsID', isCheckedIngredientsID[0]?._id);
@@ -71,7 +68,7 @@ export const RecipeIngredientsList = ({ ingredients }) => {
                 <IngedientsTitle>{ttl}</IngedientsTitle>
               </Wrap>
               <Wrap>
-                <IngedientsMeasure>{measure}</IngedientsMeasure>
+                <IngedientsMeasure>{measure?.split(" ").slice(0, 4).join(" ")}</IngedientsMeasure>
                 <Checkbox
                   ingredient={{ _id, ttl, thb, measure }}
                   isChecked={isChecked}

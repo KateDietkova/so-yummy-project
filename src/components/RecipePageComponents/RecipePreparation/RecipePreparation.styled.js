@@ -1,26 +1,29 @@
 import styled from 'styled-components';
 
 export const PreparationSection = styled.div`
+  position:relative;
+  top:-100px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 0 16px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
   
   @media screen and (min-width: 768px) {
     width: 704px;
     padding: 0 32px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
   }
   @media screen and (min-width: 1280px) {
     width: 1240px;
     display: flex;
-    gap: 50px;
+    // gap: 50px;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     padding: 0 16px;
    
   }
@@ -42,6 +45,7 @@ export const Title = styled.h2`
   }
 `;
 export const PrepeaRecipe = styled.ul`
+  max-width:600px;
   list-style: none;
   margin-bottom: 40px;
   width: 100%;
@@ -111,9 +115,18 @@ export const ListText = styled.p`
 `;
 
 export const PrepeaRecipeImage = styled.img`
-  display: block;
-  object-fit: contain;
-  overflow: hidden;
+  // display: block;
+  // object-fit: contain;
+  // overflow: hidden;
   border-radius: 8px;
- 
+  width: 343px;
+  height: 250px;
+  @media screen and (min-width: 768px) {
+    width: 433px;
+    height: 332px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 433px;
+    height: 332px;
+  }
 `;

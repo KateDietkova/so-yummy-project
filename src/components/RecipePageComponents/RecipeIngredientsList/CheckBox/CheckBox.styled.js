@@ -10,10 +10,19 @@ export const Box = styled.div`
   cursor: pointer;
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
+  margin-right:16px;
   @media (min-width: 768px) {
     border: 2px solid rgba(126, 126, 126, 0.5);
     width: 35px;
     height: 35px;
+    margin-right:32px;
+   
+  }
+  @media (min-width: 1280px) {
+    border: 2px solid rgba(126, 126, 126, 0.5);
+    width: 35px;
+    height: 35px;
+    margin-right:32px;
    
   }
 `;
