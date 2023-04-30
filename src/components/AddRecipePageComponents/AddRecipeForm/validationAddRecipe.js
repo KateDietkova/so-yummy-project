@@ -75,7 +75,7 @@ export const descrFieldsSchema = yup.object().shape({
   preparation: yup
     .string()
     .matches(textAreaRegex, {
-      message: 'Preparation description must contain characters',
+      message: 'Preparation description must contain latin characters',
       excludeEmptyString: true,
     })
     .required('Please enter preparation description'),

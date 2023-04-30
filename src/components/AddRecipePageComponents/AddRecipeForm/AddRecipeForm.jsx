@@ -58,7 +58,7 @@ export const AddRecipeForm = () => {
   const pullDescrsData = useCallback(
     (category, time, selectedImgFile, title, about) => {
       setCategory(category);
-      setTime(Number.parseInt(time));
+      setTime(Number.parseInt(time).toString());
       setSelectedImgFile(selectedImgFile);
       setTitle(title);
       setAbout(about);
