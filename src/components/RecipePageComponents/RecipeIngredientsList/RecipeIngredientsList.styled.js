@@ -130,7 +130,7 @@ export const IngedientsTitle = styled.p`
 `;
 
 export const IngedientsMeasure = styled.div`
-  min-width: 68px;
+  min-width: 62px;
   // height: 35px;
   display: flex;
   justify-content: center;
@@ -150,11 +150,14 @@ export const IngedientsMeasure = styled.div`
     line-height: 1.5;
     padding: 4px 8px;
     margin-right: 86px;
+    // min-width: 68px;
     
   }
   @media (min-width: 1280px) {
     margin-right: 151px;
     padding: 4px 8px;
+    // min-width: 68px;
+    font-size: 18px;
    
   }
 `;

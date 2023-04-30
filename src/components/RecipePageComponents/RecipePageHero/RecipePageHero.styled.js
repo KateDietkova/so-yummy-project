@@ -58,13 +58,16 @@ export const SectionHeroTitle = styled.h1`
   color: ${props => props.theme.colors.accent};
   margin-top: 144px;
   margin-bottom: 18px;
+  max-width:300px;
   @media screen and (min-width: 768px) {
     margin-top:136px;
     font-size: 44px;
     margin-bottom: 24px;
+    max-width:500px;
   }
   @media screen and (min-width: 1280px) {
     margin-top:164px;
+    max-width:600px;
   }
 `;
 
