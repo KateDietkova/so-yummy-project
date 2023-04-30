@@ -20,7 +20,7 @@ import deskBGIBig2x from '../../../assets/images/desktop/footer/spinach-leaves-d
 export const FooterWrapper = styled.footer`
   position: relative;
   z-index: 1;
-  flex: 0 0 auto;
+  margin-top: auto;
 `;
 
 export const BackgrImage = styled.div`

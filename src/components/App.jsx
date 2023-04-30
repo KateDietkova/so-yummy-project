@@ -16,6 +16,7 @@ import { useAuth } from 'hooks/useAuth';
 import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Loader } from './universalComponents/Loader/Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
@@ -40,7 +41,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const { darkTheme } = useSelector(state => state.theme);
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoading } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,8 +63,10 @@ export const App = () => {
         pauseOnHover
         theme="dark"
       />
-      
-      {!isRefreshing && (
+
+      {isRefreshing || isLoading ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route
             path="/welcome"
@@ -97,14 +100,14 @@ export const App = () => {
             <Route
               index
               element={
-                <PrivateRoute redirectTo="/signin" component={<MainPage />} />
+                <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
               }
             />
             <Route
               path="categories/:categoryName"
               element={
                 <PrivateRoute
-                  redirectTo="/signin"
+                  redirectTo="/welcome"
                   component={<CategoriesPage />}
                 />
               }
@@ -113,7 +116,7 @@ export const App = () => {
               path="add"
               element={
                 <PrivateRoute
-                  redirectTo="/signin"
+                  redirectTo="/welcome"
                   component={<AddRecipePage />}
                 />
               }
@@ -122,7 +125,7 @@ export const App = () => {
               path="favorite"
               element={
                 <PrivateRoute
-                  redirectTo="/signin"
+                  redirectTo="/welcome"
                   component={<FavoritesPage />}
                 />
               }
@@ -130,14 +133,17 @@ export const App = () => {
             <Route
               path="recipe/:recipeId"
               element={
-                <PrivateRoute redirectTo="/signin" component={<RecipePage />} />
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<RecipePage />}
+                />
               }
             />
             <Route
               path="my"
               element={
                 <PrivateRoute
-                  redirectTo="/signin"
+                  redirectTo="/welcome"
                   component={<MyRecipesPage />}
                 />
               }
@@ -145,19 +151,30 @@ export const App = () => {
             <Route
               path="search"
               element={
-                <PrivateRoute redirectTo="/signin" component={<SearchPage />} />
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<SearchPage />}
+                />
               }
             />
             <Route
               path="shopinglist"
               element={
                 <PrivateRoute
-                  redirectTo="/signin"
+                  redirectTo="/welcome"
                   component={<ShopingListPage />}
                 />
               }
             />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="*"
+              element={
+                <PrivateRoute
+                  redirectTo="/welcome"
+                  component={<NotFoundPage />}
+                />
+              }
+            />
           </Route>
         </Routes>
       )}

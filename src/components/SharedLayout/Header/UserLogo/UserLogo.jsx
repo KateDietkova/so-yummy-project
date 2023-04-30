@@ -16,7 +16,6 @@ export const UserLogo = () => {
     user: { name: userName, avatarUrl },
   } = useAuth();
   const location = useLocation();
-  console.log('location', location);
   const isDarkColorMain = location.pathname === '/';
   const isDarkColorRecipe = location.pathname.includes('recipe');
 
