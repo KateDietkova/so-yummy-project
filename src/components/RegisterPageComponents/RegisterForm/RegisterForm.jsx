@@ -28,7 +28,6 @@ export const RegisterForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (value, { resetForm }) => {
-    console.log('Register data', value);
     dispatch(register(value));
     setIsSubmit(false);
     resetForm();
