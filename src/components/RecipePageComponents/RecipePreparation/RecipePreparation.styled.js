@@ -24,7 +24,7 @@ export const PreparationSection = styled.div`
     align-items: center;
     margin: auto;
     margin-bottom: 100px;
-    padding: 0 16px;
+    padding: 0;
    
   }
 `;
@@ -45,16 +45,19 @@ export const Title = styled.h2`
   }
 `;
 export const PrepeaRecipe = styled.ul`
-  max-width:600px;
+  min-width: 311px;
   list-style: none;
   margin-bottom: 40px;
-  width: 100%;
+  counter-reset: step;
   display: flex;
   flex-direction: column;
   gap: 14px;
   @media screen and (min-width: 768px) {
     // margin-bottom: 50px;
     gap: 18px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 50px;
   }
 `;
 
@@ -64,7 +67,7 @@ export const ListItem = styled.li`
   letter-spacing: -0.02em;
   color: ${props => props.theme.colors.textDark};
   display: flex;
-  gap: 14px;
+  
   align-items: flex-start;
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -74,7 +77,6 @@ export const ListItem = styled.li`
   }
 `;
 export const Steps = styled.span`
- 
   width: 21px;
   height: 21px;
   border-radius: 50%;
@@ -115,9 +117,6 @@ export const ListText = styled.p`
 `;
 
 export const PrepeaRecipeImage = styled.img`
-  // display: block;
-  // object-fit: contain;
-  // overflow: hidden;
   border-radius: 8px;
   width: 343px;
   height: 250px;
@@ -129,4 +128,6 @@ export const PrepeaRecipeImage = styled.img`
     width: 433px;
     height: 332px;
   }
+
+
 `;

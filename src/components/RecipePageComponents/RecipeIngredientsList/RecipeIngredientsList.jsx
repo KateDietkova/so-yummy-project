@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/ingredientsSelectors';
 import { selectShoppingList } from 'redux/shoppingList/shoppingListSelectors';
 import { getShoppingList } from 'redux/shoppingList/shoppingListOperations';
-// import { useEffect } from 'react';
+
 import {
   IngredientsListSection,
   ListTitle,
@@ -20,7 +20,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 export const RecipeIngredientsList = ({ ingredients }) => {
   const shoppingList = useSelector(selectShoppingList);
-  console.log('shoppingList', shoppingList);
   const dispatch = useDispatch();
 
   const allIngredients = useSelector(selectIngredients);
@@ -39,7 +38,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
   useEffect(() => {
    dispatch(getShoppingList())
 },[dispatch])
-  console.log('ingred', selectIngred);
 
   return (
     <IngredientsListSection>
@@ -58,8 +56,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
             }
             return null;
           });
-
-          console.log('isCheckedIngredientsID', isCheckedIngredientsID[0]?._id);
           const isChecked = isCheckedIngredientsID.length !== 0;
           return (
             <IngedientsItem key={_id}>
