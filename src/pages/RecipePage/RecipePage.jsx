@@ -27,7 +27,6 @@ const RecipePage = () => {
     return ;
   }
  
-  console.log('string', currentRecipe)
 
     return (
       <>

@@ -34,7 +34,7 @@ export const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipe = action.payload;
-        console.log(action.payload)
+        
       })
       .addCase(fetchRecipe.rejected, (state, action) => {
         state.isLoading = false;

@@ -10,14 +10,14 @@ import {
 } from './RecipePreparation.styled';
 import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg'
 export const RecipePreparation = ({instructions, preview}) => {
-console.log(preview)
+
   return (
     <PreparationSection>
       <div >
       <Title>Recipe Preparation</Title>
         <PrepeaRecipe>
           {instructions && 
-            instructions.split('. ').map((text, i) => {
+            instructions.replace('.').split('. ').map((text, i) => {
               return (
                 <ListItem key={i} >
                   <Step>
