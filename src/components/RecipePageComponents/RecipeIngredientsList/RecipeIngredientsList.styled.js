@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 
 export const IngredientsListSection = styled.div`
-
-  padding-top:400px;
+  position:relative;
+  top:-100px;
   width: 100%;
-  // height:100%;
   padding-left: 16px;
   padding-right: 16px;
   margin-bottom: 50px;
@@ -17,12 +16,12 @@ export const IngredientsListSection = styled.div`
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
-    margin-top: 50px;
+    margin-bottom: 96px;
   }
   @media screen and (min-width: 1280px) {
     padding-left: 0;
     padding-right: 0;
-    margin-top: 50px;
+    margin-bottom: 100px;
   }
 `;
 
@@ -53,14 +52,14 @@ export const ListTitle = styled.div`
 export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
+  gap:16px;
   @media (min-width: 768px) {
     gap: 24px;
   }
   @media (min-width: 1280px) {
-   
-     width: 1240px;
+    width: 1240px;
+    gap: 24px;
   }
 `;
 export const IngedientsItem = styled.li`
@@ -112,6 +111,7 @@ export const IngedientsTitle = styled.p`
   font-size: 12px;
   line-height: 1.16;
   max-width: 200px;
+  padding-left:12px;
   color: ${props => {
     return props.theme.darkTheme
       ? props.theme.colors.textWhite
@@ -121,9 +121,11 @@ export const IngedientsTitle = styled.p`
     max-width: 220px;
     font-size: 24px;
     line-height: 1;
+    padding-left:40px;
   }
   @media (min-width: 1280px) {
     max-width: 420px;
+    padding-left:66px;
   }
 `;
 

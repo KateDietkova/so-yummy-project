@@ -1,6 +1,7 @@
 import {
   SectionHero,
   SectionHeroTitle,
+  // SectionDescrip,
   RecipeDescription,
   RecipeTimer,
   RecipeTime,
@@ -34,7 +35,9 @@ export const RecipePageHero = ({ title, description, time, favorites }) => {
   };
   
   return (
-    <SectionHero>
+    
+      <SectionHero>
+      
         <SectionHeroTitle>{title}</SectionHeroTitle>
       <RecipeDescription>{description}</RecipeDescription>
         <Button
@@ -46,8 +49,10 @@ export const RecipePageHero = ({ title, description, time, favorites }) => {
         <RecipeTimer>
           <AiOutlineClockCircle color="black" />
           <RecipeTime>{time} min</RecipeTime>
-        </RecipeTimer>
-    </SectionHero>
+      </RecipeTimer>
+      
+     </SectionHero>
+    
   );
 };
 
