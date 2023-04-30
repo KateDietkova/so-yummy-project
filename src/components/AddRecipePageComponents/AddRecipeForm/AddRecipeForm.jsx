@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { descrFieldsSchema } from './validationAddRecipe';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
-import { FormStyled } from './AddRecipeForm.styled';
+import { FormStyled, AddButton } from './AddRecipeForm.styled';
 import { IngredientsField } from './RecipeIngridientsFields/RecipeIngridientsFields';
 import { PreparationField } from './RecipePreparationFields/RecipePreparationFields';
-import { ButtonSkewStyled } from 'components/universalComponents/ButtonSkew/ButtonSkew.styled';
-// import axios from 'axios';
-// import { ErrorMessage } from 'formik';
 
-// import { useSelector } from 'react-redux';
+import axios from 'axios';
 
-//categoryList взяти з беку
-// GET: /api/recipes/category-list heder:Autorization: Bearer token
-// axios.defaults.baseURL = ' https://so-yummy-api.herokuapp.com/api';
-
-// const categoryOptions = categoryList.map(option => ({
-//   value: option.toLowerCase(),
-//   label: option,
-// }));
+axios.defaults.baseURL = ' https://so-yummy-api-jvk2.onrender.com/api';
 
 const initialValues = {
   thumb: '',
@@ -40,108 +30,82 @@ const initialValues = {
 };
 
 export const AddRecipeForm = () => {
-  // const [categoryValue, setCategoryValue] = useState('Breakfast');
-  // const [timeValue, setTimeValue] = useState('5 min');
-  // const [selectedImgPath, setSelectedImgPath] = useState();
-  // const [selectedImgFile, setSelectedImgFile] = useState();
-  const [ingredients, setIngredients] = useState();
+  const [category, setCategory] = useState('Breakfast');
+  const [time, setTime] = useState('5 min');
+  const [selectedImgFile, setSelectedImgFile] = useState();
+  const [ingredients, setIngredients] = useState([]);
   const [preparation, setPreparation] = useState([]);
-  // const [titleValue, setTitleValue] = useState('');
-  // const [aboutValue, setAboutValue] = useState('');
-  // const categoryList= useSelector(selectCategories)
+  const [title, setTitle] = useState('');
+  const [about, setAbout] = useState('');
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const pullIngredientsData = data => {
+  const pullPreparationData = data => {
+    setPreparation(data);
+  };
+
+  const pullIngredientsData = useCallback(data => {
     const newArray = data.map(item => {
       return {
         id: item.ingredient.value,
         measure: item.quantity + ' ' + item.measure,
       };
     });
+
     setIngredients(newArray);
+  }, []);
+
+  const pullDescrsData = useCallback(
+    (category, time, selectedImgFile, title, about) => {
+      setCategory(category);
+      setTime(time);
+      setSelectedImgFile(selectedImgFile);
+      setTitle(title);
+      setAbout(about);
+    },
+    []
+  );
+
+  const submissionData = {
+    title,
+    category,
+    instructions: preparation,
+    description: about,
+    time,
+    ingredients,
   };
 
-  const pullPreparationData = data => {
-    setPreparation(data);
+  const handleFormSubmit = async () => {
+    const formData = new FormData();
+    formData.append('image', selectedImgFile);
+    console.log(submissionData);
+
+    const { data } = await axios.post('/ownRecipes', submissionData);
+    const id = data.recipe._id;
+    console.log(selectedImgFile, id);
+
+    if (selectedImgFile) {
+      const result = await axios.patch(`/ownRecipes/${id}`, formData);
+      console.log('img patch', result);
+    }
+
+    navigate('/my');
   };
-
-  const pullDescrsData = (
-    categoryValue,
-    timeValue,
-    selectedImgPath,
-    selectedImgFile,
-    titleValue,
-    aboutValue
-  ) => {
-    // setCategoryValue(categoryValue);
-    // setTimeValue(timeValue);
-    // setSelectedImgPath(selectedImgPath);
-    // setSelectedImgFile(selectedImgFile);
-    // setTitleValue(titleValue);
-    // setAboutValue(aboutValue);
-  };
-
-  // const submissionData = {
-  //   title: titleValue,
-  //   category: categoryValue,
-  //   instructions: preparation,
-  //   description: aboutValue,
-  //   time: timeValue,
-  //   thumb: selectedImgFile,
-  //   ingredients,
-  // };
-
-  // const handleFormSubmit = async event => {
-
-  //   console.log(submissionData);
-  //   axios.post('/ownRecipes', submissionData);
-
-  //   navigate('/my');
-  // };
-
-  //Then delete inner vars in IngredientsField !!!!!!!!!
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={descrFieldsSchema}
-      onSubmit={values => console.log(values)}
+      onSubmit={handleFormSubmit}
     >
       <FormStyled>
         <RecipeDescriptionFields funct={pullDescrsData} />
-
-        <IngredientsField funct={pullIngredientsData}>
-          {ingredients}
-          {preparation}
-        </IngredientsField>
+        <IngredientsField funct={pullIngredientsData}></IngredientsField>
         <PreparationField funct={pullPreparationData} />
-        <ButtonSkewStyled
-          type="submit"
-          color={props => {
-            return props.theme.darkTheme
-              ? props.theme.colors.accent
-              : props.theme.colors.bgBlackDark;
-          }}
-          hoverColor={props => {
-            return !props.theme.darkTheme
-              ? props.theme.colors.accent
-              : props.theme.colors.bgBlackDark;
-          }}
-          width={'129px'}
-          padding={0}
-        >
+        <AddButton type="submit" width={'129px'} padding={0}>
           <div className="inner">{'Add'}</div>
-        </ButtonSkewStyled>
+        </AddButton>
       </FormStyled>
     </Formik>
   );
 };
-
-// let formData = new FormData();
-// formData.append('thumb', selectedImgFile);
-// formData.append('title', values.title);
-// formData.append('about', values.about);
-// formData.append('category', categoryValue);
-// formData.append('time', timeValue);
-// console.log(formData.get('thumb'));

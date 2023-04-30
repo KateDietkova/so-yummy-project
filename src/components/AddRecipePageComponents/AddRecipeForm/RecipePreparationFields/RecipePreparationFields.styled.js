@@ -9,8 +9,7 @@ export const StyledPreparationField = styled(Field)`
 
   line-height: 21px;
   letter-spacing: -0.02em;
-
-
+  margin-top: 24px;
 
   outline: ${props => {
     return props.theme.darkTheme
@@ -34,17 +33,22 @@ export const StyledPreparationField = styled(Field)`
   }};
 
   color: ${props => {
-    return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
+    return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
   }};
-  margin-top: 24px;
-  margin-bottom: 18px;
+  opacity: ${props => {
+    return props.theme.darkTheme ? '0.6' : '0.5';
+  }};
 
-  
-&::placeholder{
-  color: ${props => {
-    return props.theme.darkTheme ? '#d9d9d999' : '#00000080';
-  }};
-}
+  // margin-bottom: 18px;
+
+  &::placeholder {
+    color: ${props => {
+      return props.theme.darkTheme ? props.theme.colors.textWhite : '#000000';
+    }};
+    opacity: ${props => {
+      return props.theme.darkTheme ? '0.8' : '1';
+    }};
+  }
 
   @media screen and (min-width: 768px) {
     width: 505px;
@@ -55,10 +59,26 @@ export const StyledPreparationField = styled(Field)`
     padding-bottom: 16px;
     font-size: ${props => props.theme.fontSizes.l};
     margin-top: 32px;
+  }
+
+  &:focus-within,
+  &:focus-within::placeholder {
+    color: ${props => {
+      return props.theme.darkTheme
+        ? props.theme.colors.textWhite
+        : props.theme.colors.textDark;
+    }};
+    opacity: 1;
+  }
+`;
+export const PositionBox = styled.div`
+  position: relative;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
 `;
-
 export const StyledWrapper = styled.div`
   width: 343px;
 

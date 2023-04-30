@@ -1,4 +1,4 @@
-import { StyledWrapper } from './RecipePreparationFields.styled';
+import { StyledWrapper, PositionBox } from './RecipePreparationFields.styled';
 import { SubTitleStyled } from '../RecipeIngridientsFields/RecipeIngridientsFields.styled';
 import { StyledPreparationField } from './RecipePreparationFields.styled';
 import { useState, useEffect } from 'react';
@@ -13,9 +13,8 @@ export const PreparationField = props => {
     formikProps.setFieldValue(name, value);
   };
   const handlePreparationInputChange = value => {
-    const newArray = value.split('\n');
-    setFormikValue('preparation', newArray);
-    setPreparation(newArray);
+    setFormikValue('preparation', value);
+    setPreparation(value);
   };
 
   useEffect(() => {
@@ -26,20 +25,23 @@ export const PreparationField = props => {
     <>
       <StyledWrapper>
         <SubTitleStyled>Recipe Preparation</SubTitleStyled>
-        <StyledPreparationField
-          as="textarea"
-          rows="10"
-          cols="100"
-          wrap="hard"
-          type="text"
-          name="preparation"
-          placeholder="Enter recipe"
-          title="Name may contain only letters, apostrophe, dash and spaces."
-          required
-          pattern="^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$"
-          onChange={e => handlePreparationInputChange(e.currentTarget.value)}
-        />
-        <FormError name="preparation" />
+        <PositionBox>
+          <StyledPreparationField
+            component="textarea"
+            rows="10"
+            cols="100"
+            wrap="hard"
+            type="text"
+            name="preparation"
+            placeholder="Enter recipe"
+            title="Name may contain only letters, apostrophe, dash and spaces."
+            required
+            pattern="^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$"
+            onChange={e => handlePreparationInputChange(e.currentTarget.value)}
+            value={preparation}
+          />
+          <FormError name="preparation" />
+        </PositionBox>
       </StyledWrapper>
     </>
   );

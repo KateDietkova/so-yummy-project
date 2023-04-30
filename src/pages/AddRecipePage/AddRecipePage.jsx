@@ -1,14 +1,20 @@
-import { AddRecipeContainer } from './AddRecipePage.styled';
+import { AddRecipeContainer, FlexWrapper, SideFlexWrapper } from './AddRecipePage.styled';
 import { MainTitle } from '../../components/universalComponents/MainTitle/MainTitle';
 import { AddRecipeForm } from 'components/AddRecipePageComponents/AddRecipeForm/AddRecipeForm';
 import { PopularRecipe } from 'components/AddRecipePageComponents/PopularRecipe/PopularRecipe';
+import { FollowUsBlock } from 'components/AddRecipePageComponents/FollowUs/FollowUs';
 
 const AddRecipePage = () => {
   return (
     <AddRecipeContainer>
-      <MainTitle text="Add recipe" />
+      <FlexWrapper>
+       <MainTitle text="Add recipe" />
       <AddRecipeForm />
-      <PopularRecipe />
+      </FlexWrapper>
+      <SideFlexWrapper>
+        <FollowUsBlock />
+        <PopularRecipe />
+      </SideFlexWrapper>
     </AddRecipeContainer>
   );
 };
