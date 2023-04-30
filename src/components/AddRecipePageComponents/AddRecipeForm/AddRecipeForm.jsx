@@ -58,7 +58,7 @@ export const AddRecipeForm = () => {
   const pullDescrsData = useCallback(
     (category, time, selectedImgFile, title, about) => {
       setCategory(category);
-      setTime(time);
+      setTime(Number.parseInt(time).toString());
       setSelectedImgFile(selectedImgFile);
       setTitle(title);
       setAbout(about);
@@ -78,15 +78,15 @@ export const AddRecipeForm = () => {
   const handleFormSubmit = async () => {
     const formData = new FormData();
     formData.append('image', selectedImgFile);
-    console.log(submissionData);
+    
 
     const { data } = await axios.post('/ownRecipes', submissionData);
     const id = data.recipe._id;
-    console.log(selectedImgFile, id);
+   
 
     if (selectedImgFile) {
-      const result = await axios.patch(`/ownRecipes/${id}`, formData);
-      console.log('img patch', result);
+      await axios.patch(`/ownRecipes/${id}`, formData);
+      
     }
 
     navigate('/my');
@@ -102,9 +102,13 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields funct={pullDescrsData} />
         <IngredientsField funct={pullIngredientsData}></IngredientsField>
         <PreparationField funct={pullPreparationData} />
-        <AddButton type="submit" width={'129px'} padding={0}>
+        <AddButton type="submit" width={'129px'} padding={0} color={props => 
+    props.theme.darkTheme
+      ? props.theme.colors.accent
+      : props.theme.colors.bgBlackDark
+  }>
           <div className="inner">{'Add'}</div>
-        </AddButton>
+        </AddButton >
       </FormStyled>
     </Formik>
   );
