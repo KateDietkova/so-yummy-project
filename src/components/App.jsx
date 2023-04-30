@@ -16,6 +16,7 @@ import { useAuth } from 'hooks/useAuth';
 import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Loader } from './universalComponents/Loader/Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
@@ -63,7 +64,9 @@ export const App = () => {
         theme="dark"
       />
 
-      {!isRefreshing && (
+      {isRefreshing ? (
+        <Loader/>
+      ) : (
         <Routes>
           <Route
             path="/welcome"
