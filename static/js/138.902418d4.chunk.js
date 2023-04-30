@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[138],{2138:function(e,a,t){t(2791);a.Z=t.p+"static/media/food-default.fbc5287cc49b9e075c403aa3a5bf471e.svg"}}]);
+//# sourceMappingURL=138.902418d4.chunk.js.map
