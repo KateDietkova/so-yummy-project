@@ -5,11 +5,16 @@ import { StyledErrorMessage } from './AddRecipeForm.styled';
 const inputRegex =
   /^[a-zA-Z0-9а-яА-Я]+(([' -][a-zA-Z0-9а-яА-Я ])?[a-zA-Z0-9а-яА-Я]*)*$/;
 
-export const FormError = ({ name }) => {
+  const textAreaRegex = /[A-Z]/i
+
+  const numberRegex = /^[-,./0-9]*$/
+
+export const FormError = ({ name, width }) => {
   return (
     <ErrorMessage
       name={name}
-      render={message => <StyledErrorMessage>{message}</StyledErrorMessage>}
+      render={message => <StyledErrorMessage width={width}>{message}</StyledErrorMessage>}
+      
     />
   );
 };
@@ -58,9 +63,9 @@ export const descrFieldsSchema = yup.object().shape({
           .required('Please choose measure'),
 
         quantity: yup
-          .string('Ingredient field may contain only numbers.')
-          .matches('[0-9]', {
-            message: 'Ingredient field may contain only numbers.',
+          .string()
+          .matches(numberRegex, {
+            message: 'Quantity field may contain only numbers and -/,. ',
           })
           .required('Please enter the quantity'),
       })
@@ -69,6 +74,9 @@ export const descrFieldsSchema = yup.object().shape({
 
   preparation: yup
     .string()
-
+    .matches(textAreaRegex, {
+      message: 'Preparation description must contain characters',
+      excludeEmptyString: true,
+    })
     .required('Please enter preparation description'),
 });

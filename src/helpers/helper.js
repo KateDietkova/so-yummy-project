@@ -8,7 +8,7 @@ export const cookingTimeOptions = (() => {
     range.push(i);
   }
   return range.map(item => ({
-    value: item.toString() + 'min',
+    value: item.toString(),
     label: item.toString() + 'min',
   }));
 })();
