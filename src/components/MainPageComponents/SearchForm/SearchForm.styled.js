@@ -60,10 +60,31 @@ export const FieldSearchMain = styled(Field)`
       : props.theme.colors.textGray;
   }};
 
-  &:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #fafafa !important; /* Цвет фона */
-    -webkit-text-fill-color: rgb(62, 68, 98) !important; /* цвет текста */
-    color: rgb(62, 68, 98) !important; /* цвет текста */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: ${props => {
+      if (props.reversed && props.theme.darkTheme) {
+        return 'rgba(250, 250, 250, 0.5)';
+      } else if (props.reversed) {
+        return '#3E4462';
+      }
+      return props.theme.darkTheme
+        ? 'rgba(250, 250, 250, 0.5)'
+        : props.theme.colors.textGray;
+    }} !important;
+    color: ${props => {
+      if (props.reversed && props.theme.darkTheme) {
+        return 'rgba(250, 250, 250, 0.5)';
+      } else if (props.reversed) {
+        return '#3E4462';
+      }
+      return props.theme.darkTheme
+        ? 'rgba(250, 250, 250, 0.5)'
+        : props.theme.colors.textGray;
+    }} !important;
+    transition: background-color 9999s ease-in-out 0s;
   }
 
   @media screen and (min-width: 768px) {
