@@ -18,7 +18,8 @@ export const PreparationSection = styled.div`
   @media screen and (min-width: 1280px) {
     width: 1240px;
     display: flex;
-    gap: 50px;
+    // gap: 50px;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
     margin: auto;

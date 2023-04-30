@@ -7,16 +7,16 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux';
 import { fetchRecipe } from 'redux/recipes/recipesOperations';
-import { selectRecipes,  selectIsLoading} from '../../redux/recipes/recipesSelectors';
+import { selectRecipes,  selectIsLoading, selectRecipesError} from '../../redux/recipes/recipesSelectors';
 import { getAllIngredients } from 'redux/ingredients/ingredientsOperations';
-
+import { Loader } from '../../components/universalComponents/Loader/Loader';
 
 const RecipePage = () => {
   const dispatch = useDispatch();
   const { recipeId } = useParams();
   const currentRecipe  = useSelector(selectRecipes);
   const isLoading = useSelector(selectIsLoading);
-  
+  const error = useSelector(selectRecipesError);
   useEffect(() => {
     dispatch(fetchRecipe(recipeId));
     dispatch(getAllIngredients());
@@ -31,6 +31,7 @@ const RecipePage = () => {
 
     return (
       <>
+        {isLoading && <Loader/>}
         {!isLoading && currentRecipe && (
           
           <>
@@ -44,6 +45,7 @@ const RecipePage = () => {
             <RecipePreparation instructions={currentRecipe.instructions} preview={currentRecipe.preview} /></>
           
         )}
+        {error && <p>Whoops, something went wrong...</p>}
       </>
     );
 };

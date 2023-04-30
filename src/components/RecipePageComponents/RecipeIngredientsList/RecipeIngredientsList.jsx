@@ -68,7 +68,7 @@ export const RecipeIngredientsList = ({ ingredients }) => {
                 <IngedientsTitle>{ttl}</IngedientsTitle>
               </Wrap>
               <Wrap>
-                <IngedientsMeasure>{measure}</IngedientsMeasure>
+                <IngedientsMeasure>{measure?.split(" ").slice(0, 4).join(" ")}</IngedientsMeasure>
                 <Checkbox
                   ingredient={{ _id, ttl, thb, measure }}
                   isChecked={isChecked}
