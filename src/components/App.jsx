@@ -41,7 +41,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const { darkTheme } = useSelector(state => state.theme);
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoading } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -64,8 +64,8 @@ export const App = () => {
         theme="dark"
       />
 
-      {isRefreshing ? (
-        <Loader/>
+      {isRefreshing || isLoading ? (
+        <Loader />
       ) : (
         <Routes>
           <Route
