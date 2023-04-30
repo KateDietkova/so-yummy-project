@@ -108,6 +108,7 @@ export const StyledPicture = styled.img`
 `;
 
 export const StubBox = styled.div`
+  position: relative;
   width: 124px;
   height: 124px;
   border-radius: 8px;
