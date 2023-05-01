@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/so-yummy-project/static/css/main.345f9b5a.css",
-    "main.js": "/so-yummy-project/static/js/main.88f8ab7f.js",
+    "main.js": "/so-yummy-project/static/js/main.3cfc9662.js",
     "static/js/892.8ee221a6.chunk.js": "/so-yummy-project/static/js/892.8ee221a6.chunk.js",
     "static/js/587.8c07009f.chunk.js": "/so-yummy-project/static/js/587.8c07009f.chunk.js",
     "static/js/17.789fb146.chunk.js": "/so-yummy-project/static/js/17.789fb146.chunk.js",
     "static/js/217.ca77cd97.chunk.js": "/so-yummy-project/static/js/217.ca77cd97.chunk.js",
-    "static/js/477.20a7067f.chunk.js": "/so-yummy-project/static/js/477.20a7067f.chunk.js",
+    "static/js/477.879b4de2.chunk.js": "/so-yummy-project/static/js/477.879b4de2.chunk.js",
     "static/js/452.bc5e6618.chunk.js": "/so-yummy-project/static/js/452.bc5e6618.chunk.js",
-    "static/js/783.3f392fd6.chunk.js": "/so-yummy-project/static/js/783.3f392fd6.chunk.js",
+    "static/js/783.c09af815.chunk.js": "/so-yummy-project/static/js/783.c09af815.chunk.js",
     "static/js/148.04c96a38.chunk.js": "/so-yummy-project/static/js/148.04c96a38.chunk.js",
     "static/js/170.ed8089bd.chunk.js": "/so-yummy-project/static/js/170.ed8089bd.chunk.js",
     "static/js/692.eb0ddf62.chunk.js": "/so-yummy-project/static/js/692.eb0ddf62.chunk.js",
@@ -55,10 +55,10 @@
     "static/media/spinach-leaves-small-mobile.png": "/so-yummy-project/static/media/spinach-leaves-small-mobile.ccd81b320c3c7d70e23e.png",
     "static/media/insta.svg": "/so-yummy-project/static/media/insta.4385421b081be485149f92853df2e866.svg",
     "static/media/camera.svg": "/so-yummy-project/static/media/camera.64fb944f2bd998a99c7c9f5cf8ab6110.svg",
+    "index.html": "/so-yummy-project/index.html",
     "static/media/twitter.svg": "/so-yummy-project/static/media/twitter.e1b5c3f31a4d7c3c2bdf79d29dec20ba.svg",
     "static/media/arrow2.svg": "/so-yummy-project/static/media/arrow2.c68f1231d3301b0bff6912cc48545572.svg",
     "static/media/logo.svg": "/so-yummy-project/static/media/logo.230e902d9f4b8f0698b960978764152c.svg",
-    "index.html": "/so-yummy-project/index.html",
     "static/media/trash-icon.svg": "/so-yummy-project/static/media/trash-icon.5711258d81033fc3ed9c8b7557e1b153.svg",
     "static/media/error-icon.svg": "/so-yummy-project/static/media/error-icon.9dffa3c548a425b2581fb25922c3c0aa.svg",
     "static/media/youtube.svg": "/so-yummy-project/static/media/youtube.5bcc5068957d60b64505e22c0ec45123.svg",
@@ -72,14 +72,14 @@
     "static/media/minus.svg": "/so-yummy-project/static/media/minus.7206da660cd74976579ac389f769ab7a.svg",
     "static/media/burger-menu.svg": "/so-yummy-project/static/media/burger-menu.ad2d6f185ba02a09996f801b576c8d03.svg",
     "main.345f9b5a.css.map": "/so-yummy-project/static/css/main.345f9b5a.css.map",
-    "main.88f8ab7f.js.map": "/so-yummy-project/static/js/main.88f8ab7f.js.map",
+    "main.3cfc9662.js.map": "/so-yummy-project/static/js/main.3cfc9662.js.map",
     "892.8ee221a6.chunk.js.map": "/so-yummy-project/static/js/892.8ee221a6.chunk.js.map",
     "587.8c07009f.chunk.js.map": "/so-yummy-project/static/js/587.8c07009f.chunk.js.map",
     "17.789fb146.chunk.js.map": "/so-yummy-project/static/js/17.789fb146.chunk.js.map",
     "217.ca77cd97.chunk.js.map": "/so-yummy-project/static/js/217.ca77cd97.chunk.js.map",
-    "477.20a7067f.chunk.js.map": "/so-yummy-project/static/js/477.20a7067f.chunk.js.map",
+    "477.879b4de2.chunk.js.map": "/so-yummy-project/static/js/477.879b4de2.chunk.js.map",
     "452.bc5e6618.chunk.js.map": "/so-yummy-project/static/js/452.bc5e6618.chunk.js.map",
-    "783.3f392fd6.chunk.js.map": "/so-yummy-project/static/js/783.3f392fd6.chunk.js.map",
+    "783.c09af815.chunk.js.map": "/so-yummy-project/static/js/783.c09af815.chunk.js.map",
     "148.04c96a38.chunk.js.map": "/so-yummy-project/static/js/148.04c96a38.chunk.js.map",
     "170.ed8089bd.chunk.js.map": "/so-yummy-project/static/js/170.ed8089bd.chunk.js.map",
     "692.eb0ddf62.chunk.js.map": "/so-yummy-project/static/js/692.eb0ddf62.chunk.js.map",
@@ -91,6 +91,6 @@
   },
   "entrypoints": [
     "static/css/main.345f9b5a.css",
-    "static/js/main.88f8ab7f.js"
+    "static/js/main.3cfc9662.js"
   ]
 }
