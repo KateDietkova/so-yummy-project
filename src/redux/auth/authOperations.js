@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://so-yummy-api-jvk2.onrender.com/api';
 
 const token = {
   set(token) {
@@ -129,7 +129,6 @@ export const updateUserInfo = createAsyncThunk(
   async (userInfo, { rejectWithValue }) => {
     try {
       const { data } = await axios.patch('/user', userInfo);
-      // console.log('Update user info', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

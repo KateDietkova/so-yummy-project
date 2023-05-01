@@ -51,7 +51,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
          
           const isCheckedIngredientsID = shoppingList.filter(item => {
             if (item.id === _id) {
-              console.log('item.id', item.id);
               return item.id;
             }
             return null;
