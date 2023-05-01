@@ -17,6 +17,7 @@ import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from './universalComponents/Loader/Loader';
+import { LoaderWrapper } from './App.styled';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
@@ -65,7 +66,9 @@ export const App = () => {
       />
 
       {isRefreshing || isLoading ? (
-        <Loader />
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
       ) : (
         <Routes>
           <Route
