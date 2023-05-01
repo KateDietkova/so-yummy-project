@@ -21,7 +21,7 @@ export const fetchRecipesByCategory = createAsyncThunk(
       const { data } = await axios.get(
         `/recipes/category/${categoryName}?page=${page}`
       );
-      return data.data.recipes;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

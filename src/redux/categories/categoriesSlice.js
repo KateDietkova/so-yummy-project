@@ -21,7 +21,7 @@ export const categoriesSlice = createSlice({
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.recipesByCategory = action.payload;
+        state.recipesByCategory = action.payload.data;
       })
       .addCase(fetchRecipesByCategory.rejected, (state, action) => {
         state.isLoading = false;
