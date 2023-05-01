@@ -23,7 +23,7 @@ export const StyledErrorMessage = styled.p`
   left: 0;
   font-size: 14px;
   color: ${props => props.theme.colors.validateRed};
-  width: ${props => props.width? props.width : '100%' }
+  width: ${props => (props.width ? props.width : '100%')};
 `;
 
 export const AddButton = styled(ButtonSkewStyled)`
@@ -31,15 +31,15 @@ export const AddButton = styled(ButtonSkewStyled)`
       width: 129px;
       height: 46px;
 
-  font-size: ${props => props.theme.fontSizes.s}
+  font-size: ${props => props.theme.fontSizes.s};
 
 
-  background-color:  ${props => {
-    return props.color
-     
-  }}
-  
-@media screen and (min-width: 768px) {
+  background-color:  ${props =>
+    props.theme.darkTheme
+      ? props.theme.colors.accent
+      : props.theme.colors.bgBlackDark};
+
+@media screen and (min-width: 768px) {  
   width: 161px;
   height: 52px;
   font-size: ${props => props.theme.fontSizes.m}

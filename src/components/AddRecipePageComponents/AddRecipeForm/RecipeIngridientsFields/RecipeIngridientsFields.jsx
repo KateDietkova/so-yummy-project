@@ -174,7 +174,7 @@ export const IngredientsField = props => {
                   name={`ingredients.${index}.quantity`}
                   title="This field may contain only numbers."
                   required
-                  pattern="[0-9]+"
+                  pattern="^[-,./0-9]*$"
                   onChange={e =>
                     handleQuantityInputChange(e.currentTarget.value, index)
                   }

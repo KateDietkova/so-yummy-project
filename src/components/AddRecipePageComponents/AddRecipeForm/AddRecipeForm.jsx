@@ -102,11 +102,7 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields funct={pullDescrsData} />
         <IngredientsField funct={pullIngredientsData}></IngredientsField>
         <PreparationField funct={pullPreparationData} />
-        <AddButton type="submit" width={'129px'} padding={0} color={props => 
-    props.theme.darkTheme
-      ? props.theme.colors.accent
-      : props.theme.colors.bgBlackDark
-  }>
+        <AddButton type="submit" padding={0} >
           <div className="inner">{'Add'}</div>
         </AddButton >
       </FormStyled>
