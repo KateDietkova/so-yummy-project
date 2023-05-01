@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategories,
-  selectCategoriesIsLoading,
   selectCategoriesRecipesError,
 } from 'redux/categories/categoriesSelectors';
 import { fetchCategoriesList } from 'redux/categories/categoriesOperations';
