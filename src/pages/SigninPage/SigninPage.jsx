@@ -1,4 +1,3 @@
-
 import { ContainerSigninPage, SigninPageSection } from './SigninPage.styled';
 import { SigninForm } from 'components/SigninPageComponents/SigninForm/SigninForm';
 
