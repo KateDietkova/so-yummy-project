@@ -55,7 +55,7 @@ export const IngredientsShoppingList = () => {
                         <IngredientTitle>{ ttl}</IngredientTitle>
                     </IngredientWrap>
                     <MeasureWrap>
-                        <Measure>{measure}</Measure>
+                        <Measure>{measure?.split(" ").slice(0, 4).join(" ")}</Measure>
                         <RemoveBtn onClick={() => dispatch(deleteFromShoppingList({ _id: id }))}>{<CgClose size={20} />}</RemoveBtn>
                     </MeasureWrap>
                 </IngredientsItem>
