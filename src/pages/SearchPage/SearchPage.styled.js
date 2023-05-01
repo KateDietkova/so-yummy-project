@@ -149,6 +149,7 @@ export const Option = styled.div`
   outline: none;
   background-color: transparent;
   padding: 8px 0px 4px 14px;
+  cursor: pointer;
 
   &:last-child {
     padding: 4px 0px 10px 14px;
