@@ -10,6 +10,8 @@ import {
 } from './RecipePreparation.styled';
 import IngredientsPlaceholder from '../../../assets/images/desktop/mocks/recipe-photo-default-2x.jpg';
 export const RecipePreparation = ({ instructions, preview }) => {
+
+  let step = 0;
   console.log(instructions);
   return (
     <PreparationSection>
@@ -17,14 +19,17 @@ export const RecipePreparation = ({ instructions, preview }) => {
         <Title>Recipe Preparation</Title>
         <PrepeaRecipe>
           {instructions &&
-            instructions.split('.').map((text, i) => {
-              if (text === '') {
+            instructions.replace(/(\n\s*\n|\n)/g, "").split('.').map((text, i) => {
+              console.log("instructions.split('.')", instructions.split('.'));
+              if (text === '' || text.length < 5) {
                 return null;
               }
+              console.log('text', text);
+              step += 1;
               return (
                 <ListItem key={i}>
                   <Step>
-                    <Steps>{i + 1}</Steps>
+                    <Steps>{step}</Steps>
                   </Step>
                   <ListText>{text}</ListText>
                 </ListItem>
