@@ -9,7 +9,6 @@ export const getAllIngredients = createAsyncThunk(
       const { data } = await getAllIngredientsAPI();
       return data;
     } catch (error) {
-      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

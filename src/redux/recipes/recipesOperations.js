@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://so-yummy-api-jvk2.onrender.com/api';
 
 
 export const fetchRecipe = createAsyncThunk(
@@ -10,12 +10,6 @@ export const fetchRecipe = createAsyncThunk(
     
     try {
       const response = await axios.get(`/recipes/${_id}`);
-      
-      // console.log(response)
-      console.log(response.data)
-      // if (!response) {
-      //   return;
-      // }
       return response?.data.data;
     
     } catch (error) {

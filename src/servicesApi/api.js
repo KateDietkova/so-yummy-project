@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api';
+axios.defaults.baseURL = 'https://so-yummy-api-jvk2.onrender.com/api';
 
 export const fetchUserRecipes = async currentPage => {
   try {
@@ -16,7 +16,7 @@ export const deleteUserRecipe = async id => {
     const { data } = await axios.delete(`/ownRecipes/${id}`);
     return data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -32,13 +32,9 @@ export const fetchPopularRecipe = async () => {
 export const getRecipeById = async id => {
   try {
     const { data } = await axios.get(`/recipes/${id}`);
-    // headers: {
-    //   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQyOTY2MmNmY2NlNzNhNjg4NzUzZTIiLCJpYXQiOjE2ODIwODY5NTEsImV4cCI6MTY4MzI5NjU1MX0.FfXjqrQvxNQ651VJkFnH2MbyotCAahhsVUfiKRW7zec`,
-    // },
-    console.log(data.data);
     return data.data.recipes;
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 export const getAllIngredientsAPI = async () => {
@@ -46,17 +42,15 @@ export const getAllIngredientsAPI = async () => {
   return data;
 };
 
-
 export const getFavorite = async () => {
   try {
     const response = await axios.get(`/favorite`);
     return response.data.data;
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
-// axios.defaults.baseURL = 'https://so-yummy-api.herokuapp.com/api'
 
 export const fetchUserFavoriteRecipes = async currentPage => {
   try {
@@ -72,43 +66,15 @@ export const deleteUserFavoriteRecipe = async id => {
     const { data } = await axios.patch(`/favorite/${id}`);
     return data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
-
-
-export const addToFavorite = async (id) => {
-      try {
-       const {data}= await axios.patch(`/favorite/${id}`);
-        console.log(data);
-        return data.data;
-
-
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-
-// export const getShoppingList = async () => {
-//   try {
-//       const { data } = await axios.get(`/shopping-list`);
-//       return data.ingrediens;
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-// }
-    
-  
-// export const deleteFromFavorite = async (id) => {
-//     try {
-//      const {data} = await axios.patch(`/favorite/${id}`);
-//       return data.data;
-
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   }
-
-// };
-
+export const addToFavorite = async id => {
+  try {
+    const { data } = await axios.patch(`/favorite/${id}`);
+    return data.data;
+  } catch (error) {
+    return error.message;
+  }
+};

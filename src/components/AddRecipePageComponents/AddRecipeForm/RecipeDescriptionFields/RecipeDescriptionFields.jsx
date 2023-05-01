@@ -1,10 +1,11 @@
 import React from 'react';
-import { cookingTimeOptions } from 'helpers/helper';
 import { useState } from 'react';
-import { useFormikContext } from 'formik';
 import { selectCategories } from 'redux/categories/categoriesSelectors';
 import { fetchCategoriesList } from 'redux/categories/categoriesOperations';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { useFormikContext } from 'formik';
+import { cookingTimeOptions } from 'helpers/helper';
 
 import {
   AddFileInput,
@@ -75,17 +76,17 @@ export const RecipeDescriptionFields = props => {
     setSelectedImgPath(fileURL);
 
     if (!file) {
-      alert('Please, upload the image file');
+      toast.error('Please, upload the image file');
       return;
     }
     if (
       !['image/jpeg', 'image/jpg', 'image/web', 'image/png'].includes(file.type)
     ) {
-      alert('You can upload only images');
+      toast.error('You can upload only images');
       return;
     }
     if (!file.size > 2 * 1024 * 1024) {
-      alert('File must be less than 2MB');
+      toast.error('File must be less than 2MB');
       return;
     }
   };

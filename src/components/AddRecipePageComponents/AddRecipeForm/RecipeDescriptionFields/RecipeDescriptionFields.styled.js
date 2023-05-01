@@ -33,13 +33,13 @@ export const StyledPhotoRecipe = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  z-index: 1;
+  z-index: 0;
   position: relative;
   object-fit: cover;
 `;
 
 export const CameraIconStyled = styled(CameraIcon)`
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,7 +49,7 @@ export const CameraIconStyled = styled(CameraIcon)`
 `;
 
 export const AddFileInput = styled(Field)`
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: 0;
   left: 0;

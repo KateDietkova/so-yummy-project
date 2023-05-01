@@ -19,7 +19,6 @@ export const BurgerMenuBtn = ({ isOpen, setIsOpen }) => {
     setIsOpen(!isOpen);
   };
 
-  console.log('isIconBlackInDarkTheme', isIconBlackInDarkTheme);
   return (
     <BurgerMenuBtnStyled onClick={() => openMenu()}>
       {isOpen ? (

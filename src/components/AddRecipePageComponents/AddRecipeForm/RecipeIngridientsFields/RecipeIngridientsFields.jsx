@@ -121,7 +121,7 @@ export const IngredientsField = props => {
     setIngredients(newArray);
     setCounter(newArray.length);
     setFormikValue('ingredients', newArray);
-    console.log('item:', id, 'index:', index, ingredients);
+   
   }
 
   return (
@@ -155,7 +155,7 @@ export const IngredientsField = props => {
                 <StyledSelect
                   classNamePrefix="Select"
                   options={ingredientSelectList}
-                  name={`ingredients.ingredient.${index}.label`}
+                  name={`ingredients.ingredient.${index}`}
                   value={item.ingredient.value ? item.ingredient.value : ''}
                   placeholder={
                     item.ingredient.label
@@ -165,7 +165,7 @@ export const IngredientsField = props => {
                   onChange={e => handleIngredientInputChange(e.label, index)}
                 ></StyledSelect>
 
-                <FormError name={`ingredients.ingredient.${index}.label`} />
+                <FormError name={`ingredients.ingredient.${index}`} />
               </SelectWrapper>
               <SelectMeasureWrapper>
                 {' '}
@@ -184,13 +184,13 @@ export const IngredientsField = props => {
                   isSearchable={false}
                   classNamePrefix="Select"
                   name="measure"
-                  options={measureSelectList}
+                  options={measureSelectList}x
                   value={item.measure}
                   placeholder={item.measure}
                   onChange={e => handleMeasureInputChange(e.label, index)}
-                ></StyledSelectMeasures>
+                ></StyledSelectMeasures> <FormError width={'200px'} name={`ingredients.${index}.quantity`} />
               </SelectMeasureWrapper>{' '}
-              <FormError name={`ingredients.${index}.quantity`} />
+             
               <StyledDeleteButton
                 type="button"
                 disabled={counter < 2 ? true : false}
