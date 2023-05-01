@@ -34,7 +34,6 @@ export const shoppingListSlice = createSlice({
       .addCase(deleteFromShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log('deleteFromShoppingList', action.payload);
         state.shoppingList = action.payload;
       })
       .addCase(deleteFromShoppingList.rejected, (state, action) => {

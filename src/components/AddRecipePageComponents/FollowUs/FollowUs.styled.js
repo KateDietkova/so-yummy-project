@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { FollowUs } from "components/FollowUs/FollowUs";
 
 export const StyledFollowUsBlock = styled.div`
   @media screen and (max-width: 1279px) {
@@ -13,16 +12,6 @@ export const StyledFollowUsBlock = styled.div`
   }
 `
 
-// export const StyledFollowUs = styled(FollowUs)`
-//   @media screen and (max-width: 767px) {
-   
-//   }
-//   @media screen and (min-width: 768px) {
-
-//   margin-top: 40px;
-//   transform: scale(2);
-    
-//   }`
 
 
  

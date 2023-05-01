@@ -15,8 +15,6 @@ export const Checkbox = ({
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(isChecked);
 
-  console.log('idIngredientsShoppingList', idIngredientsShoppingList);
-
   const handleCheck = () => {
     if (!checked) {
       dispatch(

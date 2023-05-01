@@ -1,7 +1,6 @@
 import {
   SectionHero,
   SectionHeroTitle,
-  // SectionDescrip,
   RecipeDescription,
   RecipeTimer,
   RecipeTime,

@@ -19,7 +19,6 @@ export const deleteFromShoppingList = createAsyncThunk(
   'shoppingList/deleteFromShoppingList',
   async ({ _id }, { rejectWithValue }) => {
     try {
-      console.log('deleteFromShoppingList ID', _id);
       const { data } = await axios.patch(`/shopping-list/${_id}`);
       return data.data.ingredients;
     } catch (error) {
