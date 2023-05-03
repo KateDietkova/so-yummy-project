@@ -155,8 +155,10 @@ export const Option = styled.div`
     padding: 4px 0px 10px 14px;
   }
 
-  &:hover {
-    color: ${({ theme }) => (theme.darkTheme ? '#fafafa' : 'none')};
+  &:hover,
+  &:focus {
+    color: ${({ theme }) =>
+      theme.darkTheme ? '#fafafa' : props => props.theme.colors.accent};
   }
 `;
 

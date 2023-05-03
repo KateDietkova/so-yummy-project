@@ -122,6 +122,10 @@ export const IngredientTitle = styled.h3`
     props.theme.darkTheme
       ? props.theme.colors.textWhite
       : props.theme.colors.textBlue};
+  :hover {
+    color: ${props => props.theme.colors.accent};
+    transition: ${props => props.theme.effects.mainEffect};
+  }
 
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.m};
