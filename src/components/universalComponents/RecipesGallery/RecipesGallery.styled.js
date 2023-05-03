@@ -27,6 +27,15 @@ export const Recipe = styled.li`
   overflow: hidden;
   border-radius: 8px;
   padding: 0;
+  transition: ${props => props.theme.effects.mainEffect};
+
+  :hover,
+  :focus {
+    transform: scale(1.03);
+    transition: ${props => props.theme.effects.mainEffect};
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 `;
 
 export const RecipeContainer = styled.div`
