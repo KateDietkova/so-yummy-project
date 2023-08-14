@@ -30,6 +30,7 @@ export const UserLogoModalContainer = styled.div`
     return props.theme.darkTheme && `1px solid ${props.theme.colors.accent}`;
   }};
 
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   overflow: hidden;
 
   transition: height ${props => props.theme.effects.mainEffect},
